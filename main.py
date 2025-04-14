@@ -1,19 +1,29 @@
+import time
 from personagem import escolher_classe
-from nivel1 import nivel_um
-from nivel2 import nivel_dois
-from nivel3 import nivel_tres
-from nivel4 import nivel_quatro
-from nivel5 import nivel_cinco
+from combate import combate
 
 def main():
-    print("Bem vindo á Masmorra do Fim!")
-    jogador = escolher_classe()
+    print("🎮 Bem-vindo à Masmorra do Fim!")
+    player = escolher_classe()
 
-    if nivel_um(jogador):
-        if nivel_dois(jogador):
-            if nivel_tres(jogador):
-                if nivel_quatro(jogador):
-                    nivel_cinco(jogador)
+    time.sleep(1)
+    print(f"\n{player['nome']} o {player['classe']} foi criado com sucesso!")
+    print(f"Atributos: Vida {player['vida']} | Força {player['força']} | Magia {player['magia']} | Defesa {player['defesa']}")
+    time.sleep(2)
+
+    # Combate teste (ou real depois do nivel1)
+    goblins = [
+        {"nome": "Goblin nv:1", "vida": 25, "força": 12},
+        {"nome": "Goblin nv:2", "vida": 35, "força": 17},
+    ]
+
+    resultado = combate(player, goblins)
+    if not resultado:
+        print("☠️ Sua jornada termina aqui.")
+        return
+
+    print("\n✅ Combate vencido com sucesso!")
+    # nivel1(player)
 
 if __name__ == "__main__":
     main()

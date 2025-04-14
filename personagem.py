@@ -1,22 +1,17 @@
 import random
 
 def escolher_classe():
-    # Pergunta o nome do personagem e qual classe ele deseja escolher
     nome = input("Digite o nome do seu personagem: ")
 
     print("\nEscolha uma classe para o seu personagem:")
-    print("1. Mago")
-    print("2. Paladino")
-    print("3. Arqueiro")
-    print("4. Guerreiro")
-
+    print("1. Mago\n2. Paladino\n3. Arqueiro\n4. Guerreiro")
     escolha = input("Digite o número da classe escolhida: ")
 
     if escolha == "1":
         return {
             "nome": nome,
             "classe": "Mago",
-            "vida": random.randint(50, 60),
+            "vida": random.randint(10, 40),
             "força": random.randint(10, 20),
             "magia": random.randint(70, 90),
             "defesa": random.randint(20, 30),
