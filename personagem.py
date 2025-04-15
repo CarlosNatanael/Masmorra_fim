@@ -7,9 +7,15 @@ def escolher_classe():
     print("1. Mago\n2. Paladino\n3. Arqueiro\n4. Guerreiro")
     escolha = input("Digite o número da classe escolhida: ")
 
+    base_player = {
+        "nome": nome,
+        "xp": 0,
+        "nivel": 1,
+        "xp_proximo_nivel": 100,
+    }
+
     if escolha == "1":
-        return {
-            "nome": nome,
+        base_player.update({
             "classe": "Mago",
             "vida": random.randint(30, 50),
             "força": random.randint(5, 15),
@@ -17,10 +23,9 @@ def escolher_classe():
             "defesa": random.randint(10, 20),
             "habilidade": "Bola de Fogo",
             "itens": {"poção de cura": 3}
-        }
+        })
     elif escolha == "2":
-        return {
-            "nome": nome,
+        base_player.update({
             "classe": "Paladino",
             "vida": random.randint(80, 100),
             "força": random.randint(50, 70),
@@ -28,10 +33,9 @@ def escolher_classe():
             "defesa": random.randint(60, 80),
             "habilidade": "Benção Divina",
             "itens": {"poção de cura": 2}
-        }
+        })
     elif escolha == "3":
-        return {
-            "nome": nome,
+        base_player.update({
             "classe": "Arqueiro",
             "vida": random.randint(50, 70),
             "força": random.randint(30, 50),
@@ -39,10 +43,9 @@ def escolher_classe():
             "defesa": random.randint(20, 30),
             "habilidade": "Tiro Certeiro",
             "itens": {"poção de cura": 3}
-        }
+        })
     elif escolha == "4":
-        return {
-            "nome": nome,
+        base_player.update({
             "classe": "Guerreiro",
             "vida": random.randint(70, 90),
             "força": random.randint(60, 80),
@@ -50,7 +53,9 @@ def escolher_classe():
             "defesa": random.randint(50, 70),
             "habilidade": "Decapitação",
             "itens": {"poção de cura": 1}
-        }
+        })
     else:
         print("Escolha inválida, por favor, escolha novamente.")
         return escolher_classe()
+
+    return base_player
