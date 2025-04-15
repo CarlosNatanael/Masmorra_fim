@@ -1,5 +1,4 @@
 from personagem import escolher_classe
-# from combate import combate
 from nivel1 import nivel_um
 # from nivel2 import nivel_dois
 # from nivel3 import nivel_tres
