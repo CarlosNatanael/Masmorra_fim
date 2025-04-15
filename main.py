@@ -7,6 +7,7 @@ from nivel1 import nivel_um
 
 def main():
     print("Bem-vindo à Masmorra do Fim!")
+    print("Jogo em desenvolvimento (Versão beta)\n")
     player = escolher_classe()
 
     nivel_um(player)

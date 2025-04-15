@@ -79,18 +79,26 @@ def combate(player, inimigos):
         acao = input("Digite o número da ação escolhida: ")
 
         if acao == "1":
-            escolha = int(input("Escolha o inimigo para atacar (número): ")) - 1
-            if 0 <= escolha < len(inimigos):
-                inimigo = inimigos[escolha]
-                dano = max(0, player["força"] - random.randint(0, 3))
-                inimigo["vida"] -= dano
-                print(f"\nVocê atacou {inimigo['nome']} e causou {dano} de dano")
-                if inimigo["vida"] <= 0:
-                    print(f"{inimigo['nome']} foi derrotado!")
-                    derrotados.append(inimigo)
-                    inimigos.remove(inimigo)
-            else:
-                print("Inimigo inválido. Tente novamente.")
+            if not inimigos:
+                print("Não há inimigos para atacar.")
+                continue
+            try:
+                escolha = int(input("Escolha o inimigo para atacar (número): ").strip()) - 1
+                if escolha < 0 or escolha >= len(inimigos):
+                    print("Escolha inválida. Tente novamente.")
+                    continue
+            except ValueError:
+                print("Entrada inválida. Digite um número.")
+                continue
+
+            inimigo = inimigos[escolha]
+            dano = max(0, player["força"] - random.randint(0, 3))
+            inimigo["vida"] -= dano
+            print(f"\nVocê atacou {inimigo['nome']} e causou {dano} de dano")
+            if inimigo["vida"] <= 0:
+                print(f"{inimigo['nome']} foi derrotado!")
+                derrotados.append(inimigo)
+                inimigos.remove(inimigo)
 
         elif acao == "2":
             item = input("Escolha o item para usar: poção de cura\n").strip().lower()
@@ -120,7 +128,6 @@ def combate(player, inimigos):
 
     print("\nVocê derrotou todos os inimigos!")
 
-    # Ganho de XP
     xp_total = sum([inimigo.get("nivel", 1) * 20 for inimigo in derrotados])
     ganhar_xp(player, xp_total)
 

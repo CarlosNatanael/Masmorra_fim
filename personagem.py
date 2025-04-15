@@ -1,8 +1,9 @@
 import random
 
 def escolher_classe():
-    nome = input("Digite o nome do seu personagem: ")
-
+    nome = input("Digite o nome do seu personagem: ").strip()
+    while not  nome:
+        nome = input("Nome não pode estar vazio. Digite novamente: ").strip()
     print("\nEscolha uma classe para o seu personagem:")
     print("1. Mago\n2. Paladino\n3. Arqueiro\n4. Guerreiro")
     escolha = input("Digite o número da classe escolhida: ")
