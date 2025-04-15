@@ -5,22 +5,37 @@ def habilidade_especial(player, inimigos):
     print(f"\n{player['nome']} usa {player['habilidade']}!")
     if player["classe"] == "Mago":
         dano = player["magia"] + random.randint(10, 20)
-        for inimigo in inimigos:
+        for inimigo in inimigos[:]:
             inimigo["vida"] -= dano
             print(f"Você lançou uma Bola de Fogo em {inimigo['nome']} e causou {dano} de dano")
+            if inimigo["vida"] <= 0:
+                print(f"{inimigo['nome']} foi derrotado!")
+                inimigos.remove(inimigo)
+
     elif player["classe"] == "Paladino":
         player["vida"] += 30
         print("Você usou Benção divina e recuperou 30 de vida")
+
     elif player["classe"] == "Arqueiro":
         inimigo = random.choice(inimigos)
         dano = player["força"] + random.randint(5, 10)
-        inimigo["vida"] -= dano
-        print(f"Você usou Tiro Certeiro em {inimigo['nome']} e causou {dano} de dano")
+        for inimigo in inimigos[:]:
+            inimigo["vida"] -= dano
+            print(f"Você usou Tiro Certeiro em {inimigo['nome']} e causou {dano} de dano")
+            if inimigo["vida"] <= 0:
+                print(f"{inimigo['nome']} foi derrotado!")
+                inimigos.remove(inimigo)
+
+
     elif player["classe"] == "Guerreiro":
         inimigo = random.choice(inimigos)
         dano = player["força"] + random.randint(10, 15)
-        inimigo["vida"] -= dano
-        print(f"Você usou Decapitação em {inimigo['nome']} e causou {dano} de dano")
+        for inimigo in inimigos[:]:
+            inimigo["vida"] -= dano
+            print(f"Você usou Decapitação em {inimigo['nome']} e causou {dano} de dano")
+            if inimigo["vida"] <= 0:
+                print(f"{inimigo['nome']} foi derrotado!")
+                inimigos.remove(inimigo)
 
 
 def combate(player, inimigos):
@@ -44,8 +59,7 @@ def combate(player, inimigos):
             inimigo = inimigos[escolha]
             dano = max(0, player["força"] - random.randint(0, 3))
             inimigo["vida"] -= dano
-            print(f"Você atacou {inimigo['nome']} e causou {dano} de dano")
-
+            print(f"\nVocê atacou {inimigo['nome']} e causou {dano} de dano")
             if inimigo["vida"] <= 0:
                 print(f"{inimigo['nome']} foi derrotado!")
                 inimigos.pop(escolha)
@@ -70,7 +84,7 @@ def combate(player, inimigos):
             goblin = random.choice(inimigos)
             dano_goblin = max(0, goblin["força"] - player["defesa"])
             player["vida"] -= dano_goblin
-            print(f"\n{goblin['nome']} atacou você causando {dano_goblin} de dano!")
+            print(f"{goblin['nome']} atacou você causando {dano_goblin} de dano!")
 
         if player["vida"] <= 0:
             print("\nVocê foi derrotado! Game over!")

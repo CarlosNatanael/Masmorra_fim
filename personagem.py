@@ -11,10 +11,10 @@ def escolher_classe():
         return {
             "nome": nome,
             "classe": "Mago",
-            "vida": random.randint(10, 40),
-            "força": random.randint(10, 20),
+            "vida": random.randint(30, 50),
+            "força": random.randint(5, 15),
             "magia": random.randint(70, 90),
-            "defesa": random.randint(20, 30),
+            "defesa": random.randint(10, 20),
             "habilidade": "Bola de Fogo",
             "itens": {"poção de cura": 3}
         }
@@ -22,9 +22,9 @@ def escolher_classe():
         return {
             "nome": nome,
             "classe": "Paladino",
-            "vida": random.randint(80, 110),
+            "vida": random.randint(80, 100),
             "força": random.randint(50, 70),
-            "magia": random.randint(30, 50),
+            "magia": random.randint(40, 60),
             "defesa": random.randint(60, 80),
             "habilidade": "Benção Divina",
             "itens": {"poção de cura": 2}
@@ -33,10 +33,10 @@ def escolher_classe():
         return {
             "nome": nome,
             "classe": "Arqueiro",
-            "vida": random.randint(60, 70),
-            "força": random.randint(20, 30),
-            "magia": random.randint(20, 30),
-            "defesa": random.randint(30, 40),
+            "vida": random.randint(50, 70),
+            "força": random.randint(30, 50),
+            "magia": random.randint(10, 20),
+            "defesa": random.randint(20, 30),
             "habilidade": "Tiro Certeiro",
             "itens": {"poção de cura": 3}
         }
@@ -45,9 +45,9 @@ def escolher_classe():
             "nome": nome,
             "classe": "Guerreiro",
             "vida": random.randint(70, 90),
-            "força": random.randint(70, 80),
-            "magia": random.randint(20, 30),
-            "defesa": random.randint(40, 60),
+            "força": random.randint(60, 80),
+            "magia": random.randint(5, 15),
+            "defesa": random.randint(50, 70),
             "habilidade": "Decapitação",
             "itens": {"poção de cura": 1}
         }
