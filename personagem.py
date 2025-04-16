@@ -18,9 +18,9 @@ def escolher_classe():
     if escolha == "1":
         base_player.update({
             "classe": "Mago",
-            "vida": random.randint(30, 50),
-            "força": random.randint(5, 15),
-            "magia": random.randint(70, 90),
+            "vida": random.randint(30, 40),
+            "força": random.randint(10, 25),
+            "magia": random.randint(40, 70),
             "defesa": random.randint(10, 20),
             "habilidade": "Bola de Fogo",
             "itens": {"poção de cura": 3}
@@ -28,18 +28,18 @@ def escolher_classe():
     elif escolha == "2":
         base_player.update({
             "classe": "Paladino",
-            "vida": random.randint(80, 100),
-            "força": random.randint(50, 70),
-            "magia": random.randint(40, 60),
-            "defesa": random.randint(60, 80),
+            "vida": random.randint(50, 70),
+            "força": random.randint(25, 30),
+            "magia": random.randint(10, 25),
+            "defesa": random.randint(25, 30),
             "habilidade": "Benção Divina",
             "itens": {"poção de cura": 2}
         })
     elif escolha == "3":
         base_player.update({
             "classe": "Arqueiro",
-            "vida": random.randint(50, 70),
-            "força": random.randint(30, 50),
+            "vida": random.randint(40, 60),
+            "força": random.randint(15, 25),
             "magia": random.randint(10, 20),
             "defesa": random.randint(20, 30),
             "habilidade": "Tiro Certeiro",
@@ -48,12 +48,12 @@ def escolher_classe():
     elif escolha == "4":
         base_player.update({
             "classe": "Guerreiro",
-            "vida": random.randint(70, 90),
-            "força": random.randint(60, 80),
+            "vida": random.randint(60, 80),
+            "força": random.randint(25, 30),
             "magia": random.randint(5, 15),
-            "defesa": random.randint(50, 70),
+            "defesa": random.randint(25, 30),
             "habilidade": "Decapitação",
-            "itens": {"poção de cura": 1}
+            "itens": {"poção de cura": 3}
         })
     else:
         print("Escolha inválida, por favor, escolha novamente.")

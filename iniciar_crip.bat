@@ -1,4 +1,4 @@
 @echo off
 cd /d "%~dp0"
-start /min pythonw main.py
+start /min python3 main.py
 exit

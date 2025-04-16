@@ -1,7 +1,7 @@
 from personagem import escolher_classe
 from nivel1 import nivel_um
 from nivel2 import nivel_dois
-# from nivel3 import nivel_tres
+from nivel3 import nivel_tres
 # from nivel4 import nivel_quatro
 # from nivel5 import nivel_cinco
 import os
@@ -19,6 +19,8 @@ def main():
     nivel_um(player)
     limpar_terminal()
     nivel_dois(player)
+    limpar_terminal()
+    nivel_tres(player)
     limpar_terminal()
 
 if __name__ == "__main__":

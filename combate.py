@@ -101,13 +101,24 @@ def combate(player, inimigos):
                 inimigos.remove(inimigo)
 
         elif acao == "2":
-            item = input("Escolha o item para usar: poção de cura\n").strip().lower()
-            if item == "poção de cura" and player["itens"].get("poção de cura", 0) > 0:
-                player["vida"] += 20
-                player["itens"]["poção de cura"] -= 1
-                print("Você usou a poção de cura e recuperou 20 de vida.")
+            print("Seus itens:")
+            for nome_item, qtd in player["itens"].items():
+                print(f"- {nome_item} (x{qtd})")
+            
+            item_input = input("Escolha o item para usar: ").strip().casefold()
+
+            item_encontrado = None
+            for nome_item in player["itens"]:
+                if item_input == nome_item.casefold():
+                    item_encontrado = nome_item
+                    break
+            if item_encontrado and player["itens"] [item_encontrado] > 0:
+                if item_encontrado == "poção de cura":
+                    player["vida"] +=20
+                    player["itens"] [item_encontrado] -= 1
+                    print("Você usou a poção de cura e recuperou 20 de vida\n")
             else:
-                print("Você não possui esse item ou está sem itens.")
+                print("Você não possui item ou digitou algo incorretamente\n")
 
         elif acao == "3":
             habilidade_especial(player, inimigos)
