@@ -13,7 +13,7 @@ def limpar_terminal():
 
 def main():
     print("                               === Bem-vindo à Masmorra do Fim! ===\n")
-    time.sleep(5)
+    time.sleep(3)
     print("                               Jogo em desenvolvimento (Versão beta)\n")
     player = escolher_classe()
     limpar_terminal()
