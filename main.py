@@ -15,13 +15,11 @@ def main():
     print("Jogo em desenvolvimento (Versão beta)\n")
     player = escolher_classe()
     limpar_terminal()
-    
+
     nivel_um(player)
     limpar_terminal()
-    time.sleep(2)
     nivel_dois(player)
     limpar_terminal()
-    time.sleep(2)
 
 if __name__ == "__main__":
     main()
