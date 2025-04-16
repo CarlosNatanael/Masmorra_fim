@@ -31,8 +31,8 @@ def nivel_um(player):
     print("\nVocê desperta em um santuário antigo, com símbolos místicos por toda parte...")
     print("Uma névoa azulada dança ao seu redor. Um velho encapuzado se aproxima.")
     time.sleep(5)
-    print(f"\n🧙Eldramar: 'Saudações, {player['nome']}. Eu sou Eldramar, o guardião do véu entre os mundos.'")
-    print("🧙Eldramar: 'Você foi trazido a Aldurian por forças que nem mesmo eu compreendo por completo.'")
+    print(f"\nEldramar: 'Saudações, {player['nome']}. Eu sou Eldramar, o guardião do véu entre os mundos.'")
+    print("Eldramar: 'Você foi trazido a Aldurian por forças que nem mesmo eu compreendo por completo.'")
     time.sleep(5)
     while True:
         print("\nO que você deseja fazer?")
@@ -42,20 +42,20 @@ def nivel_um(player):
 
         escolha = input("Digite o número da sua ação: ")
         if escolha == "1":
-            print("\n🧙Eldramar: 'Aldurian é um mundo fragmentado entre luz e trevas. Você terá um papel crucial aqui.'")
+            print("\nEldramar: 'Aldurian é um mundo fragmentado entre luz e trevas. Você terá um papel crucial aqui.'")
         elif escolha == "2":
             print("\nVocê se levanta. As paredes do templo estão cobertas de inscrições antigas.")
         elif escolha == "3":
             print("\nVocê apenas observa em silêncio. Eldramar entende sua hesitação.")
             time.sleep(5)
-            print(f"🧙Eldramar: 'Entendo o seu silêncio {player['nome']} mas quero saber mais sobre sua personalidade'\n")
+            print(f"Eldramar: 'Entendo o seu silêncio {player['nome']} mas quero saber mais sobre sua personalidade'\n")
             time.sleep(5)
-            print("🧙Eldramar: Você vê uma criança furtando uma maçã.")
+            print("Eldramar: Você vê uma criança furtando uma maçã.")
             print("1. Repreende a criança e devolve a maçã ao dono.")
             print("2. Dá outra maçã à criança e segue seu caminho.")
             print("3. Usa a distração para furtar também.")
 
-            escolha1 = input("🧙Eldramar: O que faz?: ").lower()
+            escolha1 = input("Eldramar: O que faz?: ").lower()
             if escolha1 == "1":
                 player["personalidade"] = "Justo"
             elif escolha1 == "2":
@@ -66,7 +66,7 @@ def nivel_um(player):
                 print("Escolha inválida. Assumindo natureza misteriosa.")
                 player["personalidade"] = "Enigmático"
                 time.sleep(5)
-            print(f"\n🧙Eldramar: 'Interessante... Vejo que você é {player['personalidade']}.'\n")
+            print(f"\nEldramar: 'Interessante... Vejo que você é {player['personalidade']}.'\n")
             break
         else:
             print("Escolha inválida. Tente novamente.")
@@ -77,19 +77,19 @@ def nivel_um(player):
     time.sleep(5)
     print("\n(O mago sorri, lento, como um gato diante de um rato.)\n")
     time.sleep(5)
-    print("🧙Eldramar: Você acha que foi um acidente? Que caiu aqui por... sorte?")
+    print("Eldramar: Você acha que foi um acidente? Que caiu aqui por... sorte?")
     time.sleep(5)
     print("\n(Ele dá um passo à frente, e as sombras ao seu redor parecem se esticar.)\n")
     time.sleep(5)
-    print("🧙Eldramar: Nomes têm poder, jovem. E o seu... ecoou através do Véu.")
+    print("Eldramar: Nomes têm poder, jovem. E o seu... ecoou através do Véu.")
     time.sleep(5)
     print(f"{player['nome']}: Isso não explica nada. Quem é você? O que quer?")
     time.sleep(5)
     print("\n(Eldramar ergue uma mão enrugada, e um globo de névoa escura se forma entre seus dedos, mostrando flashes do passado: a biblioteca, o grimório, o portal.)\n")
     time.sleep(5)
-    print("🧙Eldramar: Sou o último dos Vigias Eternos. Acompanhei o nascimento deste mundo, e talvez seu fim.")
+    print("Eldramar: Sou o último dos Vigias Eternos. Acompanhei o nascimento deste mundo, e talvez seu fim.")
     time.sleep(5)
-    print("🧙Eldramar: (O globo se desfaz, e seu sorriso some.) Agora resta saber se você é forte o bastante para descobrir por quê.")
+    print("Eldramar: (O globo se desfaz, e seu sorriso some.) Agora resta saber se você é forte o bastante para descobrir por quê.")
     time.sleep(5)
     print("\n(Um silêncio pesado cai. Carlos sente um frio na nuca.)\n")
     time.sleep(5)
@@ -97,10 +97,10 @@ def nivel_um(player):
     time.sleep(5)
     print("\n(O mago vira as costas, suas vestes arrastando-se como fumaça.)\n")
     time.sleep(5)
-    print("🧙Eldramar: É um fato. Mas não se preocupe... por enquanto. (Ele olha por cima do ombro, os olhos faiscando.) A masmorra fará pior.")
+    print("Eldramar: É um fato. Mas não se preocupe... por enquanto. (Ele olha por cima do ombro, os olhos faiscando.) A masmorra fará pior.")
     time.sleep(5)
     input("\nPressione ENTER para continuar")
-    print("\n🧙Eldramar: 'Antes de seguir adiante, responda ao seguinte enigma. Caso falhe, as criaturas da sombras virão cobrar o preço...'\n")
+    print("\nEldramar: 'Antes de seguir adiante, responda ao seguinte enigma. Caso falhe, as criaturas da sombras virão cobrar o preço...'\n")
     time.sleep(5)
     print("(E antes que Carlos possa responder, Eldramar se dissolve nas sombras, deixando apenas um riso ecoando nas paredes de pedra.)\n")
     time.sleep(5)
