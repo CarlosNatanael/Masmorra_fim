@@ -69,7 +69,7 @@ def nivel_tres(player):
     print("\nVelkar caiu de joelhos, seus olhos perdendo o brilho púrpura.")
     print("Com seu último suspiro, ele murmurou: 'O saber... deve ser temido...'\n")
     time.sleep(5)
-    print("Ao seu lado, um livro dourado flutuava até minhas mãos. Um tomo sagrado. Talvez... a chave para entender essa masmorra.")
+    print("Ao seu lado, um livro dourado flutuava até minhas mãos. Um tomo sagrado. Talvez... a chave para entender essa masmorra.\n")
     time.sleep(5)
 
     input("Você avança. Pressione ENTER para continuar...\n")
