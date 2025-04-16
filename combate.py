@@ -2,7 +2,9 @@ import random
 import time
 
 def habilidade_especial(player, inimigos):
+    derrotados = []
     print(f"\n{player['nome']} usa {player['habilidade']}!")
+    
     if player["classe"] == "Mago":
         dano = player["magia"] + random.randint(10, 20)
         for inimigo in inimigos[:]:
@@ -10,6 +12,7 @@ def habilidade_especial(player, inimigos):
             print(f"Você lançou uma Bola de Fogo em {inimigo['nome']} e causou {dano} de dano")
             if inimigo["vida"] <= 0:
                 print(f"{inimigo['nome']} foi derrotado!")
+                derrotados.append(inimigo)
                 inimigos.remove(inimigo)
 
     elif player["classe"] == "Paladino":
@@ -23,6 +26,7 @@ def habilidade_especial(player, inimigos):
             print(f"Você usou Tiro Certeiro em {inimigo['nome']} e causou {dano} de dano")
             if inimigo["vida"] <= 0:
                 print(f"{inimigo['nome']} foi derrotado!")
+                derrotados.append(inimigo)
                 inimigos.remove(inimigo)
 
     elif player["classe"] == "Guerreiro":
@@ -32,11 +36,20 @@ def habilidade_especial(player, inimigos):
             print(f"Você usou Decapitação em {inimigo['nome']} e causou {dano} de dano")
             if inimigo["vida"] <= 0:
                 print(f"{inimigo['nome']} foi derrotado!")
+                derrotados.append(inimigo)
                 inimigos.remove(inimigo)
+    
+    return derrotados
 
-def ganhar_xp(player, xp_ganho):
-    player["xp"] += xp_ganho
-    print(f"\n{player['nome']} ganhou {xp_ganho} de experiência!")
+def ganhar_xp(player, inimigos_derrotados):
+    xp_total = 0
+    for inimigo in inimigos_derrotados:
+        nivel_inimigo = inimigo.get("nivel", 1)
+        base_xp = inimigo.get("xp", 20)
+        xp_total += base_xp * nivel_inimigo
+    
+    player["xp"] += xp_total
+    print(f"\n{player['nome']} ganhou {xp_total} de experiência!")
 
     while player["xp"] >= player["xp_proximo_nivel"]:
         player["xp"] -= player["xp_proximo_nivel"]
@@ -68,6 +81,7 @@ def combate(player, inimigos):
 
     while inimigos and player["vida"] > 0:
         print(f"\n{player['nome']} (Nível: {player['nivel']}, Classe: {player['classe']}): Vida = {player['vida']} | XP = {player['xp']}/{player['xp_proximo_nivel']}")
+        player["habilidade_usada"] = False
         for i, inimigo in enumerate(inimigos):
             print(f"{i + 1}. {inimigo['nome']} - Vida = {inimigo['vida']}")
 
@@ -121,8 +135,12 @@ def combate(player, inimigos):
                 print("Você não possui item ou digitou algo incorretamente\n")
 
         elif acao == "3":
-            habilidade_especial(player, inimigos)
-
+            if player.get("habilidade_usado", False):
+                print("Você já usou sua habilidade especial neste batalha!")
+                continue
+            derrotados_habilidade = habilidade_especial(player,inimigos)
+            derrotados.extend(derrotados_habilidade)
+            player["habilidade_usada"] = True
         else:
             print("Ação inválida. Tente novamente.")
             continue

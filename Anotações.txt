@@ -1,0 +1,9 @@
+1- Resolver bug do xp ao usar a habilidade:
+ No caso o xp não esta gerando ao vencer os monstros com a habilidade.
+
+2- Limitar uso da habilidade:
+ No caso o uso da habilidade esta sendo usada em qualquer momento, quero ilimitar apenas para poder usar 1 vez por batalha.
+
+3- O clone comrrompido esta dando somente 1 de dano e não usa a habilidade
+
+4- Aumentar o xp do boss do nivel 

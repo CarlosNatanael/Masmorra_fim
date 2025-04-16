@@ -115,8 +115,8 @@ def nivel_um(player):
         print(f"\nVoz sussurrante: 'Errado... As sombras não perdoa a ignorância. Prepare-se para lutar!'\n")
         from combate import combate
         inimigos = [
-            {"nome": "Sombra Goblin nv:1", "vida": 30, "força": 35, "defesa": 30},
-            {"nome": "Sombra Goblin nv:2", "vida": 35, "força": 45, "defesa": 30}
+            {"nome": "Sombra Goblin nv:1", "vida": 30, "força": 35, "defesa": 30, "xp":20},
+            {"nome": "Sombra Goblin nv:2", "vida": 35, "força": 45, "defesa": 30, "xp":30}
         ]
         combate(player, inimigos)
 

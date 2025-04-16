@@ -47,7 +47,7 @@ def nivel_dois(player):
         print("\nAntes que eu pudesse reagir, o espelho diante de mim se dissolveu em névoa, e ele saiu.")
         print("Era eu—mas não. Seus olhos eram negros como breu, e sua boca se torcia em um sorriso que nunca faria.")
         time.sleep(5)
-        print("\nUm clone distorcido de você salta do espelho! Erguendo uma adaga que surgiu do nada.")
+        print(f"\nUm clone distorcido de você salta do espelho! Erguendo um {player["arma"]} que surgiu do nada.")
         time.sleep(5)
         print(f'Clone Corrompido de {player["nome"]}: Você não pode me vencer, "ele riu". Eu sou você.\n')
         time.sleep(5)
@@ -59,6 +59,9 @@ def nivel_dois(player):
             "magia": player["magia"],
             "defesa": player["defesa"],
             "habilidade": player["habilidade"],
+            "xp": player["xp"],
+            "nivel": player["nivel"],
+            "xp":50
         }
         if not combate(player, [clone]):
             return False

@@ -23,7 +23,8 @@ def escolher_classe():
             "magia": random.randint(40, 70),
             "defesa": random.randint(25, 30),
             "habilidade": "Bola de Fogo",
-            "itens": {"poção de cura": 3}
+            "itens": {"poção de cura": 3},
+            "arma": "Cajado"
         })
     elif escolha == "2":
         base_player.update({
@@ -33,7 +34,8 @@ def escolher_classe():
             "magia": random.randint(10, 25),
             "defesa": random.randint(25, 30),
             "habilidade": "Benção Divina",
-            "itens": {"poção de cura": 2}
+            "itens": {"poção de cura": 2},
+            "arma": "Espada"
         })
     elif escolha == "3":
         base_player.update({
@@ -43,7 +45,8 @@ def escolher_classe():
             "magia": random.randint(10, 20),
             "defesa": random.randint(25, 30),
             "habilidade": "Tiro Certeiro",
-            "itens": {"poção de cura": 3}
+            "itens": {"poção de cura": 3},
+            "arma": "Arco"
         })
     elif escolha == "4":
         base_player.update({
@@ -53,7 +56,8 @@ def escolher_classe():
             "magia": random.randint(5, 15),
             "defesa": random.randint(25, 30),
             "habilidade": "Decapitação",
-            "itens": {"poção de cura": 3}
+            "itens": {"poção de cura": 3},
+            "arma": "Machado"
         })
     else:
         print("Escolha inválida, por favor, escolha novamente.")
