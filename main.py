@@ -11,9 +11,13 @@ def limpar_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def main():
-    print("Bem-vindo à Masmorra do Fim!")
-    print("Jogo em desenvolvimento (Versão beta)\n")
+    print("                               === Bem-vindo à Masmorra do Fim! ===\n")
+    time.sleep(5)
+    print("                               Jogo em desenvolvimento (Versão beta)\n")
     player = escolher_classe()
+    limpar_terminal()
+    print(f"\n                        {player['nome']} O {player['classe']}, prepare-se para sua jornada...\n")
+    time.sleep(4)
     limpar_terminal()
 
     nivel_um(player)
