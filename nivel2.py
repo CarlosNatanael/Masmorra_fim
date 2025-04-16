@@ -27,15 +27,15 @@ def nivel_dois(player):
     time.sleep(3)
     print("Ele disse, com minha voz, mas distorcida, como se falasse através de água.")
     time.sleep(3)
-    input("\nPrecione ENTER para continuar")
+    input("\nPressione ENTER para continuar")
     print(f"\nClone Corrompido de {player['nome']}: Você acha que merece escapar? — o clone sussurrou")
     time.sleep(2)
-    print(f"Clone Corrompido de {player['nome']}: Vamos brincar com a sua sorte, logo a frente no centro do salão há três espelhos.")
+    print(f"Clone Corrompido de {player['nome']}: Vamos brincar com a sua sorte, logo à frente no centro do salão há três espelhos.")
     print("1. 'A verdade nem sempre é vista com os olhos.'")
     print("2. 'A imagem que vês é quem você é.'")
     print("3. 'O reflexo invertido é o caminho certo.'")
 
-    escolha = input(f"Clone Corrompido de {player['nome']}:Qual espelho você toca? (1/2/3): ").strip()
+    escolha = input(f"\nQual espelho você toca? (1/2/3): ").strip()
     while escolha not in ["1", "2", "3"]:
         escolha = input("Escolha inválida. Tente novamente (1/2/3): ").strip()
 
@@ -49,7 +49,7 @@ def nivel_dois(player):
         time.sleep(3)
         print("\nUm clone distorcido de você salta do espelho! Erguendo uma adaga que surgiu do nada.")
         time.sleep(2)
-        print(f'Clone Corrompido de {player['nome']}: Você não pode me vencer, "ele riu". Eu sou você.\n')
+        print(f'Clone Corrompido de {player["nome"]}: Você não pode me vencer, "ele riu". Eu sou você.\n')
         time.sleep(3)
         clone = {
             "nome": f"Clone Corrompido de {player['nome']}",
@@ -63,7 +63,7 @@ def nivel_dois(player):
         if not combate(player, [clone]):
             return False
 
-    print("\nUma nova porta surgiu no final do salão. E avança para o próximo nível.")
+    print("\nUma nova porta surgiu no final do salão. Você avança para o próximo nível.")
     time.sleep(3)
     input("\nPressione ENTER para continuar\n")
     return True
