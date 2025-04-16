@@ -5,6 +5,7 @@ from nivel2 import nivel_dois
 # from nivel4 import nivel_quatro
 # from nivel5 import nivel_cinco
 import os
+import time
 
 def limpar_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -14,10 +15,13 @@ def main():
     print("Jogo em desenvolvimento (Versão beta)\n")
     player = escolher_classe()
     limpar_terminal()
-
+    
     nivel_um(player)
     limpar_terminal()
+    time.sleep(2)
     nivel_dois(player)
+    limpar_terminal()
+    time.sleep(2)
 
 if __name__ == "__main__":
     main()

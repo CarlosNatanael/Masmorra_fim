@@ -117,10 +117,10 @@ def combate(player, inimigos):
             continue
 
         if inimigos:
-            goblin = random.choice(inimigos)
-            dano_goblin = max(0, goblin["força"] - player["defesa"])
-            player["vida"] -= dano_goblin
-            print(f"{goblin['nome']} atacou você causando {dano_goblin} de dano!")
+            monstro = random.choice(inimigos)
+            dano_monstro = max(0, monstro["força"] - player["defesa"])
+            player["vida"] -= dano_monstro
+            print(f"{monstro['nome']} atacou você causando {dano_monstro} de dano!")
 
         if player["vida"] <= 0:
             print("\nVocê foi derrotado! Game over!")
