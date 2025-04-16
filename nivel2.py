@@ -65,4 +65,5 @@ def nivel_dois(player):
 
     print("\nUma nova porta surgiu no final do salão. E avança para o próximo nível.")
     time.sleep(3)
+    input("\nPressione ENTER para continuar\n")
     return True
