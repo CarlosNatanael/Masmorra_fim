@@ -1,4 +1,4 @@
-# pyinstaller --onefile --add-data "nivel1.py;." --add-data "nivel2.py;." --add-data "nivel3.py;." --add-data "nivel4.py;." --add-data "nivel5.py;." --add-data "combate.py;." --add-data "personagem.py;." --icon="icone.ico" --add-data="icone.ico;." --name "MasmorraDoFim" main.py
+# pyinstaller --onefile --add-data "nivel1.py;." --add-data "nivel2.py;." --add-data "nivel3.py;." --add-data "nivel4.py;." --add-data "nivel5.py;." --add-data "combate.py;." --add-data "creditos.py;." --add-data "personagem.py;." --icon="icone.ico" --add-data="icone.ico;." --name "MasmorraDoFim" main.py
 
 from personagem import escolher_classe
 from nivel1 import nivel_um
