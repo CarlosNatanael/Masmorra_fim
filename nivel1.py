@@ -141,11 +141,10 @@ def nivel_um(player):
         ]
         if not combate(player, inimigos):
             return False
-        
-        return True
 
     print(f"\nVoz sussurrante: 'Agora siga, {player['classe']}. Aldurian te aguarda.'")
     time.sleep(5)
     print("Você caminha por entre árvores milenares até avistar a entrada da Masmorra do Fim...\n")
 
     input("\nPressione ENTER para continuar\n")
+    return True
