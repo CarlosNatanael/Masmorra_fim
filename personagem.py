@@ -32,7 +32,7 @@ def escolher_classe():
             "vida": random.randint(60, 80),
             "força": random.randint(39, 40),
             "magia": random.randint(20, 25),
-            "defesa": random.randint(40),
+            "defesa": random.randint(30, 40),
             "habilidade": "Benção Divina",
             "itens": {"poção de cura": 2},
             "arma": "Espada"
@@ -54,7 +54,7 @@ def escolher_classe():
             "vida": random.randint(60, 80),
             "força": random.randint(30, 40),
             "magia": random.randint(5, 15),
-            "defesa": random.randint(40),
+            "defesa": random.randint(30, 40),
             "habilidade": "Decapitação",
             "itens": {"poção de cura": 3},
             "arma": "Machado"
