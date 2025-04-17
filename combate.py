@@ -171,7 +171,7 @@ def combate(player, inimigos):
     print("\nVocê derrotou todos os inimigos!")
 
     # Cálculo do XP baseado no nível dos inimigos derrotados
-    xp_total = sum([inimigo.get("nivel", 1) * 20 for inimigo in derrotados])
+    xp_total = sum([inimigo.get("nivel", 1) * 30 for inimigo in derrotados])
     ganhar_xp(player, xp_total)
 
     return True
