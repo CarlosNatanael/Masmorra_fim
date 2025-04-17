@@ -25,7 +25,7 @@ def nivel_tres(player):
     time.sleep(5)
 
     goblins = [
-        {"nome": "Goblin Aprendiz", "classe": "Mago", "vida": 30, "força": 39, "magia": 45, "defesa": 25, "nivel": 3}
+        {"nome": "Goblin Aprendiz", "classe": "Mago", "vida": 30, "força": 35, "magia": 45, "defesa": 25, "nivel": 3}
     ]
 
     input("Pressione ENTER para enfrentar os goblins...\n")

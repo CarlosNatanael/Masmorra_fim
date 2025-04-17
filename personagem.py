@@ -18,10 +18,10 @@ def escolher_classe():
     if escolha == "1":
         base_player.update({
             "classe": "Mago",
-            "vida": random.randint(40, 60),
-            "força": random.randint(20, 35),
+            "vida": random.randint(50, 60),
+            "força": random.randint(26, 39),
             "magia": random.randint(40, 70),
-            "defesa": random.randint(25, 30),
+            "defesa": random.randint(30, 40),
             "habilidade": "Bola de Fogo",
             "itens": {"poção de cura": 3},
             "arma": "Cajado"
@@ -29,10 +29,10 @@ def escolher_classe():
     elif escolha == "2":
         base_player.update({
             "classe": "Paladino",
-            "vida": random.randint(50, 70),
-            "força": random.randint(25, 30),
-            "magia": random.randint(10, 25),
-            "defesa": random.randint(25, 30),
+            "vida": random.randint(60, 80),
+            "força": random.randint(39, 40),
+            "magia": random.randint(20, 25),
+            "defesa": random.randint(40),
             "habilidade": "Benção Divina",
             "itens": {"poção de cura": 2},
             "arma": "Espada"
@@ -41,9 +41,9 @@ def escolher_classe():
         base_player.update({
             "classe": "Arqueiro",
             "vida": random.randint(40, 60),
-            "força": random.randint(15, 25),
+            "força": random.randint(25, 35),
             "magia": random.randint(10, 20),
-            "defesa": random.randint(25, 30),
+            "defesa": random.randint(30, 40),
             "habilidade": "Tiro Certeiro",
             "itens": {"poção de cura": 3},
             "arma": "Arco"
@@ -52,9 +52,9 @@ def escolher_classe():
         base_player.update({
             "classe": "Guerreiro",
             "vida": random.randint(60, 80),
-            "força": random.randint(25, 30),
+            "força": random.randint(30, 40),
             "magia": random.randint(5, 15),
-            "defesa": random.randint(25, 30),
+            "defesa": random.randint(40),
             "habilidade": "Decapitação",
             "itens": {"poção de cura": 3},
             "arma": "Machado"

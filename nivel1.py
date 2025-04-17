@@ -136,8 +136,8 @@ def nivel_um(player):
         print(f"\nVoz sussurrante: 'Errado... As sombras não perdoa a ignorância. Prepare-se para lutar!'\n")
         from combate import combate
         inimigos = [
-            {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 30, "força": 32, "defesa": 30, "nivel":1},
-            {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 35, "força": 36, "defesa": 30, "nivel":2}
+            {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 30, "força": 25, "defesa": 30, "nivel":1},
+            {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 35, "força": 28, "defesa": 30, "nivel":2}
         ]
         if not combate(player, inimigos):
             return False
@@ -147,5 +147,5 @@ def nivel_um(player):
     print(f"\nVoz sussurrante: 'Agora siga, {player['classe']}. Aldurian te aguarda.'")
     time.sleep(5)
     print("Você caminha por entre árvores milenares até avistar a entrada da Masmorra do Fim...\n")
-    input("Pressione ENTER para continuar\n")
-    limpar_terminal()
+
+    input("\nPressione ENTER para continuar\n")
