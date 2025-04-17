@@ -4,7 +4,8 @@ from personagem import escolher_classe
 from nivel1 import nivel_um
 from nivel2 import nivel_dois
 from nivel3 import nivel_tres
-# from nivel4 import nivel_quatro
+from nivel4 import nivel_quatro
+from creditos import creditos_finais
 # from nivel5 import nivel_cinco
 import os
 import time
@@ -36,19 +37,50 @@ def mostrar_status_jogador(player):
 def main():
     print("                               === Bem-vindo à Masmorra do Fim! ===\n")
     time.sleep(1)
-    print("                               Jogo em desenvolvimento (Versão beta)\n")
+    print("                               Jogo em desenvolvimento (Versão beta v3)\n")
     player = escolher_classe()
     limpar_terminal()
     mostrar_status_jogador(player)
     input()
     limpar_terminal()
-
+#=====================
+#   Nivel 1
     nivel_um(player)
     limpar_terminal()
+#=====================
+#   Status jogador nivel1
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 2
     nivel_dois(player)
     limpar_terminal()
+#=====================
+#   Status jogador nivel2
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 3
     nivel_tres(player)
     limpar_terminal()
+#=====================
+#   Status jogador nivel3
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 4
+    nivel_quatro(player)
+    limpar_terminal()
+#=====================
+#   Status jogador nivel14
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+    creditos_finais(player)
 
 if __name__ == "__main__":
     main()

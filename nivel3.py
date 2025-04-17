@@ -21,12 +21,11 @@ def nivel_tres(player):
     print("Alguns carregavam lanças feitas de ossos, outros folheavam livros com dedos garrudos, como se procurassem algo.")
     time.sleep(5)
     print('\n"Humano... humano cheira a medo," rosnou um deles, lambendo os lábios.\n')
-    print("Eles atacaram em grupo.\n")
+    print("Ele me atacou!\n")
     time.sleep(5)
 
     goblins = [
-        {"nome": "Goblin Bibliotecário", "classe": "Guerreiro", "vida": 40, "força": 35, "magia": 30, "defesa": 20, "habilidade": "Investida", "xp":20},
-        {"nome": "Goblin Aprendiz", "classe": "Mago", "vida": 30, "força": 35, "magia": 25, "defesa": 25, "habilidade": "Rajada Sombria", "xp":20}
+        {"nome": "Goblin Aprendiz", "classe": "Mago", "vida": 30, "força": 39, "magia": 45, "defesa": 25, "nivel": 3}
     ]
 
     input("Pressione ENTER para enfrentar os goblins...\n")
@@ -44,21 +43,31 @@ def nivel_tres(player):
     print("\nSeu rosto estava escondido sob um capuz, mas seus olhos...")
     print("Eles não eram humanos.\n")
     time.sleep(5)
-    print("??? : Você ousa perturbar o silêncio eterno da Biblioteca Perdida?\n")
+    print("??? : Você ousa perturbar o silêncio Eterno da Biblioteca Perdida?\n")
     print("??? : Eu sou Velkar, o Guardião do Conhecimento Proibido.\n")
     time.sleep(5)
-    print("Velkar : Você quer a chave para sair da masmorra, não é? Ele ergueu a mão, e um livro flutuou até ele.")
-    print("Velkar : Está aqui. Mas primeiro... vamos ver se você é digno de ler.\n")
+    print("Valker : Antes brinque um pouco com o meu golem...")
     time.sleep(5)
 
+    golem = [
+        {"nome": "Golem de elbano", "classe": "Guerreiro", "vida": 120, "força": 30, "magia": 45, "defesa": 80, "nivel": 3}
+    ]
+
+    input("Prepare-se para a batalha contra o golem. Pressione ENTER para continuar...\n")
+    if not combate(player, [golem]):
+        return False
+
+    print("Velkar : Você quer a chave para sair da masmorra, não é? Ele ergueu a mão, e um livro flutuou até ele.")
+    print("Velkar : Está aqui. Mas primeiro... vamos ver se você é digno de ler.\n")
+    time.sleep(4)
 
     mago = {
         "nome": "Velkar, o Guardião",
         "classe": "Mago",
         "vida": 90,
-        "força": 40,
+        "força": 50,
         "magia": 50,
-        "defesa": 35,
+        "defesa": 45,
         "habilidade": "Explosão Arcana",
         "nivel": player["nivel"] + 2,
     }

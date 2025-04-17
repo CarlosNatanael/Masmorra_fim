@@ -82,13 +82,14 @@ def combate(player, inimigos):
             player["vida"] -= dano_monstro
             print(f"\n{monstro['nome']} aproveitou sua hesitação e atacou causando {dano_monstro} de dano!")
             if player["vida"] <= 0:
-                print("\nVocê foi derrotado! Game over!")
+                print("\n💀Você foi derrotado! Game over!💀")
+                input("\nPressione ENTER para continuar\n")
                 return False
             continue
 
         print(f"\n{player['nome']} (Nível: {player['nivel']}, Classe: {player['classe']}): Vida = {player['vida']} | XP = {player['xp']}/{player['xp_proximo_nivel']}")
         for i, inimigo in enumerate(inimigos):
-            print(f"{i + 1}. {inimigo['nome']} - Vida = {inimigo['vida']}")
+            print(f"{i + 1}. {inimigo['nome']} (Nível: {inimigo['nivel']}, Classe: {inimigo['classe']}): Vida = {inimigo['vida']}")
 
         print("\nEscolha sua ação:")
         print("1. Atacar")
@@ -163,7 +164,8 @@ def combate(player, inimigos):
             print(f"{monstro['nome']} atacou você causando {dano_monstro} de dano!")
 
         if player["vida"] <= 0:
-            print("\nVocê foi derrotado! Game over!")
+            print("\n💀Você foi derrotado! Game over!💀\n")
+            input("Pressione ENTER para continuar\n")
             return False
 
     print("\nVocê derrotou todos os inimigos!")
