@@ -74,9 +74,9 @@ def nivel_dois(player):
             "nome": f"Clone Corrompido de {player['nome']}",
             "classe": player["classe"],
             "vida": player["vida"],
-            "força": player["força"] * 0.8,
-            "magia": player["magia"] * 0.8 if player["classe"] == "Mago" else 0,
-            "defesa": player["defesa"] * 0.7,
+            "força": player["força"] * 2,
+            "magia": player["magia"] * 2 if player["classe"] == "Mago" else 0,
+            "defesa": player["defesa"] * 2,
             "habilidade": player["habilidade"],
             "nivel": player["nivel"],
             "xp": 50
