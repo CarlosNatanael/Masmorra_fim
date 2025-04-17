@@ -1,6 +1,27 @@
 import time
 from combate import combate
 
+import random
+
+desafios_clone = [
+    {
+        "opcoes": [
+            "'A verdade nem sempre é vista com os olhos.'",
+            "'A imagem que vês é quem você é.'",
+            "'O reflexo invertido é o caminho certo.'"
+        ],
+        "correta": 2  # índice da opção correta (0-based)
+    },
+    {
+        "opcoes": [
+            "'O caminho da esquerda traz poder.'",
+            "'O caminho do centro traz sabedoria.'",
+            "'O caminho da direita traz a vitória.'"
+        ],
+        "correta": 1
+    }
+]
+
 def nivel_dois(player):
     print("Capítulo 2: O Salão dos Espelhos\n")
     time.sleep(5)
@@ -30,19 +51,17 @@ def nivel_dois(player):
     input("\nPressione ENTER para continuar")
     print(f"\nClone Corrompido de {player['nome']}: Você acha que merece escapar? — o clone sussurrou")
     time.sleep(5)
-    print(f"Clone Corrompido de {player['nome']}: Vamos brincar com a sua sorte, logo à frente no centro do salão há três espelhos.")
-    print("1. 'A verdade nem sempre é vista com os olhos.'")
-    print("2. 'A imagem que vês é quem você é.'")
-    print("3. 'O reflexo invertido é o caminho certo.'")
-
-    escolha = input(f"\nQual espelho você toca? (1/2/3): ").strip()
-    while escolha not in ["1", "2", "3"]:
-        escolha = input("Escolha inválida. Tente novamente (1/2/3): ").strip()
-
-    if escolha == "3":
+    desafio = random.choice(desafios_clone)
+    print(f"\nClone Corrompido de {player['nome']}: Vamos brincar com a sua sorte, logo à frente no centro do salão há três espelhos.")
+    for i, opcao in enumerate(desafio["opcoes"], 1):
+        print(f"{i}. {opcao}")
+    
+    escolha = input("\nQual espelho você toca? (1/2/3): ").strip()
+    
+    if escolha == str(desafio["correta"] + 1):  # +1 porque o usuário vê 1-based
         print('\n"Você se conhece melhor do que pensa. Avance."')
-        time.sleep(5)
     else:
+        print("\nO clone salta do espelho para enfrentar você!")
         time.sleep(5)
         print("\nAntes que eu pudesse reagir, o espelho diante de mim se dissolveu em névoa, e ele saiu.")
         print("Era eu—mas não. Seus olhos eram negros como breu, e sua boca se torcia em um sorriso que nunca faria.")
@@ -55,13 +74,14 @@ def nivel_dois(player):
             "nome": f"Clone Corrompido de {player['nome']}",
             "classe": player["classe"],
             "vida": player["vida"],
-            "força": player["força"],
-            "magia": player["magia"],
-            "defesa": player["defesa"],
+            "força": player["força"] * 0.8,
+            "magia": player["magia"] * 0.8 if player["classe"] == "Mago" else 0,
+            "defesa": player["defesa"] * 0.7,
             "habilidade": player["habilidade"],
-            "xp": player["xp"],
-            "nivel": player["nivel"]
+            "nivel": player["nivel"],
+            "xp": 50
         }
+        clone["força"] = max(5, clone["força"])
         if not combate(player, [clone]):
             return False
 

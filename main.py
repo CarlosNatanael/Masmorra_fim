@@ -10,6 +10,21 @@ from creditos import creditos_finais
 import os
 import time
 
+def game_over():
+    print("""\n
+╔══════════════════════════════════════════╗
+║                GAME OVER                 ║
+╠══════════════════════════════════════════╣
+║   Sua jornada termina aqui...            ║
+║   Mas suas ações serão lembradas.        ║
+║                                          ║
+║   Pressione ENTER para sair              ║
+╚══════════════════════════════════════════╝
+""")
+    input()
+    limpar_terminal()
+    exit()
+
 def limpar_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -45,7 +60,9 @@ def main():
     limpar_terminal()
 #=====================
 #   Nivel 1
-    nivel_um(player)
+    if not nivel_um(player):
+        game_over()
+        return
     limpar_terminal()
 #=====================
 #   Status jogador nivel1
@@ -54,7 +71,9 @@ def main():
     limpar_terminal()
 #=====================
 #   Nivel 2
-    nivel_dois(player)
+    if not nivel_dois(player):
+        game_over()
+        return
     limpar_terminal()
 #=====================
 #   Status jogador nivel2
@@ -63,7 +82,9 @@ def main():
     limpar_terminal()
 #=====================
 #   Nivel 3
-    nivel_tres(player)
+    if not nivel_tres(player):
+        game_over()
+        return
     limpar_terminal()
 #=====================
 #   Status jogador nivel3
@@ -72,7 +93,8 @@ def main():
     limpar_terminal()
 #=====================
 #   Nivel 4
-    nivel_quatro(player)
+    if not nivel_quatro(player):
+        return
     limpar_terminal()
 #=====================
 #   Status jogador nivel14

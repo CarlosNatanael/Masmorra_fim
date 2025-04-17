@@ -159,7 +159,7 @@ def combate(player, inimigos):
 
         if not turno_perdido and inimigos:
             monstro = random.choice(inimigos)
-            dano_monstro = max(0, monstro["força"] - player["defesa"])
+            dano_monstro = max(1, monstro["força"] - (player["defesa"] // 2))
             player["vida"] -= dano_monstro
             print(f"{monstro['nome']} atacou você causando {dano_monstro} de dano!")
 

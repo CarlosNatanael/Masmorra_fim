@@ -4,6 +4,27 @@ import os
 def limpar_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+import random
+
+enigmas = [
+    {
+        "pergunta": "Sou mais leve que uma pena, mas nem o homem mais forte consegue me segurar por muito tempo. O que sou?",
+        "respostas": ["respiração", "fôlego", "ar", "sopro"]
+    },
+    {
+        "pergunta": "Quanto mais você tira, maior eu fico. O que sou?",
+        "respostas": ["buraco", "cavidade", "vala"]
+    },
+    {
+        "pergunta": "Tenho cidades mas não tenho casas, tenho florestas mas não tenho árvores, tenho rios mas não tenho água. O que sou?",
+        "respostas": ["mapa", "cartográfico"]
+    }
+]
+
+def obter_enigma_aleatorio():
+    enigma = random.choice(enigmas)
+    return enigma["pergunta"], enigma["respostas"]
+
 def nivel_um(player):
     print("Capítulo 1: O Despertar no Desconhecido\n")
     time.sleep(5)
@@ -104,14 +125,12 @@ def nivel_um(player):
     time.sleep(5)
     print(f"(E antes que {player['nome']} possa responder, Eldramar se dissolve nas sombras, deixando apenas um riso ecoando nas paredes de pedra.)\n")
     time.sleep(5)
-    print("Voz sussurrante: 'Sou algo que você usa todos os dias, mas não pode tocar ou segurar. Posso ser curto ou muito longo,e mudo a cada instante, sem parar.'")
-    time.sleep(4)
-    print("Voz sussurrante: 'O que sou eu?'")   
+    pergunta, respostas_possiveis = obter_enigma_aleatorio()
+    print(f"\nVoz sussurrante: '{pergunta}'")
     resposta = input("Sua resposta: ").strip().lower()
-
-    if "tempo" in resposta or "o tempo" in resposta:
-        time.sleep(5)
-        print(f"\nVoz sussurrante: 'Muito bem... Você poderá continuar sua jornada.'")
+    
+    if resposta in respostas_possiveis:
+        print("\nVoz sussurrante: 'Muito bem... Você poderá continuar.'")
     else:
         time.sleep(5)
         print(f"\nVoz sussurrante: 'Errado... As sombras não perdoa a ignorância. Prepare-se para lutar!'\n")
@@ -120,7 +139,10 @@ def nivel_um(player):
             {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 30, "força": 32, "defesa": 30, "nivel":1},
             {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 35, "força": 36, "defesa": 30, "nivel":2}
         ]
-        combate(player, inimigos)
+        if not combate(player, inimigos):
+            return False
+        
+        return True
 
     print(f"\nVoz sussurrante: 'Agora siga, {player['classe']}. Aldurian te aguarda.'")
     time.sleep(5)
