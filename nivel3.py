@@ -49,11 +49,17 @@ def nivel_tres(player):
     print("Valker : Antes brinque um pouco com o meu golem...")
     time.sleep(5)
 
-    golem = [
-        {"nome": "Golem de elbano", "classe": "Guerreiro", "vida": 120, "força": 30, "magia": 45, "defesa": 80, "nivel": 3}
-    ]
+    golem = {
+        "nome": "Golem de elbano", 
+        "classe": "Guerreiro", 
+        "vida": 120, 
+        "força": 30, 
+        "magia": 45, 
+        "defesa": 80, 
+        "nivel": player["nivel"] + 1,
+    }
 
-    input("Prepare-se para a batalha contra o golem. Pressione ENTER para continuar...\n")
+    input("\nPrepare-se para a batalha contra o golem. Pressione ENTER para continuar...\n")
     if not combate(player, [golem]):
         return False
 
