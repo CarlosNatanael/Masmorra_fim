@@ -41,15 +41,9 @@ def habilidade_especial(player, inimigos):
     
     return derrotados
 
-def ganhar_xp(player, inimigos_derrotados):
-    xp_total = 0
-    for inimigo in inimigos_derrotados:
-        nivel_inimigo = inimigo.get("nivel", 1)
-        base_xp = inimigo.get("xp", 20)
-        xp_total += base_xp * nivel_inimigo
-    
-    player["xp"] += xp_total
-    print(f"\n{player['nome']} ganhou {xp_total} de experiência!")
+def ganhar_xp(player, xp_ganho):
+    player["xp"] += xp_ganho
+    print(f"\n{player['nome']} ganhou {xp_ganho} de experiência!")
 
     while player["xp"] >= player["xp_proximo_nivel"]:
         player["xp"] -= player["xp_proximo_nivel"]
@@ -72,16 +66,27 @@ def ganhar_xp(player, inimigos_derrotados):
         print("Seus atributos aumentaram:")
         print(f"Vida: {player['vida']}, Força: {player['força']}, Defesa: {player['defesa']}")
 
-
 def combate(player, inimigos):
+    player["habilidade_usada"] = False
     print("Você está em combate com os inimigos!")
     time.sleep(2)
 
     derrotados = []
+    turno_perdido = False
 
     while inimigos and player["vida"] > 0:
+        if turno_perdido:
+            turno_perdido = False
+            monstro = random.choice(inimigos)
+            dano_monstro = max(0, monstro["força"] - player["defesa"])
+            player["vida"] -= dano_monstro
+            print(f"\n{monstro['nome']} aproveitou sua hesitação e atacou causando {dano_monstro} de dano!")
+            if player["vida"] <= 0:
+                print("\nVocê foi derrotado! Game over!")
+                return False
+            continue
+
         print(f"\n{player['nome']} (Nível: {player['nivel']}, Classe: {player['classe']}): Vida = {player['vida']} | XP = {player['xp']}/{player['xp_proximo_nivel']}")
-        player["habilidade_usada"] = False
         for i, inimigo in enumerate(inimigos):
             print(f"{i + 1}. {inimigo['nome']} - Vida = {inimigo['vida']}")
 
@@ -113,6 +118,7 @@ def combate(player, inimigos):
                 print(f"{inimigo['nome']} foi derrotado!")
                 derrotados.append(inimigo)
                 inimigos.remove(inimigo)
+                turno_perdido = False
 
         elif acao == "2":
             print("Seus itens:")
@@ -126,26 +132,31 @@ def combate(player, inimigos):
                 if item_input == nome_item.casefold():
                     item_encontrado = nome_item
                     break
-            if item_encontrado and player["itens"] [item_encontrado] > 0:
+            if item_encontrado and player["itens"][item_encontrado] > 0:
                 if item_encontrado == "poção de cura":
-                    player["vida"] +=20
-                    player["itens"] [item_encontrado] -= 1
+                    player["vida"] += 20
+                    player["itens"][item_encontrado] -= 1
                     print("Você usou a poção de cura e recuperou 20 de vida\n")
             else:
                 print("Você não possui item ou digitou algo incorretamente\n")
+                turno_perdido = False
 
         elif acao == "3":
-            if player.get("habilidade_usado", False):
-                print("Você já usou sua habilidade especial neste batalha!")
+            if player.get("habilidade_usada", False):
+                print("\nVocê já usou sua habilidade especial nesta batalha!")
+                turno_perdido = True
                 continue
-            derrotados_habilidade = habilidade_especial(player,inimigos)
+            derrotados_habilidade = habilidade_especial(player, inimigos)
             derrotados.extend(derrotados_habilidade)
             player["habilidade_usada"] = True
+            turno_perdido = False
+
         else:
-            print("Ação inválida. Tente novamente.")
+            print("\nAção inválida. Tente novamente.")
+            turno_perdido = True
             continue
 
-        if inimigos:
+        if not turno_perdido and inimigos:
             monstro = random.choice(inimigos)
             dano_monstro = max(0, monstro["força"] - player["defesa"])
             player["vida"] -= dano_monstro
@@ -157,6 +168,7 @@ def combate(player, inimigos):
 
     print("\nVocê derrotou todos os inimigos!")
 
+    # Cálculo do XP baseado no nível dos inimigos derrotados
     xp_total = sum([inimigo.get("nivel", 1) * 20 for inimigo in derrotados])
     ganhar_xp(player, xp_total)
 

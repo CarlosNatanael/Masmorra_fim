@@ -61,7 +61,6 @@ def nivel_tres(player):
         "defesa": 35,
         "habilidade": "Explosão Arcana",
         "nivel": player["nivel"] + 2,
-        "xp": 150
     }
 
     input("Prepare-se para a batalha final deste nível. Pressione ENTER para continuar...\n")

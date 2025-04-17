@@ -60,8 +60,7 @@ def nivel_dois(player):
             "defesa": player["defesa"],
             "habilidade": player["habilidade"],
             "xp": player["xp"],
-            "nivel": player["nivel"],
-            "xp":50
+            "nivel": player["nivel"]
         }
         if not combate(player, [clone]):
             return False
