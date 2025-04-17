@@ -94,6 +94,7 @@ def main():
 #=====================
 #   Nivel 4
     if not nivel_quatro(player):
+        game_over()
         return
     limpar_terminal()
 #=====================

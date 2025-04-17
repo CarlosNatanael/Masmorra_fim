@@ -63,7 +63,7 @@ def nivel_tres(player):
     if not combate(player, [golem]):
         return False
 
-    print("Velkar : Você quer a chave para sair da masmorra, não é? Ele ergueu a mão, e um livro flutuou até ele.")
+    print("\nVelkar : Você quer a chave para sair da masmorra, não é? Ele ergueu a mão, e um livro flutuou até ele.")
     print("Velkar : Está aqui. Mas primeiro... vamos ver se você é digno de ler.\n")
     time.sleep(4)
 
