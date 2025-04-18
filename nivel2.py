@@ -1,7 +1,7 @@
 import time
 from combate import combate
-
 import random
+
 
 desafios_clone = [
     {
@@ -10,7 +10,7 @@ desafios_clone = [
             "'A imagem que vês é quem você é.'",
             "'O reflexo invertido é o caminho certo.'"
         ],
-        "correta": 2  # índice da opção correta (0-based)
+        "correta": random.choice([0, 1, 2])
     },
     {
         "opcoes": [
@@ -18,7 +18,39 @@ desafios_clone = [
             "'O caminho do centro traz sabedoria.'",
             "'O caminho da direita traz a vitória.'"
         ],
-        "correta": 1
+        "correta": random.choice([0, 1, 2])
+    },
+    {
+        "opcoes": [
+            "'Aquilo que teme é o que te molda.'",
+            "'A força está em negar sua essência.'",
+            "'O silêncio vence qualquer guerra.'"
+        ],
+        "correta": random.choice([0, 1, 2])
+    },
+    {
+        "opcoes": [
+            "'A sombra é apenas a luz adormecida.'",
+            "'Tudo que brilha é falso.'",
+            "'A duplicata carrega o fardo da perfeição.'"
+        ],
+        "correta": random.choice([0, 1, 2])
+    },
+    {
+        "opcoes": [
+            "'Negar a dor é negar a si mesmo.'",
+            "'A vitória vem de evitar o conflito.'",
+            "'Só os tolos enfrentam seus iguais.'"
+        ],
+        "correta": random.choice([0, 1, 2])
+    },
+    {
+        "opcoes": [
+            "'Se tudo é espelho, onde está o real?'",
+            "'A cópia supera o original com tempo.'",
+            "'Quem enfrenta o reflexo perde o eu.'"
+        ],
+        "correta": random.choice([0, 1, 2])
     }
 ]
 

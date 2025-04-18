@@ -29,11 +29,11 @@ def creditos_finais(player):
     """)
     time.sleep(3)
 
-    print("\nDesenvolvido por: Carlos Natanael (Cael)")
+    print("\nDesenvolvido por: Carlos Natanael")
     print("Conceito e Design: Carlos Natanael")
     print("Programação: Carlos Natanael")
     print("Narrativa: Carlos Natanael")
-    print("Assistência Criativa: Valysse (Val)")
+    print("Assistência Criativa: Valysse")
     time.sleep(5)
 
     print("\n\nFerramentas Utilizadas:")

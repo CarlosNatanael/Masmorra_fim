@@ -1,10 +1,9 @@
 import time
 import os
+import random
 
 def limpar_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
-
-import random
 
 enigmas = [
     {
@@ -18,7 +17,20 @@ enigmas = [
     {
         "pergunta": "Tenho cidades mas não tenho casas, tenho florestas mas não tenho árvores, tenho rios mas não tenho água. O que sou?",
         "respostas": ["mapa", "cartográfico"]
+    },
+    {
+        "pergunta": "Quanto mais se tira de mim, mais eu aumento. Não sou buraco. O que sou?",
+        "respostas": ["dívida", "empréstimo", "déficit"]
+    },
+    {
+        "pergunta": "Tenho um pescoço, mas não cabeça. Tenho dois braços, mas não mãos. O que sou?",
+        "respostas": ["camisa", "blusa", "roupa"]
+    },
+    {
+        "pergunta": "Ando sem pernas, voo sem asas, choro sem olhos. O que sou?",
+        "respostas": ["nuvem", "vento", "tempestade"]
     }
+
 ]
 
 def obter_enigma_aleatorio():
