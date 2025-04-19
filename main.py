@@ -83,7 +83,7 @@ def main():
     - Novo sistema de combate
     - 5 níveis completos
     - Melhorias de balanceamento
-          
+        
 
                        Copyright (c) 2025 by Carlos Natanael     
     """)
