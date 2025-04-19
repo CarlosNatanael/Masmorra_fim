@@ -77,8 +77,8 @@ def main():
 
                                 Jogo em desenvolvimento 
           
-    Progamador:                                             [Masmorra do Fim - v3.2]
-    Carlos Natanael, Val
+    Progamador:                                             [Masmorra do Fim - versão beta]
+    Carlos Natanael
                                        
     - Novo sistema de combate
     - 5 níveis completos
