@@ -1,22 +1,16 @@
 import time
 from utils.combate import combate
+from utils.utils import tem_chave
+from utils.utils import usar_chave
 import random
 
 def nivel_quatro(player):
     print("Capítulo 4: O Pântano do Desespero\n")
     time.sleep(5)
-    print("O corpo do mago dissolveu-se em tinta escura, seus gritos afogando-se em um redemoinho de páginas rasgadas.")
-    print("O livro que ele guardava caiu no chão com um thud solene, e eu o peguei antes que as sombras o engolissem.\n")
-    print("(Isso deve ser a chave...)\n")
-    time.sleep(5)
-    print("Mas antes que eu pudesse abri-lo, o chão da biblioteca começou a afundar.\n")
-    print("Madeira rachou, estantes desmoronaram, e de repente—")
-    print("—PLOFT—")
-    print("Eu estava até o pescoço em água podre.")
-    print("A biblioteca tinha desaparecido. Agora, tudo ao meu redor era lama, névoa e silêncio sufocante.")
     print("""
-    O ar cheirava a folhas apodrecidas e carne em decomposição. Árvores esqueléticas se contorciam como dedos ossudos, e a água estagnada borbulhava com coisas se movendo sob a superfície.
+O ar cheirava a folhas apodrecidas e carne em decomposição. Árvores esqueléticas se contorciam como dedos ossudos, e a água estagnada borbulhava com coisas se movendo sob a superfície.
     """)
+    time.sleep(5)
     print("\n(Pisei em algo macio.)")
     print("(Era um rosto.)\n")
     print("Um cadáver preservado pelo pântano, seus olhos ainda abertos, a boca congelada em um grito silencioso.")
@@ -62,9 +56,124 @@ def nivel_quatro(player):
     if not combate(player, [chefe]):
         return False
 
-    print("\nGrumor desfaz-se em lama fétida e galhos partidos.")
-    print("No meio da poça, surge uma flor brilhante. Um símbolo mágico emana dela — um selo que protege o próximo portal.\n")
+    print("\nGrumor desfaz-se em lama fétida e galhos partidos.\n")
+    print("\n" + "="*60)
+    print("O chão começa a tremer violentamente!".center(60))
+    print("="*60 + "\n")
+    time.sleep(2)
+    print("Diante de seus olhos, a poça de água negra se agita como se fervesse.")
+    time.sleep(3)
+    print("Das profundezas, uma massa de rocha negra emerge lentamente, arrastando-se para a superfície...\n")
+    time.sleep(4)
+    print("A rocha se ergue, revelando-se maior que uma casa, e em sua face frontal,")
+    print("um símbolo ancestral começa a brilhar com uma luz púrpura pulsante.\n")
     time.sleep(5)
+    print("O ar vibra com energia arcana enquanto você se aproxima.")
+    print("O símbolo se transforma em uma complexa fechadura mágica que emite um zumbido baixo.")
+    time.sleep(4)
 
-    input("Você colhe a flor e segue adiante... Pressione ENTER para continuar.\n")
-    return True
+    if tem_chave(player):
+        while True:
+            print("\n" + "━"*40)
+            print(" O selo reconhece sua presença! ".center(40, "~"))
+            print("━"*40 + "\n")
+
+            print(f"1. {player['classe']} Usar {player['habilidade']} no selo")
+            print(f"2. Tentar romper o selo bruscamente [Força: {player['força']}]")
+            print("3. Inserir a chave de ébano")
+            print("━"*40)
+
+            escolha = input("Sua decisão: ").strip()
+
+            if escolha == "3":
+                if usar_chave(player):
+                    print("\nA chave se encaixa perfeitamente, como se fosse feita para este momento.")
+                    time.sleep(2)
+                    print("O símbolo ancestral começa a girar, cada runa se acendendo em sequência...")
+                    time.sleep(3)
+                    print("A rocha treme violentamente, rachando-se no meio!")
+                    time.sleep(2)
+                    print("Dentro da fissura, um vórtice de energia púrpura se forma, crescendo até")
+                    print("atingir o tamanho de um portal plenamente funcional.\n")
+                    time.sleep(4)
+                    print("O portal estabiliza, mostrando visões de um corredor infinito repleto de estrelas")
+                    input("\nPressione ENTER para atravessar o portal...")
+                    return True
+                else:
+                    print("\nVocê revira seus bolsos, mas a chave não está lá!")
+                    time.sleep(2)
+                    continue
+
+            elif escolha == "1":
+                print("\nVocê conjura sua habilidade, mas a magia ancestral da rocha absorve o ataque sem efeito!")
+                time.sleep(3)
+                continue
+        
+            elif escolha == "2":
+                if not player.get("atacou_rocha", False):
+                    print("\nVocê cerra os punhos e investe contra a rocha com toda a sua força!")
+                    time.sleep(2)
+                    print("Um impacto violento ecoa pela caverna...")
+                    time.sleep(3)
+
+                    dano_sofrido = 15
+                    player["vida"] -= dano_sofrido
+                    
+
+                    print(f"\n╔{'═'*60}╗")
+                    print(f"║{'CRÍTICO!'.center(60)}║")
+                    print(f"║{'Você se machucou gravemente!'.center(60)}║")
+                    print(f"║{f'-{dano_sofrido} de vida'.center(60)}║")
+                    print(f"║{f'Vida atual: {player['vida']}'.center(60)}║")
+                    print(f"╚{'═'*60}╝\n")
+                    time.sleep(3)
+
+                    print("A rocha não cedeu, mas agora apresenta pequenas rachaduras pulsantes.")
+                    print("Você sente uma energia antiga se agitando dentro dela...")
+                    time.sleep(3)
+
+                    player["atacou_rocha"] = True
+                    if player["vida"] <= 0:
+                        print("\nSua ferida é grave demais para continuar...")
+                        return False
+                    continue
+
+            else:
+                print("\nVocê golpeia a rocha novamente, ignorando a dor!")
+                time.sleep(2)
+                print("As rachaduras começam a brilhar intensamente...")
+                time.sleep(3)
+                print("Pedras e terra se aglutinam, formando uma figura colossal!\n")
+                time.sleep(3)
+
+                print("""\
+╔════════════════════════════════════════════════╗
+║            A ROCHA GANHA VIDA!                 ║
+║                                                ║
+║        UM GOLEM DE TERRA DESPERTA!             ║
+╚════════════════════════════════════════════════╝
+                """)
+                time.sleep(5)
+
+                golem = {
+                    "nome": "Golem de Terra Ancestral",
+                    "vida": 120,
+                    "força": 45,
+                    "defesa": 80,
+                    "habilidade": "Impacto Sísmico",
+                    "nivel": player["nivel"] + 2,
+                    "xp": 200
+                }
+
+                if not combate(player, [golem]):
+                    return False
+                
+                print("\nO golem se desfaz em pedras, revelando o portal instável por trás dele!")
+                input("\nPressione ENTER para atravessar o portal...")
+                return True
+
+
+
+    else:
+        print("\nO portal permanece selado. Você precisa encontrar a chave adequada!")
+        return False

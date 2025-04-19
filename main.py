@@ -40,9 +40,9 @@ def mostrar_status_jogador(player):
 │      STATUS       │     ATRIBUTOS     │
 ├───────────────────┼───────────────────┤
 │                   │ Vida:   {player['vida']:<5}     │
-│ Classe: {player['classe']:<8}  │ Força:  {player['força']:<5}     │
-│ Nível: {player['nivel']:<8}   │ Magia:  {player['magia']:<5}     │
-│                   │ Defesa: {player['defesa']:<5}     │
+│Classe: {player['classe']:<8}   │  Força:  {player['força']:<5}    │
+│Nível: {player['nivel']:<8}    │ Magia:  {player['magia']:<5}     │
+│XP: {player['xp']:<3}            │ Defesa: {player['defesa']:<5}     │
 ├───────────────────┴───────────────────┤
 │ Habilidade Especial: {player['habilidade']:<15}  │
 └───────────────────────────────────────┘
@@ -51,9 +51,44 @@ def mostrar_status_jogador(player):
 """)
 
 def main():
-    print("                               === Bem-vindo à Masmorra do Fim! ===\n")
-    time.sleep(1)
-    print("                               Jogo em desenvolvimento (Versão beta v3)\n")
+    print("""
+                                 ┳┳┓                 ┓    ┏┓•   
+                                 ┃┃┃┏┓┏┏┳┓┏┓┏┓┏┓┏┓  ┏┫┏┓  ┣ ┓┏┳┓
+                                 ┛ ┗┗┻┛┛┗┗┗┛┛ ┛ ┗┻  ┗┻┗┛  ┻ ┗┛┗┗
+             
+                                         -..--.--.+------.                                          
+                                      -........-.-.......-++-                                       
+                                  --.+-........---........--.++.                                    
+                                -...-...-+#######+++-.........+++-                                  
+                               .-.....-.++++#+++++###++........+-++                                 
+                              --...--+++#++++++##++#++#-.......----.                                
+                             ..-.-+.+++#++++++#++++#####+--....-+..+-                               
+                            .+.-.+.+++#++#++##+++#######++.....-+-..-+                              
+                          .--.....++++++++++#++++########+-....--.--..+-                            
+                         -.-++..+.#++#++++++++++#########+---..--.+-...-+                           
+                       .-..--..--.#+##+++++#++#+##########+--.....#-.-..--                          
+                       -...--..---#+##++#++#+++###########+--.--.+-+-...++ .-+                      
+                       -........--#+#++++++#++++.        #+-..-.-+---.... --.-#.                    
+                       -+--.....+.-+##++++               +--.--.-+.......-+...+-.                   
+                    .--...-++..-+..+--.                 .+--.+..+-.---++...-+---.-                  
+                   ---......-++++-..                                    .--------                    
+
+
+
+                                Jogo em desenvolvimento 
+          
+    Progamador:                                             [Masmorra do Fim - v3.2]
+    Carlos Natanael, Val
+                                       
+    - Novo sistema de combate
+    - 5 níveis completos
+    - Melhorias de balanceamento
+          
+
+                       Copyright (c) 2025 by Carlos Natanael     
+    """)
+    input("\n[Pressione ENTER para embarcar nesta aventura...]\n")
+    limpar_terminal()
     player = escolher_classe()
     limpar_terminal()
     mostrar_status_jogador(player)

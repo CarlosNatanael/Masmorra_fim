@@ -12,7 +12,11 @@ def nivel_tres(player):
     print("repletas de livros encadernados em couro, pergaminhos amarrados com cordas de seda e tomos presos por correntes enferrujadas.\n")
     print("Era lindo.\nEra assustador.\n")
     time.sleep(5)
-    print("Algumas das prateleiras se moviam sozinhas, deslizando como sombras, reorganizando-se em padrões")
+    from utils.utils import usar_itens
+    if not usar_itens(player):
+        return False
+    time.sleep(5)
+    print("\nVocê decide continuar e observa que algumas das prateleiras se moviam sozinhas, deslizando como sombras, reorganizando-se em padrões")
     print("\n— Bem-vindo, intruso.")
     time.sleep(5)
     print("(A voz veio de todos os lados.)")
@@ -83,10 +87,29 @@ def nivel_tres(player):
         return False
 
     print("\nVelkar caiu de joelhos, seus olhos perdendo o brilho púrpura.")
-    print("Com seu último suspiro, ele murmurou: 'O saber... deve ser temido...'\n")
+    print("Com seu último suspiro, ele murmurou: 'O saber... deve ser temido...\n'")
+    print("O corpo do mago dissolveu-se em tinta escura, seus gritos afogando-se em um redemoinho de páginas rasgadas.")
     time.sleep(5)
     print("Ao seu lado, um livro dourado flutuava até minhas mãos. Um tomo sagrado. Talvez... a chave para entender essa masmorra.\n")
     time.sleep(5)
+
+    print("Um item caiu no chão ,e eu o peguei antes que as sombras o engolissem.")
+    print("(Isso deve ser a chave...)\n")
+    player["itens"]["chave de ébano"] = 1
+    print("Você encontra uma CHAVE DE ÉBANO reluzente no corpo do mago derrotado!")
+    print("(A chave foi adicionada ao seu inventário)\n")
+    print("Inventario atual:")
+    for item, qtd in player["itens"].items():
+        print(f"- {item}: {qtd}")
+    time.sleep(5)
+    print("\n chão da biblioteca começou a afundar.\n")
+    print("Madeira rachou, estantes desmoronaram, e de repente—")
+    time.sleep(5)
+    print("—PLOFT—\n")
+    time.sleep(5)
+    print("Eu estava até o pescoço em água podre.")
+    time.sleep(5)
+    print("A biblioteca tinha desaparecido. Agora, tudo ao meu redor era lama, névoa e silêncio sufocante.")
 
     input("Você avança. Pressione ENTER para continuar...\n")
     return True
