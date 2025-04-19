@@ -146,7 +146,7 @@ def nivel_um(player):
     else:
         time.sleep(5)
         print(f"\nVoz sussurrante: 'Errado... As sombras não perdoa a ignorância. Prepare-se para lutar!'\n")
-        from combate import combate
+        from utils.combate import combate
         inimigos = [
             {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 30, "força": 25, "defesa": 30, "nivel":1},
             {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 35, "força": 28, "defesa": 30, "nivel":2}

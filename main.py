@@ -1,11 +1,12 @@
-# pyinstaller --onefile --add-data "nivel1.py;." --add-data "nivel2.py;." --add-data "nivel3.py;." --add-data "nivel4.py;." --add-data "nivel5.py;." --add-data "combate.py;." --add-data "creditos.py;." --add-data "personagem.py;." --icon="icone.ico" --add-data="icone.ico;." --name "MasmorraDoFim" main.py
+# pyinstaller --onefile --add-data "nivel1.py;." --add-data "nivel2.py;." --add-data "nivel3.py;." --add-data "nivel4.py;." --add-data "nivel5.py;." --add-data "utils/combate.py;utils" --add-data "utils/creditos.py;utils" --add-data "utils/personagem.py;utils" --add-data "utils/utils.py;utils" --add-data "utils/image.png;utils" --add-data "icone.ico;." --icon="icone.ico" --name "MasmorraDoFim" main.py
 
-from personagem import escolher_classe
+
+from utils.personagem import escolher_classe
 from nivel1 import nivel_um
 from nivel2 import nivel_dois
 from nivel3 import nivel_tres
 from nivel4 import nivel_quatro
-from creditos import creditos_finais
+from utils.creditos import creditos_finais
 # from nivel5 import nivel_cinco
 import os
 import time

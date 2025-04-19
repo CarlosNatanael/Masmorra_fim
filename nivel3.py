@@ -1,5 +1,5 @@
 import time
-from combate import combate
+from utils.combate import combate
 
 def nivel_tres(player):
     print("Capítulo 3: A Biblioteca Perdida\n")
