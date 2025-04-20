@@ -79,22 +79,25 @@ def nivel_um(player):
         elif escolha == "2":
             print("\nVocê se levanta. As paredes do templo estão cobertas de inscrições antigas.")
         elif escolha == "3":
-            print("\nVocê apenas observa em silêncio. Eldramar entende sua hesitação.")
+            print("\nVocê apenas observa em silêncio. Eldramar entende sua hesitação.\n")
             time.sleep(5)
-            print(f"Eldramar: Entendo o seu silêncio {player['nome']} mas quero saber mais sobre sua personalidade\n")
+            print(f"Eldramar: Entendo o seu silêncio {player['nome']}, mas quero saber mais sobre sua personalidade\n")
+            time.sleep(5)
+            print("(Em instantes Eldramar estala os dedos e me leva um mercado aonde encontro tal situação)")
+            print("(Encontro a seguinte cena a rua empoeirada, a criança faminta, a maçã roubada. O mercador gritava, a criança tremia, e eu estava parado no meio)\n")
             time.sleep(5)
             print("Eldramar: Você vê uma criança furtando uma maçã.")
             print("1. Repreende a criança e devolve a maçã ao dono.")
-            print("2. Dá outra maçã à criança e segue seu caminho.")
-            print("3. Usa a distração para furtar também.")
+            print("2. Ajudar a Criança a Fugir.")
+            print("3. Pagar e Ficar em Silêncio.")
 
             escolha1 = input("Eldramar: O que faz?: ").lower()
             if escolha1 == "1":
                 player["personalidade"] = "Justo"
             elif escolha1 == "2":
-                player["personalidade"] = "Empático"
+                player["personalidade"] = "Heroica"
             elif escolha1 == "3":
-                player["personalidade"] = "Caótico"
+                player["personalidade"] = "Pacifista"
             else:
                 print("Escolha inválida. Assumindo natureza misteriosa.")
                 player["personalidade"] = "Enigmático"

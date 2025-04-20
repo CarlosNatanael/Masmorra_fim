@@ -6,10 +6,9 @@ from nivel1 import nivel_um
 from nivel2 import nivel_dois
 from nivel3 import nivel_tres
 from nivel4 import nivel_quatro
+from nivel5 import nivel_cinco
 from utils.creditos import creditos_finais
-# from nivel5 import nivel_cinco
 import os
-import time
 
 def game_over():
     print("""\n
@@ -135,6 +134,17 @@ def main():
     limpar_terminal()
 #=====================
 #   Status jogador nivel14
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 5
+    if not nivel_cinco(player):
+        game_over()
+        return
+    limpar_terminal()
+#=====================
+#   Status jogador nivel15
     mostrar_status_jogador(player)
     input()
     limpar_terminal()
