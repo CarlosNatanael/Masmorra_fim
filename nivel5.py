@@ -13,6 +13,19 @@ def nivel_cinco(player):
     No centro, um trono de ossos se erguia, e sobre ele...
 
     """)
+    time.sleep(5)
     print(""" 
+    diferente do velho misterioso que você encontrou no início,
+    agora ele se parecia com um deus caído - três metros de altura, pele pálida como a lua.
+          
+    À sua frente, ergue-se Eldramar,
+    agora revelado em sua verdadeira forma - um titã de sombras e luz pútrida.
+    
+    "Ou devo chamá-lo de... invasor?"
      """)
+    time.sleep(5)
+
+    if not fase_um(player):
+        return False
+
     
