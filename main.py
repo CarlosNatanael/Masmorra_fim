@@ -2,13 +2,14 @@
 
 
 from utils.personagem import escolher_classe
-from nivel1 import nivel_um
-from nivel2 import nivel_dois
-from nivel3 import nivel_tres
-from nivel4 import nivel_quatro
+# from nivel1 import nivel_um
+# from nivel2 import nivel_dois
+# from nivel3 import nivel_tres
+# from nivel4 import nivel_quatro
 from nivel5 import nivel_cinco
 from utils.creditos import creditos_finais
-import os
+from utils.utils import limpar_terminal
+import time
 
 def game_over():
     print("""\n
@@ -24,9 +25,6 @@ def game_over():
     input()
     limpar_terminal()
     exit()
-
-def limpar_terminal():
-    os.system('cls' if os.name == 'nt' else 'clear')
 
 def mostrar_status_jogador(player):
     print(f"""\n
@@ -53,8 +51,8 @@ def main():
     print("""
                                  ┳┳┓                 ┓    ┏┓•   
                                  ┃┃┃┏┓┏┏┳┓┏┓┏┓┏┓┏┓  ┏┫┏┓  ┣ ┓┏┳┓
-                                 ┛ ┗┗┻┛┛┗┗┗┛┛ ┛ ┗┻  ┗┻┗┛  ┻ ┗┛┗┗
-             
+                                 ┛ ┗┗┻┛┛┗┗┗┛┛ ┛ ┗┻  ┗┻┗┛  ┻ ┗┛┗┗               
+
                                          -..--.--.+------.                                          
                                       -........-.-.......-++-                                       
                                   --.+-........---........--.++.                                    
@@ -70,10 +68,10 @@ def main():
                        -........--#+#++++++#++++.        #+-..-.-+---.... --.-#.                    
                        -+--.....+.-+##++++               +--.--.-+.......-+...+-.                   
                     .--...-++..-+..+--.                 .+--.+..+-.---++...-+---.-                  
-                   ---......-++++-..                                    .--------                    
-
-
-
+                   ---......-++++-..                                    .--------                        
+    """)
+    time.sleep(2)
+    print("""
                                 Jogo em desenvolvimento 
           
     Progamador:                                             [Masmorra do Fim - versão beta]
@@ -84,8 +82,9 @@ def main():
     - Melhorias de balanceamento
         
 
-                       Copyright (c) 2025 by Carlos Natanael     
+                       Copyright (c) 2025 by Carlos Natanael 
     """)
+    time.sleep(3)
     input("\n[Pressione ENTER para embarcar nesta aventura...]\n")
     limpar_terminal()
     player = escolher_classe()
@@ -93,50 +92,50 @@ def main():
     mostrar_status_jogador(player)
     input()
     limpar_terminal()
-#=====================
-#   Nivel 1
-    if not nivel_um(player):
-        game_over()
-        return
-    limpar_terminal()
-#=====================
-#   Status jogador nivel1
-    mostrar_status_jogador(player)
-    input()
-    limpar_terminal()
-#=====================
-#   Nivel 2
-    if not nivel_dois(player):
-        game_over()
-        return
-    limpar_terminal()
-#=====================
-#   Status jogador nivel2
-    mostrar_status_jogador(player)
-    input()
-    limpar_terminal()
-#=====================
-#   Nivel 3
-    if not nivel_tres(player):
-        game_over()
-        return
-    limpar_terminal()
-#=====================
-#   Status jogador nivel3
-    mostrar_status_jogador(player)
-    input()
-    limpar_terminal()
-#=====================
-#   Nivel 4
-    if not nivel_quatro(player):
-        game_over()
-        return
-    limpar_terminal()
-#=====================
-#   Status jogador nivel14
-    mostrar_status_jogador(player)
-    input()
-    limpar_terminal()
+# #=====================
+# #   Nivel 1
+#     if not nivel_um(player):
+#         game_over()
+#         return
+#     limpar_terminal()
+# #=====================
+# #   Status jogador nivel1
+#     mostrar_status_jogador(player)
+#     input()
+#     limpar_terminal()
+# #=====================
+# #   Nivel 2
+#     if not nivel_dois(player):
+#         game_over()
+#         return
+#     limpar_terminal()
+# #=====================
+# #   Status jogador nivel2
+#     mostrar_status_jogador(player)
+#     input()
+#     limpar_terminal()
+# #=====================
+# #   Nivel 3
+#     if not nivel_tres(player):
+#         game_over()
+#         return
+#     limpar_terminal()
+# #=====================
+# #   Status jogador nivel3
+#     mostrar_status_jogador(player)
+#     input()
+#     limpar_terminal()
+# #=====================
+# #   Nivel 4
+#     if not nivel_quatro(player):
+#         game_over()
+#         return
+#     limpar_terminal()
+# #=====================
+# #   Status jogador nivel14
+#     mostrar_status_jogador(player)
+#     input()
+#     limpar_terminal()
 #=====================
 #   Nivel 5
     if not nivel_cinco(player):

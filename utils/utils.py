@@ -1,3 +1,6 @@
+import os
+
+
 def usar_itens(player):
     while True:
         print("\nItens disponíveis:")
@@ -34,3 +37,6 @@ def usar_chave(player):
         player["itens"]["chave de ébano"] -= 1
         return True
     return False
+
+def limpar_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')

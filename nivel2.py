@@ -114,6 +114,7 @@ def nivel_dois(player):
             "xp": 50
         }
         clone["força"] = max(5, clone["força"])
+        input("Prepare-se para o combate! Pressione ENTER...\n")
         if not combate(player, [clone]):
             return False
 

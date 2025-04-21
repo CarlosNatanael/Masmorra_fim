@@ -32,7 +32,7 @@ def nivel_tres(player):
         {"nome": "Goblin Aprendiz", "classe": "Mago", "vida": 30, "força": 35, "magia": 45, "defesa": 25, "nivel": 3}
     ]
 
-    input("Pressione ENTER para enfrentar os goblins...\n")
+    input("Prepare-se para o combate! Pressione ENTER...\n")
     if not combate(player, goblins):
         return False
 
@@ -63,7 +63,7 @@ def nivel_tres(player):
         "nivel": player["nivel"] + 1,
     }
 
-    input("\nPrepare-se para a batalha contra o golem. Pressione ENTER para continuar...\n")
+    input("Prepare-se para o combate! Pressione ENTER...\n")
     if not combate(player, [golem]):
         return False
 

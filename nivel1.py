@@ -154,6 +154,7 @@ def nivel_um(player):
             {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 30, "força": 25, "defesa": 30, "nivel":1},
             {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 35, "força": 28, "defesa": 30, "nivel":2}
         ]
+        input("Prepare-se para o combate! Pressione ENTER...\n")
         if not combate(player, inimigos):
             return False
 
