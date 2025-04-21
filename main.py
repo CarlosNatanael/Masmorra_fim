@@ -2,13 +2,16 @@
 
 
 from utils.personagem import escolher_classe
-# from nivel1 import nivel_um
-# from nivel2 import nivel_dois
-# from nivel3 import nivel_tres
-# from nivel4 import nivel_quatro
+from nivel1 import nivel_um
+from nivel2 import nivel_dois
+from nivel3 import nivel_tres
+from nivel4 import nivel_quatro
 from nivel5 import nivel_cinco
 from utils.creditos import creditos_finais
 from utils.utils import limpar_terminal
+from nivel6_1 import nivel_verdade_1
+from nivel6_2 import nivel_mentira_2
+from nivel6_3 import nivel_destruicao_3
 import time
 
 def game_over():
@@ -141,6 +144,58 @@ def main():
     if not nivel_cinco(player):
         game_over()
         return
+    
+    resultado_nivel5 = nivel_cinco(player)
+    
+    if resultado_nivel5:
+        caminho = resultado_nivel5  
+        if caminho  == "1":
+            print("""
+Você age como antes, seguindo as regras sem questionar.
+Eldramar sorri, mas não há calor em sua expressão.
+"Ordem. Respeito às estruturas. Interessante... mas será que a masmorra precisa de mais um carcereiro?"
+Ele ergue a mão, e o chão se abre sob seus pés.
+
+Você cai... e acorda em um lugar novo:
+
+            """)
+            input("\nPressione ENTER para continuar")
+            limpar_terminal()
+            if not nivel_verdade_1(player):
+                game_over()
+        elif caminho == "2":
+            print("""
+Você protege a criança, mesmo sabendo que está quebrando as regras.
+Eldramar ri, um som que ecoa como vidro quebrando.
+"Ah, o herói. O justiceiro. Mas será que sua bondade sobreviverá quando você vir o que realmente habita nas sombras?"
+Ele abre um portal negro com um gesto.
+
+Você é sugado para dentro... e acorda em:
+
+            """)
+            input("\nPressione ENTER para continuar")
+            limpar_terminal()
+            if not nivel_mentira_2(player):
+                game_over()
+        elif caminho == "3":
+            print("""
+Você resolve o conflito sem violência, mas sem ignorar a injustiça.
+Eldramar franze a testa, como se sua resposta fosse um enigma.
+"Equilíbrio... mas equilíbrio pode ser apenas covardia disfarçada."
+Ele abre um portal prateado, e você é puxado para dentro.
+
+                  
+Você acorda em:
+
+            """)
+            input("\nPressione ENTER para continuar")
+            limpar_terminal()
+            if not nivel_destruicao_3(player):
+                game_over()
+        else:
+            print("Combinação inválida de caminho!")
+            game_over()
+
     limpar_terminal()
 #=====================
 #   Status jogador nivel15

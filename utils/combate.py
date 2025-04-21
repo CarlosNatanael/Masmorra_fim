@@ -64,7 +64,7 @@ def ganhar_xp(player, xp_ganho):
 
         print(f"\n🎉 {player['nome']} subiu para o nível {player['nivel']}!")
         print("Seus atributos aumentaram:")
-        print(f"Vida: {player['vida']}, Força: {player['força']}, Defesa: {player['defesa']}")
+        print(f"Vida: {player['vida']}, Força: {player['força']}, Defesa: {player['defesa']}\n")
 
 def combate(player, inimigos):
     player["habilidade_usada"] = False

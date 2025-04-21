@@ -2,10 +2,9 @@ import time
 from utils.utils import limpar_terminal
 from utils.combate import combate
 
-
-
 def nivel_cinco(player):
-    print("Nível 5: A Sala do Guardião\n")
+
+    print("Capítulo 5: A Sala do Guardião\n")
     time.sleep(5)
     print(""" 
 O portal se fecha atrás de você com um estrondo que ecoa como um trovão agonizante.
@@ -20,7 +19,7 @@ ergue-se um templo circular onde as leis da realidade parecem dobrar-se sob uma 
     time.sleep(5)
     
     print(""" 
-E então você o vê. Eldramar. 
+E então você o vê. Velthurion. 
 
 O velho misterioso que você encontrou no início agora se revela em sua verdadeira forma:
 Um colosso de três metros de altura, com pele tão pálida que parece translúcida,
@@ -29,11 +28,11 @@ você vê apenas um abismo - dois poços sem fundo que sugam sua coragem.
     """)
     time.sleep(6)
     
-    print(f'\n"Ah... {player["nome"]}." Sua voz ecoa dentro do seu crânio.\n'
-          '"Ou devo chamá-lo de... intruso? Sobrevivente? Ou talvez...\n'
-          'apenas mais um tolo que acredita ser especial?"\n')
+    print(f'\nVelthurion : Ah... {player["nome"]}." Sua voz ecoa dentro do seu crânio.\n'
+          'Velthurion : Ou devo chamá-lo de... intruso? Sobrevivente? Ou talvez...\n'
+          'Velthurion : apenas mais um tolo que acredita ser especial?"\n')
     time.sleep(5)
-    print('Eldramar ergue uma mão esquelética e sussurra: "Mostre-me do que é capaz."\n'
+    print('Velthurion ergue uma mão esquelética e sussurra: "Mostre-me do que é capaz."\n'
           'O chão se abre e uma figura emerge das profundezas - uma massa de pura escuridão\n'
           'que toma a forma de um guerreiro ancestral, seus olhos queimando com fogo negro.\n')
     time.sleep(5)
@@ -47,22 +46,22 @@ você vê apenas um abismo - dois poços sem fundo que sugam sua coragem.
         "nivel": 5,
     }
 
-    print("Eldramar riu e o mundo se despedaçou!\n")
+    print("Velthurion riu e o mundo se despedaçou!\n")
     time.sleep(4)
     input("\nPrepare-se para o combate! Pressione ENTER...\n")
     if not combate(player, [monstro]):
         return False
     
-    print('\n"Bom... muito bom." Eldramar se levanta do trono, seu manto de sombras se arrastando.\n'
+    print('\nVelthurion : Bom... muito bom. Velthurion se levanta do trono, seu manto de sombras se arrastando.\n'
           '"Mas isso foi apenas um aquecimento.\n')
     time.sleep(5)
-    print('Eldramar ri enquanto seu corpo começa a se dividir.\n'
-          'Você realmente acredita que pode desafiar\n'
-          'aquele que teceu os fios do seu destino desde o início?"\n')
+    print('Velthurion ri enquanto seu corpo começa a se dividir.\n'
+          'Velthurion : Você realmente acredita que pode desafiar\n'
+          'Velthurion : aquele que teceu os fios do seu destino desde o início?"\n')
     time.sleep(5)
 
     cloneEld = {
-        "nome": "Eldramar",
+        "nome": "Velthurion : ",
         "classe": "Mago Supremo",
         "vida": 100,
         "força": 55,
@@ -78,12 +77,12 @@ você vê apenas um abismo - dois poços sem fundo que sugam sua coragem.
         return False
     
     print("Sangrando e exausto, você se arrasta até o centro do salão.\n"
-          "Eldramar está sentado em seu trono, examinando você com curiosidade mórbida.\n")
+          "Velthurion está sentado em seu trono, examinando você com curiosidade mórbida.\n")
     time.sleep(4)
     
-    print(f'\n"Conte-me, {player["nome"]}... como foi derrotar parte de mim mesmo?"\n'
+    print(f'\nVelthurion : Conte-me, {player["nome"]}... como foi derrotar parte de mim mesmo?\n'
           'Ele inclina a cabeça. "Não responda. Sei que você ainda não compreende\n'
-          'a verdadeira natureza deste lugar... mas terá sua chance."\n')
+          'Velthurion : a verdadeira natureza deste lugar... mas terá sua chance."\n')
     time.sleep(5)
     
     print("Com um gesto, um pergaminho antigo materializa-se no ar diante de você,\n"
@@ -101,15 +100,15 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
     print("2. Inventar uma mentira (Astúcia)")
     print("3. Destruir o pergaminho (Determinação)")
     
-    escolha = input("Sua decisão (1-3): ").strip()
     while True:
+        escolha = input("Sua decisão (1-3): ").strip()
         if escolha == "1":
             player["medo"] = input("Digite seu verdadeiro medo: ").strip()
-            print(f"\nEldramar : sorri 'Ah... {player['medo']}. Interessante.'")
+            print(f"\nVelthurion :  : sorri 'Ah... {player['medo']}. Interessante.'")
             time.sleep(3)
-            print("Eldramar: Então você não aprendeu nada. (A masmorra começa a desmoronar!)")
+            print("Velthurion : : Então você não aprendeu nada. (A masmorra começa a desmoronar!)")
             time.sleep(3)
-            print("Eldramar invoca um Minotauro para combate\n")
+            print("Velthurion :  invoca um Minotauro para combate\n")
 
             minotauro = {
                 "nome": "Minotauro das Sombras",
@@ -126,16 +125,16 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
                 return False
         
         elif escolha == "2":
-            print("\nEldramar : Eu já sabia. Ele lança um feitiço que reduz sua vida em 20!")
+            print("\nVelthurion : Eu já sabia. Ele lança um feitiço que reduz sua vida em 20!")
             time.sleep(3)
             player["vida"] -= 20
             if player["vida"] <= 0:
                 return False
             return "feitico"
         elif escolha == "3":
-            print("\nA sala treme... algo pior que Eldramar desperta!")
+            print("\nA sala treme... algo pior que Velthurion :  desperta!")
             time.sleep(4)
-            print("Um dragão das sombras surge do manto de eldramar.")
+            print("Um dragão das sombras surge do manto de Velthurion : .\n")
 
             dragao = {
                 "nome": "Dragão ",
@@ -154,15 +153,25 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
             print("Escolha inválida! Digite 1, 2 ou 3")
             return False
         
+
+        caminho = None
+        if escolha == "1":  
+            caminho = "verdade"
+        elif escolha == "2":
+            caminho = "mentira"
+        elif escolha == "3":
+            caminho = "destruicao"
     
-def fase_final(playe, caminho)    :
+        return fase_prova_final(player, caminho)
+
+def fase_prova_final(player, escolha_final):
     limpar_terminal()
     print("""
-O salão tremeu quando Eldramar ergueu a mão, interrompendo o combate. 
+O salão tremeu quando Velthurion :  ergueu a mão, interrompendo o combate. 
 Suas sombras recuaram, e o ar ficou pesado, como antes de uma tempestade.
         """)
     time.sleep(5)
-    print("\nEldramar : Você sobreviveu até aqui... mas agora vem o verdadeiro teste.")
+    print("\nVelthurion : Você sobreviveu até aqui... mas agora vem o verdadeiro teste.")
     print("(Ele estalou os dedos.)")
     print("(E de repente, eu não estava mais na masmorra.)")
     print(""" 
@@ -170,12 +179,12 @@ Estava de volta àquela mesma cena do início—a rua empoeirada, a criança fam
 O mercador gritava, a criança tremia, e eu estava parado no meio, exatamente como antes.
         """)
     time.sleep(4)
-    print("\n(Só que agora, Eldramar estava lá também, observando como um juiz silencioso.)\n")
+    print("\n(Só que agora, Velthurion :  estava lá também, observando como um juiz silencioso.)\n")
 
     print("\n(A cena reiniciou.)")
     print("(A criança agarrou a maçã. O mercador rugiu.)\n")
     time.sleep(5)
-    print("Eldramar sussurra em seu ouvido:")
+    print("Velthurion : sussurra em seu ouvido:")
     print("\"Agora, escolha com sabedoria. Esta decisão moldará seu destino.\"")
     
     print("\n1. Impor a justiça (Lei acima de tudo)")
@@ -184,9 +193,7 @@ O mercador gritava, a criança tremia, e eu estava parado no meio, exatamente co
     
     while True:
         escolha_final = input("\nSua decisão final (1-3): ").strip()
-        
         if escolha_final in ["1", "2", "3"]:
-                # Retorna o caminho escolhido para o nível 6 específico
-            return f"{caminho}_{escolha_final}" 
+            return (escolha_final)
         print("Escolha inválida!")
 
