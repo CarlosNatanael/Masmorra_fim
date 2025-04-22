@@ -1,4 +1,4 @@
-# pyinstaller --onefile --add-data "nivel1.py;." --add-data "nivel2.py;." --add-data "nivel3.py;." --add-data "nivel4.py;." --add-data "nivel5.py;." --add-data "utils/combate.py;utils" --add-data "utils/creditos.py;utils" --add-data "utils/personagem.py;utils" --add-data "utils/utils.py;utils" --add-data "utils/image.png;utils" --add-data "icone.ico;." --icon="icone.ico" --name "MasmorraDoFim" main.py
+# pyinstaller --onefile --add-data "niveis/nivel1.py;niveis" --add-data "niveis/nivel2.py;niveis" --add-data "niveis/nivel3.py;niveis" --add-data "niveis/nivel4.py;niveis" --add-data "niveis/nivel5.py;niveis" --add-data "niveis/nivel6_1.py;niveis" --add-data "niveis/nivel6_2.py;niveis" --add-data "niveis/nivel6_3.py;niveis" --add-data "utils/combate.py;utils" --add-data "utils/creditos.py;utils" --add-data "utils/personagem.py;utils" --add-data "utils/utils.py;utils" --add-data "utils/image.png;utils" --add-data "icone.ico;."--icon="icone.ico" --name "MasmorraDoFim" main.py
 
 
 from utils.personagem import escolher_classe
