@@ -127,15 +127,15 @@ Sangrando e esgotado, você encontra uma fenda na escuridão... e encontra algo 
             print("Você encontra um Wendigo um espírito de canibalismo e fome insaciável")
             time.sleep(5)
             wendigo = {
-            "nome": "Wendigo",
-            "classe": "Besta",
-            "vida": 110,
-            "força": 70,
-            "defesa": 80,
-            "magia": 80,
-            "habilidade": "Corte Sangrento",
-            "nivel": 9,
-            "xp": 100
+                "nome": "Wendigo",
+                "classe": "Besta",
+                "vida": 110,
+                "força": 70,
+                "defesa": 80,
+                "magia": 80,
+                "habilidade": "Corte Sangrento",
+                "nivel": 9,
+                "xp": 100
             }
             input("\nPrepare-se para enfrentar seu pior pesadelo! Pressione ENTER...\n")
             if not combate(player, [wendigo]):
@@ -152,15 +152,15 @@ Ele ri, ferido, mas não morto.
 "Esperto... veremos até quando consegue resistir."
             """)
             lorde = {
-            "nome": "Lorde dos Desesperados",
-            "classe": "Besta",
-            "vida": 150,
-            "força": 70,
-            "defesa": 50,
-            "magia": 80,
-            "habilidade": "Lama venenosa",
-            "nivel": 9,
-            "xp": 100
+                "nome": "Lorde dos Desesperados",
+                "classe": "Besta",
+                "vida": 150,
+                "força": 70,
+                "defesa": 50,
+                "magia": 80,
+                "habilidade": "Lama venenosa",
+                "nivel": 9,
+                "xp": 100
             }
             input("\nPrepare-se para enfrentar O Lorde dos Desesperados! Pressione ENTER...\n")
             if not combate(player, [lorde]):

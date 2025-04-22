@@ -31,8 +31,8 @@ Você descide olhar a sua bolsa de itens.
         time.sleep(3)
 
         monstros = [
-            {"nome": "Lizard", "classe": "Guerreiro", "vida": 50, "força": 45, "magia": 20, "defesa": 30, "nivel": 4},
-            {"nome": "Golem do pântano", "classe": "Guerreiro", "vida": 80, "força": 36, "magia": 30, "defesa": 60, "nivel": 5}
+            {"nome": "Lizard", "classe": "Guerreiro", "vida": 70, "força": 36, "magia": 20, "defesa": 30, "nivel": 4},
+            {"nome": "Golem do pântano", "classe": "Guerreiro", "vida": 80, "força": 26, "magia": 30, "defesa": 60, "nivel": 5}
         ]
 
         input("Prepare-se para o combate! Pressione ENTER...\n")
@@ -51,7 +51,7 @@ Você descide olhar a sua bolsa de itens.
         "nome": "Grumor, o Devorador de Errantes",
         "classe": "Besta",
         "vida": 120,
-        "força": 50,
+        "força": 36,
         "magia": 40,
         "defesa": 50,
         "habilidade": "Sufocamento de Lama",
@@ -139,6 +139,7 @@ Você descide olhar a sua bolsa de itens.
                     time.sleep(3)
 
                     player["atacou_rocha"] = True
+                    
                     if player["vida"] <= 0:
                         print("\nSua ferida é grave demais para continuar...")
                         return False
@@ -177,9 +178,6 @@ Você descide olhar a sua bolsa de itens.
                 print("\nO golem se desfaz em pedras, revelando o portal instável por trás dele!")
                 input("\nPressione ENTER para atravessar o portal...")
                 return True
-
-
-
     else:
         print("\nO portal permanece selado. Você precisa encontrar a chave adequada!")
         return False
