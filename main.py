@@ -2,16 +2,16 @@
 
 
 from utils.personagem import escolher_classe
-from nivel1 import nivel_um
-from nivel2 import nivel_dois
-from nivel3 import nivel_tres
-from nivel4 import nivel_quatro
-from nivel5 import nivel_cinco
+from niveis.nivel1 import nivel_um
+from niveis.nivel2 import nivel_dois
+from niveis.nivel3 import nivel_tres
+from niveis.nivel4 import nivel_quatro
+from niveis.nivel5 import nivel_cinco
 from utils.creditos import creditos_finais
 from utils.utils import limpar_terminal
-from nivel6_1 import nivel_verdade_1
-from nivel6_2 import nivel_mentira_2
-from nivel6_3 import nivel_destruicao_3
+from niveis.nivel6_1 import nivel_verdade_1
+from niveis.nivel6_2 import nivel_mentira_2
+from niveis.nivel6_3 import nivel_destruicao_3
 import time
 
 def game_over():
