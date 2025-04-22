@@ -20,7 +20,7 @@ def habilidade_especial(player, inimigos):
         print("Você usou Benção divina e recuperou 30 de vida")
 
     elif player["classe"] == "Arqueiro":
-        dano = player["força"] + random.randint(5, 10)
+        dano = player["força"] + random.randint(10, 20)
         for inimigo in inimigos[:]:
             inimigo["vida"] -= dano
             print(f"Você usou Tiro Certeiro em {inimigo['nome']} e causou {dano} de dano")
@@ -30,7 +30,7 @@ def habilidade_especial(player, inimigos):
                 inimigos.remove(inimigo)
 
     elif player["classe"] == "Guerreiro":
-        dano = player["força"] + random.randint(10, 15)
+        dano = player["força"] + random.randint(10, 20)
         for inimigo in inimigos[:]:
             inimigo["vida"] -= dano
             print(f"Você usou Decapitação em {inimigo['nome']} e causou {dano} de dano")
