@@ -1,4 +1,5 @@
 from utils.combate import combate
+from utils.utils import limpar_terminal
 import time
 import random
 
@@ -70,30 +71,101 @@ mas com um rosto completamente liso - gesticulava em minha direção.
                 return False 
 
         elif escolha == "3":
-            print("\nVocê corre até a cortina negra. Atrás dela...")
+            print("\nVocê se afasta do Diretor, sentindo um frio inexplicável vindo da cortina negra.")
             time.sleep(2)
-            print("...há um homem velho, acorrentado, com penas e tinta nas mãos. O verdadeiro autor.")
+            print("Ao se aproximar, percebe que a cortina não é tecido - é feita de sombras sólidas que se agitam como chamas congeladas.")
+            time.sleep(3)
+            print("Ao tocá-la, suas mãos afundam na escuridão como em água negra...")
             time.sleep(2)
-            print("Ele sussurra: \"O Diretor nos escraviza. Rasgue o roteiro, liberte o palco.\"")
+    
+            print("\nDe repente, você é puxado para dentro! O mundo gira e...")
+            time.sleep(3)
+            limpar_terminal()
+    
+            print("""\n
+Num pequeno cubículo atrás do palco, um homem esquelético está acorrentado a uma escrivaninha.
+Suas mãos ensanguentadas seguram uma pena de ferro, arranhando incessantemente pergaminhos.
+            """)
+            time.sleep(4)
+    
+            print("Ele levanta o rosto - ou o que resta dele - e você vê:")
+            print("1. Seus próprios olhos refletidos")
+            print("2. Olhos vazios como os do Diretor")
+            print("3. Nada - apenas buracos negros")
             time.sleep(2)
-            print("\n(Você rasga o roteiro.)\n")
+    
+            olhos = random.choice([1, 2, 3])
+            if olhos == 1:
+                print("\nSão SEUS olhos! O homem sorri com seus lábios costurados:")
+            elif olhos == 2:
+                print("\nOs mesmos olhos do Diretor! O homem rosna como uma fera:")
+            else:
+                print("\nSeu estômago embrulha ao ver o vazio onde deveriam estar os olhos. Ele sussurra:")
+    
+            print('"Ele me roubou... como roubou de você... o FIM é a única saída verdadeira."')
+            time.sleep(3)
+    
+            print("\nVocê nota que:")
+            print("1. As correntes estão enferrujadas")
+            print("2. Há uma chave pendurada na parede")
+            print("3. Suas mãos já estão segurando a pena")
             time.sleep(2)
-            print("Diretor: O SHOW DEVE CONTINUAR!, gritou o Diretor, enquanto o teatro começava a desmoronar.\n")
+    
+            acao = input("O que faz? (1-3): ").strip()
+            if acao in ["1", "2"]:
+                print("\nAo libertar o homem, ele se dissolve em páginas de um livro antigo.")
+                print("As palavras voam e se reorganizam no ar, formando um novo roteiro:")
+                print('"O ÚLTIMO ATO: O DESTRUIR DO CRIADOR"')
+            else:
+                print("\nA pena queima sua mão! Sangue escorre no pergaminho, escrevendo sozinho:")
+                print('"O PREÇO DA VERDADE: O FIM DA ILUSÃO"')
+    
+            time.sleep(4)
+            limpar_terminal()
+    
+            print("\nO teatro inteiro treme quando você reaparece no palco, o roteiro original em chamas!")
+            print('O Diretor grita: "NÃO! ESSE NÃO É O FINAL ESCRITO!"')
+            time.sleep(3)
+    
             diretor = {
-            "nome": "Diretor",
-            "classe": "Mago",
-            "vida": 100,
-            "força": 70,
-            "defesa": 80,
-            "habilidade": "Troca de Papéis",
-            "nivel": 9,
-            "xp": 200
+                "nome": "O Diretor",
+                "classe": "Mago",
+                "vida": 120,
+                "força": 70,
+                "magia": 90,
+                "defesa": 85,
+                "habilidade": ["Troca de Papéis", "Grito de Plateia", "Final Forçado"],
+                "nivel": 10,
+                "xp": 250,
             }
-            input("\nPrepare-se para enfrentar O Diretor! Pressione ENTER...\n")
+    
+            print("\nO palco se transforma em um campo de batalha surreal:")
+            print("- Cenários caem como dominós")
+            print("- Cordas de marionetes se tornam armadilhas")
+            print("- O chão está coberto de páginas rasgadas")
+            time.sleep(4)
+    
+            input("\nO show virou combate! Pressione ENTER...")
             if not combate(player, [diretor]):
-                return 
-            print("O teatro inteiro era apenas mais uma camada da masmorra... e o Diretor, apenas mais um prisioneiro como eu.")
-            break
+                print("\nO Diretor ajusta sua gravata: 'Sempre precisamos de um vilão...'")
+                return False
+    
+            print("\nAo derrotar o Diretor, sua máscara se quebra revelando...")
+            time.sleep(3)
+            print("1. Seu próprio rosto")
+            print("2. O rosto do velho escritor")
+            print("3. Um vazio sem fim")
+    
+            revelacao = random.choice([1, 2, 3])
+            if revelacao == 1:
+                print("\nVocê era o Diretor o tempo todo. A masmorra ri.")
+            elif revelacao == 2:
+                print("\nEra você acorrentado. O ciclo recomeça.")
+            else:
+                print("\nNão há rosto. Não há história. Apenas o vazio.")
+    
+            player['xp'] += 300
+            player['nivel'] += 1
 
         else:
             print("Escolha inválida. Tente novamente.")
