@@ -76,8 +76,11 @@ def main():
     print("""
                                 Jogo em desenvolvimento 
           
-    Progamador:                                             [Masmorra do Fim - versão beta]
+    Progamador/Desenvolvimento:                                             [Masmorra do Fim - versão beta]
     Carlos Natanael
+          
+    Desenvolvedor Tester:
+    Arthur Yabuchi
                                        
     - Inplementação de novos níveis
     - 8 níveis completos
