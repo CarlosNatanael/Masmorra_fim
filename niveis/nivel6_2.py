@@ -60,8 +60,8 @@ Você pode:
             print("Sem oferecer algo, você é forçado a enfrentar os esqueletos.\n")
             time.sleep(5)
             inimigos = [
-                {"nome": "Esqueleto Guerreiro", "classe": "Guerreiro", "vida": 70, "força": 55, "defesa": 60, "nivel":7},
-                {"nome": "Esqueleto Arqueiro", "classe": "Arqueiro", "vida": 40, "força": 75, "defesa": 40, "nivel":7}
+                {"nome": "Esqueleto Guerreiro", "classe": "Guerreiro", "vida": 70, "força": 45, "defesa": 60, "nivel":7},
+                {"nome": "Esqueleto Arqueiro", "classe": "Arqueiro", "vida": 40, "força": 55, "defesa": 40, "nivel":7}
             ]
             input("Prepare-se para o combate! Pressione ENTER...\n")
             if not combate(player, inimigos):

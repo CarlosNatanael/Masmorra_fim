@@ -53,7 +53,7 @@ e olhos que refletiam infinitas regras escritas em ar puro.
         "nome": "Anjo da Obediência",
         "classe": "Anjo",
         "vida": 120,
-        "força": 60,
+        "força": 50,
         "defesa": 70,
         "magia": 80,
         "nivel": 10,
