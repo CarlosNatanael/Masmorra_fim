@@ -51,20 +51,20 @@ def ganhar_xp(player, xp_ganho):
         player["xp_proximo_nivel"] = int(player["xp_proximo_nivel"] * 1.5)
 
         player["vida"] += 10
-        player["força"] += 2
-        player["defesa"] += 1
+        player["força"] += 4
+        player["defesa"] += 3
         if player["classe"] == "Mago":
-            player["magia"] += 3
+            player["magia"] += 4
         elif player["classe"] == "Paladino":
-            player["força"] += 3
+            player["vida"] += 4
         elif player["classe"] == "Arqueiro":
-            player["força"] += 3
+            player["força"] += 4
         elif player["classe"] == "Guerreiro":
-            player["força"] += 3
+            player["força"] += 4
 
         print(f"\n🎉 {player['nome']} subiu para o nível {player['nivel']}!")
         print("Seus atributos aumentaram:")
-        print(f"Vida: {player['vida']}, Força: {player['força']}, Defesa: {player['defesa']}\n")
+        print(f"Vida: {player['vida']}, Força: {player['força']}, Magia: {player['magia']}, Defesa: {player['defesa']}\n")
 
 def combate(player, inimigos):
     player["habilidade_usada"] = False
