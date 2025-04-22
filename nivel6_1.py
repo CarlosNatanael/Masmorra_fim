@@ -2,32 +2,56 @@ import time
 from utils.combate import combate
 
 def nivel_verdade_1(player):
-    print("Capítulo 6:  O Cárcere das Almas Perdidas\n")
+    print("Capítulo 6:  O Cárcere das Almas Perdidas")
     time.sleep(2)
     print("""
 O vazio engoliu-me por um momento infinito, até que meu corpo atingiu algo frio e metálico. 
 Quando abri os olhos, estava de joelhos em uma plataforma de ferro, flutuando no meio do nada.
-    
     """)
     time.sleep(5)
     print("""
 À minha volta, centenas de celas suspensas pairando no vazio, cada uma fechada por portas de arame farpado e luzes piscando em vermelho. 
 De dentro, mãos esqueléticas se agarravam às grades, e vozes roucas sussurravam em uníssono:          
     """)
-    print("\n(Liberta-nos... ou junte-se a nós.)\n")
+    time.sleep(5)
+    print("(Liberta-nos... ou junte-se a nós.)")
+    time.sleep(5)
     print("""
 No centro de tudo, uma torre de ossos se erguia, e no topo, uma figura brilhante observava tudo com olhos impassíveis.          
     """)
+    time.sleep(5)
     print("\nO Anjo da Obediência.\n")
+    time.sleep(5)
     print("""
 As celas não estavam presas ao chão—elas se moviam, girando lentamente como um carrossel macabro. 
 Algumas tinham prisioneiros que pareciam humanos, outros eram criaturas que mal conseguia descrever. Todos repetiam a mesma coisa:
           
 "Não merecemos estar aqui!"
     """)
+    time.sleep(5)
+    print("Uma placa de ferro enferrujada estava cravada no chão:")
+    print("REGRA 1: A DESOBEDIÊNCIA É O ÚNICO PECADO.")
+    time.sleep(5)
+    from utils.utils import usar_itens
+    if not usar_itens(player):
+        return False
+    print("""
+Você avança por plataformas instáveis, saltando entre elas, desviando das Correntes da Conformidade
+que tentam arrastá-lo para as celas vazias. Algumas criaturas imploram. Outras apenas olham.  
+    """)
+    time.sleep(5)
+    print("""
+Quando finalmente cheguei à torre, o Anjo desceu.
+
+Ele era belo e terrível—asas de luz cortadas por arames farpados, um rosto perfeito sem boca 
+e olhos que refletiam infinitas regras escritas em ar puro.
+
+"Você veio pela chave," ele disse, sem mover os lábios. "Mas ela só é dada àqueles que entendem."
+    """)
+    time.sleep(6)
     anjo = {
         "nome": "Anjo da Obediência",
-        "classe": "Anjo caído",
+        "classe": "Anjo",
         "vida": 120,
         "força": 60,
         "defesa": 70,
@@ -35,8 +59,66 @@ Algumas tinham prisioneiros que pareciam humanos, outros eram criaturas que mal 
         "nivel": 10,
         "habilidade": "Julgamento Divino"
     }
+    input("\nPrepare-se para enfrentar Anjo da Obediência ! Pressione ENTER...\n")
+    if not combate(player, [anjo]):
+        return False
     
-    if combate(player, [anjo]):
-        print("\nAs celas se quebram! Você libertou os prisioneiros... mas a que custo?", 4)
-        return True
-    return False
+    print("Após uma arda batalha contra o anjo, ele se afasta")
+
+    print(f"""
+Você vê uma alavanca cravada no chão metálico da torre. O Anjo se cala, esperando.
+Você sente a presença de Velthurion nas sombras, observando.
+
+"Escolha, {player["nome"]}. Você prefere ser o juiz... ou o condenado?"
+
+1. Puxar a alavanca e libertar todos.
+2. Destruir a alavanca e manter o cárcere selado.
+3. Não fazer nada e assumir o lugar do Anjo.
+    """)
+
+    while True:
+        escolha_6 = input("Sua decisão final (1-3): ").strip()
+        if escolha_6 == "1":
+            print("\nVocê puxa a alavanca. As celas se abrem. Gritos. Sussurros. Algumas criaturas fogem em silêncio.")
+            time.sleep(5)
+            print("Outras atacam. Mas entre elas, olhos humanos choram de gratidão. O cárcere rui.")
+            time.sleep(5)
+            print("Você escapa por um portal...\n")
+            break
+        elif escolha_6 == "2":
+            print("\nVocê destrói a alavanca. O Anjo observa em silêncio... e então sorri.")
+            time.sleep(5)
+            print("Ele lhe entrega a chave mestra. Você pode sair... mas carrega o peso de saber que perpetuou o sofrimento.")
+            time.sleep(5)
+            print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
+            print(f"| » Status atual: Monarca das Sombra ({player['classe']})\n")
+            time.sleep(5)
+            print("""
+Então o Anjo invade minha mente e deixa a seguinta frase:
+                  
+    A cada nivel você se torna mais parecido com ele....
+
+            """)
+            time.sleep(5)
+            print("Você escapa por um portal...\n")
+            break
+        elif escolha_6 == "3":
+            print("\nVocê não se move. O Anjo toca sua testa. Um brilho o envolve.")
+            time.sleep(5)
+            print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma\n")
+            print(f"| » Status atual: Monarca das Sombra ({player['classe']})\n")
+            time.sleep(5)
+            print("""
+Então o Anjo invade minha mente e deixa a seguinta frase:
+                  
+    A cada nivel você se torna mais parecido com ele....
+
+            """)
+            time.sleep(5)
+            print("Você escapa por um portal...\n")
+            break
+        else:
+            print("Escolha inválida!")
+
+    input("Você avança. Pressione ENTER para continuar...\n")
+    return True

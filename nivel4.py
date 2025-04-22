@@ -8,10 +8,16 @@ def nivel_quatro(player):
     print("Capítulo 4: O Pântano do Desespero\n")
     time.sleep(5)
     print("""
-O ar cheirava a folhas apodrecidas e carne em decomposição. Árvores esqueléticas se contorciam como dedos ossudos, e a água estagnada borbulhava com coisas se movendo sob a superfície.
+O ar cheirava a folhas apodrecidas e carne em decomposição. Árvores esqueléticas se contorciam como dedos ossudos, 
+e a água estagnada borbulhava com coisas se movendo sob a superfície.
+          
+Você descide olhar a sua bolsa de itens.
     """)
+    from utils.utils import usar_itens
+    if not usar_itens(player):
+        return False
     time.sleep(5)
-    print("\n(Pisei em algo macio.)")
+    print("\n(Você continua e pisa em algo macio.)")
     print("(Era um rosto.)\n")
     print("Um cadáver preservado pelo pântano, seus olhos ainda abertos, a boca congelada em um grito silencioso.")
     print('??? : "Bem-vindo ao Pântano das Almas Perdidas," sussurrou uma voz na névoa. ')
@@ -89,9 +95,9 @@ O ar cheirava a folhas apodrecidas e carne em decomposição. Árvores esquelét
                 if usar_chave(player):
                     print("\nA chave se encaixa perfeitamente, como se fosse feita para este momento.")
                     time.sleep(2)
-                    print("O símbolo ancestral começa a girar, cada runa se acendendo em sequência...")
+                    print("O símbolo ancestral começa a girar, cada runa se acendendo em sequência...\n")
                     time.sleep(3)
-                    print("A rocha treme violentamente, rachando-se no meio!")
+                    print("A rocha treme violentamente, rachando-se no meio!\n")
                     time.sleep(2)
                     print("Dentro da fissura, um vórtice de energia púrpura se forma, crescendo até")
                     print("atingir o tamanho de um portal plenamente funcional.\n")

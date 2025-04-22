@@ -63,11 +63,11 @@ def nivel_tres(player):
         "nivel": player["nivel"] + 1,
     }
 
-    input("Prepare-se para o combate! Pressione ENTER...\n")
+    input("\nPrepare-se para o combate! Pressione ENTER...\n")
     if not combate(player, [golem]):
         return False
 
-    print("\nVelkar : Você quer a chave para sair da masmorra, não é? Ele ergueu a mão, e um livro flutuou até ele.")
+    print("Velkar : Você quer a chave para sair da masmorra, não é? Ele ergueu a mão, e um livro flutuou até ele.")
     print("Velkar : Está aqui. Mas primeiro... vamos ver se você é digno de ler.\n")
     time.sleep(4)
 
@@ -87,12 +87,11 @@ def nivel_tres(player):
         return False
 
     print("\nVelkar caiu de joelhos, seus olhos perdendo o brilho púrpura.")
-    print("Com seu último suspiro, ele murmurou: 'O saber... deve ser temido...\n'")
+    print("Com seu último suspiro, ele murmurou: O saber... deve ser temido...\n")
     print("O corpo do mago dissolveu-se em tinta escura, seus gritos afogando-se em um redemoinho de páginas rasgadas.")
     time.sleep(5)
     print("Ao seu lado, um livro dourado flutuava até minhas mãos. Um tomo sagrado. Talvez... a chave para entender essa masmorra.\n")
     time.sleep(5)
-
     print("Um item caiu no chão ,e eu o peguei antes que as sombras o engolissem.")
     print("(Isso deve ser a chave...)\n")
     player["itens"]["chave de ébano"] = 1
@@ -102,7 +101,7 @@ def nivel_tres(player):
     for item, qtd in player["itens"].items():
         print(f"- {item}: {qtd}")
     time.sleep(5)
-    print("\n chão da biblioteca começou a afundar.\n")
+    print("\nChão da biblioteca começou a afundar.\n")
     print("Madeira rachou, estantes desmoronaram, e de repente—")
     time.sleep(5)
     print("—PLOFT—\n")
@@ -111,5 +110,5 @@ def nivel_tres(player):
     time.sleep(5)
     print("A biblioteca tinha desaparecido. Agora, tudo ao meu redor era lama, névoa e silêncio sufocante.")
 
-    input("Você avança. Pressione ENTER para continuar...\n")
+    input("\nVocê avança. Pressione ENTER para continuar...\n")
     return True

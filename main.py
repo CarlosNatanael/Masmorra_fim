@@ -73,16 +73,15 @@ def main():
                     .--...-++..-+..+--.                 .+--.+..+-.---++...-+---.-                  
                    ---......-++++-..                                    .--------                        
     """)
-    time.sleep(2)
     print("""
                                 Jogo em desenvolvimento 
           
     Progamador:                                             [Masmorra do Fim - versão beta]
     Carlos Natanael
                                        
-    - Novo sistema de combate
-    - 5 níveis completos
-    - Melhorias de balanceamento
+    - Inplementação de novos níveis
+    - 8 níveis completos
+    - Melhorias e atualizações de combate
         
 
                        Copyright (c) 2025 by Carlos Natanael 
@@ -95,100 +94,94 @@ def main():
     mostrar_status_jogador(player)
     input()
     limpar_terminal()
-# #=====================
-# #   Nivel 1
-#     if not nivel_um(player):
-#         game_over()
-#         return
-#     limpar_terminal()
-# #=====================
-# #   Status jogador nivel1
-#     mostrar_status_jogador(player)
-#     input()
-#     limpar_terminal()
-# #=====================
-# #   Nivel 2
-#     if not nivel_dois(player):
-#         game_over()
-#         return
-#     limpar_terminal()
-# #=====================
-# #   Status jogador nivel2
-#     mostrar_status_jogador(player)
-#     input()
-#     limpar_terminal()
-# #=====================
-# #   Nivel 3
-#     if not nivel_tres(player):
-#         game_over()
-#         return
-#     limpar_terminal()
-# #=====================
-# #   Status jogador nivel3
-#     mostrar_status_jogador(player)
-#     input()
-#     limpar_terminal()
-# #=====================
-# #   Nivel 4
-#     if not nivel_quatro(player):
-#         game_over()
-#         return
-#     limpar_terminal()
-# #=====================
-# #   Status jogador nivel14
-#     mostrar_status_jogador(player)
-#     input()
-#     limpar_terminal()
 #=====================
-#   Nivel 5
-    if not nivel_cinco(player):
+#   Nivel 1
+    if not nivel_um(player):
         game_over()
         return
-    
+    limpar_terminal()
+#=====================
+#   Status jogador nivel1
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 2
+    if not nivel_dois(player):
+        game_over()
+        return
+    limpar_terminal()
+#=====================
+#   Status jogador nivel2
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 3
+    if not nivel_tres(player):
+        game_over()
+        return
+    limpar_terminal()
+#=====================
+#   Status jogador nivel3
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 4
+    if not nivel_quatro(player):
+        game_over()
+        return
+    limpar_terminal()
+#=====================
+#   Status jogador nivel14
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 5
     resultado_nivel5 = nivel_cinco(player)
-    
     if resultado_nivel5:
-        caminho = resultado_nivel5  
-        if caminho  == "1":
+        escolha_final = resultado_nivel5  
+        if escolha_final  == "1":
             print("""
 Você age como antes, seguindo as regras sem questionar.
-Eldramar sorri, mas não há calor em sua expressão.
+                  
+Velthurion sorri, mas não há calor em sua expressão.
 "Ordem. Respeito às estruturas. Interessante... mas será que a masmorra precisa de mais um carcereiro?"
 Ele ergue a mão, e o chão se abre sob seus pés.
 
 Você cai... e acorda em um lugar novo:
-
             """)
-            input("\nPressione ENTER para continuar")
+            input("Pressione ENTER para continuar")
             limpar_terminal()
             if not nivel_verdade_1(player):
                 game_over()
-        elif caminho == "2":
+        elif escolha_final == "2":
             print("""
 Você protege a criança, mesmo sabendo que está quebrando as regras.
-Eldramar ri, um som que ecoa como vidro quebrando.
+                  
+Velthurion ri, um som que ecoa como vidro quebrando.
 "Ah, o herói. O justiceiro. Mas será que sua bondade sobreviverá quando você vir o que realmente habita nas sombras?"
 Ele abre um portal negro com um gesto.
 
 Você é sugado para dentro... e acorda em:
-
             """)
-            input("\nPressione ENTER para continuar")
+            input("Pressione ENTER para continuar")
             limpar_terminal()
             if not nivel_mentira_2(player):
                 game_over()
-        elif caminho == "3":
+        elif escolha_final == "3":
             print("""
 Você resolve o conflito sem violência, mas sem ignorar a injustiça.
-Eldramar franze a testa, como se sua resposta fosse um enigma.
+                  
+Velthurion franze a testa, como se sua resposta fosse um enigma.
 "Equilíbrio... mas equilíbrio pode ser apenas covardia disfarçada."
 Ele abre um portal prateado, e você é puxado para dentro.
-
                   
 Você acorda em:
-
             """)
-            input("\nPressione ENTER para continuar")
+            input("Pressione ENTER para continuar")
             limpar_terminal()
             if not nivel_destruicao_3(player):
                 game_over()

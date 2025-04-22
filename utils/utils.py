@@ -1,8 +1,20 @@
 import os
 
+def mostrar_status_jogador(player):
+    print(f"""
+┌───────────────────┬───────────────────┐
+│      STATUS       │     ATRIBUTOS     │
+├───────────────────┼───────────────────┤
+│                   │ Vida:   {player['vida']:<5}     │
+│Nível: {player['nivel']:<8}    │ Força:  {player['força']:<5}     │
+│XP: {player['xp']:<3}            │ Magia:  {player['magia']:<5}     │
+│                   │ Defsa: {player['defesa']:<5}      │
+┴───────────────────┴───────────────────┴
+""")
 
 def usar_itens(player):
     while True:
+        mostrar_status_jogador(player)
         print("\nItens disponíveis:")
         for i, (item, qtd) in enumerate(player["itens"].items(), 1):
             print(f"{i}. {item} (x{qtd})")
@@ -20,9 +32,9 @@ def usar_itens(player):
             if player["itens"][item] > 0:
                 if item == "poção de cura":
                     player["vida"] = min(player["vida"] + 20, 100)
-                    print(f"Você recuperou 20 de vida! ({player['vida']}/100)")
+                    print(f"\nVocê recuperou 20 de vida! ({player['vida']}/100)")
                 player["itens"][item] -= 1
-                input("Pressione ENTER para continuar...")
+                input("\nPressione ENTER para continuar...")
                 return True
             else:
                 print("Você não tem mais deste item!")
