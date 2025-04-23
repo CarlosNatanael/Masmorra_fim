@@ -164,7 +164,7 @@ def combate(player, inimigos):
             print(f"{monstro['nome']} atacou você causando {dano_monstro} de dano!")
 
         if player["vida"] <= 0:
-            print("\n💀Você foi derrotado! Game over!💀\n")
+            print("\n💀 Você foi derrotado! Game over! 💀\n")
             input("Pressione ENTER para continuar\n")
             return False
 
