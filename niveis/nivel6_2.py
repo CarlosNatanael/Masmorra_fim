@@ -44,7 +44,7 @@ Você pode:
 1. Oferecer a lembrança aos mortos.
 2. Recusar-se a esquecê-la e tentar saltar.
     """)
-    # time.sleep(5)
+    time.sleep(5)
     while True:
         escolha_ponte = input("Sua escolha (1 ou 2): ").strip()
         if escolha_ponte == "1":

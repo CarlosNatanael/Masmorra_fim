@@ -43,11 +43,42 @@ Até que seu próprio reflexo não te reconheça." (balança a lamparina, onde l
 
         """)
     elif escolha == "2":
-        print("\nVocê segue sua própria voz em ecos distantes.")
+        print("\nVocê segue a diante nas catacumbas...")
         time.sleep(5)
-        print("De repente, uma sombra toma forma: um fragmento seu, esquecido pelo tempo.")
+        print("De repente, uma sombra toma forma: O Colecionador de Nomes....")
         time.sleep(5)
-        combate(player, "Eco Distorcido", 35, 9)
+        colecionador2 = {
+            "nome": "Colecionador de Nomes",
+            "classe": "Arqueiro",
+            "vida": 150,
+            "força": 60,
+            "defesa": 70,
+            "magia": 80,
+            "habilidade": "Memorias Mortas",
+            "nivel": 10,
+            "xp": 300
+        }
+        input("\nPrepare-se para enfrentar O Colecionador de Nomes! Pressione ENTER...\n")
+        if not combate(player,[colecionador2]):
+            return False
+        print("\nO Colecionador cai de joelhos, seus olhos costurados começam a sangrar fios de sombra.")
+        time.sleep(5)
+        print("Colecionador: (gargalhada rouca) Você quer mesmo saber a verdade? Então ouça bem, condenado...")
+        print("Colecionador: Velthurion não é o dono desta masmorra - ele é apenas o cozinheiro do banquete.\n")
+        time.sleep(5)
+        print("Colecionador: E você... (tosse convulsiva) você é o prato principal.")
+        print("Colecionador: Cada passo que dá aqui não é progresso - é apenas o fogo da forja crescendo mais forte.")
+        time.sleep(5)
+        print("Colecionador: Todos que vieram antes de você... (ergue mãos trêmulas) viraram combustível.")
+        print("Colecionador: Mas há uma brecha... (voz se torna um sussurro) A forja precisa de almas, mas não suporta a luz de sua própria chama.")
+        time.sleep(5)
+        print("Colecionador: Destrua o núcleo... (pele começa a descascar) e talvez... talvez você queime Velthurion com seu próprio fogo.")
+        print("\nSua pele começa a se fundir com as paredes úmidas, ossos estalando como gravetos secos.")
+        time.sleep(5)
+        print("Colecionador: (últimas palavras) Corra, tolo. Antes que ele sinta que você sabe demais...\n")
+        time.sleep(5)
+        input("O eco de sua risada final desaparece nos túneis. Você avança com o coração acelerado. [ENTER]...\n")
+        return True
     
     print("\nEscolha como explorar o labirinto:\n")
     print("1. Falar com o os Afogados Secos")
@@ -56,19 +87,98 @@ Até que seu próprio reflexo não te reconheça." (balança a lamparina, onde l
     escolha1 = input("Digite o número da sua escolha: ", ["1", "2"])
     
     if escolha1 == "1":
-        print("\nOs cadáveres bebem uma gota de sua água com reverência.")
+        print("\n(Os três cadáveres se viram em sincronia, olhos vazios brilhando com um líquido negro.)")
         time.sleep(5)
-        print("Um deles murmura: 'A chave está atrás da sua imagem, mas nunca olhe de frente para ela.'")
+        print("1º Afogado: (voz de água parada) Ele mente... o preço é maior do que diz...")
         time.sleep(5)
-        print("Você se prepara melhor para os enigmas futuros.")
+        print(""" 
+2º Afogado: (sussurro de vento em caverna) Nós... damos conselhos. De graça. (abre a boca, e um escorpião de carvão sai correndo pela língua ressecada)
+        """)
         time.sleep(5)
-    elif escolha1 == "2":
-        print("\nVocê segue sua própria voz em ecos distantes.")
+        print("""
+3º Afogado: (tom infantil) "Mas você tem que nos dar água! Só um gole! A gente promete não te puxar para o fundo!"
+        """)
         time.sleep(5)
-        print("De repente, uma sombra toma forma: um fragmento seu, esquecido pelo tempo.")
+        print(f"{player["nome"]}: (para o 3º Afogado) Vocês estão secos. Como podem beber?")
         time.sleep(5)
-        combate(player, "Eco Distorcido", 35, 9)
+        print("""
+Colecionador: (intervém, brusco) "Não desperdice tempo com eles. São só ecos de quem tentou burlar as regras." (ergue um frasco com um líquido turvo) "Uma memória por um mapa. Esse é o único negócio real aqui."
+        """)
+        time.sleep(5)
+        print("2º Afogado: (urgente) Ele quer seu passado para alimentar as paredes! Elas crescem com lembranças!")
+        time.sleep(5)
+        print("(Nesse momento, o Personagem nota: as paredes das catacumbas pulsam, como se tivessem veias sob a pedra.)")
 
-    print("\nNo sétimo dia, você encontra uma escada espiral descendo lentamente.")
-    print("No fundo, uma porta de osso esculpida com seu rosto — jovem de um lado, envelhecido do outro.")
-    print("Ela está entreaberta. Algo lá dentro... cheira como sua casa.")
+        print("O Colecionador ao ver que você não aceita a proposta ele lhe empurra as catacumbas")
+        time.sleep(5)
+        print("Ao avançar nas catacumbas você se depara com o Colecionador")
+        time.sleep(2)
+        colecionador = {
+            "nome": "Colecionador de Nomes",
+            "classe": "Arqueiro",
+            "vida": 100,
+            "força": 35,
+            "defesa": 70,
+            "magia": 80,
+            "habilidade": "Memorias Mortas",
+            "nivel": 9,
+            "xp": 200
+        }
+        input("\nPrepare-se para enfrentar O Colecionador de Nomes! Pressione ENTER...\n")
+        if not combate(player,[colecionador]):
+            return False
+        print("\nO Colecionador cai de joelhos, seus olhos costurados começam a sangrar fios de sombra.")
+        time.sleep(5)
+        print("Colecionador: (gargalhada rouca) Você quer mesmo saber a verdade? Então ouça bem, condenado...")
+        print("Colecionador: Velthurion não é o dono desta masmorra - ele é apenas o cozinheiro do banquete.\n")
+        time.sleep(5)
+        print("Colecionador: E você... (tosse convulsiva) você é o prato principal.")
+        print("Colecionador: Cada passo que dá aqui não é progresso - é apenas o fogo da forja crescendo mais forte.")
+        time.sleep(5)
+        print("Colecionador: Todos que vieram antes de você... (ergue mãos trêmulas) viraram combustível.")
+        print("Colecionador: Mas há uma brecha... (voz se torna um sussurro) A forja precisa de almas, mas não suporta a luz de sua própria chama.")
+        time.sleep(5)
+        print("Colecionador: Destrua o núcleo... (pele começa a descascar) e talvez... talvez você queime Velthurion com seu próprio fogo.")
+        print("\nSua pele começa a se fundir com as paredes úmidas, ossos estalando como gravetos secos.")
+        time.sleep(5)
+        print("Colecionador: (últimas palavras) Corra, tolo. Antes que ele sinta que você sabe demais...\n")
+        time.sleep(5)
+        input("O eco de sua risada final desaparece nos túneis. Você avança com o coração acelerado. [ENTER]...\n")
+        return True
+    elif escolha1 == "2":
+        print("\nVocê segue a diante nas catacumbas...")
+        time.sleep(5)
+        print("De repente, uma sombra toma forma: O Colecionador de Nomes....")
+        time.sleep(5)
+        colecionador2 = {
+            "nome": "Colecionador de Nomes",
+            "classe": "Arqueiro",
+            "vida": 150,
+            "força": 60,
+            "defesa": 70,
+            "magia": 80,
+            "habilidade": "Memorias Mortas",
+            "nivel": 10,
+            "xp": 300
+        }
+        input("\nPrepare-se para enfrentar O Colecionador de Nomes! Pressione ENTER...\n")
+        if not combate(player,[colecionador2]):
+            return False
+        print("\nO Colecionador cai de joelhos, seus olhos costurados começam a sangrar fios de sombra.")
+        time.sleep(5)
+        print("Colecionador: (gargalhada rouca) Você quer mesmo saber a verdade? Então ouça bem, condenado...")
+        print("Colecionador: Velthurion não é o dono desta masmorra - ele é apenas o cozinheiro do banquete.\n")
+        time.sleep(5)
+        print("Colecionador: E você... (tosse convulsiva) você é o prato principal.")
+        print("Colecionador: Cada passo que dá aqui não é progresso - é apenas o fogo da forja crescendo mais forte.")
+        time.sleep(5)
+        print("Colecionador: Todos que vieram antes de você... (ergue mãos trêmulas) viraram combustível.")
+        print("Colecionador: Mas há uma brecha... (voz se torna um sussurro) A forja precisa de almas, mas não suporta a luz de sua própria chama.")
+        time.sleep(5)
+        print("Colecionador: Destrua o núcleo... (pele começa a descascar) e talvez... talvez você queime Velthurion com seu próprio fogo.")
+        print("\nSua pele começa a se fundir com as paredes úmidas, ossos estalando como gravetos secos.")
+        time.sleep(5)
+        print("Colecionador: (últimas palavras) Corra, tolo. Antes que ele sinta que você sabe demais...\n")
+        time.sleep(5)
+        input("O eco de sua risada final desaparece nos túneis. Você avança com o coração acelerado. [ENTER]...\n")
+        return True
