@@ -111,8 +111,52 @@ Você descide olhar a sua bolsa de itens.
                     continue
 
             elif escolha == "1":
-                print("\nVocê conjura sua habilidade, mas a magia ancestral da rocha absorve o ataque sem efeito!")
-                time.sleep(3)
+                if not player.get("atacou_rocha", False):
+                    print("\nVocê conjura sua habilidade, mas a magia ancestral da rocha absorve o ataque sem efeito!")
+                    time.sleep(2)
+                    print("Um impacto violento ecoa pela caverna...")
+                    time.sleep(3)
+
+                    print("A rocha não cedeu, mas agora apresenta pequenas rachaduras pulsantes.")
+                    print("Você sente uma energia antiga se agitando dentro dela...")
+                    time.sleep(3)
+
+                    player["atacou_rocha"] = True
+                    
+                elif player.get("atacou_rocha"):
+                    print("\nVocê conjura novamente sua habilidade, e novamente a magia ancestral da rocha absorve o ataque")
+                    time.sleep(2)
+                    print("As rachaduras começam a brilhar intensamente...")
+                    time.sleep(3)
+                    print("Pedras e terra se aglutinam, formando uma figura colossal!\n")
+                    time.sleep(3)
+
+                    print("""
+╔════════════════════════════════════════════════╗
+║            A ROCHA GANHA VIDA!                 ║
+║                                                ║
+║        UM GOLEM DE FOGO DESPERTA!              ║
+╚════════════════════════════════════════════════╝
+                    """)
+                    time.sleep(5)
+
+                    golem = {
+                        "nome": "Golem de Fogo Ancestral",
+                        "classe": "Guerreiro",
+                        "vida": 120,
+                        "força": 55,
+                        "defesa": 80,
+                        "habilidade": "Impacto Sísmico",
+                        "nivel": player["nivel"] + 2,
+                        "xp": 200
+                    }
+
+                    if not combate(player, [golem]):
+                        return False
+                
+                    print("\nO golem se desfaz em pedras, revelando o portal instável por trás dele!")
+                    input("\nPressione ENTER para atravessar o portal...")
+                    return True
                 continue
         
             elif escolha == "2":
@@ -122,7 +166,12 @@ Você descide olhar a sua bolsa de itens.
                     print("Um impacto violento ecoa pela caverna...")
                     time.sleep(3)
 
-                    dano_sofrido = 15
+                    if player.get("força",0) > 36:
+                        dano_sofrido = 10
+                        print("Sua força impressionante reduz o dano recebido!")
+                    else:
+                        dano_sofrido = 15
+                    
                     player["vida"] -= dano_sofrido
                     
 
@@ -143,41 +192,41 @@ Você descide olhar a sua bolsa de itens.
                     if player["vida"] <= 0:
                         print("\nSua ferida é grave demais para continuar...")
                         return False
-                    continue
+                    
+                elif player.get("atacou_rocha"):
+                    print("\nVocê golpeia a rocha novamente, ignorando a dor!")
+                    time.sleep(2)
+                    print("As rachaduras começam a brilhar intensamente...")
+                    time.sleep(3)
+                    print("Pedras e terra se aglutinam, formando uma figura colossal!\n")
+                    time.sleep(3)
 
-            else:
-                print("\nVocê golpeia a rocha novamente, ignorando a dor!")
-                time.sleep(2)
-                print("As rachaduras começam a brilhar intensamente...")
-                time.sleep(3)
-                print("Pedras e terra se aglutinam, formando uma figura colossal!\n")
-                time.sleep(3)
-
-                print("""\
+                    print("""
 ╔════════════════════════════════════════════════╗
 ║            A ROCHA GANHA VIDA!                 ║
 ║                                                ║
 ║        UM GOLEM DE TERRA DESPERTA!             ║
 ╚════════════════════════════════════════════════╝
-                """)
-                time.sleep(5)
+                    """)
+                    time.sleep(5)
 
-                golem = {
-                    "nome": "Golem de Terra Ancestral",
-                    "vida": 120,
-                    "força": 45,
-                    "defesa": 80,
-                    "habilidade": "Impacto Sísmico",
-                    "nivel": player["nivel"] + 2,
-                    "xp": 200
-                }
+                    golem = {
+                        "nome": "Golem de Terra Ancestral",
+                        "classe": "Guerreiro",
+                        "vida": 120,
+                        "força": 45,
+                        "defesa": 80,
+                        "habilidade": "Impacto Sísmico",
+                        "nivel": player["nivel"] + 2,
+                        "xp": 200
+                    }
 
-                if not combate(player, [golem]):
-                    return False
+                    if not combate(player, [golem]):
+                        return False
                 
-                print("\nO golem se desfaz em pedras, revelando o portal instável por trás dele!")
-                input("\nPressione ENTER para atravessar o portal...")
-                return True
+                    print("\nO golem se desfaz em pedras, revelando o portal instável por trás dele!")
+                    input("\nPressione ENTER para atravessar o portal...")
+                    return True
     else:
         print("\nO portal permanece selado. Você precisa encontrar a chave adequada!")
         return False
