@@ -95,7 +95,7 @@ def nivel_um(player):
             if escolha1 == "1":
                 player["personalidade"] = "Justo"
             elif escolha1 == "2":
-                player["personalidade"] = "Heroica"
+                player["personalidade"] = "Heroico"
             elif escolha1 == "3":
                 player["personalidade"] = "Pacifista"
             else:
