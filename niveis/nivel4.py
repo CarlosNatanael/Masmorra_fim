@@ -84,7 +84,7 @@ Você descide olhar a sua bolsa de itens.
             print(" O selo reconhece sua presença! ".center(40, "~"))
             print("━"*40 + "\n")
 
-            print(f"1. {player['classe']} Usar {player['habilidade']} no selo")
+            print(f"1. {player['classe']} | Usar {player['habilidade']} no selo")
             print(f"2. Tentar romper o selo bruscamente [Força: {player['força']}]")
             print("3. Inserir a chave de ébano")
             print("━"*40)

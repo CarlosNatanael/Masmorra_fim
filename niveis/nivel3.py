@@ -75,7 +75,7 @@ def nivel_tres(player):
         "nome": "Velkar, o Guardião",
         "classe": "Mago",
         "vida": 90,
-        "força": 36,
+        "força": 38,
         "magia": 50,
         "defesa": 45,
         "habilidade": "Explosão Arcana",

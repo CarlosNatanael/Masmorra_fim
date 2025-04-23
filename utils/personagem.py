@@ -24,7 +24,7 @@ def escolher_classe():
             "classe": "Mago",
             "vida": random.randint(40, 50),
             "força": random.randint(30, 40),
-            "magia": random.randint(90, 99),
+            "magia": random.randint(60, 80),
             "defesa": random.randint(30, 40),
             "habilidade": "Bola de Fogo",
             "arma": "Cajado"
@@ -34,7 +34,7 @@ def escolher_classe():
             "classe": "Paladino",
             "vida": random.randint(70, 80),
             "força": random.randint(40, 50),
-            "magia": random.randint(20, 25),
+            "magia": random.randint(30, 45),
             "defesa": random.randint(40, 50),
             "habilidade": "Benção Divina",
             "arma": "Espada"
@@ -55,8 +55,8 @@ def escolher_classe():
             "classe": "Guerreiro",
             "vida": random.randint(60, 80),
             "força": random.randint(40, 50),
-            "magia": random.randint(5, 15),
-            "defesa": random.randint(30, 40),
+            "magia": random.randint(10, 20),
+            "defesa": random.randint(35, 45),
             "habilidade": "Decapitação",
             "arma": "Machado"
         })

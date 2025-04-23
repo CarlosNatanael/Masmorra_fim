@@ -132,7 +132,7 @@ Suas mãos ensanguentadas seguram uma pena de ferro, arranhando incessantemente 
                 "nome": "O Diretor",
                 "classe": "Mago",
                 "vida": 120,
-                "força": 70,
+                "força": 57,
                 "magia": 90,
                 "defesa": 85,
                 "habilidade": ["Troca de Papéis", "Grito de Plateia", "Final Forçado"],
