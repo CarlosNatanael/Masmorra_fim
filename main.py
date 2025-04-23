@@ -143,8 +143,15 @@ def main():
 #=====================
 #   Nivel 5
     resultado_nivel5 = nivel_cinco(player)
+
+    if resultado_nivel5 is False:
+        game_over()
+        return
+    
     if resultado_nivel5:
-        escolha_final = resultado_nivel5  
+        escolha_final = resultado_nivel5
+#===================================================================
+#   Nivel 6_1
         if escolha_final  == "1":
             print("""
 Você age como antes, seguindo as regras sem questionar.
@@ -159,6 +166,9 @@ Você cai... e acorda em um lugar novo:
             limpar_terminal()
             if not nivel_verdade_1(player):
                 game_over()
+                return
+#===================================================================
+#   Nivel 6_2
         elif escolha_final == "2":
             print("""
 Você protege a criança, mesmo sabendo que está quebrando as regras.
@@ -173,6 +183,9 @@ Você é sugado para dentro... e acorda em:
             limpar_terminal()
             if not nivel_mentira_2(player):
                 game_over()
+                return
+#===================================================================
+#   Nivel 6_3
         elif escolha_final == "3":
             print("""
 Você resolve o conflito sem violência, mas sem ignorar a injustiça.
@@ -187,9 +200,11 @@ Você acorda em:
             limpar_terminal()
             if not nivel_destruicao_3(player):
                 game_over()
+                return
         else:
             print("Combinação inválida de caminho!")
             game_over()
+            return
 
     limpar_terminal()
 #=====================
