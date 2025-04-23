@@ -1,8 +1,8 @@
-import time
 from utils.combate import combate
 from utils.utils import tem_chave
 from utils.utils import usar_chave
 import random
+import time
 
 def nivel_quatro(player):
     print("Capítulo 4: O Pântano do Desespero\n")

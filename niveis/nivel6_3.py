@@ -40,13 +40,13 @@ mas com um rosto completamente liso - gesticulava em minha direção.
 
         if escolha == "1":
             print("\nVocê assina o roteiro. Um calor preenche seu corpo. Você sente... poder.\n")
-            print(f"| » Status atual: Monarca das Sombra ({player['classe']})\n")
-            print("Mas algo se perde. Seu nome... seu propósito... começa a sumir.")
-            player['força'] += 5
-            player['magia'] += 5
-            player['xp'] += 10
-            print("⚠️ Sua identidade está fragmentada. Cuidado.\n")
-            break
+            print(f"| » Status atual: Monarca das Sombras ({player['classe']})\n")
+            print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
+            player['monarca_sombra'] = True
+            player['classe'] = "Monarca das Sombras"
+            input("Você avança. Pressione ENTER para continuar...\n")
+            return "sombra"
+
 
         elif escolha == "2":
             print("\nCom um grito primal, você agarra a máscara que cobria seu verdadeiro eu.")
@@ -61,7 +61,8 @@ mas com um rosto completamente liso - gesticulava em minha direção.
                 print("Você CORRE em direção à saída enquanto o mundo artificial se desfaz!\n")
                 player['xp'] += 60
                 player['força'] += 5
-                break
+                input("Você avança. Pressione ENTER para continuar...\n")
+                return "humano"
             else:
                 print("A máscara resiste. Você puxa com mais força... e sente sua carne vir junto.")
                 time.sleep(3)
@@ -166,9 +167,8 @@ Suas mãos ensanguentadas seguram uma pena de ferro, arranhando incessantemente 
     
             player['xp'] += 300
             player['nivel'] += 1
+            input("Você avança. Pressione ENTER para continuar...\n")
+            return "humano"
 
         else:
             print("Escolha inválida. Tente novamente.")
-    
-    input("Você avança. Pressione ENTER para continuar...\n")
-    return True

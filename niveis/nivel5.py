@@ -1,6 +1,6 @@
-import time
 from utils.utils import limpar_terminal
 from utils.combate import combate
+import time
 
 def nivel_cinco(player):
     print("Capítulo 5: A Sala do Guardião\n")

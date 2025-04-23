@@ -1,3 +1,4 @@
+from utils.utils import limpar_terminal
 import time
 import os
 
@@ -51,3 +52,4 @@ def creditos_finais(player):
     time.sleep(4)
     
     input("Pressione ENTER para encerrar o jogo...")
+    limpar_terminal()

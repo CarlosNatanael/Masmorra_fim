@@ -1,5 +1,5 @@
-import time
 from utils.combate import combate
+import time
 import random
 
 

@@ -1,16 +1,18 @@
-# pyinstaller --onefile --add-data "niveis/nivel1.py;niveis" --add-data "niveis/nivel2.py;niveis" --add-data "niveis/nivel3.py;niveis" --add-data "niveis/nivel4.py;niveis" --add-data "niveis/nivel5.py;niveis" --add-data "niveis/nivel6_1.py;niveis" --add-data "niveis/nivel6_2.py;niveis" --add-data "niveis/nivel6_3.py;niveis" --add-data "utils/combate.py;utils" --add-data "utils/creditos.py;utils" --add-data "utils/personagem.py;utils" --add-data "utils/utils.py;utils" --add-data "icone.ico;."--icon="icone.ico" --name "MasmorraDoFim" main.py
+# pyinstaller --onefile --add-data "niveis/nivel1.py;niveis" --add-data "niveis/nivel2.py;niveis" --add-data "niveis/nivel3.py;niveis" --add-data "niveis/nivel4.py;niveis" --add-data "niveis/nivel5.py;niveis" --add-data "niveis/nivel6_1.py;niveis" --add-data "niveis/nivel6_2.py;niveis" --add-data "niveis/nivel6_3.py;niveis" --add-data "niveis/nivel7_h.py;niveis" --add-data "niveis/nivel7_s.py;niveis" --add-data "utils/combate.py;utils" --add-data "utils/creditos.py;utils" --add-data "utils/personagem.py;utils" --add-data "utils/utils.py;utils" --add-data "icone.ico;."--icon="icone.ico" --name "MasmorraDoFim" main.py
 
-from utils.personagem import escolher_classe
 from niveis.nivel1 import nivel_um
 from niveis.nivel2 import nivel_dois
 from niveis.nivel3 import nivel_tres
 from niveis.nivel4 import nivel_quatro
 from niveis.nivel5 import nivel_cinco
-from utils.creditos import creditos_finais
-from utils.utils import limpar_terminal
 from niveis.nivel6_1 import nivel_verdade_1
 from niveis.nivel6_2 import nivel_mentira_2
 from niveis.nivel6_3 import nivel_destruicao_3
+from niveis.nivel7_h import nivel_7_humano
+from niveis.nivel7_s import nivel_7_sombra
+from utils.personagem import escolher_classe
+from utils.creditos import creditos_finais
+from utils.utils import limpar_terminal
 import time
 
 def game_over():
@@ -136,7 +138,7 @@ def main():
         return
     limpar_terminal()
 #=====================
-#   Status jogador nivel14
+#   Status jogador nivel4
     mostrar_status_jogador(player)
     input()
     limpar_terminal()
@@ -147,7 +149,6 @@ def main():
     if resultado_nivel5 is False:
         game_over()
         return
-    
     if resultado_nivel5:
         escolha_final = resultado_nivel5
 #===================================================================
@@ -164,9 +165,9 @@ Você cai... e acorda em um lugar novo:
             """)
             input("Pressione ENTER para continuar")
             limpar_terminal()
-            if not nivel_verdade_1(player):
-                game_over()
-                return
+            mostrar_status_jogador(player)
+            input()
+            limpar_terminal()
 #===================================================================
 #   Nivel 6_2
         elif escolha_final == "2":
@@ -181,9 +182,9 @@ Você é sugado para dentro... e acorda em:
             """)
             input("Pressione ENTER para continuar")
             limpar_terminal()
-            if not nivel_mentira_2(player):
-                game_over()
-                return
+            mostrar_status_jogador(player)
+            input()
+            limpar_terminal()
 #===================================================================
 #   Nivel 6_3
         elif escolha_final == "3":
@@ -198,21 +199,55 @@ Você acorda em:
             """)
             input("Pressione ENTER para continuar")
             limpar_terminal()
-            if not nivel_destruicao_3(player):
-                game_over()
-                return
+            mostrar_status_jogador(player)
+            input()
+            limpar_terminal()
         else:
-            print("Combinação inválida de caminho!")
             game_over()
+            limpar_terminal()
             return
 
+    resultado_nivel6 = None
+    if escolha_final == "1":
+        resultado_nivel6 = nivel_verdade_1(player)
+    elif escolha_final == "2":
+        resultado_nivel6 = nivel_mentira_2(player)
+    elif escolha_final == "3":
+        resultado_nivel6 = nivel_destruicao_3(player)
+
+    if resultado_nivel6 is False:
+        game_over()
+        return
     limpar_terminal()
 #=====================
-#   Status jogador nivel15
+#    Status jogador nivel6
     mostrar_status_jogador(player)
     input()
     limpar_terminal()
-#=====================
+#==============================
+# Nivel 7 Humano
+    if resultado_nivel6 == "humano":
+        print("\nA luz ainda brilha em você, mas o desafio final aguarda...")
+        input("\nPressione ENTER para continuar...")
+        limpar_terminal()
+        if not nivel_7_humano(player):
+            game_over()
+            return
+#==============================
+# Nivel 7 Sombra
+    elif resultado_nivel6 == "sombra":
+        print("\nAs trevas sussurram seus novos poderes... a masmorra obedece!")
+        input("\nPressione ENTER para continuar...")
+        limpar_terminal()
+        if not nivel_7_sombra(player):
+            game_over()
+            return
+#==============================
+#    Status jogador nivel7
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#==============================
     creditos_finais(player)
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
-import time
 from utils.combate import combate
+import time
 
 def nivel_verdade_1(player):
     print("Capítulo 6:  O Cárcere das Almas Perdidas")
@@ -78,47 +78,55 @@ Você sente a presença de Velthurion nas sombras, observando.
 
     while True:
         escolha_6 = input("Sua decisão final (1-3): ").strip()
+        print(escolha_6)
+    
         if escolha_6 == "1":
             print("\nVocê puxa a alavanca. As celas se abrem. Gritos. Sussurros. Algumas criaturas fogem em silêncio.")
             time.sleep(5)
             print("Outras atacam. Mas entre elas, olhos humanos choram de gratidão. O cárcere rui.")
             time.sleep(5)
             print("Você escapa por um portal...\n")
-            break
+            input("Você avança. Pressione ENTER para continuar...\n")
+            return "humano"  # Retorna imediatamente para sair da função
+    
         elif escolha_6 == "2":
             print("\nVocê destrói a alavanca. O Anjo observa em silêncio... e então sorri.")
             time.sleep(5)
             print("Ele lhe entrega a chave mestra. Você pode sair... mas carrega o peso de saber que perpetuou o sofrimento.")
             time.sleep(5)
             print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
-            print(f"| » Status atual: Monarca das Sombra ({player['classe']})\n")
+            print(f"| » Status atual: Monarca das Sombras ({player['classe']})\n")
             time.sleep(5)
             print("""
-Então o Anjo invade minha mente e deixa a seguinta frase:
-                  
+Então o Anjo invade minha mente e deixa a seguinte frase:
+              
     A cada nivel você se torna mais parecido com ele....
-
             """)
             time.sleep(5)
             print("Você escapa por um portal...\n")
-            break
+            player['monarca_sombra'] = True  # Nome corrigido da variável
+            player['classe'] = "Monarca das Sombras"
+            input("Você avança. Pressione ENTER para continuar...\n")
+            return "sombra"  # Retorna imediatamente
+    
         elif escolha_6 == "3":
             print("\nVocê não se move. O Anjo toca sua testa. Um brilho o envolve.")
             time.sleep(5)
             print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma\n")
-            print(f"| » Status atual: Monarca das Sombra ({player['classe']})\n")
+            print(f"| » Status atual: Monarca das Sombras ({player['classe']})\n")
             time.sleep(5)
             print("""
-Então o Anjo invade minha mente e deixa a seguinta frase:
-                  
+Então o Anjo invade minha mente e deixa a seguinte frase:
+              
     A cada nivel você se torna mais parecido com ele....
-
             """)
             time.sleep(5)
             print("Você escapa por um portal...\n")
-            break
+            player['monarca_sombra'] = True  # Nome corrigido da variável
+            player['classe'] = "Monarca das Sombras"
+            input("Você avança. Pressione ENTER para continuar...\n")
+            return "sombra"  # Retorna imediatamente
+    
         else:
-            print("Escolha inválida!")
-
-    input("Você avança. Pressione ENTER para continuar...\n")
-    return True
+            print("Escolha inválida! Digite 1, 2 ou 3")
+            continue  # Volta para o início do loop
