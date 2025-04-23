@@ -197,4 +197,3 @@ O mercador gritava, a criança tremia, e eu estava parado no meio, exatamente co
             print("Escolha inválida!")
 
     return escolha_final 
-
