@@ -75,7 +75,7 @@ def nivel_um(player):
 
         escolha = input("Digite o número da sua ação: ")
         if escolha == "1":
-            print("\Eldramar: Aldurian é um mundo fragmentado entre luz e trevas. Você terá um papel crucial aqui.")
+            print("\nEldramar: Aldurian é um mundo fragmentado entre luz e trevas. Você terá um papel crucial aqui.")
         elif escolha == "2":
             print("\nVocê se levanta. As paredes do templo estão cobertas de inscrições antigas.")
         elif escolha == "3":
@@ -102,7 +102,7 @@ def nivel_um(player):
                 print("Escolha inválida. Assumindo natureza misteriosa.")
                 player["personalidade"] = "Enigmático"
                 time.sleep(5)
-            print(f"\Eldramar: Interessante... Vejo que você é {player['personalidade']}.\n")
+            print(f"\nEldramar: Interessante... Vejo que você é {player['personalidade']}.\n")
             break
         else:
             print("Escolha inválida. Tente novamente.")
