@@ -57,7 +57,7 @@ desafios_clone = [
 def nivel_dois(player):
     print("Capítulo 2: O Salão dos Espelhos\n")
     time.sleep(5)
-    print('"O velho Velthurion havia me alertado:"')
+    print('"O velho Eldramar havia me alertado:"')
     print("A Masmorra do Fim não é apenas um labirinto de pedra. Ela testará sua mente, sua alma e sua coragem. Se você falhar, seu corpo se tornará mais uma sombra presa em seus corredores.\n")
     time.sleep(5)
     print("Agora, diante de mim, erguia-se uma enorme porta de ébano, cravejada de espelhos quebrados. Um frio percorreu minha espinha.")

@@ -38,6 +38,22 @@ def habilidade_especial(player, inimigos):
                 print(f"{inimigo['nome']} foi derrotado!")
                 derrotados.append(inimigo)
                 inimigos.remove(inimigo)
+
+    elif player["classe"] == "Monarca das Sombras":
+        if "força_original" not in player:
+            player["força_original"] = player["força"]
+            player["vida_original"] = player["vida"]
+    
+        
+        player["força"] = player["força_original"] + 30
+        player["vida"] = player["vida_original"] + 20
+        print("\nVocê usou Domínio das Sombras e obteve ajuda das sombras!")
+        print(f"| Força aumentada para {player['força']} (+30)")
+        print(f"| Vida aumentada para {player['vida']} (+20)\n")
+    
+        
+        player["bonus_monarca"] = True
+        return []
     
     return derrotados
 
@@ -68,6 +84,17 @@ def ganhar_xp(player, xp_ganho):
 
 def combate(player, inimigos):
     player["habilidade_usada"] = False
+
+    if player["classe"] == "habilidade_usada" and "força_original" not in player:
+        player["força_original"] = player["força"]
+        player["vida_original"] = player["vida"]
+
+    if player["classe"] == "Monarca das Sombras" and "força_original" in player:
+        if player.get("bonus_monarca", False):
+            player["força"] = player["força_original"]
+            player["vida"] = player["vida_original"]
+            del player["bonus_monarca"]
+
     print("Você está em combate com os inimigos!")
     time.sleep(2)
 
@@ -173,5 +200,18 @@ def combate(player, inimigos):
     # Cálculo do XP baseado no nível dos inimigos derrotados
     xp_total = sum([inimigo.get("nivel", 1) * 30 for inimigo in derrotados])
     ganhar_xp(player, xp_total)
+
+    if player["classe"] == "Monarca das Sombras" and "força_original" in player:
+        if player.get("bonus_monarca", False):
+            player["força"] = player["força_original"]
+            player["vida"] = player["vida_original"]
+            print("\nO poder das sombras se dissipa...")
+            print(f"| Força voltou para {player['força']}")
+            print(f"| Vida voltou para {player['vida']}\n")
+            del player["bonus_monarca"]
+
+        if not player.get("bonus_monarca", False):
+            del player["força_original"]
+            del player["vida_original"]
 
     return True

@@ -83,9 +83,9 @@ def main():
     Desenvolvedor Tester:
     Arthur Yabuchi
                                        
-    - Inplementação de novos níveis
-    - 8 níveis completos
-    - Melhorias e atualizações de combate
+    - Inplementação de novos níveis     - Novos vilões
+    - 10 níveis completos               - Nova habilidade
+    - Melhorias de classe
         
 
                        Copyright (c) 2025 by Carlos Natanael 
@@ -157,7 +157,7 @@ def main():
             print("""
 Você age como antes, seguindo as regras sem questionar.
                   
-Velthurion sorri, mas não há calor em sua expressão.
+Eldramar sorri, mas não há calor em sua expressão.
 "Ordem. Respeito às estruturas. Interessante... mas será que a masmorra precisa de mais um carcereiro?"
 Ele ergue a mão, e o chão se abre sob seus pés.
 
@@ -174,7 +174,7 @@ Você cai... e acorda em um lugar novo:
             print("""
 Você protege a criança, mesmo sabendo que está quebrando as regras.
                   
-Velthurion ri, um som que ecoa como vidro quebrando.
+Eldramar ri, um som que ecoa como vidro quebrando.
 "Ah, o herói. O justiceiro. Mas será que sua bondade sobreviverá quando você vir o que realmente habita nas sombras?"
 Ele abre um portal negro com um gesto.
 
@@ -191,7 +191,7 @@ Você é sugado para dentro... e acorda em:
             print("""
 Você resolve o conflito sem violência, mas sem ignorar a injustiça.
                   
-Velthurion franze a testa, como se sua resposta fosse um enigma.
+Eldramar franze a testa, como se sua resposta fosse um enigma.
 "Equilíbrio... mas equilíbrio pode ser apenas covardia disfarçada."
 Ele abre um portal prateado, e você é puxado para dentro.
                   

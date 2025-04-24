@@ -26,7 +26,7 @@ mas com um rosto completamente liso - gesticulava em minha direção.
     print("Os atores sem rosto começaram a se multiplicar, cada um representando versões diferentes de mim:")
     print("– Uma criança oferecendo uma maçã... você aceitando.")
     print("– Sua queda na masmorra.")
-    print("– Você... no trono de Velthurion.")
+    print("– Você... no trono de Eldramar.")
     time.sleep(4)
     print("\nO Diretor se aproxima com um roteiro encadernado em algo que parece... pele.")
     print("Ele oferece três caminhos:")

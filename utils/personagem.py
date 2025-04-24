@@ -60,8 +60,20 @@ def escolher_classe():
             "habilidade": "Decapitação",
             "arma": "Machado"
         })
-    else:
-        print("Escolha inválida, por favor, escolha novamente.")
-        return escolher_classe()
 
     return base_player
+
+def transformar_em_monarca(player):
+    player['monarca_sombra'] = True
+    player['classe'] = "Monarca das Sombras"
+    player.update({
+        'vida': random.randint(60, 70),
+        'força': random.randint(60, 70),
+        'magia': random.randint(60, 80),
+        'defesa': random.randint(70, 80),
+        'habilidade': "Domínio das Sombras",
+        'arma': "Espada negra"
+    })
+    print("\nSua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.")
+    print(f"| » Status atual: Monarca das Sombras\n")
+    return player

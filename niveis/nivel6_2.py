@@ -81,7 +81,7 @@ o Lorde dos Desesperados. Seu corpo mudava constantemente, alternando entre form
     time.sleep(5)
     print("Ele estendeu uma mão que se transformava em garras, depois em tentáculos, depois em algo indescritível.\n")
     time.sleep(5)
-    print("Lorde dos Desesperados: Tome um gole do rio de sangue e ganhe poder para destruir Velthurion. O preço? Apenas um pedaço insignificante de sua alma a cada gole.\n")
+    print("Lorde dos Desesperados: Tome um gole do rio de sangue e ganhe poder para destruir Eldramar. O preço? Apenas um pedaço insignificante de sua alma a cada gole.\n")
     time.sleep(5)
     print("Você vê o rio de sangue borbulhar atrás dele. Ao redor, árvores com rostos gritam silenciosamente.")
     print(""""
