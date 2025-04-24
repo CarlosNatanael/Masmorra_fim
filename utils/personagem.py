@@ -67,8 +67,8 @@ def transformar_em_monarca(player):
     player['monarca_sombra'] = True
     player['classe'] = "Monarca das Sombras"
     player.update({
-        'vida': random.randint(60, 70),
-        'força': random.randint(60, 70),
+        'vida': random.randint(80, 90),
+        'força': random.randint(60, 80),
         'magia': random.randint(60, 80),
         'defesa': random.randint(70, 80),
         'habilidade': "Domínio das Sombras",

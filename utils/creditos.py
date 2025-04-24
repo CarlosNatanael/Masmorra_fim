@@ -22,9 +22,13 @@ def creditos_finais(player):
     time.sleep(2)
 
     print("\nDesenvolvido por: Carlos Natanael")
+    time.sleep(2)
     print("Programação: Carlos Natanael, Val")
+    time.sleep(2)
     print("Desenvolvedor Tester: Arthur Yabuchi")
+    time.sleep(2)
     print("Narrativa: Carlos Natanael")
+    time.sleep(2)
     print("Assistência Criativa: Val")
     time.sleep(5)
 
@@ -36,7 +40,11 @@ def creditos_finais(player):
     print("- Estilo Text-based Adventure\n")
     time.sleep(5)
 
-    print("="*60)
+    print("\nSe você curtiu, compartilhe com os amigos ou modifique e continue criando!\n")
+    print("→ A Masmorra do Fim sempre renasce para novos heróis...\n")
+    time.sleep(4)
+    
+    print("="*117)
     print("""
 
 ██    ██  █████  ██      ███████ ██    ██     ██████   ██████  ██████           ██  ██████   ██████   █████  ██████  
@@ -46,10 +54,7 @@ def creditos_finais(player):
   ████   ██   ██ ███████ ███████  ██████      ██       ██████  ██   ██      █████   ██████   ██████  ██   ██ ██   ██ 
 
     """)
-    print("="*60)
-    print("\nSe você curtiu, compartilhe com os amigos ou modifique e continue criando!\n")
-    print("→ A Masmorra do Fim sempre renasce para novos heróis...\n")
-    time.sleep(4)
-    
+    print("="*117)
+
     input("Pressione ENTER para encerrar o jogo...")
     limpar_terminal()
