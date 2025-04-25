@@ -4,11 +4,18 @@ def escolher_classe():
     nome = input("Digite o nome do seu personagem: ").strip()
     while not nome:
         nome = input("Nome não pode estar vazio. Digite novamente: ").strip()
+
     print("\nEscolha uma classe para o seu personagem:")
     print("1. Mago\n2. Guerreiro\n3. Paladino\n4. Arqueiro")
-    escolha = input("Digite o número da classe escolhida: ")
 
-    # Primeiro criamos o dicionário base
+    escolha_valida = False
+    while not escolha_valida:
+        escolha = input("Digite o número da classe escolhida: ")
+        if escolha in ["1", "2", "3", "4"]:
+            escolha_valida = True
+        else:
+            print("Opção inválida. Por favor, escolha 1, 2, 3 ou 4.")
+
     base_player = {
         "nome": nome,
         "xp": 0,

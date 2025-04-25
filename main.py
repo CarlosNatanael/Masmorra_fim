@@ -31,25 +31,30 @@ def game_over():
     exit()
 
 def mostrar_status_jogador(player):
-    print(f"""\n
-╔══════════════════════════════════════════╗
-║         {player['nome']}, {player['classe']:<15}          ║
-║    Prepare-se para sua Jornada!          ║
-╚══════════════════════════════════════════╝
+    nome = player['nome']
+    classe = player['classe'][:15]  # Limita a 15 caracteres
+    habilidade = player['habilidade'][:25]  # Limita a 25 caracteres
 
-┌───────────────────┬───────────────────┐
-│      STATUS       │     ATRIBUTOS     │
-├───────────────────┼───────────────────┤
-│                   │ Vida:   {player['vida']:<5}     │
-│Classe: {player['classe']:<8}   │  Força:  {player['força']:<5}    │
-│Nível: {player['nivel']:<8}    │ Magia:  {player['magia']:<5}     │
-│XP: {player['xp']:<3}            │ Defesa: {player['defesa']:<5}     │
-├───────────────────┴───────────────────┤
-│ Habilidade Especial: {player['habilidade']:<15}  │
-└───────────────────────────────────────┘
+    topo = f"{nome}, {classe}"
+    largura_total = 42
+    centro = topo.center(largura_total)
 
-[Pressione ENTER para embarcar nesta aventura...]
-""")
+    print("╔" + "═" * largura_total + "╗")
+    print(f"║{centro}║")
+    print("║" + "    Prepare-se para sua Jornada!    ".center(largura_total) + "║")
+    print("╚" + "═" * largura_total + "╝")
+
+    print("┌" + "─" * 19 + "┬" + "─" * 19 + "┐")
+    print("│      STATUS       │     ATRIBUTOS     │")
+    print("├" + "─" * 19 + "┼" + "─" * 19 + "┤")
+    print(f"│{'':19}│ Vida:   {player['vida']:<5}     │")
+    print(f"│Classe: {player['classe']:<11}│ Força:  {player['força']:<5}     │")
+    print(f"│Nível: {player['nivel']:<12}│ Magia:  {player['magia']:<5}     │")
+    print(f"│XP: {player['xp']:<15}│ Defesa: {player['defesa']:<5}     │")
+    print("├" + "─" * 39 + "┤")
+    print(f"│ Habilidade Especial: {habilidade:<16} │")
+    print("└" + "─" * 39 + "┘")
+    print("\n[Pressione ENTER para embarcar nesta aventura...]\n")
 
 def main():
     print("""
@@ -90,7 +95,7 @@ def main():
 
                        Copyright (c) 2025 by Carlos Natanael 
     """)
-    # time.sleep(3)
+    time.sleep(3)
     input("\n[Pressione ENTER para embarcar nesta aventura...]\n")
     limpar_terminal()
     player = escolher_classe()
