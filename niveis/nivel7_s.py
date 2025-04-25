@@ -37,7 +37,7 @@ def nivel_7_sombra(player):
         "magia": 90,
         "defesa": 80,
         "habilidade": "Purificação",
-        "nivel": player["nivel"] + 3,
+        "nivel": 10,
         "xp": 350,
         "imunidades": ["Trevas"]
     }
@@ -57,19 +57,19 @@ def nivel_7_sombra(player):
     print("Você ergue o Primeiro Decreto:")
     print("\n— Que a verdade seja moldada pela escuridão —\n")
     time.sleep(5)
-    print("nAltherion : (gargalhada rouca) Você quer mesmo saber a verdade? Então ouça bem, Monarca...")
-    print("nAltherion : Eldramar não é o dono desta masmorra - ele é apenas o cozinheiro do banquete.\n")
+    print("\nAltherion : (gargalhada rouca) Você quer mesmo saber a verdade? Então ouça bem, Monarca...")
+    print("\nAltherion : Eldramar não é o dono desta masmorra - ele é apenas o cozinheiro do banquete.\n")
     time.sleep(5)
-    print("nAltherion : E você... (tosse convulsiva) você é o prato principal.")
-    print("nAltherion : Cada passo que dá aqui não é progresso - é apenas o fogo da forja crescendo mais forte.")
+    print("\nAltherion : E você... (tosse convulsiva) você é o prato principal.")
+    print("\nAltherion : Cada passo que dá aqui não é progresso - é apenas o fogo da forja crescendo mais forte.")
     time.sleep(5)
-    print("nAltherion : Todos que vieram antes de você... (ergue mãos trêmulas) viraram combustível.")
-    print("nAltherion : Mas há uma brecha... (voz se torna um sussurro) A forja precisa de almas, mas não suporta a luz de sua própria chama.")
+    print("\nAltherion : Todos que vieram antes de você... (ergue mãos trêmulas) viraram combustível.")
+    print("\nAltherion : Mas há uma brecha... (voz se torna um sussurro) A forja precisa de almas, mas não suporta a luz de sua própria chama.")
     time.sleep(5)
-    print("nAltherion : Destrua o núcleo... (pele começa a descascar) e talvez... talvez você queime Eldramar com seu próprio fogo.")
+    print("\nAltherion : Destrua o núcleo... (pele começa a descascar) e talvez... talvez você queime Eldramar com seu próprio fogo.")
     print("\nApós isso Altherion começa a desaparecer e lhe deixa uma ultima mensagem....")
     time.sleep(5)
-    print("nAltherion : (últimas palavras) Corra, tolo. Antes que ele sinta que você sabe demais...\n")
+    print("\nAltherion : (últimas palavras) Corra, tolo. Antes que ele sinta que você sabe demais...\n")
     print("A Cidade dos Espinhos Negros se curva, e o eclipse nunca mais se desfaz.\n")
     print("\nVocê cai. A luz retorna... mas o mundo nunca será o mesmo.")
     print("Altherion desaparece nas cinzas do eclipse, levando consigo a última esperança.")

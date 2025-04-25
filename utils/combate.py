@@ -16,8 +16,8 @@ def habilidade_especial(player, inimigos):
                 inimigos.remove(inimigo)
 
     elif player["classe"] == "Paladino":
-        player["vida"] += 30
-        print("Você usou Benção divina e recuperou 30 de vida")
+        player["vida"] += 20
+        print("Você usou Benção divina e recuperou 20 de vida")
 
     elif player["classe"] == "Arqueiro":
         dano = player["força"] + random.randint(10, 20)
@@ -85,6 +85,12 @@ def ganhar_xp(player, xp_ganho):
 def combate(player, inimigos):
     player["habilidade_usada"] = False
 
+    print("Você está em combate com os inimigos!")
+    time.sleep(2)
+
+    derrotados = []
+    turno_perdido = False
+
     if player["classe"] == "habilidade_usada" and "força_original" not in player:
         player["força_original"] = player["força"]
         player["vida_original"] = player["vida"]
@@ -95,11 +101,7 @@ def combate(player, inimigos):
             player["vida"] = player["vida_original"]
             del player["bonus_monarca"]
 
-    print("Você está em combate com os inimigos!")
-    time.sleep(2)
 
-    derrotados = []
-    turno_perdido = False
 
     while inimigos and player["vida"] > 0:
         if turno_perdido:

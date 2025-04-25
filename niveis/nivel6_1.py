@@ -54,7 +54,7 @@ def nivel_verdade_1(player):
 #         "nome": "Anjo da Obediência",
 #         "classe": "Anjo",
 #         "vida": 120,
-#         "força": 50,
+#         "força": 55,
 #         "defesa": 70,
 #         "magia": 80,
 #         "nivel": 10,

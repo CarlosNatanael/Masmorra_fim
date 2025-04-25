@@ -134,7 +134,7 @@ Suas mãos ensanguentadas seguram uma pena de ferro, arranhando incessantemente 
                 "vida": 120,
                 "força": 57,
                 "magia": 90,
-                "defesa": 85,
+                "defesa": 80,
                 "habilidade": ["Troca de Papéis", "Grito de Plateia", "Final Forçado"],
                 "nivel": 10,
                 "xp": 250,

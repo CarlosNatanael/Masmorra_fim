@@ -61,7 +61,7 @@ Você pode:
             time.sleep(5)
             inimigos = [
                 {"nome": "Esqueleto Guerreiro", "classe": "Guerreiro", "vida": 70, "força": 45, "defesa": 60, "nivel":7},
-                {"nome": "Esqueleto Arqueiro", "classe": "Arqueiro", "vida": 50, "força": 55, "defesa": 40, "nivel":7}
+                {"nome": "Esqueleto Arqueiro", "classe": "Arqueiro", "vida": 60, "força": 47, "defesa": 40, "nivel":7}
             ]
             input("Prepare-se para o combate! Pressione ENTER...\n")
             if not combate(player, inimigos):
@@ -131,7 +131,7 @@ Sangrando e esgotado, você encontra uma fenda na escuridão... e encontra algo 
                 "nome": "Wendigo",
                 "classe": "Besta",
                 "vida": 110,
-                "força": 57,
+                "força": 60,
                 "defesa": 80,
                 "magia": 80,
                 "habilidade": "Corte Sangrento",
@@ -159,7 +159,7 @@ Ele ri, ferido, mas não morto.
                 "classe": "Besta",
                 "vida": 120,
                 "força": 57,
-                "defesa": 50,
+                "defesa": 70,
                 "magia": 80,
                 "habilidade": "Lama venenosa",
                 "nivel": 9,

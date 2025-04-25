@@ -31,8 +31,8 @@ Você descide olhar a sua bolsa de itens.
         time.sleep(3)
 
         monstros = [
-            {"nome": "Lizard", "classe": "Guerreiro", "vida": 70, "força": 36, "magia": 20, "defesa": 30, "nivel": 4},
-            {"nome": "Golem do pântano", "classe": "Guerreiro", "vida": 80, "força": 26, "magia": 30, "defesa": 60, "nivel": 5}
+            {"nome": "Lizard", "classe": "Guerreiro", "vida": 70, "força": 39, "magia": 20, "defesa": 30, "nivel": 4},
+            {"nome": "Golem do pântano", "classe": "Guerreiro", "vida": 80, "força": 30, "magia": 30, "defesa": 60, "nivel": 5}
         ]
 
         input("Prepare-se para o combate! Pressione ENTER...\n")
@@ -51,7 +51,7 @@ Você descide olhar a sua bolsa de itens.
         "nome": "Grumor, o Devorador de Errantes",
         "classe": "Besta",
         "vida": 120,
-        "força": 36,
+        "força": 40,
         "magia": 40,
         "defesa": 50,
         "habilidade": "Sufocamento de Lama",
