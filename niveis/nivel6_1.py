@@ -83,8 +83,10 @@ Você sente a presença de Eldramar nas sombras, observando.
         if escolha_6 == "1":
             print("\nVocê puxa a alavanca. As celas se abrem. Gritos. Sussurros. Algumas criaturas fogem em silêncio.")
             time.sleep(5)
-            print("Outras atacam. Mas entre elas, olhos humanos choram de gratidão. O cárcere rui.")
+            print("Outras atacam. Mas entre elas, olhos humanos choram de gratidão. O Anjo rui...")
             time.sleep(5)
+            print("Após isso o Anjo invoca um portal...")
+            time.sleep(4)
             print("Você escapa por um portal...\n")
             input("Você avança. Pressione ENTER para continuar...\n")
             return "humano"

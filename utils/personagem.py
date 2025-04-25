@@ -22,8 +22,8 @@ def escolher_classe():
     if escolha == "1":
         base_player.update({
             "classe": "Mago",
-            "vida": random.randint(40, 50),
-            "força": random.randint(30, 40),
+            "vida": random.randint(100, 110),
+            "força": random.randint(90, 100),
             "magia": random.randint(36, 46),
             "defesa": random.randint(30, 40),
             "habilidade": "Bola de Fogo",
