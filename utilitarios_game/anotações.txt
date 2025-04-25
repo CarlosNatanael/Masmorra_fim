@@ -3,3 +3,6 @@ na resposta do maior medo colocar resposta correta e colocar indiretas. O maior 
 adicionar a função ou se o personagem ficar a partir do nível 6 com a chave de ébano
 
 chave de ébano se transforma em um item de troca pelos esqueletos
+
+adicionar bau e bau mimico, random no bau e random na quantidade de itens, 1 a 3
+
