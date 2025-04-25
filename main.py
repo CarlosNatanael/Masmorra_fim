@@ -33,7 +33,7 @@ def game_over():
 def mostrar_status_jogador(player):
     print(f"""\n
 ╔══════════════════════════════════════════╗
-║         {player['nome']}, O {player['classe']:<15}        ║
+║         {player['nome']}, {player['classe']:<15}          ║
 ║    Prepare-se para sua Jornada!          ║
 ╚══════════════════════════════════════════╝
 
@@ -99,49 +99,49 @@ def main():
     input()
     limpar_terminal()
 #=====================
-# #   Nivel 1
-#     if not nivel_um(player):
-#         game_over()
-#         return
-#     limpar_terminal()
-# #=====================
-# #   Status jogador nivel1
-#     mostrar_status_jogador(player)
-#     input()
-#     limpar_terminal()
-# #=====================
-# #   Nivel 2
-#     if not nivel_dois(player):
-#         game_over()
-#         return
-#     limpar_terminal()
-# #=====================
-# #   Status jogador nivel2
-#     mostrar_status_jogador(player)
-#     input()
-#     limpar_terminal()
-# #=====================
-# #   Nivel 3
-#     if not nivel_tres(player):
-#         game_over()
-#         return
-#     limpar_terminal()
-# #=====================
-# #   Status jogador nivel3
-#     mostrar_status_jogador(player)
-#     input()
-#     limpar_terminal()
-# #=====================
-# #   Nivel 4
-#     if not nivel_quatro(player):
-#         game_over()
-#         return
-#     limpar_terminal()
-# #=====================
-# #   Status jogador nivel4
-#     mostrar_status_jogador(player)
-#     input()
-#     limpar_terminal()
+#   Nivel 1
+    if not nivel_um(player):
+        game_over()
+        return
+    limpar_terminal()
+#=====================
+#   Status jogador nivel1
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 2
+    if not nivel_dois(player):
+        game_over()
+        return
+    limpar_terminal()
+#=====================
+#   Status jogador nivel2
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 3
+    if not nivel_tres(player):
+        game_over()
+        return
+    limpar_terminal()
+#=====================
+#   Status jogador nivel3
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 4
+    if not nivel_quatro(player):
+        game_over()
+        return
+    limpar_terminal()
+#=====================
+#   Status jogador nivel4
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
 #=====================
 #   Nivel 5
     resultado_nivel5 = nivel_cinco(player)

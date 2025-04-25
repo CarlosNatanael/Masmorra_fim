@@ -12,6 +12,7 @@ Quando a luz prateada se dissipou, me encontrei em uma plateia infinita. Cadeira
     """)
     time.sleep(2)
     print("...uma plateia vazia e infinita. Cadeiras de veludo vermelho cobrem o horizonte.")
+    print("Você descide olhar a sua bolsa de itens.\n")
     from utils.utils import usar_itens
     if not usar_itens(player):
         return False

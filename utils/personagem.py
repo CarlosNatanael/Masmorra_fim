@@ -64,16 +64,32 @@ def escolher_classe():
     return base_player
 
 def transformar_em_monarca(player):
-    player['monarca_sombra'] = True
-    player['classe'] = "Monarca das Sombras"
-    player.update({
-        'vida': random.randint(80, 90),
-        'força': random.randint(60, 80),
-        'magia': random.randint(60, 80),
-        'defesa': random.randint(70, 80),
-        'habilidade': "Domínio das Sombras",
-        'arma': "Espada negra"
-    })
-    print("\nSua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.")
-    print(f"| » Status atual: Monarca das Sombras\n")
+    # Salva apenas o nome e itens básicos
+    nome = player["nome"]
+    itens = {"poção de cura": 3}  # Itens básicos para o Monarca
+    
+    # Define os novos atributos básicos
+    novo_player = {
+        "nome": nome,
+        "classe": "Monarca das Sombras",
+        "nivel": 1,
+        "xp": 0,
+        "xp_proximo_nivel": 100,
+        "vida": random.randint(60, 70),
+        "força": random.randint(60, 70),
+        "magia": random.randint(60, 80),
+        "defesa": random.randint(70, 80),
+        "habilidade": "Domínio das Sombras",
+        "arma": "Espada negra",
+        "itens": itens,
+        "monarca_sombra": True  # Flag especial
+    }
+    
+    # Atualiza o player original com os novos valores
+    player.clear()
+    player.update(novo_player)
+    
+    print("\nSua forma muda completamente. Todas as memórias anteriores se dissipam...")
+    print("| » Você renasceu como Monarca das Sombras (Nível 1)")
+    print(f"| Status básicos: Vida {player['vida']}, Força {player['força']}, Magia {player['magia']}, Defesa {player['defesa']}\n")
     return player

@@ -10,9 +10,8 @@ def nivel_quatro(player):
     print("""
 O ar cheirava a folhas apodrecidas e carne em decomposição. Árvores esqueléticas se contorciam como dedos ossudos, 
 e a água estagnada borbulhava com coisas se movendo sob a superfície.
-          
-Você descide olhar a sua bolsa de itens.
     """)
+    print("Você descide olhar a sua bolsa de itens.\n")
     from utils.utils import usar_itens
     if not usar_itens(player):
         return False

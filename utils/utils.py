@@ -18,7 +18,7 @@ def usar_itens(player):
         print("\nItens disponíveis:")
         for i, (item, qtd) in enumerate(player["itens"].items(), 1):
             print(f"{i}. {item} (x{qtd})")
-        print(f"{len(player['itens'])+1}. Voltar")
+        print(f"{len(player['itens'])+1}. Continuar a diante")
         
         escolha = input("Escolha o item ou volte: ").strip()
         

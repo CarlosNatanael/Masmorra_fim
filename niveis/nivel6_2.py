@@ -18,6 +18,7 @@ A voz vinha de todos os lados. Segui adiante, cada passo fazendo com que raízes
 Os rios que cruzavam a floresta não carregavam água, mas sim sangue espesso, onde formas indistintas nadavam sob a superfície.
     """)
     time.sleep(5)
+    print("Você descide olhar a sua bolsa de itens.\n")
     from utils.utils import usar_itens
     if not usar_itens(player):
         return False

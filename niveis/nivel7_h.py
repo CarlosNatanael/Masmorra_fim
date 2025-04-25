@@ -17,6 +17,10 @@ Em uma encruzilhada de túneis, sentado em um banco de pedra, um velho de olhos 
 
 À sua frente, três cadáveres ressecados, com lábios retraídos em sorrisos eternos, estavam enfileirados como bonecos macabros.
     """)
+    print("Você descide olhar a sua bolsa de itens.\n")
+    from utils.utils import usar_itens
+    if not usar_itens(player):
+        return False
     time.sleep(5)
     print("A única regra escrita nas pedras:")
     print("\"Nunca toque nas paredes — elas lembram.\"")

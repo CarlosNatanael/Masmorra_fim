@@ -1,7 +1,1 @@
-Se der uma ação invalida o inimigo não da dano
-
-Quando virar monarca zerar e voltar ao nivel 1 e ficar somente com os status basico do monarca
-
-erro no nome do Paladino da luz
-
-habilidade quando selecionado do monarca não está funcionando fica do personagem antigo 
+Sem bugs

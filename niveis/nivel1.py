@@ -99,7 +99,7 @@ def nivel_um(player):
             elif escolha1 == "3":
                 player["personalidade"] = "Pacifista"
             else:
-                print("Escolha inválida. Assumindo natureza misteriosa.")
+                print("\nEscolha inválida. Assumindo natureza misteriosa.")
                 player["personalidade"] = "Enigmático"
                 time.sleep(5)
             print(f"\nEldramar: Interessante... Vejo que você é {player['personalidade']}.\n")
@@ -107,7 +107,7 @@ def nivel_um(player):
         else:
             print("Escolha inválida. Tente novamente.")
 
-    print("\nVocê se pergunta em como Eldramar sabe o seu nome.\n")
+    print("Você se pergunta em como Eldramar sabe o seu nome.\n")
     time.sleep(5)
     print(f"{player['nome']}: Como você sabe meu nome?")
     time.sleep(5)
@@ -117,7 +117,7 @@ def nivel_um(player):
     time.sleep(5)
     print("\n(Ele dá um passo à frente, e as sombras ao seu redor parecem se esticar.)\n")
     time.sleep(5)
-    print("Eldramar: Nomes têm poder, jovem. E o seu... ecoou através do Véu.")
+    print("Eldramar: Nomes têm poder, jovem. E o seu... ecoou através do Véu.\n")
     time.sleep(5)
     print(f"{player['nome']}: Isso não explica nada. Quem é você? O que quer?")
     time.sleep(5)
@@ -136,7 +136,7 @@ def nivel_um(player):
     print("Eldramar: É um fato. Mas não se preocupe... por enquanto. (Ele olha por cima do ombro, os olhos faiscando.) A masmorra fará pior.")
     time.sleep(5)
     input("\nPressione ENTER para continuar")
-    print("\nEldramar: 'Antes de seguir adiante, responda ao seguinte enigma. Caso falhe, as criaturas da sombras virão cobrar o preço...'\n")
+    print("\nEldramar: Antes de seguir adiante, responda ao seguinte enigma. Caso falhe, as criaturas da sombras virão cobrar o preço...\n")
     time.sleep(5)
     print(f"(E antes que {player['nome']} possa responder, Eldramar se dissolve nas sombras, deixando apenas um riso ecoando nas paredes de pedra.)\n")
     time.sleep(5)
