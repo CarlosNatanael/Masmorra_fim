@@ -83,9 +83,9 @@ def main():
     Desenvolvedor Tester:
     Arthur Yabuchi
                                        
-    - Inplementação de novos níveis     - Novos vilões
-    - 10 níveis completos               - Nova habilidade
-    - Melhorias de classe
+    - Melhorias de dialogos 
+    - Bugs das habilidades      
+    - Melhorias de combate
         
 
                        Copyright (c) 2025 by Carlos Natanael 
