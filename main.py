@@ -90,7 +90,7 @@ def main():
 
                        Copyright (c) 2025 by Carlos Natanael 
     """)
-    time.sleep(3)
+    # time.sleep(3)
     input("\n[Pressione ENTER para embarcar nesta aventura...]\n")
     limpar_terminal()
     player = escolher_classe()

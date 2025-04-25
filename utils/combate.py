@@ -73,7 +73,7 @@ def ganhar_xp(player, xp_ganho):
         while player["xp"] >= player["xp_proximo_nivel"]:
             player["xp"] -= player["xp_proximo_nivel"]
             player["nivel"] += 1
-            player["xp_proximo_nivel"] = int(player["xp_proximo_nivel"] * 1.8)  # Progressão mais lenta
+            player["xp_proximo_nivel"] = int(player["xp_proximo_nivel"] * 1.5)  # Progressão mais lenta
             
             # Melhoria de atributos do Monarca
             player["vida"] += 10
@@ -88,21 +88,30 @@ def ganhar_xp(player, xp_ganho):
             print(f"Magia: {player['magia']} (+4)")
             print(f"Defesa: {player['defesa']} (+6)\n")
     else:
-        player["vida"] += 10
-        player["força"] += 4
-        player["defesa"] += 3
-        if player["classe"] == "Mago":
-            player["magia"] += 4
-        elif player["classe"] == "Paladino":
-            player["vida"] += 4
-        elif player["classe"] == "Arqueiro":
-            player["força"] += 4
-        elif player["classe"] == "Guerreiro":
-            player["força"] += 4
+        
+        player["xp"] += xp_ganho
+        print(f"\n{player['nome']} ganhou {xp_ganho} de experiência!")
 
-        print(f"\n🎉 {player['nome']} subiu para o nível {player['nivel']}!")
-        print("Seus atributos aumentaram:")
-        print(f"Vida: {player['vida']}, Força: {player['força']}, Magia: {player['magia']}, Defesa: {player['defesa']}\n")
+        while player["xp"] >= player["xp_proximo_nivel"]:
+            player["xp"] -= player["xp_proximo_nivel"]
+            player["nivel"] += 1
+            player["xp_proximo_nivel"] = int(player["xp_proximo_nivel"] * 1.5)
+
+            player["vida"] += 10
+            player["força"] += 4
+            player["defesa"] += 3
+            if player["classe"] == "Mago":
+                player["magia"] += 4
+            elif player["classe"] == "Paladino":
+                player["vida"] += 4
+            elif player["classe"] == "Arqueiro":
+                player["força"] += 4
+            elif player["classe"] == "Guerreiro":
+                player["força"] += 4
+
+            print(f"\n {player['nome']} subiu para o nível {player['nivel']}!")
+            print("Seus atributos aumentaram:")
+            print(f"Vida: {player['vida']}, Força: {player['força']}, Magia: {player['magia']}, Defesa: {player['defesa']}\n")
 
 def verificar_status_monarca(player):
     if player.get("monarca_sombra", False) and player["classe"] != "Monarca das Sombras":
