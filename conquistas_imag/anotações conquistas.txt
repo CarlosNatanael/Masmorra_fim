@@ -2,28 +2,28 @@ Conquistas do game
 
 == nivel 1 conquistas: ==
 
-titulo : Guardião da Lei | OK
+titulo : Guardião da Lei
 descrição : Cumpra cada regra sem questionar. A ordem é sua armadura.
 
-titulo : Coração Heroico | OK
+titulo : Coração Heroico
 descrição : Proteja os fracos, mesmo contra as leis da masmorra.
 
-titulo : Pacifista Iluminado | OK
+titulo : Pacifista Iluminado
 descrição : Resolva todos os conflitos sem derramar sangue.
 
-titulo : Sombra da Sorte I | OK
+titulo : Sombra da Sorte I
 descrição : Passe pelo nível sem enfrentar nenhum combate.
 
-titulo : Exterminador Goblin I | OK
+titulo : Exterminador Goblin I
 descrição : Limpe a masmorra de toda a raça goblinóide.
 ===================================
 
 == nivel 2 conquistas: ==
 
-titulo : Sombra da Sorte II | OK
+titulo : Sombra da Sorte II
 descrição : Atravesse o salão sem cruzar sua lâmina.
 
-titulo : O Encontro do Eu  | OK
+titulo : O Encontro do Eu 
 descrição : Derrote seu próprio reflexo corrompido.
 
 ===================================
@@ -33,97 +33,122 @@ descrição : Derrote seu próprio reflexo corrompido.
 titulo : Exterminador Goblin II
 descrição : Erradique a infestação goblin nas ruínas do conhecimento.
 
-titulo : Caçador de Golem I | OK
+titulo : Caçador de Golem I
 descrição : Reduza o Golem de Elbano a pó e ruínas.
 
-titulo : O Velho Guardião  | OK
+titulo : O Velho Guardião 
 descrição : Supere Velkar e seus segredos arcanos.
 
 ===================================
 
 == nivel 4 conquistas: ==
 
-titulo : Sombra da Sorte III | OK
+titulo : Sombra da Sorte III
 descrição : Navegue pelo pântano sem atrair atenção indesejada.
 
-titulo : Quebrador de Pedra II | OK
+titulo : Quebrador de Pedra II
 descrição : Destrua o Golem do Pântano em seu próprio domínio.
 
-titulo : O Devorador Devorado | OK
+titulo : O Devorador Devorado
 descrição : Leve Grumor a conhecer o sabor de sua própria medicina.
 
-titulo : Quebrador de Pedra III  | OK
+titulo : Quebrador de Pedra III 
 descrição : Extinga a chama do Golem Ancestral de Fogo.
 
-titulo : Quebrador de Pedra III | OK
+titulo : Quebrador de Pedra III
 descrição : Extinga o Golem Ancestral de Terra.
 
-titulo : Punhos de Aço  | OK
+titulo : Punhos de Aço 
 descrição : Complete o nível usando apenas seus punhos como armas.
 
 ===================================
 
 == nivel 5 conquistas: ==
 
-titulo : O Fim do Tirano  | OK
+titulo : O Fim do Tirano 
 descrição : Derrube Velthurion de seu trono de ossos.
 
-titulo : Matador do Labirinto | OK
+titulo : Matador do Labirinto
 descrição : Leve o Minotauro ao seu último suspiro.
 
-titulo : Domador de Dragões | OK
+titulo : Domador de Dragões
 descrição : Subjugue a fera das sombras com fogo e aço.
 
-titulo : Mestre das Mentiras  | OK
+titulo : Mestre das Mentiras 
 descrição : Engane o próprio guardião da masmorra.
 
 ===================================
 
 == nivel 6_1 conquistas: ==
 
-titulo: Anjo da Perdição  | OK
+titulo: Anjo da Perdição 
 descricao: Derrube o celestial corrompido de seu pedestal.
 
-titulo : Libertador das Correntes  | OK
+titulo : Libertador das Correntes 
 descrição : Libertou todos no Cárcere das Almas Perdidas
 
-titulo : Carcereiro Eterno	 | OK
+titulo : Carcereiro Eterno	
 descrição : Condene os prisioneiros à escuridão perpétua.
 
-titulo : Juiz das Sombras | OK
+titulo : Juiz das Sombras
 descrição : Assuma o manto do verdugo celestial.
 
-titulo : Coroa das Trevas | OK
+titulo : Coroa das Trevas
 descrição : Ascenda como o novo Monarca das Sombras.
 
 ===================================
 
 == nivel 6_2 conquistas: ==
 
-titulo : Memórias Perdidas | OK
+titulo : Memórias Perdidas
 descrição : Pague com suas lembranças mais preciosas pela passagem.
 
-titulo : Dança dos Ossos | OK
+titulo : Dança dos Ossos
 descrição : Derrote a legião de esqueletos famintos.
 
-titulo : O Banquete do Wendigo | OK
+titulo : O Banquete do Wendigo
 descrição : Sirva-se da carne do monstro que queria devorá-lo.
 
-titulo : O Fim do Lorde | OK
+titulo : O Fim do Lorde
 descrição : Leve o Lorde dos Desesperados ao seu destino final.
 
-titulo : Abraço das Trevas | OK
+titulo : Abraço das Trevas
 descrição : Beba do poder sombrio e renasça como Monarca.
 
 ===================================
 
 == nivel 6_3 conquistas: ==
 
-titulo : Estrela das Sombras | OK
+titulo : Estrela das Sombras
 descrição : Ascenda como o novo Monarca das Sombras.
 
-titulo : Sombra da Sorte IV	 | OK
+titulo : Sombra da Sorte IV	
 descrição : Complete o nível sem participar do espetáculo sangrento.
 
-titulo : O Fim do Espetáculo | OK
+titulo : O Fim do Espetáculo
 descrição : Derrube o Diretor e rasgue seu roteiro de tormento.
+
+===================================
+
+== nivel 7_1 conquistas: ==
+
+===================================
+
+== nivel 7_2 conquistas: ==
+
+===================================
+
+== nivel 8 conquistas: ==
+
+===================================
+
+== nivel 9 conquistas: ==
+
+===================================
+
+== nivel 9_1 conquistas: ==
+
+===================================
+
+== nivel 10 conquistas: ==
+

@@ -1,3 +1,4 @@
+from conquistas_imag.sistema_conquistas import mostrar_conquista
 import time
 import os
 import random
@@ -94,10 +95,13 @@ def nivel_um(player):
             escolha1 = input("Eldramar: O que faz?: ").lower()
             if escolha1 == "1":
                 player["personalidade"] = "Justo"
+                mostrar_conquista("guardiao_lei")
             elif escolha1 == "2":
                 player["personalidade"] = "Heroico"
+                mostrar_conquista("coracao_heroico")
             elif escolha1 == "3":
                 player["personalidade"] = "Pacifista"
+                mostrar_conquista("pacifista_iluminado")
             else:
                 print("\nEscolha inválida. Assumindo natureza misteriosa.")
                 player["personalidade"] = "Enigmático"
@@ -146,6 +150,7 @@ def nivel_um(player):
     
     if resposta in respostas_possiveis:
         print("\nVoz sussurrante: 'Muito bem... Você poderá continuar.'")
+        mostrar_conquista("sombra_sorte_1")
     else:
         time.sleep(5)
         print(f"\nVoz sussurrante: 'Errado... As sombras não perdoa a ignorância. Prepare-se para lutar!'\n")
@@ -156,6 +161,8 @@ def nivel_um(player):
         ]
         input("Prepare-se para o combate! Pressione ENTER...\n")
         if not combate(player, inimigos):
+            mostrar_conquista("exterminador_goblin_1")
+        else:
             return False
 
     print(f"\nVoz sussurrante: 'Agora siga, {player['classe']}. Aldurian te aguarda.'")
