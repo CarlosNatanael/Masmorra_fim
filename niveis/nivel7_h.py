@@ -1,3 +1,4 @@
+from conquistas_imag.sistema_conquistas import mostrar_conquista
 from utils.combate import combate
 from utils.utils import limpar_terminal
 import time
@@ -69,7 +70,9 @@ Até que seu próprio reflexo não te reconheça." (balança a lamparina, onde l
             "xp": 300
         }
         input("\nPrepare-se para enfrentar O Colecionador de Nomes! Pressione ENTER...\n")
-        if not combate(player,[colecionador2]):
+        if combate(player,[colecionador2]):
+            mostrar_conquista("silenciador_eco")
+        else:
             return False
         print("\nO Colecionador cai de joelhos, seus olhos costurados começam a sangrar fios de sombra.\n")
         time.sleep(5)
@@ -136,6 +139,7 @@ Ao tocar seu peito, a luz se funde ao seu coração — e por um instante, você
         """)
         time.sleep(5)
         print("| » Benção adiquirida: Sunshine\n")
+        mostrar_conquista("sagrado_recipiente")
         print(f"| → Força aumentada para {player["força"]} (+20)")
         print(f"| → Vida aumentada para {player["vida"]} (+20)")
         print(f"| → Magia aumentada para {player["magia"]} (+20)")
@@ -217,6 +221,8 @@ Colecionador: (intervém, brusco) "Não desperdice tempo com eles. São só ecos
         }
         input("\nPrepare-se para enfrentar O Colecionador de Nomes! Pressione ENTER...\n")
         if not combate(player,[colecionador]):
+            mostrar_conquista("silenciador_eco")
+        else:
             return False
         print("\nO Colecionador cai de joelhos, seus olhos costurados começam a sangrar fios de sombra.\n")
         time.sleep(5)
@@ -283,6 +289,7 @@ Ao tocar seu peito, a luz se funde ao seu coração — e por um instante, você
         """)
         time.sleep(5)
         print("| » Benção adiquirida: Sunshine\n")
+        mostrar_conquista("sagrado_recipiente")
         print(f"| → Força aumentada para {player["força"]} (+20)")
         print(f"| → Vida aumentada para {player["vida"]} (+20)")
         print(f"| → Magia aumentada para {player["magia"]} (+20)")
@@ -333,6 +340,8 @@ Quando a poeira assenta, diante de você, um novo caminho se revela.
         }
         input("\nPrepare-se para enfrentar O Colecionador de Nomes! Pressione ENTER...\n")
         if not combate(player,[colecionador2]):
+            mostrar_conquista("silenciador_eco")
+        else:
             return False
         print("\nO Colecionador cai de joelhos, seus olhos costurados começam a sangrar fios de sombra.\n")
         time.sleep(5)
@@ -399,6 +408,7 @@ Ao tocar seu peito, a luz se funde ao seu coração — e por um instante, você
         """)
         time.sleep(5)
         print("| » Benção adiquirida: Sunshine\n")
+        mostrar_conquista("sagrado_recipiente")
         print(f"| → Força aumentada para {player["força"]} (+20)")
         print(f"| → Vida aumentada para {player["vida"]} (+20)")
         print(f"| → Magia aumentada para {player["magia"]} (+20)")

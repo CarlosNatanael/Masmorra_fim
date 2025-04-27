@@ -1,3 +1,4 @@
+from conquistas_imag.sistema_conquistas import mostrar_conquista
 from utils.combate import combate
 from utils.personagem import transformar_em_monarca
 import time
@@ -61,7 +62,9 @@ e olhos que refletiam infinitas regras escritas em ar puro.
         "habilidade": "Julgamento Divino"
     }
     input("\nPrepare-se para enfrentar Anjo da Obediência ! Pressione ENTER...\n")
-    if not combate(player, [anjo]):
+    if combate(player, [anjo]):
+        mostrar_conquista("anjo_perdicao")
+    else:
         return False
     
     print("Após uma arda batalha contra o anjo, ele se afasta")
@@ -82,6 +85,7 @@ Você sente a presença de Eldramar nas sombras, observando.
     
         if escolha_6 == "1":
             print("\nVocê puxa a alavanca. As celas se abrem. Gritos. Sussurros. Algumas criaturas fogem em silêncio.")
+            mostrar_conquista("libertador_correntes")
             time.sleep(5)
             print("Outras atacam. Mas entre elas, olhos humanos choram de gratidão. O Anjo rui...")
             time.sleep(5)
@@ -93,11 +97,13 @@ Você sente a presença de Eldramar nas sombras, observando.
     
         elif escolha_6 == "2":
             print("\nVocê destrói a alavanca. O Anjo observa em silêncio... e então sorri.")
+            mostrar_conquista("carcereiro_eterno")
             time.sleep(5)
             print("Ele lhe entrega a chave mestra. Você pode sair... mas carrega o peso de saber que perpetuou o sofrimento.")
             time.sleep(5)
             print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
             print(f"| » Status atual: Monarca das Sombras\n")
+            mostrar_conquista("coroa_trevas")
             time.sleep(5)
             print("""
 Então o Anjo invade minha mente e deixa a seguinte frase:
@@ -112,9 +118,11 @@ Então o Anjo invade minha mente e deixa a seguinte frase:
     
         elif escolha_6 == "3":
             print("\nVocê não se move. O Anjo toca sua testa. Um brilho o envolve.")
+            mostrar_conquista("juiz_sombras")
             time.sleep(5)
             print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma\n")
             print(f"| » Status atual: Monarca das Sombras\n")
+            mostrar_conquista("coroa_trevas")
             time.sleep(5)
             print("""
 Então o Anjo invade minha mente e deixa a seguinte frase:

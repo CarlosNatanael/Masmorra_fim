@@ -1,3 +1,5 @@
+from conquistas_imag.sistema_conquistas import mostrar_conquista
+from utils.personagem import transformar_em_monarca
 from utils.combate import combate
 import time
 
@@ -50,6 +52,7 @@ Você pode:
         escolha_ponte = input("Sua escolha (1 ou 2): ").strip()
         if escolha_ponte == "1":
             print("\nOs esqueletos engolem a pérola em êxtase. A ponte se estabiliza. Você atravessa.")
+            mostrar_conquista("memorias_perdidas")
             time.sleep(5)
             player["vida"] -= 20
             if player["vida"] <= 0:
@@ -65,7 +68,9 @@ Você pode:
                 {"nome": "Esqueleto Arqueiro", "classe": "Arqueiro", "vida": 70, "força": 47, "defesa": 59, "nivel":7}
             ]
             input("Prepare-se para o combate! Pressione ENTER...\n")
-            if not combate(player, inimigos):
+            if combate(player, inimigos):
+                mostrar_conquista("danca_ossos")
+            else:
                 return False
             break
         else:
@@ -111,11 +116,11 @@ Você sai da floresta mais forte.
             """)
             time.sleep(5)
             print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
-            print(f"| » Status atual: Monarca das Sombras ({player['classe']})\n")
-            player['monarca_sombra'] = True
-            player['classe'] = "Monarca das Sombras"
+            print(f"| » Status atual: Monarca das Sombras\n")
+            mostrar_conquista("abraco_trevas")
             time.sleep(5)
             print("\nVocê sente um vazio na alma... mas um poder sem limites!\n")
+            transformar_em_monarca(player)
             input("Você avança. Pressione ENTER para continuar...\n")
             return "sombra"
         elif escolha_final == "2":
@@ -140,7 +145,9 @@ Sangrando e esgotado, você encontra uma fenda na escuridão... e encontra algo 
                 "xp": 100
             }
             input("\nPrepare-se para enfrentar seu pior pesadelo! Pressione ENTER...\n")
-            if not combate(player, [wendigo]):
+            if combate(player, [wendigo]):
+                mostrar_conquista("banquete_wendigo")
+            else:
                 return False
             print("Sangrando e esgotado, você encontra uma fenda na escuridão... e escapa.\n")
             input("Você avança. Pressione ENTER para continuar...\n")
@@ -167,7 +174,9 @@ Ele ri, ferido, mas não morto.
                 "xp": 100
             }
             input("\nPrepare-se para enfrentar O Lorde dos Desesperados! Pressione ENTER...\n")
-            if not combate(player, [lorde]):
+            if combate(player, [lorde]):
+                mostrar_conquista("fim_lorde")
+            else:
                 return False
             print("Sangrando e esgotado, você encontra uma fenda na escuridão... Você escapa... mas agora está marcado.\n")
             input("Você avança. Pressione ENTER para continuar...\n")

@@ -1,3 +1,4 @@
+from conquistas_imag.sistema_conquistas import mostrar_conquista
 from utils.utils import limpar_terminal
 from utils.combate import combate
 import time
@@ -76,7 +77,9 @@ você vê apenas um abismo - dois poços sem fundo que sugam sua coragem.
         "xp": 200
     }
     input("\nPrepare-se para enfrentar seu pior pesadelo! Pressione ENTER...\n")
-    if not combate(player, [cloneEld]):
+    if combate(player, [cloneEld]):
+        mostrar_conquista("fim_tirano")
+    else:
         return False
     
     print("Sangrando e exausto, você se arrasta até o centro do salão e descide parar.")
@@ -134,11 +137,14 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
             "nivel": 7
         }
         input("Prepare-se para o combate! Pressione ENTER...\n")
-        if not combate(player, [minotauro]):
+        if combate(player, [minotauro]):
+            mostrar_conquista("matador_labirinto")
+        else:
             return False
     
     elif escolha == "2":
         print("\nEldramar: Eu já sabia. Ele lança um feitiço que reduz sua vida em 20!")
+        mostrar_conquista("mestre_mentiras")
         print(f"- 20 de Vida |Vida: {player['vida']}|")
         time.sleep(3)
         player["vida"] -= 20
@@ -161,7 +167,9 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
             "nivel": 7
         }
         input("Prepare-se para o combate! Pressione ENTER...\n")
-        if not combate(player, [dragao]):
+        if combate(player, [dragao]):
+            mostrar_conquista("domador_dragoes")
+        else:
             return False
         
     input("\nPressione ENTER para continuar")

@@ -1,3 +1,4 @@
+from conquistas_imag.sistema_conquistas import mostrar_conquista
 from utils.combate import combate
 from utils.utils import tem_chave
 from utils.utils import usar_chave
@@ -35,11 +36,14 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
         ]
 
         input("Prepare-se para o combate! Pressione ENTER...\n")
-        if not combate(player, monstros):
+        if combate(player, monstros):
+            mostrar_conquista("quebrador_pedra_2")
+        else:
             return False
         print("\nVocê derrota as criaturas e continua, coberto de lama e suor...\n")
     else:
         print("\nVocê avança cuidadosamente e encontra uma trilha firme. Parece o caminho certo!\n")
+        mostrar_conquista("sombra_sorte_3")
         time.sleep(3)
 
     print("Ao longe, um brilho vermelho corta a névoa... uma criatura gigante se aproxima!")
@@ -58,7 +62,9 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
     }
 
     input("Prepare-se para o confronto final do nível! Pressione ENTER...\n")
-    if not combate(player, [chefe]):
+    if combate(player, [chefe]):
+        mostrar_conquista("devorador_devorado")
+    else:
         return False
 
     print("\nGrumor desfaz-se em lama fétida e galhos partidos.\n")
@@ -150,7 +156,9 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
                         "xp": 200
                     }
 
-                    if not combate(player, [golem]):
+                    if combate(player, [golem]):
+                        mostrar_conquista("quebrador_pedra_3_fogo")
+                    else:
                         return False
                 
                     print("\nO golem se desfaz em pedras, revelando o portal instável por trás dele!")
@@ -194,6 +202,7 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
                     
                 elif player.get("atacou_rocha"):
                     print("\nVocê golpeia a rocha novamente, ignorando a dor!")
+                    mostrar_conquista("punhos_aco")
                     time.sleep(2)
                     print("As rachaduras começam a brilhar intensamente...")
                     time.sleep(3)
@@ -220,7 +229,8 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
                         "xp": 200
                     }
 
-                    if not combate(player, [golem]):
+                    if combate(player, [golem]):
+                        mostrar_conquista("quebrador_pedra_3_terra")
                         return False
                 
                     print("\nO golem se desfaz em pedras, revelando o portal instável por trás dele!")

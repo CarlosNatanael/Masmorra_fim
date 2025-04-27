@@ -1,3 +1,5 @@
+from conquistas_imag.sistema_conquistas import mostrar_conquista
+from utils.personagem import transformar_em_monarca
 from utils.combate import combate
 from utils.utils import limpar_terminal
 import time
@@ -41,10 +43,10 @@ mas com um rosto completamente liso - gesticulava em minha direção.
 
         if escolha == "1":
             print("\nVocê assina o roteiro. Um calor preenche seu corpo. Você sente... poder.\n")
-            print(f"| » Status atual: Monarca das Sombras ({player['classe']})\n")
+            print(f"| » Status atual: Monarca das Sombras\n")
+            mostrar_conquista("estrela_sombras")
             print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
-            player['monarca_sombra'] = True
-            player['classe'] = "Monarca das Sombras"
+            transformar_em_monarca(player)
             input("Você avança. Pressione ENTER para continuar...\n")
             return "sombra"
 
@@ -62,6 +64,7 @@ mas com um rosto completamente liso - gesticulava em minha direção.
                 print("Você CORRE em direção à saída enquanto o mundo artificial se desfaz!\n")
                 player['xp'] += 60
                 player['força'] += 5
+                mostrar_conquista("sombra_sorte_4")
                 input("Você avança. Pressione ENTER para continuar...\n")
                 return "humano"
             else:
@@ -148,8 +151,10 @@ Suas mãos ensanguentadas seguram uma pena de ferro, arranhando incessantemente 
             time.sleep(4)
     
             input("\nO show virou combate! Pressione ENTER...")
-            if not combate(player, [diretor]):
+            if combate(player, [diretor]):
                 print("\nO Diretor ajusta sua gravata: 'Sempre precisamos de um vilão...'")
+                mostrar_conquista("fim_espetaculo")
+            else:
                 return False
     
             print("\nAo derrotar o Diretor, sua máscara se quebra revelando...")
@@ -168,6 +173,7 @@ Suas mãos ensanguentadas seguram uma pena de ferro, arranhando incessantemente 
     
             player['xp'] += 300
             player['nivel'] += 1
+            mostrar_conquista("sombra_sorte_5")
             input("Você avança. Pressione ENTER para continuar...\n")
             return "humano"
 

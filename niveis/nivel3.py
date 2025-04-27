@@ -1,3 +1,4 @@
+from conquistas_imag.sistema_conquistas import mostrar_conquista
 from utils.combate import combate
 import time
 
@@ -33,7 +34,9 @@ def nivel_tres(player):
     ]
 
     input("Prepare-se para o combate! Pressione ENTER...\n")
-    if not combate(player, goblins):
+    if combate(player, goblins):
+        mostrar_conquista("exterminador_goblin_2")
+    else:
         return False
 
     print("\nOs goblins eram rápidos, mas burros. Um por um, caíram—guinchando, até que o último fugiu para as sombras.")
@@ -64,7 +67,9 @@ def nivel_tres(player):
     }
 
     input("\nPrepare-se para o combate! Pressione ENTER...\n")
-    if not combate(player, [golem]):
+    if combate(player, [golem]):
+        mostrar_conquista("cacador_golem_1")
+    else:
         return False
 
     print("Velkar : Você quer a chave para sair da masmorra, não é? Ele ergueu a mão, e um livro flutuou até ele.")
@@ -83,7 +88,9 @@ def nivel_tres(player):
     }
 
     input("Prepare-se para a batalha final deste nível. Pressione ENTER para continuar...\n")
-    if not combate(player, [mago]):
+    if combate(player, [mago]):
+        mostrar_conquista("velho_guardiao")
+    else:
         return False
 
     print("\nVelkar caiu de joelhos, seus olhos perdendo o brilho púrpura.")

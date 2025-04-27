@@ -1,3 +1,4 @@
+from conquistas_imag.sistema_conquistas import mostrar_conquista
 from utils.combate import combate
 import time
 
@@ -48,7 +49,9 @@ def nivel_7_sombra(player):
 
     input("Está na hora. Pressione ENTER para esmagar a resistência...")
 
-    if not combate(player, [resistencia]):
+    if combate(player, [resistencia]):
+        mostrar_conquista("quebrador_juramentos")
+    else:
         return False
 
     print("\nAltherion cai de joelhos, a luz de sua armadura se fragmenta como vidro ao vento.\n")
@@ -75,6 +78,7 @@ def nivel_7_sombra(player):
     print("\nAltherion: (últimas palavras) Corra, tolo... antes que o fogo perceba que você já vê através da fumaça.\n")
     time.sleep(5)
     print("A Cidade dos Espinhos Negros se curva em silêncio, e o eclipse se torna eterno.")
+    mostrar_conquista("eclipse_eterno")
     time.sleep(5)
     print("\nVocê cai. A luz retorna... mas o mundo jamais será o mesmo.")
     time.sleep(5)
@@ -82,7 +86,7 @@ def nivel_7_sombra(player):
     time.sleep(5)
     print("Fim de uma linhagem... e o início do seu reinado.\n")
     time.sleep(5)
-    print("Um portal se abre: seu caminho leva agora à Forja das Almas.\n")
+    print("Você abre portal: seu caminho leva agora à Forja das Almas.\n")
     time.sleep(5)
     input("Pressione ENTER para continuar\n")
 

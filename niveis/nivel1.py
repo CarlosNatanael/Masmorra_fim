@@ -160,7 +160,7 @@ def nivel_um(player):
             {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 35, "força": 28, "defesa": 30, "nivel":2}
         ]
         input("Prepare-se para o combate! Pressione ENTER...\n")
-        if not combate(player, inimigos):
+        if combate(player, inimigos):
             mostrar_conquista("exterminador_goblin_1")
         else:
             return False

@@ -1,3 +1,4 @@
+from conquistas_imag.sistema_conquistas import mostrar_conquista
 from utils.combate import combate
 import time
 import random
@@ -92,6 +93,7 @@ def nivel_dois(player):
     
     if escolha == str(desafio["correta"] + 1):  # +1 porque o usuário vê 1-based
         print('\n"Você se conhece melhor do que pensa. Avance."')
+        mostrar_conquista("sombra_sorte_2")
     else:
         print("\nO clone salta do espelho para enfrentar você!")
         time.sleep(5)
@@ -115,7 +117,9 @@ def nivel_dois(player):
         }
         clone["força"] = max(5, clone["força"])
         input("Prepare-se para o combate! Pressione ENTER...\n")
-        if not combate(player, [clone]):
+        if combate(player, [clone]):
+            mostrar_conquista("encontro_eu")
+        else:
             return False
 
     print("\nUma nova porta surgiu no final do salão. Você avança para o próximo nível.")
