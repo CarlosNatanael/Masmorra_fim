@@ -139,6 +139,13 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
         input("Prepare-se para o combate! Pressione ENTER...\n")
         if combate(player, [minotauro]):
             mostrar_conquista("matador_labirinto")
+            player["itens"]["poção de cura"] = 1
+            print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
+            print("(A poção foi adicionada ao seu inventário)\n")
+            print("Inventario atual:")
+            for item, qtd in player["itens"].items():
+                print(f"- {item}: {qtd}")
+            time.sleep(5)
         else:
             return False
     
@@ -169,6 +176,12 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
         input("Prepare-se para o combate! Pressione ENTER...\n")
         if combate(player, [dragao]):
             mostrar_conquista("domador_dragoes")
+            player["itens"]["poção de cura"] = 1
+            print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
+            print("(A poção foi adicionada ao seu inventário)\n")
+            print("Inventario atual:")
+            for item, qtd in player["itens"].items():
+                print(f"- {item}: {qtd}")
         else:
             return False
         

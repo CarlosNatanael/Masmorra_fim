@@ -70,6 +70,13 @@ Você pode:
             input("Prepare-se para o combate! Pressione ENTER...\n")
             if combate(player, inimigos):
                 mostrar_conquista("danca_ossos")
+                player["itens"]["poção de cura"] = 1
+                print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
+                print("(A poção foi adicionada ao seu inventário)\n")
+                print("Inventario atual:")
+                for item, qtd in player["itens"].items():
+                    print(f"- {item}: {qtd}")
+                time.sleep(5)
             else:
                 return False
             break

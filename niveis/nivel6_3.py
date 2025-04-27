@@ -12,6 +12,13 @@ def nivel_destruicao_3(player):
 Quando a luz prateada se dissipou, me encontrei em uma plateia infinita. Cadeiras de veludo vermelho se estendiam até onde a vista alcançava, todas vazias. 
 À minha frente, um palco iluminado por holofotes fantasmas, onde figuras sem rosto representavam uma peça sem sentido.
     """)
+    player["itens"]["poção de cura"] = 1
+    print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
+    print("(A poção foi adicionada ao seu inventário)\n")
+    print("Inventario atual:")
+    for item, qtd in player["itens"].items():
+        print(f"- {item}: {qtd}")
+    time.sleep(5)
     time.sleep(2)
     print("...uma plateia vazia e infinita. Cadeiras de veludo vermelho cobrem o horizonte.")
     print("Você descide olhar a sua bolsa de itens.\n")

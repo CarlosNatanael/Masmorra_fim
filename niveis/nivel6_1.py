@@ -11,6 +11,13 @@ O vazio engoliu-me por um momento infinito, até que meu corpo atingiu algo frio
 Quando abri os olhos, estava de joelhos em uma plataforma de ferro, flutuando no meio do nada.
     """)
     time.sleep(5)
+    player["itens"]["poção de cura"] = 1
+    print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
+    print("(A poção foi adicionada ao seu inventário)\n")
+    print("Inventario atual:")
+    for item, qtd in player["itens"].items():
+        print(f"- {item}: {qtd}")
+    time.sleep(5)
     print("""
 À minha volta, centenas de celas suspensas pairando no vazio, cada uma fechada por portas de arame farpado e luzes piscando em vermelho. 
 De dentro, mãos esqueléticas se agarravam às grades, e vozes roucas sussurravam em uníssono:          
