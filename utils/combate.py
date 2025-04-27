@@ -210,6 +210,14 @@ def combate(player, inimigos):
                     player["vida"] += 20
                     player["itens"][item_encontrado] -= 1
                     print("Você usou a poção de cura e recuperou 20 de vida\n")
+                elif item_encontrado == "poção de força":
+                    player["força"] += 10
+                    player["itens"][item_encontrado] -= 1
+                    print("Você usou a poção de força e aumentou 10 de força\n")
+                elif item_encontrado == "poção de defesa":
+                    player["defesa"] += 20
+                    player["itens"][item_encontrado] -= 1
+                    print("Você usou a poção de defesa e aumentou 20 de defesa\n")
             else:
                 print("Você não possui item ou digitou algo incorretamente\n")
                 turno_perdido = True

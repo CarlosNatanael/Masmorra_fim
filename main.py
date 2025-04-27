@@ -1,4 +1,4 @@
-# pyinstaller --onefile --add-data "niveis/nivel1.py;niveis" --add-data "niveis/nivel2.py;niveis" --add-data "niveis/nivel3.py;niveis" --add-data "niveis/nivel4.py;niveis" --add-data "niveis/nivel5.py;niveis" --add-data "niveis/nivel6_1.py;niveis" --add-data "niveis/nivel6_2.py;niveis" --add-data "niveis/nivel6_3.py;niveis" --add-data "niveis/nivel7_h.py;niveis" --add-data "niveis/nivel7_s.py;niveis" --add-data "utils/combate.py;utils" --add-data "utils/creditos.py;utils" --add-data "utils/personagem.py;utils" --add-data "utils/utils.py;utils" --add-data "conquistas_imag;conquistas_imag" --add-data "game_sound/beep3-98810.mp3;game_sound" --icon="icone.ico" --name "Masmorra do Fim" main.py
+# pyinstaller --onefile --add-data "niveis/nivel1.py;niveis" --add-data "niveis/nivel2.py;niveis" --add-data "niveis/nivel3.py;niveis" --add-data "niveis/nivel4.py;niveis" --add-data "niveis/nivel5.py;niveis" --add-data "niveis/nivel6_1.py;niveis" --add-data "niveis/nivel6_2.py;niveis" --add-data "niveis/nivel6_3.py;niveis" --add-data "niveis/nivel7_h.py;niveis" --add-data "niveis/nivel7_s.py;niveis" --add-data "niveis/nivel8.py;niveis" --add-data "utils/combate.py;utils" --add-data "utils/creditos.py;utils" --add-data "utils/personagem.py;utils" --add-data "utils/utils.py;utils" --add-data "conquistas_imag;conquistas_imag" --add-data "game_sound/beep3-98810.mp3;game_sound" --icon="icone.ico" --name "Masmorra do Fim" main.py
 
 from niveis.nivel1 import nivel_um
 from niveis.nivel2 import nivel_dois
@@ -10,6 +10,7 @@ from niveis.nivel6_2 import nivel_mentira_2
 from niveis.nivel6_3 import nivel_destruicao_3
 from niveis.nivel7_h import nivel_7_humano
 from niveis.nivel7_s import nivel_7_sombra
+from niveis.nivel8 import nivel_oito
 from utils.personagem import escolher_classe
 from utils.creditos import creditos_finais
 from utils.utils import limpar_terminal
@@ -57,6 +58,7 @@ def mostrar_status_jogador(player):
     print("\n[Pressione ENTER para embarcar nesta aventura...]\n")
 
 def main():
+    limpar_terminal()
     print("""
                                  ┳┳┓                 ┓    ┏┓•   
                                  ┃┃┃┏┓┏┏┳┓┏┓┏┓┏┓┏┓  ┏┫┏┓  ┣ ┓┏┳┓
@@ -88,9 +90,9 @@ def main():
     Desenvolvedor Tester:
     Arthur Yabuchi
                                        
-    - Melhorias de dialogos 
-    - Bugs das habilidades      
-    - Melhorias de combate
+    - Novos levels                      - Adição de novas poções
+    - Novo sistema de conquistas
+    - Adição de novos monstros
         
 
                        Copyright (c) 2025 by Carlos Natanael 
@@ -253,6 +255,17 @@ Você acorda em:
     input()
     limpar_terminal()
 #==============================
+#   Nivel 8
+    if not nivel_oito(player):
+        game_over()
+        return
+    limpar_terminal()
+#=====================
+#   Status jogador nivel8
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
     creditos_finais(player)
 
 if __name__ == "__main__":

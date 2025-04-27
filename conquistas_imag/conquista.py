@@ -281,5 +281,34 @@ conquistas = {
         "descricao": "Como Monarca das Sombras, conjurou um eclipse que obscureceu o sol por sete dias.",
         "icone": "conquistas_imag/eclipse.png",
         "som": "game_sound/beep3-98810.mp3"
-    }  
+    },
+    # Nível 8
+    "coração_libertado_8": {
+        "nivel": 8,
+        "titulo": "Coração Libertado",
+        "descricao": "Você derrotou Velthurion e quebrou a Forja das Almas.",
+        "icone": "conquistas_imag/forja.png",
+        "som": "game_sound/beep3-98810.mp3"
+    },
+    "mestre_dos_baús": {
+        "nivel": 8,
+        "titulo": "Mestre dos Baús",
+        "descricao": "Abriu todos os baús no Coração da Masmorra sem ser devorado.",
+        "icone": "conquistas_imag/mestre_baus.png",
+        "som": "game_sound/beep3-98810.mp3"
+    },
+    "devorador_de_mimicos": {
+        "nivel": 8,
+        "titulo": "Devorador de Mímicos",
+        "descricao": "Derrotou o Baú Mímico.",
+        "icone": "conquistas_imag/devorador_mimicos.png",
+        "som": "game_sound/beep3-98810.mp3"
+    },
+    "artesao_da_sorte": {
+        "nivel": 8,
+        "titulo": "Artesão da Sorte",
+        "descricao": "Obteve itens lendários de um único baú.",
+        "icone": "conquistas_imag/artesao_sorte.png",
+        "som": "game_sound/beep3-98810.mp3"
+    }
 }
