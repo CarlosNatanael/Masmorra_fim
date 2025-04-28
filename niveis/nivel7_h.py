@@ -224,7 +224,7 @@ Colecionador: (intervém, brusco) "Não desperdice tempo com eles. São só ecos
             "xp": 200
         }
         input("\nPrepare-se para enfrentar O Colecionador de Nomes! Pressione ENTER...\n")
-        if not combate(player,[colecionador]):
+        if combate(player,[colecionador2]):
             mostrar_conquista("silenciador_eco")
         else:
             return False
@@ -344,7 +344,7 @@ Quando a poeira assenta, diante de você, um novo caminho se revela.
             "xp": 300
         }
         input("\nPrepare-se para enfrentar O Colecionador de Nomes! Pressione ENTER...\n")
-        if not combate(player,[colecionador2]):
+        if combate(player,[colecionador2]):
             mostrar_conquista("silenciador_eco")
         else:
             return False
