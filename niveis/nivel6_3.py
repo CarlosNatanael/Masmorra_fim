@@ -1,4 +1,6 @@
 from conquistas_imag.sistema_conquistas import mostrar_conquista
+from game_sound.sound import tocar_musica
+from game_sound.sound import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
 from utils.utils import limpar_terminal
@@ -6,6 +8,7 @@ import time
 import random
 
 def nivel_destruicao_3(player):
+    tocar_musica()
     print("Capítulo 6:  O Teatro das Máscaras Vazias")
     time.sleep(2)
     print("""
@@ -55,6 +58,7 @@ mas com um rosto completamente liso - gesticulava em minha direção.
             print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
             transformar_em_monarca(player)
             input("Você avança. Pressione ENTER para continuar...\n")
+            parar_musica()
             return "sombra"
 
 
@@ -73,6 +77,7 @@ mas com um rosto completamente liso - gesticulava em minha direção.
                 player['força'] += 5
                 mostrar_conquista("sombra_sorte_4")
                 input("Você avança. Pressione ENTER para continuar...\n")
+                parar_musica()
                 return "humano"
             else:
                 print("A máscara resiste. Você puxa com mais força... e sente sua carne vir junto.")
@@ -182,6 +187,7 @@ Suas mãos ensanguentadas seguram uma pena de ferro, arranhando incessantemente 
             player['nivel'] += 1
             mostrar_conquista("sombra_sorte_5")
             input("Você avança. Pressione ENTER para continuar...\n")
+            parar_musica()
             return "humano"
 
         else:

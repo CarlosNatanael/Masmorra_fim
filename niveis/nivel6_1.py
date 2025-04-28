@@ -1,9 +1,12 @@
 from conquistas_imag.sistema_conquistas import mostrar_conquista
-from utils.combate import combate
+from game_sound.sound import tocar_musica
+from game_sound.sound import parar_musica
 from utils.personagem import transformar_em_monarca
+from utils.combate import combate
 import time
 
 def nivel_verdade_1(player):
+    tocar_musica()
     print("Capítulo 6:  O Cárcere das Almas Perdidas")
     time.sleep(2)
     print("""
@@ -100,6 +103,7 @@ Você sente a presença de Eldramar nas sombras, observando.
             time.sleep(4)
             print("Você escapa por um portal...\n")
             input("Você avança. Pressione ENTER para continuar...\n")
+            parar_musica()
             return "humano"
     
         elif escolha_6 == "2":
@@ -121,6 +125,7 @@ Então o Anjo invade minha mente e deixa a seguinte frase:
             print("Você escapa por um portal...\n")
             transformar_em_monarca(player)
             input("Você avança. Pressione ENTER para continuar...\n")
+            parar_musica()
             return "sombra"  
     
         elif escolha_6 == "3":
@@ -140,6 +145,7 @@ Então o Anjo invade minha mente e deixa a seguinte frase:
             print("Você escapa por um portal...\n")
             transformar_em_monarca(player)
             input("Você avança. Pressione ENTER para continuar...\n")
+            parar_musica()
             return "sombra"
     
         else:

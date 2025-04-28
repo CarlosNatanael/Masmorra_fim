@@ -1,4 +1,6 @@
 from conquistas_imag.sistema_conquistas import mostrar_conquista
+from game_sound.sound import tocar_musica
+from game_sound.sound import parar_musica
 from utils.combate import combate
 import time
 import random
@@ -56,6 +58,7 @@ desafios_clone = [
 ]
 
 def nivel_dois(player):
+    tocar_musica()
     print("Capítulo 2: O Salão dos Espelhos\n")
     time.sleep(5)
     print('"O velho Eldramar havia me alertado:"')
@@ -101,6 +104,7 @@ def nivel_dois(player):
         print("Era eu—mas não. Seus olhos eram negros como breu, e sua boca se torcia em um sorriso que nunca faria.")
         time.sleep(5)
         print(f"\nUm clone distorcido de você salta do espelho! Erguendo um {player["arma"]} que surgiu do nada.")
+        tocar_musica()
         time.sleep(5)
         print(f'Clone Corrompido de {player["nome"]}: Você não pode me vencer, "ele riu". Eu sou você.\n')
         time.sleep(5)
@@ -125,4 +129,5 @@ def nivel_dois(player):
     print("\nUma nova porta surgiu no final do salão. Você avança para o próximo nível.")
     time.sleep(5)
     input("\nPressione ENTER para continuar\n")
+    parar_musica()
     return True

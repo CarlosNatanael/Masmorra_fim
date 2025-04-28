@@ -1,4 +1,6 @@
 from conquistas_imag.sistema_conquistas import mostrar_conquista
+from game_sound.sound import tocar_musica
+from game_sound.sound import parar_musica
 import time
 import os
 import random
@@ -39,6 +41,7 @@ def obter_enigma_aleatorio():
     return enigma["pergunta"], enigma["respostas"]
 
 def nivel_um(player):
+    tocar_musica()
     print("Capítulo 1: O Despertar no Desconhecido\n")
     time.sleep(5)
     print("\nEra uma noite chuvosa quando entrei na Biblioteca de Arcanthus, um lugar antigo e abandonado, conhecido apenas por estudiosos de ocultismo.")
@@ -112,6 +115,7 @@ def nivel_um(player):
             print("Escolha inválida. Tente novamente.")
 
     print("Você se pergunta em como Eldramar sabe o seu nome.\n")
+    tocar_musica()
     time.sleep(5)
     print(f"{player['nome']}: Como você sabe meu nome?")
     time.sleep(5)
@@ -119,6 +123,7 @@ def nivel_um(player):
     time.sleep(5)
     print("Eldramar: Você acha que foi um acidente? Que caiu aqui por... sorte?")
     time.sleep(5)
+    tocar_musica()
     print("\n(Ele dá um passo à frente, e as sombras ao seu redor parecem se esticar.)\n")
     time.sleep(5)
     print("Eldramar: Nomes têm poder, jovem. E o seu... ecoou através do Véu.\n")
@@ -164,10 +169,11 @@ def nivel_um(player):
             mostrar_conquista("exterminador_goblin_1")
         else:
             return False
-
+        
     print(f"\nVoz sussurrante: 'Agora siga, {player['classe']}. Aldurian te aguarda.'")
     time.sleep(5)
     print("Você caminha por entre árvores milenares até avistar a entrada da Masmorra do Fim...\n")
 
     input("\nPressione ENTER para continuar\n")
+    parar_musica()
     return True

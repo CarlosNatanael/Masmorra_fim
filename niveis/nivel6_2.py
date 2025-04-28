@@ -1,9 +1,12 @@
 from conquistas_imag.sistema_conquistas import mostrar_conquista
+from game_sound.sound import tocar_musica
+from game_sound.sound import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
 import time
 
 def nivel_mentira_2(player):
+    parar_musica()
     print("Capítulo 6:  A Floresta dos Espectros Famintos")
     time.sleep(2)
     print("""
@@ -129,6 +132,7 @@ Você sai da floresta mais forte.
             print("\nVocê sente um vazio na alma... mas um poder sem limites!\n")
             transformar_em_monarca(player)
             input("Você avança. Pressione ENTER para continuar...\n")
+            parar_musica()
             return "sombra"
         elif escolha_final == "2":
             print("""
@@ -158,6 +162,7 @@ Sangrando e esgotado, você encontra uma fenda na escuridão... e encontra algo 
                 return False
             print("Sangrando e esgotado, você encontra uma fenda na escuridão... e escapa.\n")
             input("Você avança. Pressione ENTER para continuar...\n")
+            parar_musica()
             return "humano"
         elif escolha_final == "3":
             print("""
@@ -187,6 +192,7 @@ Ele ri, ferido, mas não morto.
                 return False
             print("Sangrando e esgotado, você encontra uma fenda na escuridão... Você escapa... mas agora está marcado.\n")
             input("Você avança. Pressione ENTER para continuar...\n")
+            parar_musica()
             return "humano"
         else:
             print("Escolha inválida.")

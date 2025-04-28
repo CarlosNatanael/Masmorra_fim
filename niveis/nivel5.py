@@ -1,9 +1,12 @@
 from conquistas_imag.sistema_conquistas import mostrar_conquista
+from game_sound.sound import tocar_musica
+from game_sound.sound import parar_musica
 from utils.utils import limpar_terminal
 from utils.combate import combate
 import time
 
 def nivel_cinco(player):
+    tocar_musica()
     print("Capítulo 5: A Sala do Guardião\n")
     time.sleep(5)
     print(""" 
@@ -211,6 +214,7 @@ O mercador gritava, a criança tremia, e eu estava parado no meio, exatamente co
     time.sleep(5)
     print("\nAgora, escolha com sabedoria. Esta decisão moldará seu destino.")
     time.sleep(5)
+    parar_musica()
     print("\n1. Impor a justiça (Lei acima de tudo)")
     print("2. Proteger o fraco (Compaixão acima das regras)")
     print("3. Pagar o preço (Equilíbrio)")

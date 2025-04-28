@@ -1,8 +1,11 @@
 from conquistas_imag.sistema_conquistas import mostrar_conquista
+from game_sound.sound import tocar_musica
+from game_sound.sound import parar_musica
 from utils.combate import combate
 import time
 
 def nivel_7_sombra(player):
+    tocar_musica()
     print("Capítulo 7: O Primeiro Decreto\n")
     time.sleep(2)
     print("A Cidade dos Espinhos Negros silencia.")
@@ -62,6 +65,7 @@ def nivel_7_sombra(player):
     time.sleep(5)
     print("\nAltherion: (voz trêmula, mas firme) Então este é o seu decreto... Que os ecos da luz o acompanhem até o fim, Monarca.")
     time.sleep(4)
+    tocar_musica()
     print("\nAltherion: Eldramar... Ele não forjou esta masmorra. Não é seu criador. É apenas o servo que mantém a fornalha acesa.")
     time.sleep(5)
     print("\nAltherion: E você... (respiração falha) Você não é o herói desta história. Você é o braseiro... o centro do sacrifício.")
@@ -89,5 +93,5 @@ def nivel_7_sombra(player):
     print("Você abre portal: seu caminho leva agora à Forja das Almas.\n")
     time.sleep(5)
     input("Pressione ENTER para continuar\n")
-
+    parar_musica()
     return True

@@ -1,6 +1,8 @@
-from utils.combate import combate
 from conquistas_imag.sistema_conquistas import mostrar_conquista
+from game_sound.sound import tocar_musica
+from game_sound.sound import parar_musica
 from utils.utils import limpar_terminal
+from utils.combate import combate
 import time
 import random
 
@@ -63,6 +65,7 @@ def encontrar_bau(player):
     return True
 
 def nivel_oito(player):
+    tocar_musica()
     print("Capítulo 8: O Coração da Masmorra\n")
     time.sleep(5)
     print("Você sente o calor antes mesmo de enxergar...")
@@ -188,6 +191,7 @@ Com um último estalo metálico, Velthurion desabou em uma pilha de ferramentas 
         mostrar_conquista("artesao_da_sorte")
 
         input("\nPressione ENTER para continuar...\n")
+        parar_musica()
         return True
     else:
         print("\nSeu coração para, seu corpo cai... e sua alma é tragada pela fornalha.")

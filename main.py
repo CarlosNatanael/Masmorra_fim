@@ -14,6 +14,8 @@ from niveis.nivel8 import nivel_oito
 from utils.personagem import escolher_classe
 from utils.creditos import creditos_finais
 from utils.utils import limpar_terminal
+from game_sound.menu_sound  import tocar_musica
+from game_sound.menu_sound  import parar_musica
 import time
 
 def game_over():
@@ -58,6 +60,7 @@ def mostrar_status_jogador(player):
     print("\n[Pressione ENTER para embarcar nesta aventura...]\n")
 
 def main():
+    tocar_musica()
     limpar_terminal()
     print("""
                                  ┳┳┓                 ┓    ┏┓•   
@@ -104,6 +107,7 @@ def main():
     limpar_terminal()
     mostrar_status_jogador(player)
     input()
+    parar_musica()
     limpar_terminal()
 #=====================
 #   Nivel 1

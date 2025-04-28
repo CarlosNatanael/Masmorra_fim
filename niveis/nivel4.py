@@ -1,4 +1,6 @@
 from conquistas_imag.sistema_conquistas import mostrar_conquista
+from game_sound.sound import tocar_musica
+from game_sound.sound import parar_musica
 from utils.combate import combate
 from utils.utils import tem_chave
 from utils.utils import usar_chave
@@ -6,6 +8,7 @@ import random
 import time
 
 def nivel_quatro(player):
+    tocar_musica()
     print("Capítulo 4: O Pântano do Desespero\n")
     time.sleep(5)
     print("""
@@ -109,6 +112,7 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
                     time.sleep(4)
                     print("O portal estabiliza, mostrando visões de um corredor infinito repleto de estrelas")
                     input("\nPressione ENTER para atravessar o portal...")
+                    parar_musica()
                     return True
                 else:
                     print("\nVocê revira seus bolsos, mas a chave não está lá!")
@@ -163,6 +167,7 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
                 
                     print("\nO golem se desfaz em pedras, revelando o portal instável por trás dele!")
                     input("\nPressione ENTER para atravessar o portal...")
+                    parar_musica()
                     return True
                 continue
         
@@ -235,6 +240,7 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
                 
                     print("\nO golem se desfaz em pedras, revelando o portal instável por trás dele!")
                     input("\nPressione ENTER para atravessar o portal...")
+                    parar_musica()
                     return True
     else:
         print("\nO portal permanece selado. Você precisa encontrar a chave adequada!")

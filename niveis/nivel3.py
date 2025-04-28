@@ -1,8 +1,11 @@
 from conquistas_imag.sistema_conquistas import mostrar_conquista
+from game_sound.sound import tocar_musica
+from game_sound.sound import parar_musica
 from utils.combate import combate
 import time
 
 def nivel_tres(player):
+    tocar_musica()
     print("Capítulo 3: A Biblioteca Perdida\n")
     time.sleep(5)
     print('"O último fragmento do meu reflexo se dissolveu no ar, e a porta no final do corredor se abriu com um rangido sinistro."')
@@ -118,4 +121,5 @@ def nivel_tres(player):
     print("A biblioteca tinha desaparecido. Agora, tudo ao meu redor era lama, névoa e silêncio sufocante.")
 
     input("\nVocê avança. Pressione ENTER para continuar...\n")
+    parar_musica()
     return True

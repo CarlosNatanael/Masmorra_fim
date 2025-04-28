@@ -1,3 +1,5 @@
+from game_sound.game_over import tocar_musica
+from game_sound.game_over import parar_musica
 import random
 import time
 
@@ -145,8 +147,10 @@ def combate(player, inimigos):
             player["vida"] -= dano_monstro
             print(f"\n{monstro['nome']} aproveitou sua hesitação e atacou causando {dano_monstro} de dano!")
             if player["vida"] <= 0:
-                print("\n💀Você foi derrotado! Game over!💀")
+                tocar_musica()
+                print("\n☠ Você foi derrotado! Game over! ☠")
                 input("\nPressione ENTER para continuar\n")
+                parar_musica()
                 return False
             continue
 
@@ -247,9 +251,11 @@ def combate(player, inimigos):
 
         # Verificação de derrota
         if player["vida"] <= 0:
-            print("\n💀 Você foi derrotado! Game over! 💀\n")
-            input("Pressione ENTER para continuar\n")
-            return False
+                tocar_musica()
+                print("\n☠ Você foi derrotado! Game over! ☠")
+                input("\nPressione ENTER para continuar\n")
+                parar_musica()
+                return False
 
     # Vitória
     print("\nVocê derrotou todos os inimigos!")

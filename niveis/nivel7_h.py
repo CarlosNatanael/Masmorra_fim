@@ -1,9 +1,12 @@
 from conquistas_imag.sistema_conquistas import mostrar_conquista
+from game_sound.sound import tocar_musica
+from game_sound.sound import parar_musica
 from utils.combate import combate
 from utils.utils import limpar_terminal
 import time
 
 def nivel_7_humano(player):
+    tocar_musica()
     print("Capítulo 7: As Catacumbas da Luz Moribunda\n")
     time.sleep(5)
     print("Em vez de cair, fui expulso - como um caroço de fruta cuspido. Aterrissei em:")
@@ -170,6 +173,7 @@ Quando a poeira assenta, diante de você, um novo caminho se revela.
     Uma escadaria de ossos polidos e runas esquecidas, descendo... para o último desafio.      
         """)
         input("Pressione ENTER para continuar\n")
+        parar_musica()
         return True
     
     print("\nEscolha como explorar o labirinto:\n")
@@ -320,6 +324,7 @@ Quando a poeira assenta, diante de você, um novo caminho se revela.
     Uma escadaria de ossos polidos e runas esquecidas, descendo... para o último desafio.      
         """)
         input("Pressione ENTER para continuar\n")
+        parar_musica()
         return True
         
     elif escolha1 == "2":
@@ -439,4 +444,5 @@ Quando a poeira assenta, diante de você, um novo caminho se revela.
     Uma escadaria de ossos polidos e runas esquecidas, descendo... para o último desafio.      
         """)
         input("Pressione ENTER para continuar\n")
+        parar_musica()
         return True
