@@ -310,5 +310,28 @@ conquistas = {
         "descricao": "Obteve itens lendários de um único baú.",
         "icone": "conquistas_imag/artesao_sorte.png",
         "som": "game_sound/beep3-98810.mp3"
+    },
+
+        # Nível 9
+    "ultima_luz": {
+        "nivel": 9,
+        "titulo": "A Última Luz",
+        "descricao": "Testemunhou o sacrifício de Valysse e sobreviveu ao ataque de Eldramar.",
+        "icone": "conquistas_imag/ultima_luz.png",
+        "som": "game_sound/beep3-98810.mp3"
+    },
+    "guardiao_perdido": {
+        "nivel": 9,
+        "titulo": "Guardião dos Perdidos",
+        "descricao": "Visitou todos os locais do Refúgio dos Esquecidos antes do ataque.",
+        "icone": "conquistas_imag/guardiao_perdido.png",
+        "som": "game_sound/beep3-98810.mp3"
+    },
+    "furia_elemental": {
+        "nivel": 9,
+        "titulo": "Fúria Elemental",
+        "descricao": "Recebeu o último presente de Valysse - a Pedra da Fúria Elemental.",
+        "icone": "conquistas_imag/furia_elemental.png",
+        "som": "game_sound/beep3-98810.mp3"
     }
 }

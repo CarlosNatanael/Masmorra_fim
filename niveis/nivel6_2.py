@@ -45,7 +45,17 @@ Quando pisa no primeiro osso, os esqueletos riem:
 "Ofereça algo, vivo... ofeeeeereça..."
     """)
     time.sleep(6)
-    print("""
+# Verifica se o jogador tem a chave que evita o sacrifício ou combate
+    if "chave de ébano" in player["itens"] and player["itens"]["chave de ébano"] > 0:
+        print("""
+Ao tocar o primeiro osso da ponte, a chave em seu bolso vibra com intensidade.
+Os esqueletos recuam em silêncio, reconhecendo o poder que você carrega.
+
+Sem precisar sacrificar sua lembrança ou lutar, você atravessa a ponte em segurança.
+        """)
+        time.sleep(5)
+    else:
+        print("""
 Você sente uma memória emergir. Uma lembrança feliz — talvez da infância, de alguém amado, de um lugar seguro.
 Ela se transforma numa pérola dourada que brilha em sua mão.
 
@@ -53,7 +63,7 @@ Você pode:
 
 1. Oferecer a lembrança aos mortos.
 2. Recusar-se a esquecê-la e tentar saltar.
-    """)
+        """)
     time.sleep(5)
     while True:
         escolha_ponte = input("Sua escolha (1 ou 2): ").strip()

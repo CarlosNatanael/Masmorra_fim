@@ -11,6 +11,7 @@ from niveis.nivel6_3 import nivel_destruicao_3
 from niveis.nivel7_h import nivel_7_humano
 from niveis.nivel7_s import nivel_7_sombra
 from niveis.nivel8 import nivel_oito
+from niveis.nivel9 import nivel_nove
 from utils.personagem import escolher_classe
 from utils.creditos import creditos_finais
 from utils.utils import limpar_terminal
@@ -272,6 +273,17 @@ Você acorda em:
     limpar_terminal()
 #=====================
 #   Status jogador nivel8
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+#=====================
+#   Nivel 9
+    if not nivel_nove(player):
+        game_over()
+        return
+    limpar_terminal()
+#=====================
+#   Status jogador nivel9
     mostrar_status_jogador(player)
     input()
     limpar_terminal()
