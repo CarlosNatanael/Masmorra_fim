@@ -115,7 +115,7 @@ conquistas = {
         "nivel": 4,
         "titulo": "Punhos de Aço",
         "descricao": "Complete o nível usando apenas seus punhos como armas.",
-        "icone": "conquistas_imag/punhosdeaco.png",
+        "icone": "conquistas_imag/punhodeaco.png",
         "som": "game_sound/beep3-98810.mp3"
     },
     

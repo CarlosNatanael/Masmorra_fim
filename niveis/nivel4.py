@@ -240,6 +240,7 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
 
                     if combate(player, [golem]):
                         mostrar_conquista("quebrador_pedra_3_terra")
+                    else:
                         return False
                 
                     print("\nO golem se desfaz em pedras, revelando o portal instável por trás dele!")

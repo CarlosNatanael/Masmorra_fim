@@ -44,15 +44,15 @@ Em uma encruzilhada de túneis, sentado em um banco de pedra, um velho de olhos 
         print("Opção inválida! Por favor, digite 1 ou 2.")
 
     if escolha == "1":
-        print(f"\n{player['nome']}: (cauteloso) Você... está vivo?")
+        print(f"\n{player["nome"]}: (cauteloso) Você... está vivo?")
         time.sleep(5)
         print("Colecionador de Nomes: Vivo? Morto? São só palavras, e palavras... são minha mercadoria. (estende a mão, palma para cima) Você quer um mapa? Eu vendo.")
         time.sleep(5)
-        print(f"\n{player['nome']}: Que tipo de pagamento você aceita?")
+        print(f"\n{player["nome"]}: Que tipo de pagamento você aceita?")
         time.sleep(5)
         print("Colecionador de Nomes: Nomes, é claro. O primeiro que você recebeu. O da sua avó? Do seu primeiro amor? Do seu pior inimigo? Cada um abre um caminho diferente...")
         time.sleep(5)
-        print(f"\n{player['nome']}: E se eu me recusar?")
+        print(f"\n{player["nome"]}: E se eu me recusar?")
         print("""
 Colecionador de Nomes: (inclina a cabeça) "Então você ficará mais leve a cada passo. Primeiro esquecerá rostos. Depois, lugares. 
 Até que seu próprio reflexo não te reconheça." (balança a lamparina, onde luzes dançam como vagalumes presos) "Já aconteceu com outros."
@@ -203,7 +203,7 @@ Quando a poeira assenta, diante de você, um novo caminho se revela.
 3º Afogado: (tom infantil) "Mas você tem que nos dar água! Só um gole! A gente promete não te puxar para o fundo!"
         """)
         time.sleep(5)
-        print(f"{player['nome']}: (para o 3º Afogado) Vocês estão secos. Como podem beber?")
+        print(f"{player["nome"]}: (para o 3º Afogado) Vocês estão secos. Como podem beber?")
         time.sleep(5)
         print("""
 Colecionador: (intervém, brusco) "Não desperdice tempo com eles. São só ecos de quem tentou burlar as regras." (ergue um frasco com um líquido turvo) "Uma memória por um mapa. Esse é o único negócio real aqui."
@@ -370,7 +370,7 @@ Quando a poeira assenta, diante de você, um novo caminho se revela.
         time.sleep(5)
         print("Colecionador: (últimas palavras) Corra, tolo. Antes que ele sinta que você sabe demais...\n")
         time.sleep(5)
-        print("O eco da sua última risada desvanece pelas entranhas da masmorra...n")
+        print("O eco da sua última risada desvanece pelas entranhas da masmorra...")
         time.sleep(5)
 
         player["vida"] += 20
