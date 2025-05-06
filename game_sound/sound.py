@@ -19,11 +19,3 @@ def tocar_musica():
 
 def parar_musica():
     pygame.mixer.music.stop()
-
-# Quando começa o nível 8
-tocar_musica()
-
-# (aqui seu jogo roda normalmente)
-
-# Quando o nível 8 termina
-parar_musica()

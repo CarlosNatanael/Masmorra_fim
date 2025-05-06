@@ -41,6 +41,16 @@ def habilidade_especial(player, inimigos):
                 print(f"{inimigo['nome']} foi derrotado!")
                 derrotados.append(inimigo)
                 inimigos.remove(inimigo)
+
+    elif player["classe"] == "Dev_admin":
+        dano = player["força"] + random.randint(20, 40)
+        for inimigo in inimigos[:]:
+            inimigo["vida"] -= dano
+            print(f"Você usou o Bug do Dev em {inimigo['nome']} e causou {dano} de dano")
+            if inimigo["vida"] <= 0:
+                print(f"{inimigo['nome']} foi derrotado!")
+                derrotados.append(inimigo)
+                inimigos.remove(inimigo)
                 
     elif player["classe"] == "Monarca das Sombras":
         if "força_original" not in player:
@@ -109,6 +119,8 @@ def ganhar_xp(player, xp_ganho):
             elif player["classe"] == "Arqueiro":
                 player["força"] += 4
             elif player["classe"] == "Guerreiro":
+                player["força"] += 4
+            elif player["classe"] == "Dev_admin":
                 player["força"] += 4
 
             print(f"\n {player['nome']} subiu para o nível {player['nivel']}!")

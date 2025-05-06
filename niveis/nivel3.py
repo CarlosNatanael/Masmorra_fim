@@ -3,6 +3,10 @@ from game_sound.sound import tocar_musica
 from game_sound.sound import parar_musica
 from utils.combate import combate
 import time
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 def nivel_tres(player):
     tocar_musica()

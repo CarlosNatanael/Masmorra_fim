@@ -6,15 +6,15 @@ def escolher_classe():
         nome = input("Nome não pode estar vazio. Digite novamente: ").strip()
 
     print("\nEscolha uma classe para o seu personagem:")
-    print("1. Mago\n2. Guerreiro\n3. Paladino\n4. Arqueiro")
+    print("1. Mago\n2. Guerreiro\n3. Paladino\n4. Arqueiro\n5. Dev_Admin")
 
     escolha_valida = False
     while not escolha_valida:
         escolha = input("Digite o número da classe escolhida: ")
-        if escolha in ["1", "2", "3", "4"]:
+        if escolha in ["1", "2", "3", "4", "5"]:
             escolha_valida = True
         else:
-            print("Opção inválida. Por favor, escolha 1, 2, 3 ou 4.")
+            print("Opção inválida. Por favor, escolha 1, 2, 3, 4 ou 5.")
 
     base_player = {
         "nome": nome,
@@ -47,6 +47,7 @@ def escolher_classe():
             "arma": "Machado"
         })
     elif escolha == "3":
+        base_player["itens"]["poção de cura"] = 2
         base_player.update({
             "classe": "Paladino",
             "vida": random.randint(50, 60),
@@ -56,7 +57,6 @@ def escolher_classe():
             "habilidade": "Benção Divina",
             "arma": "Espada"
         })
-        base_player["itens"]["poção de cura"] = 2
     elif escolha == "4":
         base_player.update({
             "classe": "Arqueiro",
@@ -66,6 +66,16 @@ def escolher_classe():
             "defesa": random.randint(35, 40),
             "habilidade": "Tiro Certeiro",
             "arma": "Arco"
+        })
+    elif escolha == "5":
+        base_player.update({
+            "classe": "Dev_admin",
+            "vida": random.randint(90, 95),
+            "força": random.randint(85, 90),
+            "magia": random.randint(90, 99),
+            "defesa": random.randint(100, 140),
+            "habilidade": "Bug do Dev",
+            "arma": "Teclado"
         })
 
     return base_player

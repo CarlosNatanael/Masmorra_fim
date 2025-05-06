@@ -17,6 +17,10 @@ from utils.utils import limpar_terminal
 from game_sound.menu_sound  import tocar_musica
 from game_sound.menu_sound  import parar_musica
 import time
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 def game_over():
     print("""\n
@@ -34,6 +38,7 @@ def game_over():
     exit()
 
 def mostrar_status_jogador(player):
+    
     nome = player['nome']
     classe = player['classe'][:15]  # Limita a 15 caracteres
     habilidade = player['habilidade'][:25]  # Limita a 25 caracteres
@@ -41,7 +46,7 @@ def mostrar_status_jogador(player):
     topo = f"{nome}, {classe}"
     largura_total = 42
     centro = topo.center(largura_total)
-
+    tocar_musica()
     print("╔" + "═" * largura_total + "╗")
     print(f"║{centro}║")
     print("║" + "    Prepare-se para sua Jornada!    ".center(largura_total) + "║")
@@ -58,6 +63,7 @@ def mostrar_status_jogador(player):
     print(f"│ Habilidade Especial: {habilidade:<16} │")
     print("└" + "─" * 39 + "┘")
     print("\n[Pressione ENTER para embarcar nesta aventura...]\n")
+    parar_musica()
 
 def main():
     tocar_musica()
@@ -93,9 +99,9 @@ def main():
     Desenvolvedor Tester:
     Arthur Yabuchi
                                        
-    - Novos levels                      - Adição de novas poções
-    - Novo sistema de conquistas
-    - Adição de novos monstros
+    - Bugs nivel 8 resolvido                      - Adição de novas poções
+    - Sistema de musica e conquistas OK           - Nivel 9 completo...
+    - Balanceamento  de player                    - Realizado todas as correções de bugs
         
 
                        Copyright (c) 2025 by Carlos Natanael 

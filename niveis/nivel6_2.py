@@ -4,9 +4,13 @@ from game_sound.sound import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
 import time
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 def nivel_mentira_2(player):
-    parar_musica()
+    tocar_musica()
     print("Capítulo 6:  A Floresta dos Espectros Famintos")
     time.sleep(2)
     print("""
@@ -73,7 +77,7 @@ Você pode:
             input("Prepare-se para o combate! Pressione ENTER...\n")
             if combate(player, inimigos):
                 mostrar_conquista("danca_ossos")
-                player["itens"]["poção de cura"] = 1
+                player["itens"]["poção de cura"] +=1
                 print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
                 print("(A poção foi adicionada ao seu inventário)\n")
                 print("Inventario atual:")

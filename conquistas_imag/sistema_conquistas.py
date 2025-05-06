@@ -5,7 +5,8 @@ import pygame
 from winotify import Notification
 from conquistas_imag.conquista import conquistas
 
-# Função para corrigir o caminho
+# Apenas inicialize o mixer uma vez, de preferência no módulo principal
+
 def get_caminho_arquivo(caminho_relativo):
     if hasattr(sys, '_MEIPASS'):
         return os.path.join(sys._MEIPASS, caminho_relativo)
@@ -13,12 +14,9 @@ def get_caminho_arquivo(caminho_relativo):
         return os.path.join(os.path.abspath("."), caminho_relativo)
 
 def tocar_som(caminho_som):
-    pygame.mixer.init()
-    pygame.mixer.music.load(caminho_som)
-    pygame.mixer.music.play()
-    
-    while pygame.mixer.music.get_busy():
-        pygame.time.Clock().tick(10)
+    som = pygame.mixer.Sound(caminho_som)
+    som.set_volume(0.7)
+    som.play()
 
 def mostrar_conquista(nome_conquista):
     dados = conquistas.get(nome_conquista)
@@ -26,12 +24,11 @@ def mostrar_conquista(nome_conquista):
         print(f"Conquista '{nome_conquista}' não encontrada.")
         return
 
-    # Corrige os caminhos
     icone_path = get_caminho_arquivo(dados["icone"])
     som_path = get_caminho_arquivo(dados["som"])
 
-    # Toca o som paralelo
-    threading.Thread(target=tocar_som, args=(som_path,)).start()
+    # Toca o som paralelo sem parar a música
+    threading.Thread(target=tocar_som, args=(som_path,), daemon=True).start()
 
     # Mostra a notificação
     toast = Notification(
@@ -41,7 +38,3 @@ def mostrar_conquista(nome_conquista):
         icon=icone_path
     )
     toast.show()
-
-# Teste rápido
-if __name__ == "__main__":
-    mostrar_conquista("guardiao_lei")

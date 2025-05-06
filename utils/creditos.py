@@ -1,8 +1,11 @@
 from utils.utils import limpar_terminal
+from game_sound.menu_sound  import tocar_musica
+from game_sound.menu_sound  import parar_musica
 import time
 import os
 
 def creditos_finais(player):
+    tocar_musica()
     os.system('cls' if os.name == 'nt' else 'clear')
     print("="*60)
     print(" " * 18 + "🏆 FIM DA JORNADA 🏆")
@@ -57,4 +60,5 @@ def creditos_finais(player):
     print("="*117)
 
     input("Pressione ENTER para encerrar o jogo...")
+    parar_musica()
     limpar_terminal()

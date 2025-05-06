@@ -4,6 +4,10 @@ from game_sound.sound import parar_musica
 from utils.combate import combate
 from utils.utils import limpar_terminal
 import time
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 def nivel_7_humano(player):
     tocar_musica()
@@ -224,7 +228,7 @@ Colecionador: (intervém, brusco) "Não desperdice tempo com eles. São só ecos
             "xp": 200
         }
         input("\nPrepare-se para enfrentar O Colecionador de Nomes! Pressione ENTER...\n")
-        if combate(player,[colecionador2]):
+        if combate(player,[colecionador]):
             mostrar_conquista("silenciador_eco")
         else:
             return False
@@ -337,7 +341,7 @@ Quando a poeira assenta, diante de você, um novo caminho se revela.
             "classe": "Arqueiro",
             "vida": 150,
             "força": 60,
-            "defesa": 70,
+            "defesa": 80,
             "magia": 80,
             "habilidade": "Memorias Mortas",
             "nivel": 10,

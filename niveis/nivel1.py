@@ -4,6 +4,10 @@ from game_sound.sound import parar_musica
 import time
 import os
 import random
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 def limpar_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -115,7 +119,6 @@ def nivel_um(player):
             print("Escolha inválida. Tente novamente.")
 
     print("Você se pergunta em como Eldramar sabe o seu nome.\n")
-    tocar_musica()
     time.sleep(5)
     print(f"{player['nome']}: Como você sabe meu nome?")
     time.sleep(5)
@@ -123,7 +126,6 @@ def nivel_um(player):
     time.sleep(5)
     print("Eldramar: Você acha que foi um acidente? Que caiu aqui por... sorte?")
     time.sleep(5)
-    tocar_musica()
     print("\n(Ele dá um passo à frente, e as sombras ao seu redor parecem se esticar.)\n")
     time.sleep(5)
     print("Eldramar: Nomes têm poder, jovem. E o seu... ecoou através do Véu.\n")

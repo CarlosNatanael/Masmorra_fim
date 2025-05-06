@@ -4,6 +4,10 @@ from game_sound.sound import parar_musica
 from utils.combate import combate
 import time
 import random
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 
 desafios_clone = [
@@ -104,7 +108,6 @@ def nivel_dois(player):
         print("Era eu—mas não. Seus olhos eram negros como breu, e sua boca se torcia em um sorriso que nunca faria.")
         time.sleep(5)
         print(f"\nUm clone distorcido de você salta do espelho! Erguendo um {player["arma"]} que surgiu do nada.")
-        tocar_musica()
         time.sleep(5)
         print(f'Clone Corrompido de {player["nome"]}: Você não pode me vencer, "ele riu". Eu sou você.\n')
         time.sleep(5)

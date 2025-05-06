@@ -4,6 +4,10 @@ from game_sound.sound import parar_musica
 from utils.utils import limpar_terminal
 from utils.combate import combate
 import time
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 def nivel_cinco(player):
     tocar_musica()
@@ -142,7 +146,7 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
         input("Prepare-se para o combate! Pressione ENTER...\n")
         if combate(player, [minotauro]):
             mostrar_conquista("matador_labirinto")
-            player["itens"]["poção de cura"] = 1
+            player["itens"]["poção de cura"] +=1
             print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
             print("(A poção foi adicionada ao seu inventário)\n")
             print("Inventario atual:")
@@ -179,7 +183,7 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
         input("Prepare-se para o combate! Pressione ENTER...\n")
         if combate(player, [dragao]):
             mostrar_conquista("domador_dragoes")
-            player["itens"]["poção de cura"] = 1
+            player["itens"]["poção de cura"] +=1
             print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
             print("(A poção foi adicionada ao seu inventário)\n")
             print("Inventario atual:")

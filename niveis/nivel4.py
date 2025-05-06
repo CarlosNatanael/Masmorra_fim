@@ -6,6 +6,10 @@ from utils.utils import tem_chave
 from utils.utils import usar_chave
 import random
 import time
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 def nivel_quatro(player):
     tocar_musica()

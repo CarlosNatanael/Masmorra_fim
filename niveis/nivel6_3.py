@@ -6,6 +6,10 @@ from utils.combate import combate
 from utils.utils import limpar_terminal
 import time
 import random
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 def nivel_destruicao_3(player):
     tocar_musica()
@@ -15,7 +19,7 @@ def nivel_destruicao_3(player):
 Quando a luz prateada se dissipou, me encontrei em uma plateia infinita. Cadeiras de veludo vermelho se estendiam até onde a vista alcançava, todas vazias. 
 À minha frente, um palco iluminado por holofotes fantasmas, onde figuras sem rosto representavam uma peça sem sentido.
     """)
-    player["itens"]["poção de cura"] = 1
+    player["itens"]["poção de cura"] +=1
     print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
     print("(A poção foi adicionada ao seu inventário)\n")
     print("Inventario atual:")

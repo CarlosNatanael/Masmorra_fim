@@ -4,6 +4,10 @@ from game_sound.sound import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
 import time
+import pygame
+
+pygame.init()
+pygame.mixer.init()
 
 def nivel_verdade_1(player):
     tocar_musica()
@@ -14,7 +18,7 @@ O vazio engoliu-me por um momento infinito, até que meu corpo atingiu algo frio
 Quando abri os olhos, estava de joelhos em uma plataforma de ferro, flutuando no meio do nada.
     """)
     time.sleep(5)
-    player["itens"]["poção de cura"] = 1
+    player["itens"]["poção de cura"] +=1
     print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
     print("(A poção foi adicionada ao seu inventário)\n")
     print("Inventario atual:")

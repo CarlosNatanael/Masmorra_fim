@@ -5,20 +5,21 @@ from utils.utils import limpar_terminal
 from utils.combate import combate
 import time
 import random
+import pygame
 
-def gerar_itens_aleatorios(nivel):
-    itens_possiveis = {
-        1: ["poção de cura", "poção de força", "poção de defesa"]
-    }
+pygame.init()
+pygame.mixer.init()
+
+def gerar_itens_aleatorios():
+    itens_possiveis = ["poção de cura", "poção de força", "poção de defesa"]
     
-    # Garante que pelo menos 1 item do nível atual será obtido
-    itens = [random.choice(itens_possiveis[nivel])]
+    itens = [random.choice(itens_possiveis)]
     
     # Chance de itens adicionais (30% para 2 itens, 10% para 3 itens)
     if random.random() < 0.3:
-        itens.append(random.choice(itens_possiveis[random.randint(1, nivel)]))
+        itens.append(random.choice(itens_possiveis))
     if random.random() < 0.1:
-        itens.append(random.choice(itens_possiveis[random.randint(1, nivel)]))
+        itens.append(random.choice(itens_possiveis))
     
     return itens
 
@@ -44,7 +45,7 @@ def encontrar_bau(player):
         
         if combate(player, [mimico]):
             print("\nO mímico se dissolve, revelando itens roubados de outras vítimas!")
-            itens = gerar_itens_aleatorios(player["nivel"])
+            itens = gerar_itens_aleatorios()
             for item in itens:
                 player["itens"][item] = player["itens"].get(item, 0) + 1
                 print(f"Você encontrou: {item}!")
@@ -57,7 +58,7 @@ def encontrar_bau(player):
         time.sleep(2)
         print("Ao abri-lo, encontra alguns itens úteis...")
         mostrar_conquista("mestre_dos_baús")
-        itens = gerar_itens_aleatorios(player["nivel"])
+        itens = gerar_itens_aleatorios()
         for item in itens:
             player["itens"][item] = player["itens"].get(item, 0) + 1
             print(f"Você encontrou: {item}!")
@@ -186,7 +187,7 @@ Com um último estalo metálico, Velthurion desabou em uma pilha de ferramentas 
         print("\nDentre os escombros, você encontra um baú revestido de ossos...")
         itens_especiais = ["poção de cura", "poção de força", "poção de defesa"]
         item_especial = random.choice(itens_especiais)
-        player["itens"][item_especial] = 2
+        player["itens"][item_especial] += 2
         print(f"Você encontrou o item lendário: {item_especial}!")
         mostrar_conquista("artesao_da_sorte")
 
