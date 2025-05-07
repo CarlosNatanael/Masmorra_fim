@@ -174,7 +174,7 @@ def nivel_nove(player):
     print("\nUma estrela de luz voa de seu coração até seu peito.")
     time.sleep(2)
 
-    player["vida"] += 20
+    player["vida"] += 120
     player["força"] += 20
     player["magia"] += 20
 

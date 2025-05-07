@@ -39,8 +39,8 @@ def escolher_classe():
     elif escolha == "2":
         base_player.update({
             "classe": "Guerreiro",
-            "vida": random.randint(50, 60),
-            "força": random.randint(35, 45),
+            "vida": random.randint(45, 55),
+            "força": random.randint(35, 40),
             "magia": random.randint(20, 20),
             "defesa": random.randint(35, 45),
             "habilidade": "Decapitação",
@@ -61,7 +61,7 @@ def escolher_classe():
         base_player.update({
             "classe": "Arqueiro",
             "vida": random.randint(45, 55),
-            "força": random.randint(35, 45),
+            "força": random.randint(35, 40),
             "magia": random.randint(20, 20),
             "defesa": random.randint(35, 40),
             "habilidade": "Tiro Certeiro",
