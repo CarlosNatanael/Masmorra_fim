@@ -124,13 +124,13 @@ def nivel_nove(player):
     Eldramar = {
         "nome": "Eldramar",
         "classe": "Mago Supremo",
-        "vida": 300,
-        "força": 300,
+        "vida": 400,
+        "força": 400,
         "magia": 300,
-        "defesa": 300,
+        "defesa": 1000,
         "habilidade": "Bola sombria",
         "nivel": 50,
-        "xp": 3000
+        "xp": 15000
     }
     input("\nPrepare-se para enfrentar seu pior pesadelo! Pressione ENTER...\n")
     combate(player, [Eldramar])
