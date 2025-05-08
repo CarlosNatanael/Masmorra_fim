@@ -1,6 +1,6 @@
 from conquistas_imag.sistema_conquistas import mostrar_conquista
-from game_sound.sound import tocar_musica
-from game_sound.sound import parar_musica
+from game_sound.sound1 import tocar_musica
+from game_sound.sound1 import parar_musica
 from utils.combate import combate
 import time
 import pygame
