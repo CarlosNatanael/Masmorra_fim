@@ -2,6 +2,7 @@ from conquistas_imag.sistema_conquistas import mostrar_conquista
 from game_sound_py.sound3 import tocar_musica
 from game_sound_py.sound3 import parar_musica
 from utils.combate import combate
+from rich import print
 import time
 import pygame
 
@@ -10,7 +11,7 @@ pygame.mixer.init()
 
 def nivel_tres(player):
     tocar_musica()
-    print("Capítulo 3: A Biblioteca Perdida\n")
+    print("Capítulo 3: [bold yellow]A Biblioteca Perdida[/bold yellow]\n")
     time.sleep(5)
     print('"O último fragmento do meu reflexo se dissolveu no ar, e a porta no final do corredor se abriu com um rangido sinistro."')
     print("O ar que vinha de lá era diferente—pesado, cheio do mofo de páginas antigas e do ferro frio de tinta seca.\n")
@@ -50,17 +51,17 @@ def nivel_tres(player):
     time.sleep(5)
     print("\nMas então, ouvi palmas.")
     print("Lentas. Deliberadas.\n")
-    print("??? : Impressionante. Mas livros não são armas, garoto. São portais..\n")
+    print("[bold black]???[/bold black]: Impressionante. Mas livros não são armas, garoto. São portais..\n")
     time.sleep(5)
     print("No topo de uma escada em espiral, um vulto observava.")
     print("Seus trajes eram feitos de páginas—folhas de pergaminho costuradas como uma armadura, com runas que brilhavam em vermelho-sangue.")
     print("\nSeu rosto estava escondido sob um capuz, mas seus olhos...")
     print("Eles não eram humanos.\n")
     time.sleep(5)
-    print("??? : Você ousa perturbar o silêncio Eterno da Biblioteca Perdida?\n")
-    print("??? : Eu sou Velkar, o Guardião do Conhecimento Proibido.\n")
+    print("[bold black]???[/bold black]: Você ousa perturbar o silêncio Eterno da Biblioteca Perdida?\n")
+    print("[bold black]???[/bold black]: Eu sou Velkar, o Guardião do Conhecimento Proibido.\n")
     time.sleep(5)
-    print("Valker : Antes brinque um pouco com o meu golem...")
+    print("[bold blue]Valker[/blue blue]: Antes brinque um pouco com o meu golem...")
     time.sleep(5)
 
     golem = {
@@ -79,8 +80,8 @@ def nivel_tres(player):
     else:
         return False
 
-    print("Velkar : Você quer a chave para sair da masmorra, não é? Ele ergueu a mão, e um livro flutuou até ele.")
-    print("Velkar : Está aqui. Mas primeiro... vamos ver se você é digno de ler.\n")
+    print("[bold blue]Valker[/blue blue]: Você quer a chave para sair da masmorra, não é? Ele ergueu a mão, e um livro flutuou até ele.")
+    print("[bold blue]Valker[/blue blue]: Está aqui. Mas primeiro... vamos ver se você é digno de ler.\n")
     time.sleep(4)
 
     mago = {
@@ -100,8 +101,8 @@ def nivel_tres(player):
     else:
         return False
 
-    print("\nVelkar caiu de joelhos, seus olhos perdendo o brilho púrpura.")
-    print("Com seu último suspiro, ele murmurou: O saber... deve ser temido...\n")
+    print('\n"Velkar caiu de joelhos, seus olhos perdendo o brilho púrpura."')
+    print('"Com seu último suspiro, ele murmurou: O saber... deve ser temido..."\n')
     print("O corpo do mago dissolveu-se em tinta escura, seus gritos afogando-se em um redemoinho de páginas rasgadas.")
     time.sleep(5)
     print("Ao seu lado, um livro dourado flutuava até minhas mãos. Um tomo sagrado. Talvez... a chave para entender essa masmorra.\n")
@@ -109,9 +110,9 @@ def nivel_tres(player):
     print("Um item caiu no chão ,e eu o peguei antes que as sombras o engolissem.")
     print("(Isso deve ser a chave...)\n")
     player["itens"]["chave de ébano"] = 1
-    print("Você encontra uma CHAVE DE ÉBANO reluzente no corpo do mago derrotado!")
+    print("Você encontra uma [bright_yellow]Chave de Élbano[/bright_yellow] reluzente no corpo do mago derrotado!")
     print("(A chave foi adicionada ao seu inventário)\n")
-    print("Inventario atual:")
+    print("[bold cyan]Inventario atual:[bold cyan]")
     for item, qtd in player["itens"].items():
         print(f"- {item}: {qtd}")
     time.sleep(5)

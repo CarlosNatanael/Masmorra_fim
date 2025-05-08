@@ -10,12 +10,12 @@ def resource_path(relative_path):
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
 
-def tocar_musica():
+def tocar_game():
     pygame.mixer.init()
     caminho_musica = resource_path("sound/game-over.mp3")
     pygame.mixer.music.load(caminho_musica)
     pygame.mixer.music.set_volume(0.3)  # 30% do volume
     pygame.mixer.music.play(-1)  # Loop infinito
 
-def parar_musica():
+def parar_game():
     pygame.mixer.music.stop()

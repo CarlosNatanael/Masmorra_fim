@@ -3,6 +3,7 @@ from game_sound_py.sound6_2 import tocar_musica
 from game_sound_py.sound6_2 import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
+from rich import print
 import time
 import pygame
 
@@ -11,7 +12,7 @@ pygame.mixer.init()
 
 def nivel_mentira_2(player):
     tocar_musica()
-    print("Capítulo 6:  A Floresta dos Espectros Famintos")
+    print("Capítulo 6:  [bold yellow]A Floresta dos Espectros Famintos[/bold yellow]")
     time.sleep(2)
     print("""
 O portal negro me cuspiu em meio a uma floresta que respirava. 
@@ -88,11 +89,11 @@ Você pode:
             if combate(player, inimigos):
                 mostrar_conquista("danca_ossos")
                 player["itens"]["poção de cura"] +=1
-                print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
-                print("(A poção foi adicionada ao seu inventário)\n")
-                print("Inventario atual:")
+                print("'Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!'")
+                print("'A poção foi adicionada ao seu inventário'\n")
+                print("[bold cyan]Inventario atual:[bold cyan]")
                 for item, qtd in player["itens"].items():
-                    print(f"- {item}: {qtd}")
+                    print(f"- {item}: [bold reverse]{qtd}[/bold reverse]")
                 time.sleep(5)
             else:
                 return False
@@ -106,14 +107,14 @@ Mais adiante, no coração da floresta havia uma clareira onde a luz não chegav
 o Lorde dos Desesperados. Seu corpo mudava constantemente, alternando entre formas humanoides e monstros primitivos.
     """)
     time.sleep(5)
-    print("Lorde dos Desesperados: Ah, o rebelde compassivo... — sua voz é doce, quase sedutora.")
-    print("Lorde dos Desesperados: Você quebra regras para ajudar os outros... mas pode ajudar a si mesmo?\n")
+    print("[bold tan]Lorde dos Desesperados[/bold tan]: Ah, o rebelde compassivo... — sua voz é doce, quase sedutora.")
+    print("[bold tan]Lorde dos Desesperados[/bold tan]: Você quebra regras para ajudar os outros... mas pode ajudar a si mesmo?\n")
     time.sleep(5)
-    print("Ele estendeu uma mão que se transformava em garras, depois em tentáculos, depois em algo indescritível.\n")
+    print("'Ele estendeu uma mão que se transformava em garras, depois em tentáculos, depois em algo indescritível.'\n")
     time.sleep(5)
-    print("Lorde dos Desesperados: Tome um gole do rio de sangue e ganhe poder para destruir Eldramar. O preço? Apenas um pedaço insignificante de sua alma a cada gole.\n")
+    print("[bold tan]Lorde dos Desesperados[/bold tan]: Tome um gole do rio de sangue e ganhe poder para destruir Eldramar. O preço? Apenas um pedaço insignificante de sua alma a cada gole.\n")
     time.sleep(5)
-    print("Você vê o rio de sangue borbulhar atrás dele. Ao redor, árvores com rostos gritam silenciosamente.")
+    print("'Você vê o rio de sangue borbulhar atrás dele. Ao redor, árvores com rostos gritam silenciosamente.'")
     print("""
 Enquanto decidia, os rostos nas árvores choravam lágrimas de sangue, e no fundo da clareira, via as sombras de outros que haviam feito suas escolhas
 alguns agora árvores, outros criaturas ainda piores que o Lorde.
@@ -140,7 +141,7 @@ Você sai da floresta mais forte.
             """)
             time.sleep(5)
             print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
-            print(f"| » Status atual: Monarca das Sombras\n")
+            print(f"| » [bold cyan]Status atual[/bold cyan]: [bold black]Monarca das Sombras[/bold black]\n")
             mostrar_conquista("abraco_trevas")
             time.sleep(5)
             print("\nVocê sente um vazio na alma... mas um poder sem limites!\n")
@@ -174,7 +175,7 @@ Sangrando e esgotado, você encontra uma fenda na escuridão... e encontra algo 
                 mostrar_conquista("banquete_wendigo")
             else:
                 return False
-            print("Sangrando e esgotado, você encontra uma fenda na escuridão... e escapa.\n")
+            print("'Sangrando e esgotado, você encontra uma fenda na escuridão... e escapa.'\n")
             input("Você avança. Pressione ENTER para continuar...\n")
             parar_musica()
             return "humano"

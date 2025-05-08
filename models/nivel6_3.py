@@ -4,6 +4,7 @@ from game_sound_py.sound6_3 import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
 from utils.utils import limpar_terminal
+from rich import print
 import time
 import random
 import pygame
@@ -13,20 +14,19 @@ pygame.mixer.init()
 
 def nivel_destruicao_3(player):
     tocar_musica()
-    print("Capítulo 6:  O Teatro das Máscaras Vazias")
+    print("Capítulo 6: [bold yellow]O Teatro das Máscaras Vazias[/bold yellow]")
     time.sleep(2)
     print("""
 Quando a luz prateada se dissipou, me encontrei em uma plateia infinita. Cadeiras de veludo vermelho se estendiam até onde a vista alcançava, todas vazias. 
 À minha frente, um palco iluminado por holofotes fantasmas, onde figuras sem rosto representavam uma peça sem sentido.
     """)
     player["itens"]["poção de cura"] +=1
-    print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
-    print("(A poção foi adicionada ao seu inventário)\n")
-    print("Inventario atual:")
+    print("'Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!'")
+    print("'A poção foi adicionada ao seu inventário'\n")
+    print("[bold cyan]Inventario atual:[bold cyan]")
     for item, qtd in player["itens"].items():
-        print(f"- {item}: {qtd}")
+        print(f"- {item}: [bold reverse]{qtd}[/bold reverse]")
     time.sleep(5)
-    time.sleep(2)
     print("...uma plateia vazia e infinita. Cadeiras de veludo vermelho cobrem o horizonte.")
     print("Você descide olhar a sua bolsa de itens.\n")
     from utils.utils import usar_itens
@@ -40,7 +40,7 @@ Quando a luz prateada se dissipou, me encontrei em uma plateia infinita. Cadeira
 A voz ecoou como um megafone antigo. No centro do palco, um homem alto com trajes de diretor
 mas com um rosto completamente liso - gesticulava em minha direção.
     """)
-    print("Os atores sem rosto começaram a se multiplicar, cada um representando versões diferentes de mim:")
+    print("\"Os atores sem rosto começaram a se multiplicar, cada um representando versões diferentes de mim:\"")
     print("– Uma criança oferecendo uma maçã... você aceitando.")
     print("– Sua queda na masmorra.")
     print("– Você... no trono de Eldramar.")
@@ -56,8 +56,8 @@ mas com um rosto completamente liso - gesticulava em minha direção.
         escolha = input("Qual sua escolha? ").strip()
 
         if escolha == "1":
-            print("\nVocê assina o roteiro. Um calor preenche seu corpo. Você sente... poder.\n")
-            print(f"| » Status atual: Monarca das Sombras\n")
+            print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
+            print(f"| » [bold cyan]Status atual[/bold cyan]: [bold black]Monarca das Sombras[/bold black]\n")
             mostrar_conquista("estrela_sombras")
             print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
             transformar_em_monarca(player)

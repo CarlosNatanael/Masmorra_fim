@@ -12,7 +12,7 @@ def resource_path(relative_path):
 
 def tocar_musica():
     pygame.mixer.init()
-    caminho_musica = resource_path("sound/castle-of-athanasius.mp3")
+    caminho_musica = resource_path("sound/emotional-dead.mp3")
     pygame.mixer.music.load(caminho_musica)
     pygame.mixer.music.set_volume(0.3)  # 30% do volume
     pygame.mixer.music.play(-1)  # Loop infinito

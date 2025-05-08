@@ -4,6 +4,7 @@ from game_sound_py.sound4 import parar_musica
 from utils.combate import combate
 from utils.utils import tem_chave
 from utils.utils import usar_chave
+from rich import print
 import random
 import time
 import pygame
@@ -13,7 +14,7 @@ pygame.mixer.init()
 
 def nivel_quatro(player):
     tocar_musica()
-    print("Capítulo 4: O Pântano do Desespero\n")
+    print("Capítulo 4: [bold yellow]O Pântano do Desespero[/bold yellow]\n")
     time.sleep(5)
     print("""
 O ar cheirava a folhas apodrecidas e carne em decomposição. Árvores esqueléticas se contorciam como dedos ossudos, 
@@ -26,9 +27,9 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
     time.sleep(5)
     print("\n(Você continua e pisa em algo macio.)")
     print("(Era um rosto.)\n")
-    print("Um cadáver preservado pelo pântano, seus olhos ainda abertos, a boca congelada em um grito silencioso.")
-    print('??? : "Bem-vindo ao Pântano das Almas Perdidas," sussurrou uma voz na névoa. ')
-    print("??? : Você vai ser o próximo? um passo em falso pode custar caro...\n")
+    print('"Um cadáver preservado pelo pântano, seus olhos ainda abertos, a boca congelada em um grito silencioso."')
+    print('[bold black]???[/bold black]: "Bem-vindo ao Pântano das Almas Perdidas," sussurrou uma voz na névoa. ')
+    print("[bold black]???[/bold black]: Você vai ser o próximo? um passo em falso pode custar caro...\n")
     caminhos = ["esquerda", "direita", "frente"]
     caminho_correto = random.choice(caminhos)
 
@@ -55,7 +56,7 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
 
     print("Ao longe, um brilho vermelho corta a névoa... uma criatura gigante se aproxima!")
     print("Ela é feita de galhos, ossos e lodo... olhos como carvões em brasa.\n")
-    print("Chefe do Pântano: Grumor, o Devorador de Errantes.\n")
+    print("Chefe do Pântano Grumor, o Devorador de Errantes.\n")
 
     chefe = {
         "nome": "Grumor, o Devorador de Errantes",
@@ -96,8 +97,8 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
             print(" O selo reconhece sua presença! ".center(40, "~"))
             print("━"*40 + "\n")
 
-            print(f"1. {player['classe']} | Usar {player['habilidade']} no selo")
-            print(f"2. Tentar romper o selo bruscamente [Força: {player['força']}]")
+            print(f"1. {player['classe']} | Usar [bold yellow]{player['habilidade']}[/bold yellow] no selo")
+            print(f"2. Tentar romper o selo bruscamente [Força: [bold red]{player['força']}[/bold red]]")
             print("3. Inserir a chave de ébano")
             print("━"*40)
 
@@ -144,13 +145,13 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
                     print("Pedras e terra se aglutinam, formando uma figura colossal!\n")
                     time.sleep(3)
 
-                    print("""
+                    print("""[bold red]
 ╔════════════════════════════════════════════════╗
 ║            A ROCHA GANHA VIDA!                 ║
 ║                                                ║
 ║        UM GOLEM DE FOGO DESPERTA!              ║
 ╚════════════════════════════════════════════════╝
-                    """)
+            [/bold red]""")
                     time.sleep(5)
 
                     golem = {
@@ -194,7 +195,7 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
                     print(f"\n╔{'═'*60}╗")
                     print(f"║{'CRÍTICO!'.center(60)}║")
                     print(f"║{'Você se machucou gravemente!'.center(60)}║")
-                    print(f"║{f'-{dano_sofrido} de vida'.center(60)}║")
+                    print(f"║{f'[bold red]-{dano_sofrido}[/bold red] de vida'.center(60)}║")
                     print(f"║{f'Vida atual: {player['vida']}'.center(60)}║")
                     print(f"╚{'═'*60}╝\n")
                     time.sleep(3)
@@ -218,13 +219,13 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
                     print("Pedras e terra se aglutinam, formando uma figura colossal!\n")
                     time.sleep(3)
 
-                    print("""
+                    print("""[bold tan]
 ╔════════════════════════════════════════════════╗
 ║            A ROCHA GANHA VIDA!                 ║
 ║                                                ║
 ║        UM GOLEM DE TERRA DESPERTA!             ║
 ╚════════════════════════════════════════════════╝
-                    """)
+            [/bold tan]""")
                     time.sleep(5)
 
                     golem = {

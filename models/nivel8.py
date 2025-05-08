@@ -4,6 +4,7 @@ from game_sound_py.sound8 import parar_musica
 from utils.utils import limpar_terminal
 from utils.combate import combate
 from utils.utils import encontrar_bau
+from rich import print
 import time
 import random
 import pygame
@@ -13,7 +14,7 @@ pygame.mixer.init()
 
 def nivel_oito(player):
     tocar_musica()
-    print("Capítulo 8: O Coração da Masmorra\n")
+    print("Capítulo 8: [bold yellow]O Coração da Masmorra[/bold yellow]\n")
     time.sleep(5)
     print("Você sente o calor antes mesmo de enxergar...")
     time.sleep(3)
@@ -46,21 +47,21 @@ def nivel_oito(player):
     time.sleep(7)
 
     print("\nSua voz ecoa de todas as direções:")
-    print("Velthurion : Você chegou tarde demais para salvá-los.")
+    print("[bold red]Velthurion[/bold red]: Você chegou tarde demais para salvá-los.")
     time.sleep(4)
 
     print("\nO caldeirão cospe três lingotes no chão...")
     print("Eles se moldam nas figuras que você reconhece com horror:")
     time.sleep(5)
-    print("- O Diretor do Teatro: agora, uma marionete de nervos.")
-    print("- O Lorde dos Espectros: um saco de pele vazio.")
-    print("- O Anjo da Obediência: suas asas, uma prisão de ossos.")
+    print("'- O Diretor do Teatro: agora, uma marionete de nervos.'")
+    print("'- O Lorde dos Espectros: um saco de pele vazio.'")
+    print("'- O Anjo da Obediência: suas asas, uma prisão de ossos.'")
     time.sleep(7)
 
     print("\nVelthurion aponta para seu peito vazio.")
-    print("Velthurion : Seu coração será perfeito.")
+    print("[bold red]Velthurion[/bold red]: Seu coração será perfeito.")
     time.sleep(3)
-    print("Velthurion : Será rápido. Você nem sentirá.")
+    print("[bold red]Velthurion[/bold red]: Será rápido. Você nem sentirá.")
     input("\nPressione ENTER para iniciar o combate final...\n")
 
     # Batalha contra Velthurion
@@ -88,26 +89,26 @@ def nivel_oito(player):
     print("E que a Masmorra do Fim ainda guarda outros horrores além deste portal.")
     time.sleep(5)
     print("\nVelthurion soltou um rangido que poderia ter sido uma risada quando você mencionou Eldramar.")
-    print("Velthurion : Ah, o grande arquiteto... Suas engrenagens tremeram com sarcasmo. Ele só é poderoso enquanto a forja queima.")
+    print("[bold red]Velthurion[/bold red]: Ah, o grande arquiteto... Suas engrenagens tremeram com sarcasmo. Ele só é poderoso enquanto a forja queima.")
     time.sleep(5)
-    print("\nVelthurion : Cada alma que eu martelo aqui vira pó de estrela... e ele bebe essa energia como um vampiro sedentento")
+    print("\n[bold red]Velthurion[/bold red]: Cada alma que eu martelo aqui vira pó de estrela... e ele bebe essa energia como um vampiro sedentento")
     time.sleep(5)
     print("""
 A VERDADE SOBRE A MASMORRA
 O Ciclo de Alimentação
 
-Velthurion : As almas derrotadas nos níveis anteriores eram matéria-prima
+[bold red]Velthurion[/bold red]: As almas derrotadas nos níveis anteriores eram matéria-prima
 
-Velthurion : O Teatro das Máscaras destilava emoções puras
+[bold red]Velthurion[/bold red]: O Teatro das Máscaras destilava emoções puras
 
-Velthurion : A Floresta dos Espectros extraía ódio cristalizado
+[bold red]Velthurion[/bold red]: A Floresta dos Espectros extraía ódio cristalizado
 
-Velthurion : O Cárcere produzia lágrimas de desespero condensado
+[bold red]Velthurion[/bold red]: O Cárcere produzia lágrimas de desespero condensado
         """)
     time.sleep(5)
-    print("Velthurion : Ele está definhando agora que você interrompeu o suprimento")
+    print("[bold red]Velthurion[/bold red]: Ele está definhando agora que você interrompeu o suprimento")
     time.sleep(5)
-    print("Velthurion : (Velthurion cuspiu..) Mas cuidado... um predador faminto é mais perigoso que um saciado.")
+    print("[bold red]Velthurion[/bold red]: (Velthurion cuspiu..) Mas cuidado... um predador faminto é mais perigoso que um saciado.")
     time.sleep(5)
     print("""
 A Origem da Forja
@@ -120,10 +121,10 @@ Eldramar como um mago humano, forjando o primeiro contrato com algo nas profunde
 Velthurion sendo transformado no primeiro artesão, seu corpo se desfazendo em ferramentas
         """)
     time.sleep(5)
-    print("Velthurion : Ele virá pessoalmente agora\n")
+    print("[bold red]Velthurion[/bold red]: Ele virá pessoalmente agora\n")
     print("O demônio alertou, enquanto partes de seu corpo começavam a se desfazer\n")
     time.sleep(5)
-    print("Velthurion : A masmorra é a pele dele. As paredes são suas veias. E você... você acabou de cortar o suprimento de sangue.")
+    print("[bold red]Velthurion[/bold red]: A masmorra é a pele dele. As paredes são suas veias. E você... você acabou de cortar o suprimento de sangue.")
     time.sleep(5)
     print("""
 Com um último estalo metálico, Velthurion desabou em uma pilha de ferramentas enferrujadas - sua maldição finalmente quebrada. 

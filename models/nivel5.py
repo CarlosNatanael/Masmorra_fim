@@ -3,6 +3,7 @@ from game_sound_py.sound5 import tocar_musica
 from game_sound_py.sound5 import parar_musica
 from utils.utils import limpar_terminal
 from utils.combate import combate
+from rich import print
 import time
 import pygame
 
@@ -11,7 +12,7 @@ pygame.mixer.init()
 
 def nivel_cinco(player):
     tocar_musica()
-    print("Capítulo 5: A Sala do Guardião\n")
+    print("Capítulo 5: [bold yellow]A Sala do Guardião[/bold yellow]\n")
     time.sleep(5)
     print(""" 
 O portal se fecha atrás de você com um estrondo que ecoa como um trovão agonizante.
@@ -39,9 +40,9 @@ você vê apenas um abismo - dois poços sem fundo que sugam sua coragem.
     input("Pressione ENTER para continuar")
     time.sleep(5)
     
-    print(f'\nEldramar : Ah... {player["nome"]}." Sua voz ecoa dentro do seu crânio.\n'
-          'Eldramar : Ou devo chamá-lo de... intruso? Sobrevivente? Ou talvez...\n'
-          'Eldramar : Apenas mais um tolo que acredita ser especial?"\n')
+    print(f'\n[bold blue]Eldramar[/bold blue]: Ah... {player["nome"]}." Sua voz ecoa dentro do seu crânio.\n'
+          '[bold blue]Eldramar[/bold blue]: Ou devo chamá-lo de... intruso? Sobrevivente? Ou talvez...\n'
+          '[bold blue]Eldramar[/bold blue]: Apenas mais um tolo que acredita ser especial?"\n')
     time.sleep(5)
     print('Eldramar ergue uma mão esquelética e sussurra: "Mostre-me do que é capaz."\n'
           'O chão se abre e uma figura emerge das profundezas - uma massa de pura escuridão\n'
@@ -64,12 +65,12 @@ você vê apenas um abismo - dois poços sem fundo que sugam sua coragem.
     if not combate(player, [monstro]):
         return False
     
-    print('\nEldramar : Bom... muito bom. Eldramar se levanta do trono, seu manto de sombras se arrastando.\n'
+    print('\n[bold blue]Eldramar[/bold blue]: Bom... muito bom. Eldramar se levanta do trono, seu manto de sombras se arrastando.\n'
           '"Mas isso foi apenas um aquecimento.\n')
     time.sleep(5)
     print('Eldramar ri enquanto seu corpo começa a se dividir.\n'
-          'Eldramar : Você realmente acredita que pode desafiar\n'
-          'Eldramar : Aquele que teceu os fios do seu destino desde o início?"')
+          '[bold blue]Eldramar[/bold blue]: Você realmente acredita que pode desafiar\n'
+          '[bold blue]Eldramar[/bold blue]: Aquele que teceu os fios do seu destino desde o início?"')
     time.sleep(5)
 
     cloneEld = {
@@ -96,11 +97,11 @@ você vê apenas um abismo - dois poços sem fundo que sugam sua coragem.
     print("\nEldramar está sentado em seu trono, examinando você com curiosidade mórbida.\n")
     time.sleep(4)
     print(f"""
-Eldramar : Conte-me, {player["nome"]}... como foi derrotar parte de mim mesmo?
+[bold blue]Eldramar[/bold blue]: Conte-me, {player["nome"]}... como foi derrotar parte de mim mesmo?
           
 Ele inclina a cabeça. "Não responda. Sei que você ainda não compreende
 
-Eldramar : a verdadeira natureza deste lugar... mas terá sua chance.
+[bold blue]Eldramar[/bold blue]: a verdadeira natureza deste lugar... mas terá sua chance.
     """)
     time.sleep(5)
     print("Com um gesto, um pergaminho antigo materializa-se no ar diante de você,\n"
@@ -129,7 +130,7 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
         player["medo"] = input("\nDigite seu verdadeiro medo: ").strip()
         print(f"\nEldramar sorri 'Ah... {player['medo']}. Interessante.'")
         time.sleep(3)
-        print("\nEldramar: Então você não aprendeu nada. (A masmorra começa a desmoronar!)\n")
+        print("\n[bold blue]Eldramar[/bold blue]: Então você não aprendeu nada. (A masmorra começa a desmoronar!)\n")
         time.sleep(3)
         print("Eldramar invoca um Minotauro para combate\n")
 
@@ -148,16 +149,16 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
             mostrar_conquista("matador_labirinto")
             player["itens"]["poção de cura"] +=1
             print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
-            print("(A poção foi adicionada ao seu inventário)\n")
-            print("Inventario atual:")
+            print("'A poção foi adicionada ao seu inventário'\n")
+            print("[bold cyan]Inventario atual:[bold cyan]")
             for item, qtd in player["itens"].items():
-                print(f"- {item}: {qtd}")
+                print(f"- {item}: [bold reverse]{qtd}[/bold reverse]")
             time.sleep(5)
         else:
             return False
     
     elif escolha == "2":
-        print("\nEldramar: Eu já sabia. Ele lança um feitiço que reduz sua vida em 20!")
+        print("\n[bold blue]Eldramar[/bold blue]: Eu já sabia. Ele lança um feitiço que reduz sua vida em 20!")
         mostrar_conquista("mestre_mentiras")
         print(f"- 20 de Vida |Vida: {player['vida']}|")
         time.sleep(3)
@@ -185,10 +186,10 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
             mostrar_conquista("domador_dragoes")
             player["itens"]["poção de cura"] +=1
             print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
-            print("(A poção foi adicionada ao seu inventário)\n")
-            print("Inventario atual:")
+            print("'A poção foi adicionada ao seu inventário'\n")
+            print("[bold cyan]Inventario atual:[bold cyan]")
             for item, qtd in player["itens"].items():
-                print(f"- {item}: {qtd}")
+                print(f"- {item}: [bold reverse]{qtd}[/bold reverse]")
         else:
             return False
         
@@ -199,20 +200,20 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
  Suas sombras recuaram, e o ar ficou pesado, como antes de uma tempestade.
     """)
     time.sleep(5)
-    print("\nEldramar : Você sobreviveu até aqui... mas agora vem o verdadeiro teste.")
+    print("\n[bold blue]Eldramar[/bold blue]: Você sobreviveu até aqui... mas agora vem o verdadeiro teste.")
     time.sleep(5)
-    print("\n(Ele estalou os dedos.)")
-    print("(E de repente, eu não estava mais na masmorra.)\n")
+    print('\n"Ele estalou os dedos."')
+    print('"E de repente, eu não estava mais na masmorra."\n')
     time.sleep(5)
     print(""" 
 Estava de volta àquela mesma cena do início—a rua empoeirada, a criança faminta, a maçã roubada. 
 O mercador gritava, a criança tremia, e eu estava parado no meio, exatamente como antes.
     """)
     time.sleep(4)
-    print("\n(Só que agora, Eldramar estava lá também, observando como um juiz silencioso.)")
+    print("\n'Só que agora, Eldramar estava lá também, observando como um juiz silencioso.'")
 
-    print("\n(A cena reiniciou.)")
-    print("(A criança agarrou a maçã. O mercador rugiu.)\n")
+    print("\n'A cena reiniciou.'")
+    print("'A criança agarrou a maçã. O mercador rugiu.'\n")
     time.sleep(5)
     print("Eldramar sussurra em seu ouvido:")
     time.sleep(5)

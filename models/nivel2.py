@@ -2,6 +2,7 @@ from conquistas_imag.sistema_conquistas import mostrar_conquista
 from game_sound_py.sound2 import tocar_musica
 from game_sound_py.sound2 import parar_musica
 from utils.combate import combate
+from rich import print
 import time
 import random
 import pygame
@@ -63,7 +64,7 @@ desafios_clone = [
 
 def nivel_dois(player):
     tocar_musica()
-    print("Capítulo 2: O Salão dos Espelhos\n")
+    print("Capítulo 2: [bold yellow]O Salão dos Espelhos[/bold yellow]\n")
     time.sleep(5)
     print('"O velho Eldramar havia me alertado:"')
     print("A Masmorra do Fim não é apenas um labirinto de pedra. Ela testará sua mente, sua alma e sua coragem. Se você falhar, seu corpo se tornará mais uma sombra presa em seus corredores.\n")
@@ -76,23 +77,23 @@ def nivel_dois(player):
     print("onde centenas—talvez milhares—de reflexos me encaravam. Mas algo estava errado.")
     time.sleep(5)
     print("\nAlguns não eram eu.\n")
-    print('Alguns sorriam quando eu não sorria. Outros me observavam com olhos vazios, como se fossem espectros à espera.')
+    print('"Alguns sorriam quando eu não sorria. Outros me observavam com olhos vazios, como se fossem espectros à espera."')
     time.sleep(5)
-    print("— Ilusão? — perguntei em voz alta.")
+    print("'— Ilusão? — perguntei em voz alta.'")
     time.sleep(5)
     print('"Ou será que você é a ilusão?" — uma voz sussurrou, ecoando de todos os lados.\n')
     time.sleep(5)
     print("De repente, um dos meus reflexos moveu-se sozinho. Ele ergueu a mão e tocou o vidro do outro lado.\n")
     time.sleep(5)
-    print(f"Clone Corrompido de {player['nome']}: Você não deveria estar aqui") 
+    print(f"[bold black]Clone Corrompido de {player['nome']}[/bold black]: Você não deveria estar aqui") 
     time.sleep(5)
     print("Ele disse, com minha voz, mas distorcida, como se falasse através de água.")
     time.sleep(5)
     input("\nPressione ENTER para continuar")
-    print(f"\nClone Corrompido de {player['nome']}: Você acha que merece escapar? — o clone sussurrou")
+    print(f"\n[bold black]Clone Corrompido de {player['nome']}[/bold black]: Você acha que merece escapar? — o clone sussurrou")
     time.sleep(5)
     desafio = random.choice(desafios_clone)
-    print(f"\nClone Corrompido de {player['nome']}: Vamos brincar com a sua sorte, logo à frente no centro do salão há três espelhos.")
+    print(f"\n[bold black]Clone Corrompido de {player['nome']}[/bold black]: Vamos brincar com a sua sorte, logo à frente no centro do salão há três espelhos.")
     for i, opcao in enumerate(desafio["opcoes"], 1):
         print(f"{i}. {opcao}")
     
@@ -109,7 +110,7 @@ def nivel_dois(player):
         time.sleep(5)
         print(f"\nUm clone distorcido de você salta do espelho! Erguendo um {player["arma"]} que surgiu do nada.")
         time.sleep(5)
-        print(f'Clone Corrompido de {player["nome"]}: Você não pode me vencer, "ele riu". Eu sou você.\n')
+        print(f'[bold black]Clone Corrompido de {player['nome']}[/bold black]: Você não pode me vencer, "ele riu". Eu sou você.\n')
         time.sleep(5)
         clone = {
             "nome": f"Clone Corrompido de {player['nome']}",

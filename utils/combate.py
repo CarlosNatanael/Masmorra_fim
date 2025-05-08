@@ -1,5 +1,6 @@
-from game_sound_py.game_over import tocar_musica
-from game_sound_py.game_over import parar_musica
+from game_sound_py.game_over import tocar_game
+from game_sound_py.game_over import parar_game
+from rich import print
 import random
 import time
 
@@ -12,7 +13,7 @@ def habilidade_especial(player, inimigos):
         dano = player["magia"] + random.randint(10, 20)
         for inimigo in inimigos[:]:
             inimigo["vida"] -= dano
-            print(f"Você lançou uma Bola de Fogo em {inimigo['nome']} e causou {dano} de dano")
+            print(f"Você lançou uma [bold yellow]Bola de Fogo[/bold yellow] em {inimigo['nome']} e causou [bold red]{dano}[/bold red] de dano")
             if inimigo["vida"] <= 0:
                 print(f"{inimigo['nome']} foi derrotado!")
                 derrotados.append(inimigo)
@@ -26,7 +27,7 @@ def habilidade_especial(player, inimigos):
         dano = player["força"] + random.randint(10, 20)
         for inimigo in inimigos[:]:
             inimigo["vida"] -= dano
-            print(f"Você usou Tiro Certeiro em {inimigo['nome']} e causou {dano} de dano")
+            print(f"Você usou [bold yellow]Tiro Certeiro[/bold yellow] em {inimigo['nome']} e causou [bold red]{dano}[/bold red] de dano")
             if inimigo["vida"] <= 0:
                 print(f"{inimigo['nome']} foi derrotado!")
                 derrotados.append(inimigo)
@@ -36,7 +37,7 @@ def habilidade_especial(player, inimigos):
         dano = player["força"] + random.randint(10, 20)
         for inimigo in inimigos[:]:
             inimigo["vida"] -= dano
-            print(f"Você usou Decapitação em {inimigo['nome']} e causou {dano} de dano")
+            print(f"Você usou [bold yellow]Decapitação[/bold yellow] em {inimigo['nome']} e causou [bold red]{dano}[/bold red] de dano")
             if inimigo["vida"] <= 0:
                 print(f"{inimigo['nome']} foi derrotado!")
                 derrotados.append(inimigo)
@@ -46,7 +47,7 @@ def habilidade_especial(player, inimigos):
         dano = player["força"] + random.randint(20, 40)
         for inimigo in inimigos[:]:
             inimigo["vida"] -= dano
-            print(f"Você usou o Bug do Dev em {inimigo['nome']} e causou {dano} de dano")
+            print(f"Você usou o [bold yellow]Bug do Dev[/bold yellow] em {inimigo['nome']} e causou [bold red]{dano}[/bold red] de dano")
             if inimigo["vida"] <= 0:
                 print(f"{inimigo['nome']} foi derrotado!")
                 derrotados.append(inimigo)
@@ -56,7 +57,6 @@ def habilidade_especial(player, inimigos):
         if "força_original" not in player:
             player["força_original"] = player["força"]
             player["vida_original"] = player["vida"]
-        
         player["força"] += 30
         player["vida"] += 20
         print("\nVocê invocou o Domínio das Sombras!")
@@ -102,7 +102,7 @@ def ganhar_xp(player, xp_ganho):
     else:
         
         player["xp"] += xp_ganho
-        print(f"\n{player['nome']} ganhou {xp_ganho} de experiência!")
+        print(f"\n{player['nome']} ganhou [bold green]{xp_ganho}[/bold green] de experiência!")
 
         while player["xp"] >= player["xp_proximo_nivel"]:
             player["xp"] -= player["xp_proximo_nivel"]
@@ -119,12 +119,12 @@ def ganhar_xp(player, xp_ganho):
             elif player["classe"] == "Dev_admin":
                 player["força"] += 10
 
-            print(f"\n🔹{player['nome']} subiu para o nível {player['nivel']}🔹!")
+            print(f"\n[bold green]{player['nome']} subiu para o nível {player['nivel']}[/bold green]!")
             print("Seus atributos aumentaram:")
-            print(f"Vida: {player['vida']} (+10)")
-            print(f"Força: {player['força']} (+4)")
-            print(f"Magia: {player['magia']} (+4)")
-            print(f"Defesa: {player['defesa']} (+3)\n")
+            print(f"Vida: {player['vida']} ([bold green]↑[/bold green] 10)")
+            print(f"Força: {player['força']} ([bold green]↑[/bold green] 4)")
+            print(f"Magia: {player['magia']} ([bold green]↑[/bold green] 4)")
+            print(f"Defesa: {player['defesa']} ([bold green]↑[/bold green] 3)\n")
 
 def verificar_status_monarca(player):
     if player.get("monarca_sombra", False) and player["classe"] != "Monarca das Sombras":
@@ -158,10 +158,10 @@ def combate(player, inimigos):
             player["vida"] -= dano_monstro
             print(f"\n{monstro['nome']} aproveitou sua hesitação e atacou causando {dano_monstro} de dano!")
             if player["vida"] <= 0:
-                tocar_musica()
-                print("\n☠ Você foi derrotado! Game over! ☠")
+                tocar_game()
+                print("\nVocê foi derrotado! Game over!")
                 input("\nPressione ENTER para continuar\n")
-                parar_musica()
+                parar_game()
                 return False
             continue
 
@@ -200,7 +200,7 @@ def combate(player, inimigos):
             inimigo = inimigos[escolha]
             dano = max(1, player["força"] - random.randint(0, 3))  # Garante pelo menos 1 de dano
             inimigo["vida"] -= dano
-            print(f"\nVocê atacou {inimigo['nome']} e causou {dano} de dano")
+            print(f"\nVocê atacou {inimigo['nome']} e causou [bold red]{dano}[/bold red] de dano")
             if inimigo["vida"] <= 0:
                 print(f"{inimigo['nome']} foi derrotado!")
                 derrotados.append(inimigo)
@@ -270,14 +270,14 @@ def combate(player, inimigos):
             monstro = random.choice(inimigos)
             dano_monstro = max(1, monstro["força"] - (player["defesa"] // 2))  # Garante pelo menos 1 de dano
             player["vida"] -= dano_monstro
-            print(f"\n{monstro['nome']} atacou você causando {dano_monstro} de dano!")
+            print(f"\n{monstro['nome']} atacou você causando [bold red]{dano_monstro}[/bold red] de dano!")
 
         # Verificação de derrota
         if player["vida"] <= 0:
-                tocar_musica()
+                tocar_game()
                 print("\n☠ Você foi derrotado! Game over! ☠")
                 input("\nPressione ENTER para continuar\n")
-                parar_musica()
+                parar_game()
                 return False
 
     # Vitória

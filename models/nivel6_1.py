@@ -3,6 +3,7 @@ from game_sound_py.sound6_1 import tocar_musica
 from game_sound_py.sound6_1 import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
+from rich import print
 import time
 import pygame
 
@@ -19,11 +20,11 @@ Quando abri os olhos, estava de joelhos em uma plataforma de ferro, flutuando no
     """)
     time.sleep(5)
     player["itens"]["poção de cura"] +=1
-    print("Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!")
-    print("(A poção foi adicionada ao seu inventário)\n")
-    print("Inventario atual:")
+    print("'Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!'")
+    print("'A poção foi adicionada ao seu inventário'\n")
+    print("[bold cyan]Inventario atual:[bold cyan]")
     for item, qtd in player["itens"].items():
-        print(f"- {item}: {qtd}")
+        print(f"- {item}: [bold reverse]{qtd}[/bold reverse]")
     time.sleep(5)
     print("""
 À minha volta, centenas de celas suspensas pairando no vazio, cada uma fechada por portas de arame farpado e luzes piscando em vermelho. 
@@ -117,7 +118,7 @@ Você sente a presença de Eldramar nas sombras, observando.
             print("Ele lhe entrega a chave mestra. Você pode sair... mas carrega o peso de saber que perpetuou o sofrimento.")
             time.sleep(5)
             print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
-            print(f"| » Status atual: Monarca das Sombras\n")
+            print(f"| » [bold cyan]Status atual[/bold cyan]: [bold black]Monarca das Sombras[/bold black]\n")
             mostrar_conquista("coroa_trevas")
             time.sleep(5)
             print("""
@@ -136,8 +137,8 @@ Então o Anjo invade minha mente e deixa a seguinte frase:
             print("\nVocê não se move. O Anjo toca sua testa. Um brilho o envolve.")
             mostrar_conquista("juiz_sombras")
             time.sleep(5)
-            print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma\n")
-            print(f"| » Status atual: Monarca das Sombras\n")
+            print("Sua forma muda. Suas emoções desaparecem lentamente. Você se torna uma nova forma.\n")
+            print(f"| » [bold cyan]Status atual[/bold cyan]: [bold black]Monarca das Sombras[/bold black]\n")
             mostrar_conquista("coroa_trevas")
             time.sleep(5)
             print("""

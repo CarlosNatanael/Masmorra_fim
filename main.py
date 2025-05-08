@@ -17,6 +17,10 @@ from utils.creditos import creditos_finais
 from utils.utils import limpar_terminal
 from game_sound_py.menu_sound  import tocar_musica
 from game_sound_py.menu_sound  import parar_musica
+from game_sound_py.game_over import tocar_game
+from game_sound_py.game_over import parar_game
+from rich.progress import Progress
+from rich import print
 import time
 import pygame
 
@@ -24,7 +28,8 @@ pygame.init()
 pygame.mixer.init()
 
 def game_over():
-    print("""\n
+    tocar_game()
+    print("""\n[bold red]
 ╔══════════════════════════════════════════╗
 ║                GAME OVER                 ║
 ╠══════════════════════════════════════════╣
@@ -33,8 +38,9 @@ def game_over():
 ║                                          ║
 ║   Pressione ENTER para sair              ║
 ╚══════════════════════════════════════════╝
-""")
+[bold red]""")
     input()
+    parar_game()
     limpar_terminal()
     exit()
 
@@ -61,19 +67,20 @@ def mostrar_status_jogador(player):
     print(f"│Nível: {player['nivel']:<12}│ Magia:  {player['magia']:<5}     │")
     print(f"│XP: {player['xp']:<15}│ Defesa: {player['defesa']:<5}     │")
     print("├" + "─" * 39 + "┤")
-    print(f"│ Habilidade Especial: {habilidade:<16} │")
+    print(f"│ Habilidade Especial: [bold yellow]{habilidade:<16}[/bold yellow] │")
     print("└" + "─" * 39 + "┘")
-    print("\n[Pressione ENTER para embarcar nesta aventura...]\n")
+    print("\n[bold red][Pressione ENTER para embarcar nesta aventura...][bold red]\n")
     parar_musica()
 
 def main():
     tocar_musica()
     limpar_terminal()
-    print("""
+    print("""[bold magenta]
                                  ┳┳┓                 ┓    ┏┓•   
                                  ┃┃┃┏┓┏┏┳┓┏┓┏┓┏┓┏┓  ┏┫┏┓  ┣ ┓┏┳┓
                                  ┛ ┗┗┻┛┛┗┗┗┛┛ ┛ ┗┻  ┗┻┗┛  ┻ ┗┛┗┗               
-
+          [/bold magenta]
+          [bold white]
                                          -..--.--.+------.                                          
                                       -........-.-.......-++-                                       
                                   --.+-........---........--.++.                                    
@@ -90,11 +97,11 @@ def main():
                        -+--.....+.-+##++++               +--.--.-+.......-+...+-.                   
                     .--...-++..-+..+--.                 .+--.+..+-.---++...-+---.-                  
                    ---......-++++-..                                    .--------                        
-    """)
+    [/bold white]""")
     print("""
                                 Jogo em desenvolvimento 
           
-    Progamador/Desenvolvimento:                                             [Masmorra do Fim - versão beta]
+    Progamador/Desenvolvimento:                                             [bold yellow][Masmorra do Fim - versão beta][/bold yellow]
     Carlos Natanael
           
     Desenvolvedor Tester:
@@ -105,10 +112,17 @@ def main():
     - Balanceamento  de player                    - Realizado todas as correções de bugs
         
 
-                       Copyright (c) 2025 by Carlos Natanael 
+                       [bold black]Copyright (C) 2025 by Carlos Natanael[/bold black] 
     """)
     time.sleep(3)
-    input("\n[Pressione ENTER para embarcar nesta aventura...]\n")
+    with Progress() as progress:
+        task = progress.add_task("Carregando...", total=100)
+        for i in range(100):
+            time.sleep(0.05)  # Espera 50 milissegundos
+            progress.update(task, advance=1)
+    time.sleep(3)
+    print("\n[bold red][Pressione ENTER para embarcar nesta aventura...][bold red]\n")
+    input()
     limpar_terminal()
     player = escolher_classe()
     limpar_terminal()

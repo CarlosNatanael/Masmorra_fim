@@ -1,4 +1,5 @@
 import random
+from rich import print
 
 def escolher_classe():
     nome = input("Digite o nome do seu personagem: ").strip()
@@ -6,7 +7,7 @@ def escolher_classe():
         nome = input("Nome não pode estar vazio. Digite novamente: ").strip()
 
     print("\nEscolha uma classe para o seu personagem:")
-    print("1. Mago\n2. Guerreiro\n3. Paladino\n4. Arqueiro\n5. Dev_Admin")
+    print("1. [bold green]Mago[/bold green]\n2. [bold red]Guerreiro[/bold red]\n3. [bold yellow]Paladino[/bold yellow]\n4. [bold cyan]Arqueiro[/bold cyan]\n5. [bold magenta]Dev_Admin[/bold magenta]")
 
     escolha_valida = False
     while not escolha_valida:
@@ -14,7 +15,7 @@ def escolher_classe():
         if escolha in ["1", "2", "3", "4", "5"]:
             escolha_valida = True
         else:
-            print("Opção inválida. Por favor, escolha 1, 2, 3, 4 ou 5.")
+            print("\nOpção inválida. Por favor, escolha 1, 2, 3, 4 ou 5.")
 
     base_player = {
         "nome": nome,
@@ -51,7 +52,7 @@ def escolher_classe():
         base_player.update({
             "classe": "Paladino",
             "vida": random.randint(50, 60),
-            "força": random.randint(35, 45),
+            "força": random.randint(30, 45),
             "magia": random.randint(35, 40),
             "defesa": random.randint(36, 46),
             "habilidade": "Benção Divina",
