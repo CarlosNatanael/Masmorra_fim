@@ -1,5 +1,5 @@
-from game_sound.game_over import tocar_musica
-from game_sound.game_over import parar_musica
+from game_sound_py.game_over import tocar_musica
+from game_sound_py.game_over import parar_musica
 import random
 import time
 
@@ -115,17 +115,16 @@ def ganhar_xp(player, xp_ganho):
             if player["classe"] == "Mago":
                 player["magia"] += 4
             elif player["classe"] == "Paladino":
-                player["vida"] += 4
-            elif player["classe"] == "Arqueiro":
-                player["força"] += 4
-            elif player["classe"] == "Guerreiro":
-                player["força"] += 4
+                player["magia"] += 4
             elif player["classe"] == "Dev_admin":
-                player["força"] += 4
+                player["força"] += 10
 
-            print(f"\n {player['nome']} subiu para o nível {player['nivel']}!")
+            print(f"\n🔹{player['nome']} subiu para o nível {player['nivel']}🔹!")
             print("Seus atributos aumentaram:")
-            print(f"Vida: {player['vida']}, Força: {player['força']}, Magia: {player['magia']}, Defesa: {player['defesa']}\n")
+            print(f"Vida: {player['vida']} (+10)")
+            print(f"Força: {player['força']} (+4)")
+            print(f"Magia: {player['magia']} (+4)")
+            print(f"Defesa: {player['defesa']} (+3)\n")
 
 def verificar_status_monarca(player):
     if player.get("monarca_sombra", False) and player["classe"] != "Monarca das Sombras":
@@ -234,6 +233,18 @@ def combate(player, inimigos):
                     player["defesa"] += 20
                     player["itens"][item_encontrado] -= 1
                     print("Você usou a poção de defesa e aumentou 20 de defesa\n")
+                if item_encontrado == "sangue de dragão":
+                    player["vida"] += 50
+                    player["itens"][item_encontrado] -= 1
+                    print("Você usou o sangue de dragão e recuperou 50 de vida\n")
+                if item_encontrado == "vigor do vulcão":
+                    player["força"] += 30
+                    player["itens"][item_encontrado] -= 1
+                    print("Você usou o vigor do vulcão e aumentou 30 de força\n")
+                elif item_encontrado == "sangue da montanha":
+                    player["defesa"] += 30
+                    player["itens"][item_encontrado] -= 1
+                    print("Você usou o sangue da montanha e aumentou 30 de defesa\n")
             else:
                 print("Você não possui item ou digitou algo incorretamente\n")
                 turno_perdido = True

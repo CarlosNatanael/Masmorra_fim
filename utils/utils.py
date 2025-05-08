@@ -1,3 +1,7 @@
+from utils.combate import combate
+from conquistas_imag.sistema_conquistas import mostrar_conquista
+import time
+import random
 import os
 
 def mostrar_status_jogador(player):
@@ -71,3 +75,58 @@ def usar_chave(player):
 
 def limpar_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def gerar_itens_aleatorios():
+    itens_possiveis = ["poção de cura", "poção de força", "poção de defesa"]
+    
+    itens = [random.choice(itens_possiveis)]
+    
+    # Chance de itens adicionais (30% para 2 itens, 10% para 3 itens)
+    if random.random() < 0.3:
+        itens.append(random.choice(itens_possiveis))
+    if random.random() < 0.1:
+        itens.append(random.choice(itens_possiveis))
+    
+    return itens
+
+def encontrar_bau(player):
+    # 20% de chance de ser um baú mímico
+    if random.random() < 0.2:
+        print("\nVocê encontra um baú ornamentado... mas algo parece estranho!")
+        time.sleep(2)
+        print("De repente, o baú se transforma em uma criatura monstruosa!")
+        time.sleep(2)
+        
+        mimico = {
+            "nome": "Baú Mímico",
+            "classe": "Monstro",
+            "vida": 40 + player["nivel"] * 5,
+            "força": 30 + player["nivel"] * 3,
+            "defesa": 60,
+            "magia": 0,
+            "habilidade": "Engolir",
+            "nivel": player["nivel"] + 2,
+            "xp": 50
+        }
+        
+        if combate(player, [mimico]):
+            print("\nO mímico se dissolve, revelando itens roubados de outras vítimas!")
+            itens = gerar_itens_aleatorios()
+            for item in itens:
+                player["itens"][item] = player["itens"].get(item, 0) + 1
+                print(f"Você encontrou: {item}!")
+            mostrar_conquista("devorador_de_mimicos")
+        else:
+            return False
+    else:
+        print("\nVocê encontrou um baú antigo!")
+        time.sleep(2)
+        print("Ao abri-lo, encontra alguns itens úteis...")
+        mostrar_conquista("mestre_dos_baús")
+        itens = gerar_itens_aleatorios()
+        for item in itens:
+            player["itens"][item] = player["itens"].get(item, 0) + 1
+            print(f"Você encontrou: {item}!")
+    
+    return True

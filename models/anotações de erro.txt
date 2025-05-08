@@ -1,4 +1,0 @@
-Bug que ao ganhar 1 poção você perde as outras
-
-Bug que no nivel 8 encerra com erro desconhecido
-

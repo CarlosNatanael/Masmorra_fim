@@ -1,22 +1,22 @@
 # pyinstaller masmorra.spec
 
-from niveis.nivel1 import nivel_um
-from niveis.nivel2 import nivel_dois
-from niveis.nivel3 import nivel_tres
-from niveis.nivel4 import nivel_quatro
-from niveis.nivel5 import nivel_cinco
-from niveis.nivel6_1 import nivel_verdade_1
-from niveis.nivel6_2 import nivel_mentira_2
-from niveis.nivel6_3 import nivel_destruicao_3
-from niveis.nivel7_h import nivel_7_humano
-from niveis.nivel7_s import nivel_7_sombra
-from niveis.nivel8 import nivel_oito
-from niveis.nivel9 import nivel_nove
+from models.nivel1 import nivel_um
+from models.nivel2 import nivel_dois
+from models.nivel3 import nivel_tres
+from models.nivel4 import nivel_quatro
+from models.nivel5 import nivel_cinco
+from models.nivel6_1 import nivel_verdade_1
+from models.nivel6_2 import nivel_mentira_2
+from models.nivel6_3 import nivel_destruicao_3
+from models.nivel7_h import nivel_7_humano
+from models.nivel7_s import nivel_7_sombra
+from models.nivel8 import nivel_oito
+from models.nivel9 import nivel_nove
 from utils.personagem import escolher_classe
 from utils.creditos import creditos_finais
 from utils.utils import limpar_terminal
-from game_sound.menu_sound  import tocar_musica
-from game_sound.menu_sound  import parar_musica
+from game_sound_py.menu_sound  import tocar_musica
+from game_sound_py.menu_sound  import parar_musica
 import time
 import pygame
 

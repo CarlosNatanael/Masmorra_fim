@@ -1,6 +1,6 @@
 from utils.utils import limpar_terminal
-from game_sound.menu_sound  import tocar_musica
-from game_sound.menu_sound  import parar_musica
+from game_sound_py.menu_sound  import tocar_musica
+from game_sound_py.menu_sound  import parar_musica
 import time
 import os
 
