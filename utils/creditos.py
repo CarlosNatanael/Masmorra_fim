@@ -30,8 +30,6 @@ def creditos_finais(player):
         Panel.fit(
             "[bold]FIM DA JORNADA[/]",
             style=estilo_texto,
-            subtitle=f"[{estilo_texto}]A saga de {player['nome']}[/]",
-            subtitle_align="center"
         ),
         0
     )
