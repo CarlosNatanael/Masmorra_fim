@@ -84,7 +84,7 @@ def nivel_dois(player):
             if not encontrar_bau(player):
                 return False  # Se o jogador morrer para um mímico
     time.sleep(5)
-    print("Ao entrar, o portal se fechou atrás de mim com um click sinistro. O que vi foi um corredor infinito,")
+    print("\nAo entrar, o portal se fechou atrás de mim com um click sinistro. O que vi foi um corredor infinito,")
     print("onde centenas—talvez milhares—de reflexos me encaravam. Mas algo estava errado.")
     time.sleep(5)
     print("\nAlguns não eram eu.\n")

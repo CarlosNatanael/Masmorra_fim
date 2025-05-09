@@ -51,7 +51,7 @@ mas com um rosto completamente liso - gesticulava em minha direção.
         for _ in range(num_baus):
             if not encontrar_bau(player):
                 return False  # Se o jogador morrer para um mímico
-    print("\"Os atores sem rosto começaram a se multiplicar, cada um representando versões diferentes de mim:\"")
+    print("\n\"Os atores sem rosto começaram a se multiplicar, cada um representando versões diferentes de mim:\"")
     print("– Uma criança oferecendo uma maçã... você aceitando.")
     print("– Sua queda na masmorra.")
     print("– Você... no trono de Eldramar.")

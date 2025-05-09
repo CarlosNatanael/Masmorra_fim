@@ -111,7 +111,7 @@ def nivel_nove(player):
                         if not encontrar_bau(player):
                             return False  # Se o jogador morrer para um mímico
                 time.sleep(2)
-                print('[bold red]Valysse[/bold red]: "Cuidado com o homem sem lábios. Ele rouba beijos."')
+                print('\n[bold red]Valysse[/bold red]: "Cuidado com o homem sem lábios. Ele rouba beijos."')
             elif escolha == "2":
                 print("\nVocê visita o Poço dos Sussurros...")
                 time.sleep(2)
