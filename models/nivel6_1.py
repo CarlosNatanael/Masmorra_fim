@@ -3,9 +3,11 @@ from game_sound_py.sound6_1 import tocar_musica
 from game_sound_py.sound6_1 import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
+from utils.utils import encontrar_bau
 from rich import print
 from rich import print as rprint
 from rich.panel import Panel
+import random
 import time
 import pygame
 
@@ -38,6 +40,14 @@ De dentro, mãos esqueléticas se agarravam às grades, e vozes roucas sussurrav
     print("""
 No centro de tudo, uma torre de ossos se erguia, e no topo, uma figura brilhante observava tudo com olhos impassíveis.          
     """)
+    # Chance de encontrar baús antes da batalha final
+    if random.random() < 0.5:  # 50% de chance de encontrar 1-3 baús
+        num_baus = random.randint(1, 3)
+        print(f"\nEnquanto avança, você encontra {num_baus} baús suspeitos...")
+        
+        for _ in range(num_baus):
+            if not encontrar_bau(player):
+                return False  # Se o jogador morrer para um mímico
     time.sleep(5)
     print("\nO Anjo da Obediência.\n")
     time.sleep(5)

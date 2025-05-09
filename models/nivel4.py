@@ -4,6 +4,7 @@ from game_sound_py.sound4 import parar_musica
 from utils.combate import combate
 from utils.utils import tem_chave
 from utils.utils import usar_chave
+from utils.utils import encontrar_bau
 from rich import print
 from rich import print as rprint
 from rich.panel import Panel
@@ -18,6 +19,14 @@ def nivel_quatro(player):
     tocar_musica()
     rprint(Panel.fit("[bold yellow]Capítulo 4: O Pântano do Desespero[/]", style="blue"))
     time.sleep(5)
+    # Chance de encontrar baús antes da batalha final
+    if random.random() < 0.5:  # 50% de chance de encontrar 1-3 baús
+        num_baus = random.randint(1, 3)
+        print(f"\nEnquanto avança, você encontra {num_baus} baús suspeitos...")
+        
+        for _ in range(num_baus):
+            if not encontrar_bau(player):
+                return False  # Se o jogador morrer para um mímico
     print("""
 O ar cheirava a folhas apodrecidas e carne em decomposição. Árvores esqueléticas se contorciam como dedos ossudos, 
 e a água estagnada borbulhava com coisas se movendo sob a superfície.

@@ -2,6 +2,7 @@ from conquistas_imag.sistema_conquistas import mostrar_conquista
 from game_sound_py.sound2 import tocar_musica
 from game_sound_py.sound2 import parar_musica
 from utils.combate import combate
+from utils.utils import encontrar_bau
 from rich import print
 from rich import print as rprint
 from rich.panel import Panel
@@ -74,6 +75,14 @@ def nivel_dois(player):
     print("Agora, diante de mim, erguia-se uma enorme porta de ébano, cravejada de espelhos quebrados. Um frio percorreu minha espinha.")
     time.sleep(5)
     print('— "O Salão dos Espelhos," murmurei.')
+    # Chance de encontrar baús antes da batalha final
+    if random.random() < 0.5:  # 50% de chance de encontrar 1-3 baús
+        num_baus = random.randint(1, 3)
+        print(f"\nEnquanto avança, você encontra {num_baus} baús suspeitos...")
+        
+        for _ in range(num_baus):
+            if not encontrar_bau(player):
+                return False  # Se o jogador morrer para um mímico
     time.sleep(5)
     print("Ao entrar, o portal se fechou atrás de mim com um click sinistro. O que vi foi um corredor infinito,")
     print("onde centenas—talvez milhares—de reflexos me encaravam. Mas algo estava errado.")

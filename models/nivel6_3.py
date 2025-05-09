@@ -3,6 +3,7 @@ from game_sound_py.sound6_3 import tocar_musica
 from game_sound_py.sound6_3 import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
+from utils.utils import encontrar_bau
 from utils.utils import limpar_terminal
 from rich import print
 from rich import print as rprint
@@ -42,6 +43,14 @@ Quando a luz prateada se dissipou, me encontrei em uma plateia infinita. Cadeira
 A voz ecoou como um megafone antigo. No centro do palco, um homem alto com trajes de diretor
 mas com um rosto completamente liso - gesticulava em minha direção.
     """)
+    # Chance de encontrar baús antes da batalha final
+    if random.random() < 0.5:  # 50% de chance de encontrar 1-3 baús
+        num_baus = random.randint(1, 3)
+        print(f"\nEnquanto avança, você encontra {num_baus} baús suspeitos...")
+        
+        for _ in range(num_baus):
+            if not encontrar_bau(player):
+                return False  # Se o jogador morrer para um mímico
     print("\"Os atores sem rosto começaram a se multiplicar, cada um representando versões diferentes de mim:\"")
     print("– Uma criança oferecendo uma maçã... você aceitando.")
     print("– Sua queda na masmorra.")

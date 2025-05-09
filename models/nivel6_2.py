@@ -3,11 +3,13 @@ from game_sound_py.sound6_2 import tocar_musica
 from game_sound_py.sound6_2 import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
+from utils.utils import encontrar_bau
 from rich import print
 from rich import print as rprint
 from rich.panel import Panel
 import time
 import pygame
+import random
 
 pygame.init()
 pygame.mixer.init()
@@ -19,7 +21,16 @@ def nivel_mentira_2(player):
     print("""
 O portal negro me cuspiu em meio a uma floresta que respirava. 
 Árvores retorcidas sussurravam meu nome com vozes roucas, seus troncos marcados por rostos humanos congelados em expressões de eterno sofrimento.
-
+    """)
+    # Chance de encontrar baús antes da batalha final
+    if random.random() < 0.5:  # 50% de chance de encontrar 1-3 baús
+        num_baus = random.randint(1, 3)
+        print(f"\nEnquanto avança, você encontra {num_baus} baús suspeitos...")
+        
+        for _ in range(num_baus):
+            if not encontrar_bau(player):
+                return False  # Se o jogador morrer para um mímico
+    print("""
 O chão sob meus pés era macio e úmido - ao olhar para baixo, vi que pisava em musgo vermelho, encharcado de um líquido que cheirava a ferro velho.
 
 "Bem-vindo ao banquete, nobre tolo."
