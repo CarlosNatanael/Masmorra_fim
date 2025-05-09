@@ -138,7 +138,6 @@ def main():
     input()
     parar_musica()
     limpar_terminal()
-    creditos_finais(player)
 #=====================
 #   Nivel 1
     if not nivel_um(player):
