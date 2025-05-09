@@ -5,6 +5,8 @@ from utils.personagem import transformar_em_monarca
 from utils.combate import combate
 from utils.utils import limpar_terminal
 from rich import print
+from rich import print as rprint
+from rich.panel import Panel
 import time
 import random
 import pygame
@@ -14,7 +16,7 @@ pygame.mixer.init()
 
 def nivel_destruicao_3(player):
     tocar_musica()
-    print("Capítulo 6: [bold yellow]O Teatro das Máscaras Vazias[/bold yellow]")
+    rprint(Panel.fit("[bold yellow]Capítulo 6: O Teatro das Máscaras Vazias[/]", style="blue"))
     time.sleep(2)
     print("""
 Quando a luz prateada se dissipou, me encontrei em uma plateia infinita. Cadeiras de veludo vermelho se estendiam até onde a vista alcançava, todas vazias. 

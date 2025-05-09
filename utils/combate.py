@@ -1,13 +1,21 @@
 from game_sound_py.game_over import tocar_game
 from game_sound_py.game_over import parar_game
 from rich import print
+from rich import print as rprint
+from rich.panel import Panel
+from rich.table import Table
+from rich.console import Console
+from rich.text import Text
+from rich import box
 import random
 import time
+
+console = Console()
 
 def habilidade_especial(player, inimigos):
     player = verificar_status_monarca(player)
     derrotados = []
-    print(f"\n{player['nome']} usa {player['habilidade']}!")
+    rprint(f"\n[bold]{player['nome']}[/] usa [yellow]{player['habilidade']}[/]!")
     
     if player["classe"] == "Mago":
         dano = player["magia"] + random.randint(10, 20)
@@ -60,16 +68,16 @@ def habilidade_especial(player, inimigos):
         player["força"] += 30
         player["vida"] += 20
         print("\nVocê invocou o Domínio das Sombras!")
-        print(f"| Força aumentada para {player['força']} (+30)")
-        print(f"| Vida aumentada para {player['vida']} (+20)")
-        print("| Todos os inimigos sofrem 10 de dano sombrio!")
+        rprint(f"| Força aumentada para [red]{player['força']}[/] (+30)")
+        rprint(f"| Vida aumentada para [green]{player['vida']}[/] (+20)")
+        rprint("| Todos os inimigos sofrem [purple]10[/] de dano sombrio!")
         
         # Dano adicional para o Monarca
         for inimigo in inimigos[:]:
             inimigo["vida"] -= 10
-            print(f"{inimigo['nome']} sofreu 10 de dano das sombras!")
+            rprint(f"{inimigo['nome']} sofreu [purple]10[/] de dano das sombras!")
             if inimigo["vida"] <= 0:
-                print(f"{inimigo['nome']} foi consumido pelas sombras!")
+                rprint(f"{inimigo['nome']} foi [bold purple]consumido pelas sombras[/]!")
                 inimigos.remove(inimigo)
         
         return []
@@ -77,54 +85,96 @@ def habilidade_especial(player, inimigos):
     return derrotados
 
 def ganhar_xp(player, xp_ganho):
+    """Exibe bonificação de XP e subida de nível com rich"""
     if player.get("monarca_sombra", False):
-        # Progressão diferente para o Monarca
+        # Progressão do Monarca das Sombras
         player["xp"] += xp_ganho
-        print(f"\n{player['nome']} absorveu {xp_ganho} pontos de essência sombria!")
         
-        while player["xp"] >= player["xp_proximo_nivel"]:
-            player["xp"] -= player["xp_proximo_nivel"]
-            player["nivel"] += 1
-            player["xp_proximo_nivel"] = int(player["xp_proximo_nivel"] * 1.5)  # Progressão mais lenta
-            
-            # Melhoria de atributos do Monarca
-            player["vida"] += 10
-            player["força"] += 5
-            player["magia"] += 4
-            player["defesa"] += 6
-            
-            print(f"\n🌑 {player['nome']} ascendeu para o nível {player['nivel']}!")
-            print("As sombras lhe concederam:")
-            print(f"Vida: {player['vida']} (+10)")
-            print(f"Força: {player['força']} (+5)")
-            print(f"Magia: {player['magia']} (+4)")
-            print(f"Defesa: {player['defesa']} (+6)\n")
-    else:
+        # Painel de ganho de XP
+        console.print(Panel.fit(
+            f"[bold purple]{player['nome']}[/] absorveu [dark_red]{xp_ganho}[/] pontos de [black]essência sombria[/]!",
+            style="purple"
+        ))
         
-        player["xp"] += xp_ganho
-        print(f"\n{player['nome']} ganhou [bold green]{xp_ganho}[/bold green] de experiência!")
-
         while player["xp"] >= player["xp_proximo_nivel"]:
             player["xp"] -= player["xp_proximo_nivel"]
             player["nivel"] += 1
             player["xp_proximo_nivel"] = int(player["xp_proximo_nivel"] * 1.5)
-
+            
+            # Tabela de atributos do Monarca
+            atributos_table = Table.grid(padding=(0, 2))
+            atributos_table.add_column(style="cyan", justify="right")
+            atributos_table.add_column(style="white")
+            
+            atributos_table.add_row("Vida", f"{player['vida']} → [green]{player['vida'] + 10}[/] (+10)")
             player["vida"] += 10
-            player["força"] += 4
-            player["defesa"] += 3
-            if player["classe"] == "Mago":
-                player["magia"] += 4
-            elif player["classe"] == "Paladino":
-                player["magia"] += 4
-            elif player["classe"] == "Dev_admin":
-                player["força"] += 10
-
-            print(f"\n[bold green]{player['nome']} subiu para o nível {player['nivel']}[/bold green]!")
-            print("Seus atributos aumentaram:")
-            print(f"Vida: {player['vida']} ([bold green]↑[/bold green] 10)")
-            print(f"Força: {player['força']} ([bold green]↑[/bold green] 4)")
-            print(f"Magia: {player['magia']} ([bold green]↑[/bold green] 4)")
-            print(f"Defesa: {player['defesa']} ([bold green]↑[/bold green] 3)\n")
+            
+            atributos_table.add_row("Força", f"{player['força']} → [red]{player['força'] + 5}[/] (+5)")
+            player["força"] += 5
+            
+            atributos_table.add_row("Magia", f"{player['magia']} → [blue]{player['magia'] + 4}[/] (+4)")
+            player["magia"] += 4
+            
+            atributos_table.add_row("Defesa", f"{player['defesa']} → [yellow]{player['defesa'] + 6}[/] (+6)")
+            player["defesa"] += 6
+            
+            console.print(Panel.fit(
+                f"[bold purple]🌑 {player['nome']}[/] ascendeu para o [black]Nível {player['nivel']}[/]!\n"
+                "As [purple]sombras[/] lhe concederam:",
+                box=box.DOUBLE,
+                style="purple"
+            ))
+            console.print(atributos_table)
+            console.print()
+            
+    else:
+        # Progressão normal para outras classes
+        player["xp"] += xp_ganho
+        
+        console.print(Panel.fit(
+            f"[bold green]{player['nome']}[/] ganhou [yellow]{xp_ganho}[/] de [green]experiência[/]!",
+            style="green"
+        ))
+        
+        while player["xp"] >= player["xp_proximo_nivel"]:
+            player["xp"] -= player["xp_proximo_nivel"]
+            player["nivel"] += 1
+            player["xp_proximo_nivel"] = int(player["xp_proximo_nivel"] * 1.5)
+            
+            # Calcula os bônus de atributo
+            bonus = {
+                "vida": 10,
+                "força": 4,
+                "defesa": 3,
+                "magia": 4 if player["classe"] in ["Mago", "Paladino"] else 0
+            }
+            
+            if player["classe"] == "Dev_admin":
+                bonus["força"] = 10
+            
+            # Tabela de atributos
+            atributos_table = Table.grid(padding=(0, 2))
+            atributos_table.add_column(style="cyan", justify="right")
+            atributos_table.add_column(style="white")
+            
+            for attr, value in bonus.items():
+                if value > 0:
+                    old_val = player[attr]
+                    player[attr] += value
+                    atributos_table.add_row(
+                        attr.capitalize(),
+                        f"{old_val} → [green]{player[attr]}[/] ([green]+{value}[/])"
+                    )
+            
+            # Painel de subida de nível
+            console.print(Panel.fit(
+                f"[bold green]↑ {player['nome']}[/] subiu para o [yellow]Nível {player['nivel']}[/]!\n"
+                "Seus atributos aumentaram:",
+                box=box.ROUNDED,
+                style="green"
+            ))
+            console.print(atributos_table)
+            console.print()
 
 def verificar_status_monarca(player):
     if player.get("monarca_sombra", False) and player["classe"] != "Monarca das Sombras":
@@ -132,13 +182,13 @@ def verificar_status_monarca(player):
         if player["habilidade"] != "Domínio das Sombras":
             player["habilidade"] = "Domínio das Sombras"
             print("\nAs sombras corrigiram seu status...")
-            print("| » Habilidade atualizada para: Domínio das Sombras")
+            rprint("| » Habilidade atualizada para: [bold purple]Domínio das Sombras[/]")
     return player
 
 def combate(player, inimigos):
     player["habilidade_usada"] = False
 
-    print("Você está em combate com os inimigos!")
+    rprint(Panel.fit("[bold red]COMBATE INICIADO![/]", style="red"))
     time.sleep(2)
 
     derrotados = []
@@ -171,24 +221,24 @@ def combate(player, inimigos):
             print(f"{i + 1}. {inimigo['nome']} (Nível: {inimigo['nivel']}, Classe: {inimigo['classe']}): Vida = {inimigo['vida']}")
 
         # Menu de ações
-        print("\nEscolha sua ação:")
-        print("1. Atacar")
-        print("2. Usar item")
-        print("3. Usar habilidade especial")
-
-        acao = input("Digite o número da ação escolhida: ")
+        rprint(Panel.fit("[bold]Escolha sua ação:[/]\n"
+                        "1. [red]Atacar[/]\n"
+                        "2. [blue]Usar item[/]\n"
+                        "3. [yellow]Habilidade especial[/]"))
+        
+        acao = input("Sua escolha: ").strip()
 
         # Processa ação
         if acao == "1":
             if not inimigos:
-                print("Não há inimigos para atacar.")
+                rprint("[yellow]Não há inimigos para atacar.[/]")
                 turno_perdido = True
                 continue
             
             try:
                 escolha = int(input("Escolha o inimigo para atacar (número): ").strip()) - 1
                 if escolha < 0 or escolha >= len(inimigos):
-                    print("Escolha inválida. Tente novamente.")
+                    rprint("[red]Inimigo inválido![/]")
                     turno_perdido = True
                     continue
             except ValueError:
@@ -200,17 +250,16 @@ def combate(player, inimigos):
             inimigo = inimigos[escolha]
             dano = max(1, player["força"] - random.randint(0, 3))  # Garante pelo menos 1 de dano
             inimigo["vida"] -= dano
-            print(f"\nVocê atacou {inimigo['nome']} e causou [bold red]{dano}[/bold red] de dano")
+            rprint(f"\nVocê atacou [red]{inimigo['nome']}[/] causando [bold red]{dano}[/] de dano!")
             if inimigo["vida"] <= 0:
-                print(f"{inimigo['nome']} foi derrotado!")
+                rprint(f"[bold]{inimigo['nome']}[/] foi [red]derrotado[/]!")
                 derrotados.append(inimigo)
                 inimigos.remove(inimigo)
 
         elif acao == "2":
             # Lógica de itens
-            print("Seus itens:")
-            for nome_item, qtd in player["itens"].items():
-                print(f"- {nome_item} (x{qtd})")
+            rprint(Panel.fit("[bold]Seus itens:[/]\n" + 
+                          "\n".join(f"- {nome_item} (x{qtd})" for nome_item, qtd in player["itens"].items())))
             
             item_input = input("Escolha o item para usar: ").strip().casefold()
 
@@ -224,35 +273,35 @@ def combate(player, inimigos):
                 if item_encontrado == "poção de cura":
                     player["vida"] += 20
                     player["itens"][item_encontrado] -= 1
-                    print("Você usou a poção de cura e recuperou 20 de vida\n")
+                    rprint("Você usou [blue]poção de cura[/] e recuperou 20 de vida\n")
                 elif item_encontrado == "poção de força":
                     player["força"] += 10
                     player["itens"][item_encontrado] -= 1
-                    print("Você usou a poção de força e aumentou 10 de força\n")
+                    rprint("Você usou [blue]poção de força[/] e aumentou 10 de força\n")
                 elif item_encontrado == "poção de defesa":
                     player["defesa"] += 20
                     player["itens"][item_encontrado] -= 1
-                    print("Você usou a poção de defesa e aumentou 20 de defesa\n")
-                if item_encontrado == "sangue de dragão":
+                    rprint("Você usou [blue]poção de defesa[/] e aumentou 20 de defesa\n")
+                elif item_encontrado == "sangue de dragão":
                     player["vida"] += 50
                     player["itens"][item_encontrado] -= 1
-                    print("Você usou o sangue de dragão e recuperou 50 de vida\n")
-                if item_encontrado == "vigor do vulcão":
+                    rprint("Você usou [blue]sangue de dragão[/] e recuperou 50 de vida\n")
+                elif item_encontrado == "vigor do vulcão":
                     player["força"] += 30
                     player["itens"][item_encontrado] -= 1
-                    print("Você usou o vigor do vulcão e aumentou 30 de força\n")
+                    rprint("Você usou [blue]poção de cura[/] e aumentou 30 de força\n")
                 elif item_encontrado == "sangue da montanha":
                     player["defesa"] += 30
                     player["itens"][item_encontrado] -= 1
-                    print("Você usou o sangue da montanha e aumentou 30 de defesa\n")
+                    rprint("Você usou [blue]sangue da montanha[/] e aumentou 30 de defesa\n")
             else:
-                print("Você não possui item ou digitou algo incorretamente\n")
+                rprint("[yellow]Você não possui item ou digitou algo incorretamente[/]")
                 turno_perdido = True
                 continue
 
         elif acao == "3":
             if player.get("habilidade_usada", False):
-                print("\nVocê já usou sua habilidade especial nesta batalha!")
+                rprint("[yellow]Você já usou sua habilidade neste combate![/]")
                 turno_perdido = True
                 continue
             
@@ -261,7 +310,7 @@ def combate(player, inimigos):
             player["habilidade_usada"] = True
 
         else:
-            print("\nAção inválida. Tente novamente.")
+            rprint("[red]Ação inválida![/]")
             turno_perdido = True
             continue
 
@@ -270,18 +319,17 @@ def combate(player, inimigos):
             monstro = random.choice(inimigos)
             dano_monstro = max(1, monstro["força"] - (player["defesa"] // 2))  # Garante pelo menos 1 de dano
             player["vida"] -= dano_monstro
-            print(f"\n{monstro['nome']} atacou você causando [bold red]{dano_monstro}[/bold red] de dano!")
-
-        # Verificação de derrota
-        if player["vida"] <= 0:
+            rprint(f"\n[red]{monstro['nome']}[/] atacou causando [bold red]{dano_monstro}[/] de dano!")
+            
+            if player["vida"] <= 0:
                 tocar_game()
-                print("\n☠ Você foi derrotado! Game over! ☠")
-                input("\nPressione ENTER para continuar\n")
+                rprint(Panel.fit("[bold red]☠ VOCÊ FOI DERROTADO! ☠[/]", style="red"))
+                input("\nPressione ENTER para continuar...")
                 parar_game()
                 return False
 
     # Vitória
-    print("\nVocê derrotou todos os inimigos!")
+    rprint(Panel.fit("[bold green]VITÓRIA![/] Todos os inimigos foram derrotados!", style="green"))
     xp_total = sum([inimigo.get("nivel", 1) * 30 for inimigo in derrotados])
     ganhar_xp(player, xp_total)
 
@@ -290,10 +338,10 @@ def combate(player, inimigos):
         if player.get("bonus_monarca", False):
             player["força"] = player["força_original"]
             player["vida"] = player["vida_original"]
-            print("\nO poder das sombras se dissipa...")
-            print(f"| Força voltou para {player['força']}")
-            print(f"| Vida voltou para {player['vida']}\n")
-            del player["bonus_monarca"]
+        rprint("\n[purple]O poder das sombras se dissipa...[/]")
+        rprint(f"| Força voltou para [red]{player['força']}[/]")
+        rprint(f"| Vida voltou para [green]{player['vida']}[/]\n")
+        del player["bonus_monarca"]
 
         if not player.get("bonus_monarca", False):
             del player["força_original"]

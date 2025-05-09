@@ -4,6 +4,8 @@ from game_sound_py.sound6_1 import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
 from rich import print
+from rich import print as rprint
+from rich.panel import Panel
 import time
 import pygame
 
@@ -12,7 +14,7 @@ pygame.mixer.init()
 
 def nivel_verdade_1(player):
     tocar_musica()
-    print("Capítulo 6:  O Cárcere das Almas Perdidas")
+    rprint(Panel.fit("[bold yellow]Capítulo 6:  O Cárcere das Almas Perdidas[/]", style="blue"))
     time.sleep(2)
     print("""
 O vazio engoliu-me por um momento infinito, até que meu corpo atingiu algo frio e metálico. 
@@ -47,7 +49,7 @@ Algumas tinham prisioneiros que pareciam humanos, outros eram criaturas que mal 
     """)
     time.sleep(5)
     print("Uma placa de ferro enferrujada estava cravada no chão:")
-    print("REGRA 1: A DESOBEDIÊNCIA É O ÚNICO PECADO.")
+    print("REGRA 1: [bold tan]A DESOBEDIÊNCIA É O ÚNICO PECADO[/bold tan].")
     time.sleep(5)
     from utils.utils import usar_itens
     if not usar_itens(player):
@@ -58,7 +60,7 @@ que tentam arrastá-lo para as celas vazias. Algumas criaturas imploram. Outras 
     """)
     time.sleep(5)
     print("""
-Quando finalmente cheguei à torre, o Anjo desceu.
+"Quando finalmente cheguei à torre, o Anjo desceu."
 
 Ele era belo e terrível—asas de luz cortadas por arames farpados, um rosto perfeito sem boca 
 e olhos que refletiam infinitas regras escritas em ar puro.

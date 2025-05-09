@@ -2,6 +2,9 @@ from conquistas_imag.sistema_conquistas import mostrar_conquista
 from game_sound_py.sound7 import tocar_musica
 from game_sound_py.sound7 import parar_musica
 from utils.combate import combate
+from rich import print
+from rich import print as rprint
+from rich.panel import Panel
 import time
 import pygame
 
@@ -10,11 +13,11 @@ pygame.mixer.init()
 
 def nivel_7_sombra(player):
     tocar_musica()
-    print("Capítulo 7: O Primeiro Decreto\n")
+    rprint(Panel.fit("[bold yellow]Capítulo 7: O Primeiro Decreto[/]", style="blue"))
     time.sleep(2)
     print("A Cidade dos Espinhos Negros silencia.")
     time.sleep(2)
-    print("Você caminha até o trono vazio, feito de espelhos quebrados e ossos de reis esquecidos.")
+    print('"Você caminha até o trono vazio, feito de espelhos quebrados e ossos de reis esquecidos."')
     time.sleep(3)
     
     print("\nAs sombras ao seu redor sussurram em uníssono:")
@@ -28,11 +31,11 @@ def nivel_7_sombra(player):
     time.sleep(3)
     
     print("\nDo alto do firmamento, descem os Guardiões da Luz — os últimos defensores da Masmorra.")
-    print("Eles vieram cumprir o Último Decreto: 'Que toda sombra seja extinta.'")
+    print('"Eles vieram cumprir o Último Decreto: "Que toda sombra seja extinta."')
     time.sleep(3)
     
     print("\nLiderados por um Paladino Ancestral com armadura feita de cristal solar, eles brandem a última chama do Éter.")
-    print("Seu nome ecoa nos céus: **Altherion, o Guardião da Aurora**.\n")
+    print("Seu nome ecoa nos céus: [bold yellow]Altherion, o Guardião da Aurora[/bold yellow].\n")
     time.sleep(3)
     print("[bold yellow]Altherion[/bold yellow]: Vejo que se aliou a ele ser das Trevas, se aliou ao Mago Eldramar.")
     print("[bold yellow]Altherion[/bold yellow]: Para sua infelicidade não permitirei que consigo o decreto do Monarca.")

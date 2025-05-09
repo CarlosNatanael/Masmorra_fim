@@ -3,6 +3,8 @@ from game_sound_py.sound2 import tocar_musica
 from game_sound_py.sound2 import parar_musica
 from utils.combate import combate
 from rich import print
+from rich import print as rprint
+from rich.panel import Panel
 import time
 import random
 import pygame
@@ -64,7 +66,7 @@ desafios_clone = [
 
 def nivel_dois(player):
     tocar_musica()
-    print("Capítulo 2: [bold yellow]O Salão dos Espelhos[/bold yellow]\n")
+    rprint(Panel.fit("[bold yellow]Capítulo 2: O Salão dos Espelhos[/]", style="blue"))
     time.sleep(5)
     print('"O velho Eldramar havia me alertado:"')
     print("A Masmorra do Fim não é apenas um labirinto de pedra. Ela testará sua mente, sua alma e sua coragem. Se você falhar, seu corpo se tornará mais uma sombra presa em seus corredores.\n")
@@ -100,9 +102,13 @@ def nivel_dois(player):
     escolha = input("\nQual espelho você toca? (1/2/3): ").strip()
     
     if escolha == str(desafio["correta"] + 1):  # +1 porque o usuário vê 1-based
+        rprint(Panel.fit("[green]✓ Resposta Correta![/]", style="green"))
+        time.sleep(3)
         print('\n"Você se conhece melhor do que pensa. Avance."')
         mostrar_conquista("sombra_sorte_2")
     else:
+        rprint(Panel.fit("[red]✗ Resposta Incorreta![/]", style="red"))
+        time.sleep(3)
         print("\nO clone salta do espelho para enfrentar você!")
         time.sleep(5)
         print("\nAntes que eu pudesse reagir, o espelho diante de mim se dissolveu em névoa, e ele saiu.")

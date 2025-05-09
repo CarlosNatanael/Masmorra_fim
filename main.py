@@ -20,12 +20,24 @@ from game_sound_py.menu_sound  import parar_musica
 from game_sound_py.game_over import tocar_game
 from game_sound_py.game_over import parar_game
 from rich.progress import Progress
+from rich import print as rprint
+from rich.panel import Panel
+from rich.table import Table
+from rich.console import Console
 from rich import print
 import time
 import pygame
 
+console = Console()
+
 pygame.init()
 pygame.mixer.init()
+
+def centralizar(texto, espaco_vertical=0):
+    """Centraliza o conteúdo na tela"""
+    console.print("\n" * espaco_vertical, end="")
+    console.print(texto, justify="center")
+    console.print("\n" * espaco_vertical, end="")
 
 def game_over():
     tocar_game()
@@ -99,28 +111,24 @@ def main():
                    ---......-++++-..                                    .--------                        
     [/bold white]""")
     print("""
-                                Jogo em desenvolvimento 
+                                    Jogo em desenvolvimento
           
     Progamador/Desenvolvimento:                                             [bold yellow][Masmorra do Fim - versão beta][/bold yellow]
-    Carlos Natanael
+    [bold cyan]Carlos Natanael[/bold cyan]
           
     Desenvolvedor Tester:
-    Arthur Yabuchi
+    [bold cyan]Arthur Yabuchi[/bold cyan]
                                        
-    - Bugs nivel 8 resolvido                      - Adição de novas poções
-    - Sistema de musica e conquistas OK           - Nivel 9 completo...
-    - Balanceamento  de player                    - Realizado todas as correções de bugs
-        
+    [bold yellow]- Melhorias nos paineis[/bold yellow]                     [bold yellow]- Adição de novas poções[/bold yellow]
+    [bold yellow]- Balanceamento dos niveis[/bold yellow]                  [bold yellow]- Novas funcionalidades[/bold yellow]
 
                        [bold black]Copyright (C) 2025 by Carlos Natanael[/bold black] 
     """)
-    time.sleep(3)
     with Progress() as progress:
         task = progress.add_task("Carregando...", total=100)
         for i in range(100):
             time.sleep(0.05)  # Espera 50 milissegundos
             progress.update(task, advance=1)
-    time.sleep(3)
     print("\n[bold red][Pressione ENTER para embarcar nesta aventura...][bold red]\n")
     input()
     limpar_terminal()
@@ -130,6 +138,7 @@ def main():
     input()
     parar_musica()
     limpar_terminal()
+    creditos_finais(player)
 #=====================
 #   Nivel 1
     if not nivel_um(player):

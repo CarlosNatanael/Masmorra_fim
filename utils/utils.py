@@ -1,5 +1,6 @@
 from utils.combate import combate
 from conquistas_imag.sistema_conquistas import mostrar_conquista
+from rich import print
 import time
 import random
 import os
@@ -7,7 +8,7 @@ import os
 def mostrar_status_jogador(player):
     print(f"""
 ┌───────────────────┬───────────────────┐
-│      STATUS       │     ATRIBUTOS     │
+│      [bold yellow]STATUS[/bold yellow]       │     [bold cyan]ATRIBUTOS[/bold cyan]     │
 ├───────────────────┼───────────────────┤
 │                   │ Vida:   {player['vida']:<5}     │
 │Nível: {player['nivel']:<8}    │ Força:  {player['força']:<5}     │
@@ -19,7 +20,7 @@ def mostrar_status_jogador(player):
 def usar_itens(player, pode_usar_chave=True):
     while True:
         mostrar_status_jogador(player)
-        print("\nItens disponíveis:")
+        print("\n[bold green]Itens disponíveis[/bold green]:")
         for i, (item, qtd) in enumerate(player["itens"].items(), 1):
             print(f"{i}. {item} (x{qtd})")
         print(f"{len(player['itens'])+1}. Continuar adiante")
@@ -42,7 +43,37 @@ def usar_itens(player, pode_usar_chave=True):
 
                 elif item.lower() == "poção de cura":
                     player["vida"] = (player["vida"] + 20)
-                    print(f"\nVocê recuperou 20 de vida! ({player['vida']})")
+                    print(f"\nVocê usou a poção de cura e recuperou 20 de vida ({player['vida']})")
+                    player["itens"][item] -= 1
+                    input("\nPressione ENTER para continuar...")
+                    return True
+                elif item.lower() == "poção de força":
+                    player["força"] = (player["força"] + 10)
+                    print(f"\nVocê usou a poção de força e aumentou 10 de força ({player['força']})")
+                    player["itens"][item] -= 1
+                    input("\nPressione ENTER para continuar...")
+                    return True
+                elif item.lower() == "poção de defesa":
+                    player["defesa"] = (player["defesa"] + 20)
+                    print(f"\nVocê usou a poção de defesa e aumentou 20 de defesa ({player['defesa']})")
+                    player["itens"][item] -= 1
+                    input("\nPressione ENTER para continuar...")
+                    return True
+                elif item.lower() == "sangue de dragão":
+                    player["vida"] = (player["vida"] + 50)
+                    print(f"\nVocê usou o sangue de dragão e recuperou 50 de vida ({player['vida']})")
+                    player["itens"][item] -= 1
+                    input("\nPressione ENTER para continuar...")
+                    return True
+                elif item.lower() == "vigor do vulcão":
+                    player["força"] = (player["força"] + 30)
+                    print(f"\nVocê usou o vigor do vulcão e aumentou 30 de força ({player['força']})")
+                    player["itens"][item] -= 1
+                    input("\nPressione ENTER para continuar...")
+                    return True
+                elif item.lower() == "sangue da montanha":
+                    player["defesa"] = (player["defesa"] + 30)
+                    print(f"\nVocê usou o sangue da montanha e aumentou 30 de defesa ({player['defesa']})")
                     player["itens"][item] -= 1
                     input("\nPressione ENTER para continuar...")
                     return True

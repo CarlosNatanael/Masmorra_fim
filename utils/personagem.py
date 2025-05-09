@@ -1,13 +1,17 @@
-import random
 from rich import print
+from rich import print as rprint
+from rich.panel import Panel
+from rich.table import Table
+from rich.console import Console
+import random
 
+console = Console()
 def escolher_classe():
     nome = input("Digite o nome do seu personagem: ").strip()
+    print("")
     while not nome:
         nome = input("Nome não pode estar vazio. Digite novamente: ").strip()
-
-    print("\nEscolha uma classe para o seu personagem:")
-    print("1. [bold green]Mago[/bold green]\n2. [bold red]Guerreiro[/bold red]\n3. [bold yellow]Paladino[/bold yellow]\n4. [bold cyan]Arqueiro[/bold cyan]\n5. [bold magenta]Dev_Admin[/bold magenta]")
+    console.print(Panel.fit("\n1. [bold white]Mago[/]\n2. [bold white]Guerreiro[/]\n3. [bold white]Paladino[/]\n4. [bold white]Arqueiro[/]\n5. [bold magenta]Dev_Admin[/bold magenta]",style="blue", title="Escolha uma classe para o seu personagem:"))
 
     escolha_valida = False
     while not escolha_valida:

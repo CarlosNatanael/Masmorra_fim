@@ -4,6 +4,8 @@ from game_sound_py.sound9 import parar_musica
 from utils.combate import combate
 from utils.utils import encontrar_bau
 from rich import print
+from rich import print as rprint
+from rich.panel import Panel
 import random
 import time
 import pygame
@@ -13,7 +15,7 @@ pygame.mixer.init()
 
 def nivel_nove(player):
     tocar_musica()
-    print("Capítulo 9: [bold yellow]A Última Luz[/bold yellow]\n")
+    rprint(Panel.fit("[bold yellow]Capítulo 9: A Última Luz[/]", style="blue"))
     time.sleep(2)
     print("'O chão da masmorra se abre em um abismo, e você cai... só para ser recebido por luz.'")
     time.sleep(2)

@@ -4,6 +4,8 @@ from game_sound_py.sound5 import parar_musica
 from utils.utils import limpar_terminal
 from utils.combate import combate
 from rich import print
+from rich import print as rprint
+from rich.panel import Panel
 import time
 import pygame
 
@@ -12,11 +14,12 @@ pygame.mixer.init()
 
 def nivel_cinco(player):
     tocar_musica()
-    print("Capítulo 5: [bold yellow]A Sala do Guardião[/bold yellow]\n")
+    rprint(Panel.fit("[bold yellow]Capítulo 5: A Sala do Guardião[/]", style="blue"))
     time.sleep(5)
     print(""" 
 O portal se fecha atrás de você com um estrondo que ecoa como um trovão agonizante.
 O ar está carregado com o cheiro de ossos calcinados e magia antiga. À sua frente,
+          
 ergue-se um templo circular onde as leis da realidade parecem dobrar-se sob uma vontade perversa.
     """)
     time.sleep(5)
@@ -33,20 +36,21 @@ ergue-se um templo circular onde as leis da realidade parecem dobrar-se sob uma 
 E então você o vê. Eldramar. 
 
 O velho misterioso que você encontrou no início agora se revela em sua verdadeira forma:
-Um colosso de três metros de altura, com pele tão pálida que parece translúcida,
+"Um colosso de três metros de altura, com pele tão pálida que parece translúcida,"
+          
 vestes negras que se fundem com as sombras ao seu redor. Quando ele abre os olhos,
-você vê apenas um abismo - dois poços sem fundo que sugam sua coragem.
+"você vê apenas um abismo - dois poços sem fundo que sugam sua coragem."
     """)
     input("Pressione ENTER para continuar")
     time.sleep(5)
     
-    print(f'\n[bold blue]Eldramar[/bold blue]: Ah... {player["nome"]}." Sua voz ecoa dentro do seu crânio.\n'
+    print(f'\n[bold blue]Eldramar[/bold blue]: Ah... {player["nome"]}."Sua voz ecoa dentro do seu crânio".\n'
           '[bold blue]Eldramar[/bold blue]: Ou devo chamá-lo de... intruso? Sobrevivente? Ou talvez...\n'
-          '[bold blue]Eldramar[/bold blue]: Apenas mais um tolo que acredita ser especial?"\n')
+          '[bold blue]Eldramar[/bold blue]: "Apenas mais um tolo que acredita ser especial?"\n')
     time.sleep(5)
     print('Eldramar ergue uma mão esquelética e sussurra: "Mostre-me do que é capaz."\n'
-          'O chão se abre e uma figura emerge das profundezas - uma massa de pura escuridão\n'
-          'que toma a forma de um guerreiro ancestral, seus olhos queimando com fogo negro.\n')
+          '"O chão se abre e uma figura emerge das profundezas - uma massa de pura escuridão\n'
+          'que toma a forma de um guerreiro ancestral, seus olhos queimando com fogo negro."\n')
     time.sleep(5)
 
     monstro = {
@@ -66,9 +70,9 @@ você vê apenas um abismo - dois poços sem fundo que sugam sua coragem.
         return False
     
     print('\n[bold blue]Eldramar[/bold blue]: Bom... muito bom. Eldramar se levanta do trono, seu manto de sombras se arrastando.\n'
-          '"Mas isso foi apenas um aquecimento.\n')
+          '"Mas isso foi apenas um aquecimento."\n')
     time.sleep(5)
-    print('Eldramar ri enquanto seu corpo começa a se dividir.\n'
+    print('"Eldramar ri enquanto seu corpo começa a se dividir."\n'
           '[bold blue]Eldramar[/bold blue]: Você realmente acredita que pode desafiar\n'
           '[bold blue]Eldramar[/bold blue]: Aquele que teceu os fios do seu destino desde o início?"')
     time.sleep(5)
@@ -90,16 +94,16 @@ você vê apenas um abismo - dois poços sem fundo que sugam sua coragem.
     else:
         return False
     
-    print("Sangrando e exausto, você se arrasta até o centro do salão e descide parar.")
+    print('"Sangrando e exausto, você se arrasta até o centro do salão e descide parar."')
     from utils.utils import usar_itens
     if not usar_itens(player):
         return False
-    print("\nEldramar está sentado em seu trono, examinando você com curiosidade mórbida.\n")
+    print('\n"Eldramar está sentado em seu trono, examinando você com curiosidade mórbida."\n')
     time.sleep(4)
     print(f"""
 [bold blue]Eldramar[/bold blue]: Conte-me, {player["nome"]}... como foi derrotar parte de mim mesmo?
           
-Ele inclina a cabeça. "Não responda. Sei que você ainda não compreende
+Ele inclina a cabeça. "Não responda. Sei que você ainda não compreende"
 
 [bold blue]Eldramar[/bold blue]: a verdadeira natureza deste lugar... mas terá sua chance.
     """)
@@ -110,14 +114,15 @@ Ele inclina a cabeça. "Não responda. Sei que você ainda não compreende
     time.sleep(4)
     print("""
 O pergaminho mostrava:
-O QUE VOCÊ MAIS TEME?
+          
+"O QUE VOCÊ MAIS TEME?"
           
 O pergaminho queima com energia arcana, aguardando sua resposta...
     """)
     time.sleep(5)
-    print("\n1. Revelar seu verdadeiro medo (Coragem)")
-    print("2. Inventar uma mentira (Astúcia)")
-    print("3. Destruir o pergaminho (Determinação)")
+    print("\n1. Revelar seu verdadeiro medo ([bold blue]Coragem[/bold blue])")
+    print("2. Inventar uma mentira ([bold green]Astúcia[/bold green])")
+    print("3. Destruir o pergaminho ([bold red]Determinação[/bold red])")
     
     escolha = None
     while escolha not in ["1", "2", "3"]:
@@ -130,9 +135,9 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
         player["medo"] = input("\nDigite seu verdadeiro medo: ").strip()
         print(f"\nEldramar sorri 'Ah... {player['medo']}. Interessante.'")
         time.sleep(3)
-        print("\n[bold blue]Eldramar[/bold blue]: Então você não aprendeu nada. (A masmorra começa a desmoronar!)\n")
+        print("\n[bold blue]Eldramar[/bold blue]: Então você não aprendeu nada. ('A masmorra começa a desmoronar!')\n")
         time.sleep(3)
-        print("Eldramar invoca um Minotauro para combate\n")
+        print("Eldramar invoca um 'Minotauro' para combate\n")
 
         minotauro = {
             "nome": "Minotauro das Sombras",
@@ -169,7 +174,7 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
     elif escolha == "3":
         print("\nA sala treme... algo pior que Eldramar desperta!")
         time.sleep(4)
-        print("Um dragão das sombras surge do manto de Eldramar.\n")
+        print("Um 'Dragão das sombras' surge do manto de Eldramar.\n")
 
         dragao = {
             "nome": "Dragão das Sombras",

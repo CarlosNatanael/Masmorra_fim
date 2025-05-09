@@ -5,6 +5,8 @@ from utils.utils import limpar_terminal
 from utils.combate import combate
 from utils.utils import encontrar_bau
 from rich import print
+from rich import print as rprint
+from rich.panel import Panel
 import time
 import random
 import pygame
@@ -14,7 +16,7 @@ pygame.mixer.init()
 
 def nivel_oito(player):
     tocar_musica()
-    print("Capítulo 8: [bold yellow]O Coração da Masmorra[/bold yellow]\n")
+    rprint(Panel.fit("[bold yellow]Capítulo 8: O Coração da Masmorra[/]", style="blue"))
     time.sleep(5)
     print("Você sente o calor antes mesmo de enxergar...")
     time.sleep(3)

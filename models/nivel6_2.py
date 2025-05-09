@@ -4,6 +4,8 @@ from game_sound_py.sound6_2 import parar_musica
 from utils.personagem import transformar_em_monarca
 from utils.combate import combate
 from rich import print
+from rich import print as rprint
+from rich.panel import Panel
 import time
 import pygame
 
@@ -12,7 +14,7 @@ pygame.mixer.init()
 
 def nivel_mentira_2(player):
     tocar_musica()
-    print("Capítulo 6:  [bold yellow]A Floresta dos Espectros Famintos[/bold yellow]")
+    rprint(Panel.fit("[bold yellow]Capítulo 6: A Floresta dos Espectros Famintos[/]", style="blue"))
     time.sleep(2)
     print("""
 O portal negro me cuspiu em meio a uma floresta que respirava. 
@@ -37,7 +39,7 @@ Os rios que cruzavam a floresta não carregavam água, mas sim sangue espesso, o
 Você segue em frente. Cada passo provoca o contorcer de raízes negras.
 Os rios por onde passa não carregam água, mas sangue... e sombras nadam sob a superfície.
 
-Logo, chega à beira de uma ravina profunda. A única travessia possível: uma ponte feita de ossos humanos.
+"Logo, chega à beira de uma ravina profunda. A única travessia possível: uma ponte feita de ossos humanos."
 
 Quando pisa no primeiro osso, os esqueletos riem:
 

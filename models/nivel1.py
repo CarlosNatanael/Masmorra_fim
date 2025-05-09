@@ -3,6 +3,8 @@ from game_sound_py.sound1 import tocar_musica
 from game_sound_py.sound1 import parar_musica
 from utils.combate import combate
 from rich import print
+from rich import print as rprint
+from rich.panel import Panel
 import time
 import os
 import random
@@ -39,7 +41,6 @@ enigmas = [
         "pergunta": "Ando sem pernas, voo sem asas, choro sem olhos. O que sou?",
         "respostas": ["nuvem", "vento", "tempestade"]
     }
-
 ]
 
 def obter_enigma_aleatorio():
@@ -48,7 +49,7 @@ def obter_enigma_aleatorio():
 
 def nivel_um(player):
     tocar_musica()
-    print("Capítulo 1: [bold yellow]O Despertar no Desconhecido[/bold yellow]\n")
+    rprint(Panel.fit("[bold yellow]Capítulo 1: O Despertar no Desconhecido[/]", style="blue"))
     time.sleep(5)
     print("\nEra uma noite chuvosa quando entrei na Biblioteca de Arcanthus, um lugar antigo e abandonado, conhecido apenas por estudiosos de ocultismo.")
     time.sleep(5)
@@ -120,33 +121,33 @@ def nivel_um(player):
         else:
             print("Escolha inválida. Tente novamente.")
 
-    print("Você se pergunta em como Eldramar sabe o seu nome.\n")
+    print('"Você se pergunta em como Eldramar sabe o seu nome."\n')
     time.sleep(5)
     print(f"[bold red]{player['nome']}[/bold red]: Como você sabe meu nome?")
     time.sleep(5)
-    print("\n(O mago sorri, lento, como um gato diante de um rato.)\n")
+    print('\n"O mago sorri, lento, como um gato diante de um rato."\n')
     time.sleep(5)
     print("[bold blue]Eldramar[/bold blue]: Você acha que foi um acidente? Que caiu aqui por... sorte?")
     time.sleep(5)
-    print("\n(Ele dá um passo à frente, e as sombras ao seu redor parecem se esticar.)\n")
+    print('\n"Ele dá um passo à frente, e as sombras ao seu redor parecem se esticar."\n')
     time.sleep(5)
     print("[bold blue]Eldramar[/bold blue]: Nomes têm poder, jovem. E o seu... ecoou através do Véu.\n")
     time.sleep(5)
     print(f"[bold red]{player['nome']}[/bold red]: Isso não explica nada. Quem é você? O que quer?")
     time.sleep(5)
-    print("\n(Eldramar ergue uma mão enrugada, e um globo de névoa escura se forma entre seus dedos, mostrando flashes do passado: a biblioteca, o grimório, o portal.)\n")
+    print('\n"Eldramar ergue uma mão enrugada, e um globo de névoa escura se forma entre seus dedos, mostrando flashes do passado: a biblioteca, o grimório, o portal."\n')
     time.sleep(5)
     print("[bold blue]Eldramar[/bold blue]: Sou o último dos Vigias Eternos. Acompanhei o nascimento deste mundo, e talvez seu fim.")
     time.sleep(5)
     print("[bold blue]Eldramar[/bold blue]: (O globo se desfaz, e seu sorriso some.) Agora resta saber se você é forte o bastante para descobrir por quê.")
     time.sleep(5)
-    print(f"\n(Um silêncio pesado cai. {player['nome']} sente um frio na nuca.)\n")
+    print(f'\n"Um silêncio pesado cai. {player['nome']} sente um frio na nuca."\n')
     time.sleep(5)
     print(f"[bold red]{player['nome']}[/bold red]: Isso é uma ameaça?")
     time.sleep(5)
-    print("\n(O mago vira as costas, suas vestes arrastando-se como fumaça.)\n")
+    print('\n"O mago vira as costas, suas vestes arrastando-se como fumaça."\n')
     time.sleep(5)
-    print("[bold blue]Eldramar[/bold blue]: É um fato. Mas não se preocupe... por enquanto. (Ele olha por cima do ombro, os olhos faiscando.) A masmorra fará pior.")
+    print('[bold blue]Eldramar[/bold blue]: É um fato. Mas não se preocupe... por enquanto. "Ele olha por cima do ombro, os olhos faiscando." A masmorra fará pior.')
     time.sleep(5)
     input("\nPressione ENTER para continuar")
     print("\n[bold blue]Eldramar[/bold blue]: Antes de seguir adiante, responda ao seguinte enigma. Caso falhe, as criaturas da sombras virão cobrar o preço...\n")
@@ -157,13 +158,15 @@ def nivel_um(player):
     print(f"\n[bold black]Voz sussurrante[/bold black]: {pergunta}")
     resposta = input("Sua resposta: ").strip().lower()
     if resposta in respostas_possiveis:
-        print("\n[bold black]Voz sussurrante[/bold black]: Muito bem... Você poderá continuar.")
+        print("\n[bold black]Voz sussurrante[/bold black]: 'Muito bem... Você poderá continuar.'")
+        rprint(Panel.fit("[green]✓ Resposta Correta![/]", style="green"))
         mostrar_conquista("sombra_sorte_1")
     else:
         time.sleep(5)
-        print(f"\n[bold black]Voz sussurrante[/bold black]: Errado... As sombras não perdoa a ignorância. Prepare-se para lutar!\n")
+        rprint(Panel.fit("[red]✗ Resposta Incorreta![/]", style="red"))
+        print(f"\n[bold black]Voz sussurrante[/bold black]: 'Errado... As sombras não perdoa a ignorância. Prepare-se para lutar!'\n")
         inimigos = [
-            {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 30, "força": 25, "defesa": 30, "nivel":1},
+            {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 30, "força": 25, "defesa": 30, "nivel":100},
             {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 35, "força": 28, "defesa": 30, "nivel":2}
         ]
         input("Prepare-se para o combate! Pressione ENTER...\n")
@@ -172,7 +175,7 @@ def nivel_um(player):
         else:
             return False
         
-    print(f"\n[bold black]Voz sussurrante[/bold black]: Agora siga, {player['classe']}. Aldurian te aguarda.")
+    print(f"\n[bold black]Voz sussurrante[/bold black]: 'Agora siga, {player['classe']}. Aldurian te aguarda.'")
     time.sleep(5)
     print("Você caminha por entre árvores milenares até avistar a entrada da Masmorra do Fim...\n")
 

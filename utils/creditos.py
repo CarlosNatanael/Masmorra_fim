@@ -1,64 +1,123 @@
+from rich import print as rprint
+from rich.panel import Panel
+from rich.table import Table
+from rich.console import Console
 from utils.utils import limpar_terminal
-from game_sound_py.menu_sound  import tocar_musica
-from game_sound_py.menu_sound  import parar_musica
+from game_sound_py.menu_sound import tocar_musica, parar_musica
 import time
 import os
 
+console = Console()
+
+def centralizar(texto, espaco_vertical=0):
+    """Centraliza o conteúdo na tela"""
+    console.print("\n" * espaco_vertical, end="")
+    console.print(texto, justify="center")
+    console.print("\n" * espaco_vertical, end="")
+
 def creditos_finais(player):
     tocar_musica()
-    os.system('cls' if os.name == 'nt' else 'clear')
-    print("="*60)
-    print(" " * 18 + "🏆 FIM DA JORNADA 🏆")
-    print("="*60)
-    time.sleep(3)
+    limpar_terminal()
     
-    print(f"\nParabéns, {player['nome']}! Você sobreviveu à Masmorra do Fim.")
-    print("As forças que protegiam Aldurian foram derrotadas por sua bravura.\n")
-    time.sleep(4)
+    # Configuração de estilo
+    estilo_titulo = "bold light_steel_blue on dark_blue"
+    estilo_texto = "italic grey74"
+    estilo_destaque = "wheat1"
+    borda_estilo = "dim steel_blue"
 
-    print("Sua jornada será lembrada nas runas antigas...\n")
+    # Título principal centralizado
+    centralizar(
+        Panel.fit(
+            "[bold]FIM DA JORNADA[/]",
+            style=estilo_texto,
+            subtitle=f"[{estilo_texto}]A saga de {player['nome']}[/]",
+            subtitle_align="center"
+        ),
+        0
+    )
+    time.sleep(2)
+    # Mensagem de parabéns centralizada
+    centralizar(
+        Panel.fit(
+            f"[{estilo_destaque}]Parabéns, {player['nome']}![/]\n\n"
+            f"[{estilo_texto}]Sua coragem alterou o destino de Aldurian[/]\n"
+            f"[{estilo_texto}]e seu nome será lembrado nas crônicas eternas[/]",
+            style=borda_estilo
+        ),
+        1
+    )
+    time.sleep(3)
+    # Título dos créditos centralizado
+    centralizar(
+        Panel.fit(
+            "[bold]CRÉDITOS[/]",
+            style=estilo_texto
+        ),
+        0
+    )
+    # Tabela de créditos centralizada
+    creditos_table = Table.grid(expand=True)
+    creditos_table.add_column(justify="center", style=estilo_destaque)
+    creditos_table.add_column(justify="center", style=estilo_texto)
+    
+    creditos_table.add_row("Desenvolvido por", "Carlos Natanael")
+    creditos_table.add_row("Programação", "Carlos Natanael • Val")
+    creditos_table.add_row("Design de Jogo", "Equipe Aldurian")
+    creditos_table.add_row("Narrativa", "Carlos Natanael")
+    creditos_table.add_row("Testes", "Arthur Yabuchi")
+    creditos_table.add_row("Direção Criativa", "Val")
+
+    centralizar(
+        Panel.fit(
+            creditos_table,
+            style=borda_estilo,
+            padding=(1, 10)
+        ),
+        0
+    )
+    time.sleep(3)
+    # Tecnologias utilizadas centralizada
+    tech_table = Table.grid(expand=True)
+    tech_table.add_column(justify="center", style=estilo_destaque)
+    
+    tech_table.add_row("[bold]Tecnologias Utilizadas[/]")
+    tech_table.add_row("Python • Rich • PyGame")
+    tech_table.add_row("Arte ASCII • Sistema Modular")
+
+    centralizar(
+        Panel.fit(
+            tech_table,
+            style=borda_estilo,
+            padding=(1, 10)
+        ),
+        1
+    )
     time.sleep(3)
 
-    print("="*60)
-    print(" " * 24 + "🎬 CRÉDITOS 🎬")
-    print("="*60)
-    time.sleep(2)
+    # Mensagem final centralizada
+    centralizar(
+        Panel.fit(
+            f"[{estilo_texto}]Esta aventura pode ter chegado ao fim,[/]\n"
+            f"[{estilo_destaque}]mas novas histórias aguardam[/]\n"
+            f"[{estilo_texto}]para serem descobertas...[/]",
+            style=borda_estilo
+        ),
+        2
+    )
 
-    print("\nDesenvolvido por: Carlos Natanael")
-    time.sleep(2)
-    print("Programação: Carlos Natanael, Val")
-    time.sleep(2)
-    print("Desenvolvedor Tester: Arthur Yabuchi")
-    time.sleep(2)
-    print("Narrativa: Carlos Natanael")
-    time.sleep(2)
-    print("Assistência Criativa: Val")
-    time.sleep(5)
-
-    print("\n\nFerramentas Utilizadas:")
-    print("- Linguagem Python 🐍")
-    print("- Sistema Modular com Arquivos Separados")
-    print("- ASCII Art para Ambientação")
-    print("- Mecânica de Combate baseada em RPG Clássico")
-    print("- Estilo Text-based Adventure\n")
-    time.sleep(5)
-
-    print("\nSe você curtiu, compartilhe com os amigos ou modifique e continue criando!\n")
-    print("→ A Masmorra do Fim sempre renasce para novos heróis...\n")
-    time.sleep(4)
-    
-    print("="*117)
-    print("""
-
+    # Arte final centralizada
+    ascii_art = """
+    [steel_blue]
 ██    ██  █████  ██      ███████ ██    ██     ██████   ██████  ██████           ██  ██████   ██████   █████  ██████  
 ██    ██ ██   ██ ██      ██      ██    ██     ██   ██ ██    ██ ██   ██          ██ ██    ██ ██       ██   ██ ██   ██ 
 ██    ██ ███████ ██      █████   ██    ██     ██████  ██    ██ ██████           ██ ██    ██ ██   ███ ███████ ██████  
  ██  ██  ██   ██ ██      ██      ██    ██     ██      ██    ██ ██   ██     ██   ██ ██    ██ ██    ██ ██   ██ ██   ██ 
   ████   ██   ██ ███████ ███████  ██████      ██       ██████  ██   ██      █████   ██████   ██████  ██   ██ ██   ██ 
+    [/]
+    """
+    centralizar(ascii_art, 1)
 
-    """)
-    print("="*117)
-
-    input("Pressione ENTER para encerrar o jogo...")
+    rprint("\n\n[grey58]Pressione ENTER para encerrar...[/]")
+    input("")
     parar_musica()
     limpar_terminal()

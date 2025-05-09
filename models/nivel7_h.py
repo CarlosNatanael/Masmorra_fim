@@ -4,6 +4,8 @@ from game_sound_py.sound7 import parar_musica
 from utils.combate import combate
 from utils.utils import limpar_terminal
 from rich import print
+from rich import print as rprint
+from rich.panel import Panel
 import time
 import pygame
 
@@ -12,7 +14,7 @@ pygame.mixer.init()
 
 def nivel_7_humano(player):
     tocar_musica()
-    print("Capítulo 7: [bold yellow]As Catacumbas da Luz Moribunda[/bold yellow]\n")
+    rprint(Panel.fit("[bold yellow]Capítulo 7: As Catacumbas da Luz Moribunda[/]", style="blue"))
     time.sleep(5)
     print("Em vez de cair, fui expulso - como um caroço de fruta cuspido. Aterrissei em:")
     time.sleep(5)   
@@ -58,7 +60,7 @@ Em uma encruzilhada de túneis, sentado em um banco de pedra, um velho de olhos 
 [bold yellow]Colecionador[/bold yellow]: (inclina a cabeça) "Então você ficará mais leve a cada passo. Primeiro esquecerá rostos. Depois, lugares. 
 Até que seu próprio reflexo não te reconheça." (balança a lamparina, onde luzes dançam como vagalumes presos) "Já aconteceu com outros."
 
-(Os Afogados Secos emitem um som coletivo, como ossos rangendo.)
+(Os [bold blue]Afogados[/bold blue] Secos emitem um som coletivo, como ossos rangendo.)
         """)
         time.sleep(5)
     elif escolha == "2":
@@ -194,14 +196,14 @@ Quando a poeira assenta, diante de você, um novo caminho se revela.
     if escolha1 == "1":
         print("\n(Os três cadáveres se viram em sincronia, olhos vazios brilhando com um líquido negro.)")
         time.sleep(5)
-        print("1º Afogado: (voz de água parada) Ele mente... o preço é maior do que diz...")
+        print("[bold blue]1º Afogado[/bold blue]: (voz de água parada) Ele mente... o preço é maior do que diz...")
         time.sleep(5)
         print(""" 
-2º Afogado: (sussurro de vento em caverna) Nós... damos conselhos. De graça. (abre a boca, e um escorpião de carvão sai correndo pela língua ressecada)
+[bold blue]2º Afogado[/bold blue]: (sussurro de vento em caverna) Nós... damos conselhos. De graça. (abre a boca, e um escorpião de carvão sai correndo pela língua ressecada)
         """)
         time.sleep(5)
         print("""
-3º Afogado: (tom infantil) "Mas você tem que nos dar água! Só um gole! A gente promete não te puxar para o fundo!"
+[bold blue]3º Afogado[/bold blue]: (tom infantil) "Mas você tem que nos dar água! Só um gole! A gente promete não te puxar para o fundo!"
         """)
         time.sleep(5)
         print(f"[bold red]{player["nome"]}[/bold red]: (para o 3º Afogado) Vocês estão secos. Como podem beber?")
