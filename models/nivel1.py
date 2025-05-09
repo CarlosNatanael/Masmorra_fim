@@ -166,7 +166,7 @@ def nivel_um(player):
         rprint(Panel.fit("[red]✗ Resposta Incorreta![/]", style="red"))
         print(f"\n[bold black]Voz sussurrante[/bold black]: 'Errado... As sombras não perdoa a ignorância. Prepare-se para lutar!'\n")
         inimigos = [
-            {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 30, "força": 25, "defesa": 30, "nivel":100},
+            {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 30, "força": 25, "defesa": 30, "nivel":1},
             {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 35, "força": 28, "defesa": 30, "nivel":2}
         ]
         input("Prepare-se para o combate! Pressione ENTER...\n")

@@ -45,13 +45,13 @@ a = Analysis(
 
         # Pegando as imagens e txt da conquistas_imag
         ('conquistas_imag/*.png', 'conquistas_imag'),
+        ('conquistas_imag/__init__.py', 'conquistas_imag'),
+        ('conquistas_imag/conquista.py', 'conquistas_imag'),
+        ('conquistas_imag/sistema_conquistas.py', 'conquistas_imag'),
         ('conquistas_imag/*.txt', 'conquistas_imag'),
 
         # Pegando as músicas
-        ('sound/beep3-98810.mp3', 'game_sound'),
-        ('sound/game-over.mp3', 'sound'),
-        ('sound/menu_theme.mp3', 'sound'),
-        ('sound/sound_game.mp3', 'sound'),
+        ('sound/*.mp3', 'sound'),
     ],
     hiddenimports=[],
     hookspath=[],
