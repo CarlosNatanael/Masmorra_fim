@@ -294,6 +294,11 @@ def combate(player, inimigos):
                     player["defesa"] += 30
                     player["itens"][item_encontrado] -= 1
                     rprint("Você usou [blue]sangue da montanha[/] e aumentou 30 de defesa\n")
+                elif item_encontrado == "lagrimas de cura":
+                    player["vida"] += 60
+                    player["força"] -= 20
+                    player["itens"][item_encontrado] -= 1
+                    rprint("Você usou [blue]lagrimas de cura[/] e recuperou 60 de vida e perdeu 20 de força\n")
             else:
                 rprint("[yellow]Você não possui item ou digitou algo incorretamente[/]")
                 turno_perdido = True

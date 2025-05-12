@@ -134,6 +134,8 @@ def nivel_nove(player):
     print("\nSeus dedos se alongam em garras negras, prontas para esmagar seu crânio...")
     time.sleep(4)
 
+    vida_anterior = player["vida"]
+
     Eldramar = {
         "nome": "Eldramar",
         "classe": "Mago Supremo",
@@ -148,6 +150,8 @@ def nivel_nove(player):
     input("\nPrepare-se para enfrentar seu pior pesadelo! Pressione ENTER...\n")
     combate(player, [Eldramar])
 
+    print('"Antes que [bold black]Eldramar[/bold black] diferisse o ultimo golpe [bold red]Valysse[/bold red] defende, repelindo o golpe do Mago"')
+    time.sleep(6)
     print('\n[bold red]Valysse[/bold red]: (gritando enquanto salta na frente) "NÃO HOJE, VERME!"')
     time.sleep(2)
     tocar_musica()
@@ -187,7 +191,7 @@ def nivel_nove(player):
     print("\nUma estrela de luz voa de seu coração até seu peito.")
     time.sleep(2)
 
-    player["vida"] += 120
+    player["vida"] += vida_anterior + 20
     player["força"] += 20
     player["magia"] += 20
 

@@ -112,6 +112,13 @@ def usar_itens(player, pode_usar_chave=True):
                     "valor": 30,
                     "msg": f"Você usou o [dark_red]Sangue da Montanha[/] e aumentou [blue]30[/] de defesa ([blue]{player['defesa']+30}[/])"
                 },
+                "lagrimas de cura": {
+                    "attr": "vida",
+                    "attr1": "força",
+                    "valor": 20,
+                    "valor": 60,
+                    "msg": f"Você usou o [dark_green]Lagrimas de Cura[/] e aumentou [blue]60[/] de vida ([blue]{player['vida']+60}[/]) e perdeu ([red]{player['força']+20}[/])"
+                },
                 "chave de ébano": {
                     "attr": None,
                     "valor": None,
@@ -133,6 +140,8 @@ def usar_itens(player, pode_usar_chave=True):
                 
                 if efeito["attr"]:
                     player[efeito["attr"]] += efeito["valor"]
+                elif efeito["attr1"]:
+                    player[efeito["attr1"]] -= efeito["valor"]
                 
                 player["itens"][item] -= 1
                 

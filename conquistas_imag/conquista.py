@@ -312,7 +312,7 @@ conquistas = {
         "som": "sound/beep3-98810.mp3"
     },
 
-        # Nível 9
+    # Nível 9
     "ultima_luz": {
         "nivel": 9,
         "titulo": "A Última Luz",
@@ -332,6 +332,54 @@ conquistas = {
         "titulo": "Fúria Elemental",
         "descricao": "Recebeu o último presente de Valysse - a Pedra da Fúria Elemental.",
         "icone": "conquistas_imag/furia_elemental.png",
+        "som": "sound/beep3-98810.mp3"
+    },
+        "furia_elemental": {
+        "nivel": 9,
+        "titulo": "Fúria Elemental",
+        "descricao": "Recebeu o último presente de Valysse - a Pedra da Fúria Elemental.",
+        "icone": "conquistas_imag/furia_elemental.png",
+        "som": "sound/beep3-98810.mp3"
+    },
+    
+    # Nível 9_s
+    "dama_do_lago": {
+        "nivel": 9,
+        "titulo": "Domador das Águas Negras",
+        "descricao": "Derrotou a Dama do Lago e sobreviveu às águas da fonte sagrada.",
+        "icone": "conquistas_imag/dama_lago.png",
+        "som": "sound/beep3-98810.mp3"
+    },
+    
+    "ceifeiro": {
+        "nivel": 9,
+        "titulo": "Destruidor do Ceifador",
+        "descricao": "Venceu o temível Ceifeiro das Almas e quebrou seu ciclo de destruição.",
+        "icone": "conquistas_imag/ceifeiro.png",
+        "som": "sound/beep3-98810.mp3"
+    },
+    
+    "noiva_cadáver": {
+        "nivel": 9,
+        "titulo": "Libertador da Noiva",
+        "descricao": "Libertou a Noiva Cadáver de sua maldição eterna.",
+        "icone": "conquistas_imag/noiva.png",
+        "som": "sound/beep3-98810.mp3"
+    },
+    
+    "espelho_quebrado": {
+        "nivel": 9,
+        "titulo": "Reflexo da Verdade",
+        "descricao": "Enfrentou e superou seu próprio reflexo no Espelho das Almas.",
+        "icone": "conquistas_imag/espelho.png",
+        "som": "sound/beep3-98810.mp3"
+    },
+    
+    "domador_das_trevas": {
+        "nivel": 9,
+        "titulo": "Domador das Trevas",
+        "descricao": "Derrotou todas as criaturas sombrias que guardavam a fonte sagrada.",
+        "icone": "conquistas_imag/domador_trevas.png",
         "som": "sound/beep3-98810.mp3"
     }
 }

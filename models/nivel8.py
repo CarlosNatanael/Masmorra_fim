@@ -64,19 +64,20 @@ def nivel_oito(player):
     print("[bold red]Velthurion[/bold red]: Seu coração será perfeito.")
     time.sleep(3)
     print("[bold red]Velthurion[/bold red]: Será rápido. Você nem sentirá.")
-    input("\nPressione ENTER para iniciar o combate final...\n")
 
     # Batalha contra Velthurion
     Velthurion = {
         "nome": "Velthurion, o Artesão Infernal",
         "classe": "Demônio",
         "vida": 180,
-        "força": 70,
+        "força": 80,
         "magia": 90,
         "defesa": 80,
         "habilidade": "Lança chamas",
-        "nivel": 11
+        "nivel": 11,
+        "xp": 550
     }
+    input("\nPressione ENTER para iniciar o combate final...\n")
     if combate(player, [Velthurion]):
         mostrar_conquista("coração_libertado_8")
     else:
@@ -133,7 +134,6 @@ Com um último estalo metálico, Velthurion desabou em uma pilha de ferramentas 
     O silêncio que se seguiu foi pior que qualquer rugido.
         """)
     time.sleep(5)
-    print("\nDentre os escombros, você encontra um baú revestido de ossos...")
     print("\nDentre os escombros, você encontra um baú revestido de ossos...")
     # Primeiro verifica se o baú aparece (30% de chance)
     if random.random() < 0.3:

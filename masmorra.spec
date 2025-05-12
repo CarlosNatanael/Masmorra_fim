@@ -21,6 +21,7 @@ a = Analysis(
         ('models/nivel7_s.py', 'models'),
         ('models/nivel8.py', 'models'),
         ('models/nivel9.py', 'models'),
+        ('models/nivel9_s.py', 'models'),
 
         # Musicas
         ('game_sound_py/game_over.py', 'game_sound_py'),
