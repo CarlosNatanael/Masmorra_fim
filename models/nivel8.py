@@ -134,9 +134,10 @@ Com um último estalo metálico, Velthurion desabou em uma pilha de ferramentas 
     O silêncio que se seguiu foi pior que qualquer rugido.
         """)
     time.sleep(5)
-    print("\nDentre os escombros, você encontra um baú revestido de ossos...")
     # Primeiro verifica se o baú aparece (30% de chance)
     if random.random() < 0.3:
+        print("\nDentre os escombros, você encontra um baú revestido de ossos...")
+        time.sleep(3)
         itens_especiais = [
             ("sangue de dragão", 0.6),    # 60% dos 30% (18% total)
             ("vigor do vulcão", 0.1),     # 10% dos 30% (3% total)
@@ -152,5 +153,6 @@ Com um último estalo metálico, Velthurion desabou em uma pilha de ferramentas 
         parar_musica()
         return True
     else:
-        print("\nSeu coração para, seu corpo cai... e sua alma é tragada pela fornalha.")
-        return False
+        input("\nPressione ENTER para continuar...\n")
+        parar_musica()
+        return True
