@@ -13,6 +13,12 @@ import pygame
 pygame.init()
 pygame.mixer.init()
 
+# Função segura para adicionar itens
+def adicionar_item(player, item_nome, quantidade=1):
+    if "itens" not in player:
+        player["itens"] = {}
+    player["itens"][item_nome] = player["itens"].get(item_nome, 0) + quantidade
+
 def nivel_nove(player):
     tocar_musica()
     rprint(Panel.fit("[bold yellow]Capítulo 9: A Última Luz[/]", style="blue"))
@@ -33,13 +39,13 @@ def nivel_nove(player):
     time.sleep(2)
     print("\nFoi ali que você a conheceu.\n")
     time.sleep(5)
-    print("'Armadura feita de lâminas quebradas de inimigos'")
+    print("'—— Armadura feita de lâminas quebradas de inimigos'")
     time.sleep(5)
-    print("'Olho esquerdo perdido, substituído por um fragmento de espelho que reflete algo que não está lá'")
+    print("'—— Olho esquerdo perdido, substituído por um fragmento de espelho que reflete algo que não está lá'")
     time.sleep(5)
-    print("'Braço direito envolto em correntes – as mesmas que um dia a prenderam na forja'")
+    print("'—— Braço direito envolto em correntes – as mesmas que um dia a prenderam na forja'")
     time.sleep(5)
-    print("\n'Uma voz áspera, marcada por incontáveis batalhas, ecoa atrás de você':")
+    print("'—— Uma voz áspera, marcada por incontáveis batalhas, ecoa atrás de você':")
     time.sleep(3)
     print("\n[bold black]???[/bold black]: Você é o trouxa que destruiu a forja...") 
     time.sleep(2)
@@ -100,21 +106,105 @@ def nivel_nove(player):
             
             # Cenas específicas de cada local
             if escolha == "1":
-                print("\nVocê visita o Mercado das Sombras...")
                 print("\nVocê visita o Mercado das Sombras, onde memórias são trocadas como moeda.")
                 time.sleep(3)
+                rprint(f"\n[bold black]Comerciante[/bold black]: O que deseja jovem {player["classe"]}?")
+                time.sleep(3)
+                rprint("O que deseja fazer?\n1. Andar mais a frente.\n2. Olhar os produtos do comerciante\n\nOBS: Aqui os produtos custam muito caro")
+                escolha1 = None
+                while escolha1 not in ["1", "2"]:
+                    escolha1 = input("Sua decisão (1-2): ").strip()
+                    if escolha1 not in ["1", "2"]:
+                        print("Escolha inválida! Digite 1 ou 2")
+                time.sleep(2)
+                if escolha1 == "1":
+                    rprint('\n"Você descide andar pelo mercado"')
+                    time.sleep(3)
+                    print('[bold red]Valysse[/bold red]: "Cuidado com o homem sem lábios. Ele rouba beijos."')
+                    time.sleep(4)
+                    print('"Após andar com a Valysse por mais alguns mercadores, você esbarra no homem sem lábios"\n')
+                    time.sleep(5)
+                    if random.random() < 0.8: # 80% de chance de ser beijado
+                        rprint("O homem sem lábios avança e rouba um beijo de você\n")
+                        time.sleep(4)
+                        player["itens"]["poção de cura"] +=1
+                        rprint("Ele entrega uma [bold red]poção de cura[/bold red]")
+                        time.sleep(4)
+                        print("(A poção de cura foi adicionada ao seu inventário)\n")
+                        print("[bold cyan]Inventario atual:[/bold cyan]")
+                        for item, qtd in player["itens"].items():
+                            print(f"- {item}: {qtd}")
+                        mostrar_conquista("beijoqueiro")
+                elif escolha1 == "2":
+                        if player["vida"] <= 12:
+                            rprint("\n[bold red]Comerciante:[/] Você está muito ferrado para negociar, volte quando estiver mais saudável!")
+                            time.sleep(3)
+                        else:
+                            rprint("\n[bold black]Comerciante[/]: Venha, venha e aprecie as mercadorias")
+                            time.sleep(2)
+                            rprint(f"1. Poção de cura   | 'valor 12 pontos de vida'\n2. Poção de defesa | 'valor 20 pontos de vida'\n3. Poção de força  | 'valor 22 pontos de vida'\n\nSua vida atual:({player["vida"]})")
+                            escolha2 = None
+                            while escolha2 not in ["1", "2", "3", "4"]:
+                                escolha2 = input("Sua decisão (1-3) ou 4 para sair: ").strip()
+                                if escolha2 not in ["1", "2", "3", "4"]:
+                                    print("Escolha inválida! Digite 1, 3 ou 4")
+
+                            if escolha2 == "1":
+                                player["itens"]["poção de cura"] +=1
+                                rprint("Ele entrega uma [bold red]poção de cura[/bold red]")
+                                print("(A poção de cura foi adicionada ao seu inventário)\n")
+                                print("[bold cyan]Inventario atual:[/bold cyan]")
+                                for item, qtd in player["itens"].items():
+                                    print(f"- {item}: {qtd}")
+                                player["vida"] -= 12
+                                if player["vida"] <= 0:
+                                    return False
+                                time.sleep(4)
+                                print(f"\nReduz 12 pontos de vida! |Vida: {player['vida']}|\n")
+                                time.sleep(4)
+
+                            if escolha2 == "2":
+                                adicionar_item(player, "poção de defesa")
+                                rprint("Ele entrega uma [bold red]poção de defesa[/bold red]")
+                                print("(A poção de defesa foi adicionada ao seu inventário)\n")
+                                print("[bold cyan]Inventario atual:[/bold cyan]")
+                                for item, qtd in player["itens"].items():
+                                    print(f"- {item}: {qtd}")
+                                player["vida"] -= 20
+                                if player["vida"] <= 0:
+                                    return False
+                                time.sleep(4)
+                                print(f"\nReduz 20 pontos de vida! |Vida: {player['vida']}|\n")
+                                time.sleep(4)
+
+                            elif escolha2 == "3":
+                                adicionar_item(player, "poção de força")
+                                rprint("Ele entrega uma [bold red]poção de força[/bold red]")
+                                print("(A poção de força foi adicionada ao seu inventário)\n")
+                                print("[bold cyan]Inventario atual:[/bold cyan]")
+                                for item, qtd in player["itens"].items():
+                                    print(f"- {item}: {qtd}")
+                                player["vida"] -= 22
+                                if player["vida"] <= 0:
+                                    return False
+                                time.sleep(4)
+                                print(f"\nReduz 22 pontos de vida! |Vida: {player['vida']}|\n")
+                                time.sleep(4)
+
+                            elif escolha2 == "4":
+                                time.sleep(3)
+                                rprint("\n[bold black]Comerciante[/]: Não me faça perder tempo, saia... saia")
+            elif escolha == "2":
+                print("\nVocê visita o Poço dos Sussurros...")
+                time.sleep(3)
                 # Chance de encontrar baús antes da batalha final
-                if random.random() < 0.5:  # 50% de chance de encontrar 1-3 baús
+                if random.random() < 0.6:  # 50% de chance de encontrar 1-3 baús
                     num_baus = random.randint(1, 3)
                     print(f"\nEnquanto avança, você encontra {num_baus} baús suspeitos...")
                     for _ in range(num_baus):
                         if not encontrar_bau(player):
                             return False  # Se o jogador morrer para um mímico
-                time.sleep(2)
-                print('\n[bold red]Valysse[/bold red]: "Cuidado com o homem sem lábios. Ele rouba beijos."')
-            elif escolha == "2":
-                print("\nVocê visita o Poço dos Sussurros...")
-                time.sleep(2)
+                time.sleep(3)
                 print("Os ecos dos arrependimentos sussurram que Eldramar teme o poder da Fonte Negra.")
             elif escolha == "3":
                 print("\nVocê visita a Cabana de Valysse...")
@@ -134,8 +224,6 @@ def nivel_nove(player):
     print("\nSeus dedos se alongam em garras negras, prontas para esmagar seu crânio...")
     time.sleep(4)
 
-    vida_anterior = player["vida"]
-
     Eldramar = {
         "nome": "Eldramar",
         "classe": "Mago Supremo",
@@ -150,10 +238,10 @@ def nivel_nove(player):
     input("\nPrepare-se para enfrentar seu pior pesadelo! Pressione ENTER...\n")
     combate(player, [Eldramar])
 
-    print('"Antes que [bold black]Eldramar[/bold black] diferisse o ultimo golpe [bold red]Valysse[/bold red] defende, repelindo o golpe do Mago"')
-    time.sleep(6)
     print('\n[bold red]Valysse[/bold red]: (gritando enquanto salta na frente) "NÃO HOJE, VERME!"')
     time.sleep(2)
+    print('\n"Antes que [bold black]Eldramar[/bold black] diferisse o ultimo golpe [bold red]Valysse[/bold red] defende, repelindo o golpe do Mago"')
+    time.sleep(6)
     tocar_musica()
     print("\nSua espada brilha com uma luz prateada - o mesmo material de seu olho artificial - bloqueando o golpe fatal.")
     time.sleep(4)
@@ -179,7 +267,7 @@ def nivel_nove(player):
     print("- Sangue escorre das narinas de Valysse, mas ela mantém o feitiço")
     time.sleep(5)
 
-    print('\nVocê alcança a fonte e grita: "Valysse DE ALTHERIA!"')
+    print('\nVocê alcança a fonte e grita: "VALYSSE DE ALTHERIA!"')
     time.sleep(2)
     print("\nA água negra se transforma em vapor de prata, formando um portal giratório.")
     time.sleep(3)
@@ -191,7 +279,7 @@ def nivel_nove(player):
     print("\nUma estrela de luz voa de seu coração até seu peito.")
     time.sleep(2)
 
-    player["vida"] += vida_anterior + 20
+    player["vida"] += 350
     player["força"] += 20
     player["magia"] += 20
 
@@ -222,7 +310,7 @@ def nivel_nove(player):
     time.sleep(3)
     print("\nO portal se fecha mostrando Eldramar lançando um buraco negro sobre a cidade da resistência...")
     time.sleep(3)
-    print("\nVocê chega em um novo local - O SANTUÁRIO ESQUECIDO - com o símbolo de Valysse queimando em seu peito.")
+    print("\nVocê chega em um novo local - O Abismo dos defeituosos - com o símbolo de Valysse queimando em seu peito.")
     mostrar_conquista("ultima_luz")
     time.sleep(4)
     input("\nPressione ENTER para continuar...\n")

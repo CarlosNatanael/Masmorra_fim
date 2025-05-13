@@ -381,5 +381,12 @@ conquistas = {
         "descricao": "Derrotou todas as criaturas sombrias que guardavam a fonte sagrada.",
         "icone": "conquistas_imag/domador_trevas.png",
         "som": "sound/beep3-98810.mp3"
+    },
+        "beijoqueiro": {
+        "nivel": 9,
+        "titulo": "O beijoqueiro",
+        "descricao": "Cuidado homens a solta",
+        "icone": "conquistas_imag/beijoqueiro.png",
+        "som": "sound/beep3-98810.mp3"
     }
 }

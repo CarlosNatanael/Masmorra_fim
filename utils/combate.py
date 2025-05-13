@@ -5,12 +5,49 @@ from rich import print as rprint
 from rich.panel import Panel
 from rich.table import Table
 from rich.console import Console
+from rich.columns import Columns
 from rich.text import Text
 from rich import box
 import random
 import time
 
 console = Console()
+
+def exibir_status_combate(player, inimigos):
+    """Exibe o status de combate formatado"""
+    console = Console()
+    
+    # Tabela do jogador
+    player_table = Table(show_header=False, box=None)
+    player_table.add_column(style="cyan", justify="right")
+    player_table.add_column(style="white")
+    
+    player_table.add_row("Jogador", f"[bold]{player['nome']}[/]")
+    player_table.add_row("Classe", f"[magenta]{player["classe"]}[/]")
+    player_table.add_row("Nível", str(player["nivel"]))
+    player_table.add_row("Vida", f"[red]{player['vida']}[/]")
+    player_table.add_row("Força", str(player["força"]))
+    
+    # Tabela de inimigos
+    enemies_table = Table(title="[bold red]Inimigos[/]", box=box.SIMPLE)
+    enemies_table.add_column("#", style="cyan")
+    enemies_table.add_column("Nível", style="cyan")
+    enemies_table.add_column("Nome", style="red")
+    enemies_table.add_column("Vida", style="white")
+    enemies_table.add_column("Defesa", style="blue")
+    enemies_table.add_column("Classe", style="magenta")
+    
+    for i, inimigo in enumerate(inimigos, 1):
+        enemies_table.add_row(
+            str(i),
+            str(inimigo["nivel"]),
+            inimigo["nome"],
+            str(inimigo["vida"]),
+            str(inimigo.get("defesa", 0)),
+            (inimigo["classe"])
+        )
+    
+    console.print(Columns([player_table, enemies_table]))
 
 def habilidade_especial(player, inimigos):
     player = verificar_status_monarca(player)
@@ -216,9 +253,7 @@ def combate(player, inimigos):
             continue
 
         # Exibe status
-        print(f"\n{player['nome']} (Nível: {player['nivel']}, Classe: {player['classe']}): Vida = {player['vida']} | XP = {player['xp']}/{player['xp_proximo_nivel']}")
-        for i, inimigo in enumerate(inimigos):
-            print(f"{i + 1}. {inimigo['nome']} (Nível: {inimigo['nivel']}, Classe: {inimigo['classe']}): Vida = {inimigo['vida']}")
+        exibir_status_combate(player, inimigos)
 
         # Menu de ações
         rprint(Panel.fit("[bold]Escolha sua ação:[/]\n"
@@ -241,20 +276,25 @@ def combate(player, inimigos):
                     rprint("[red]Inimigo inválido![/]")
                     turno_perdido = True
                     continue
+                    
+                inimigo = inimigos[escolha]
+                # CÁLCULO DE DANO MODIFICADO - AGORA CONSIDERA DEFESA DO INIMIGO
+                dano_base = max(1, player["força"] - random.randint(0, 3))  # Dano base com pequena variação
+                dano_final = max(1, dano_base - (inimigo.get("defesa", 0) // 2))  # Reduz dano pela metade da defesa
+                
+                inimigo["vida"] -= dano_final
+                rprint(f"\nVocê atacou [red]{inimigo['nome']}[/] causando [bold red]{dano_final}[/] de dano!")
+                rprint(f"(Dano base: {dano_base} | Defesa do inimigo reduziu: {inimigo.get('defesa', 0)//2})")
+                
+                if inimigo["vida"] <= 0:
+                    rprint(f"[bold]{inimigo['nome']}[/] foi [red]derrotado[/]!")
+                    derrotados.append(inimigo)
+                    inimigos.remove(inimigo)
+
             except ValueError:
-                print("Entrada inválida. Digite um número.")
+                rprint("[red]Digite um número válido![/]")
                 turno_perdido = True
                 continue
-
-            # Ataque válido
-            inimigo = inimigos[escolha]
-            dano = max(1, player["força"] - random.randint(0, 3))  # Garante pelo menos 1 de dano
-            inimigo["vida"] -= dano
-            rprint(f"\nVocê atacou [red]{inimigo['nome']}[/] causando [bold red]{dano}[/] de dano!")
-            if inimigo["vida"] <= 0:
-                rprint(f"[bold]{inimigo['nome']}[/] foi [red]derrotado[/]!")
-                derrotados.append(inimigo)
-                inimigos.remove(inimigo)
 
         elif acao == "2":
             # Lógica de itens
@@ -324,7 +364,7 @@ def combate(player, inimigos):
             monstro = random.choice(inimigos)
             dano_monstro = max(1, monstro["força"] - (player["defesa"] // 2))  # Garante pelo menos 1 de dano
             player["vida"] -= dano_monstro
-            rprint(f"\n[red]{monstro['nome']}[/] atacou causando [bold red]{dano_monstro}[/] de dano!")
+            rprint(f"\n[red]{monstro['nome']}[/] atacou causando [bold red]{dano_monstro}[/] de dano!\n")
             
             if player["vida"] <= 0:
                 tocar_game()

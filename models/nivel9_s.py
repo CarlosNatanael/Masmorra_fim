@@ -141,7 +141,10 @@ def cena_fonte_sagrada(player):
                 rprint(f"- {item}: [green]{qtd}[/]")
             
             sleep(3)
-    return True
+            return True
+    else:
+        return False
+    
 
 def confirmar_continuar(mensagem):
     while True:
@@ -249,7 +252,7 @@ Uma figura envolta em um vestido de pele remendada
     sleep(5)
     rprint('[bold red]Noiva[/bold red]: Meu amor... você voltou para mim? "(voz melíflua, mas quebrada)"\n')
     sleep(3)
-    rprint(f'\n[bold blue]{player["nome"]}[/bold blue]: Eu não sou quem você pensa.\n')
+    rprint(f'[bold blue]{player["nome"]}[/bold blue]: Eu não sou quem você pensa.\n')
     sleep(5)
     rprint('[bold red]Noiva[/bold red]: "(riso triste)" Claro que não... ele nunca volta. "(ergue o véu, revelando um rosto sem boca)"')
     sleep(5)
