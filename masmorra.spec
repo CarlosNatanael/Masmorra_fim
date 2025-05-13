@@ -85,5 +85,12 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
     icon='icone.ico',
-    version='version.rc'
+    version='1.5.0',
+    # Para Windows, você pode adicionar mais metadados:
+    company_name='Carlos Natanael',
+    product_name='Masmorra do Fim',
+    file_description='Jogo RPG de Aventura',
+    legal_copyright='© 2023 Carlos Natanael',
+    product_version='1.5.0',
+    original_filename='MasmorraDoFim.exe'
 )
