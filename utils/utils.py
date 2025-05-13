@@ -22,7 +22,7 @@ def mostrar_status_jogador(player):
 │                   │ Vida:   {player['vida']:<5}     │
 │Nível: {player['nivel']:<8}    │ Força:  {player['força']:<5}     │
 │XP: {player['xp']:<3}            │ Magia:  {player['magia']:<5}     │
-│                   │ Defsa: {player['defesa']:<5}      │
+│                   │ Defesa: {player['defesa']:<5}      │
 ┴───────────────────┴───────────────────┴
 """)
 
@@ -185,9 +185,9 @@ def limpar_terminal():
 
 def gerar_itens_aleatorios():
     itens_possiveis = {
-        "poção de cura": "[red]Poção[/] de [green]Cura[/]",
-        "poção de força": "[red]Poção[/] de [yellow]Força[/]",
-        "poção de defesa": "[red]Poção[/] de [blue]Defesa[/]"
+        "poção de cura": "[red]Poção de Cura[/]",
+        "poção de força": "[red]Poção de Força[/]",
+        "poção de defesa": "[red]Poção de Defesa[/]"
     }
     
     item_chave = random.choice(list(itens_possiveis.keys()))

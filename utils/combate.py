@@ -14,40 +14,59 @@ import time
 console = Console()
 
 def exibir_status_combate(player, inimigos):
-    """Exibe o status de combate formatado"""
+    """Exibe o status de combate formatado com painéis visuais"""
     console = Console()
     
-    # Tabela do jogador
-    player_table = Table(show_header=False, box=None)
-    player_table.add_column(style="cyan", justify="right")
-    player_table.add_column(style="white")
+    # Painel do Jogador
+    player_table = Table(show_header=False, box=None, padding=(0,1))
+    player_table.add_column(style="cyan", justify="right", width=15)
+    player_table.add_column(style="white", width=20)
     
     player_table.add_row("Jogador", f"[bold]{player['nome']}[/]")
-    player_table.add_row("Classe", f"[magenta]{player["classe"]}[/]")
-    player_table.add_row("Nível", str(player["nivel"]))
+    player_table.add_row("Classe", f"[magenta]{player['classe']}[/]")
+    player_table.add_row("Nível", f"[yellow]{player['nivel']}[/]")
     player_table.add_row("Vida", f"[red]{player['vida']}[/]")
-    player_table.add_row("Força", str(player["força"]))
+    player_table.add_row("Força", f"[orange1]{player['força']}[/]")
+    if 'magia' in player:
+        player_table.add_row("Magia", f"[blue]{player['magia']}[/]")
+    player_table.add_row("Defesa", f"[green]{player['defesa']}[/]")
     
-    # Tabela de inimigos
-    enemies_table = Table(title="[bold red]Inimigos[/]", box=box.SIMPLE)
-    enemies_table.add_column("#", style="cyan")
-    enemies_table.add_column("Nível", style="cyan")
-    enemies_table.add_column("Nome", style="red")
-    enemies_table.add_column("Vida", style="white")
-    enemies_table.add_column("Defesa", style="blue")
-    enemies_table.add_column("Classe", style="magenta")
+    player_panel = Panel.fit(
+        player_table,
+        title="[bold cyan]Status do Herói[/]",
+        border_style="bright_blue",
+        padding=(1, 2),
+        subtitle=f"[dim]XP: {player['xp']}/{player['xp_proximo_nivel']}[/dim]"
+    )
+
+    # Painel de Inimigos
+    enemies_table = Table(box=box.ROUNDED, header_style="bold red")
+    enemies_table.add_column("#", style="cyan", width=3)
+    enemies_table.add_column("Nome", style="red", width=20)
+    enemies_table.add_column("Nível", style="yellow", width=5)
+    enemies_table.add_column("Vida", style="bright_red", width=8)
+    enemies_table.add_column("Defesa", style="blue", width=8)
+    enemies_table.add_column("Classe", style="magenta", width=15)
     
     for i, inimigo in enumerate(inimigos, 1):
         enemies_table.add_row(
             str(i),
-            str(inimigo["nivel"]),
             inimigo["nome"],
+            str(inimigo["nivel"]),
             str(inimigo["vida"]),
             str(inimigo.get("defesa", 0)),
-            (inimigo["classe"])
+            inimigo["classe"]
         )
     
-    console.print(Columns([player_table, enemies_table]))
+    enemies_panel = Panel.fit(
+        enemies_table,
+        title="[bold red]Inimigos Enfrentados[/]",
+        border_style="bright_red",
+        padding=(1, 1)
+    )
+
+    # Layout Principal
+    console.print(Columns([player_panel, enemies_panel], expand=False))
 
 def habilidade_especial(player, inimigos):
     player = verificar_status_monarca(player)

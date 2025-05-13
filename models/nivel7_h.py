@@ -102,7 +102,7 @@ Até que seu próprio reflexo não te reconheça." (balança a lamparina, onde l
         time.sleep(5)
         print("[bold yellow]Colecionador[/bold yellow]: (últimas palavras) Corra, tolo. Antes que ele sinta que você sabe demais...\n")
         time.sleep(5)
-        print("O eco da sua última risada desvanece pelas entranhas da masmorra...n")
+        print("O eco da sua última risada desvanece pelas entranhas da masmorra...")
         time.sleep(5)
 
         player["vida"] += 20
@@ -253,7 +253,7 @@ Quando a poeira assenta, diante de você, um novo caminho se revela.
         time.sleep(5)
         print("[bold yellow]Colecionador[/bold yellow]: (últimas palavras) Corra, tolo. Antes que ele sinta que você sabe demais...\n")
         time.sleep(5)
-        print("O eco da sua última risada desvanece pelas entranhas da masmorra...n")
+        print("O eco da sua última risada desvanece pelas entranhas da masmorra...")
         time.sleep(5)
 
         player["vida"] += 20

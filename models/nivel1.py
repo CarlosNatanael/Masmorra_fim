@@ -159,11 +159,11 @@ def nivel_um(player):
     resposta = input("Sua resposta: ").strip().lower()
     if resposta in respostas_possiveis:
         print("\n[bold black]Voz sussurrante[/bold black]: 'Muito bem... Você poderá continuar.'")
-        rprint(Panel.fit("[green]✓ Resposta Correta![/]", style="green"))
+        rprint(Panel.fit("[green]√ Resposta Correta![/]", style="green"))
         mostrar_conquista("sombra_sorte_1")
     else:
         time.sleep(5)
-        rprint(Panel.fit("[red]✗ Resposta Incorreta![/]", style="red"))
+        rprint(Panel.fit("[red]⨉ Resposta Incorreta![/]", style="red"))
         print(f"\n[bold black]Voz sussurrante[/bold black]: 'Errado... As sombras não perdoa a ignorância. Prepare-se para lutar!'\n")
         inimigos = [
             {"nome": "Sombra Goblin", "classe": "Guerreiro", "vida": 30, "força": 25, "defesa": 30, "nivel":1},
