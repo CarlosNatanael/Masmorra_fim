@@ -22,7 +22,7 @@ def mostrar_status_jogador(player):
 │                   │ Vida:   {player['vida']:<5}     │
 │Nível: {player['nivel']:<8}    │ Força:  {player['força']:<5}     │
 │XP: {player['xp']:<3}            │ Magia:  {player['magia']:<5}     │
-│                   │ Defesa: {player['defesa']:<5}      │
+│                   │ Defesa: {player['defesa']:<5}     │
 ┴───────────────────┴───────────────────┴
 """)
 
@@ -55,7 +55,7 @@ def usar_itens(player, pode_usar_chave=True):
         for i, (item, qtd) in enumerate(itens_disponiveis.items(), 1):
             # Formatação especial para cada tipo de item
             if "poção" in item.lower():
-                item_display = f"[red]Poção[/] de [green]{item.split()[-1]}[/]"
+                item_display = f"[red]Poção de [/][red]{item.split()[-1]}[/]"
             elif "sangue" in item.lower():
                 item_display = f"[dark_red]{item}[/]"
             elif "vigor" in item.lower():
@@ -242,7 +242,10 @@ def encontrar_bau(player):
             itens = gerar_itens_aleatorios()
             for item in itens:
                 player["itens"][item["nome"]] = player["itens"].get(item["nome"], 0) + 1
-                rprint(f"Você encontrou: {item['display']}!")
+                rprint(Panel.fit(
+                    f"Você encontrou: {item['display']}!",
+                    style="red"
+                ))
             mostrar_conquista("devorador_de_mimicos")
         else:
             return False

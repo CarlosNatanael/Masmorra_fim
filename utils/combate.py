@@ -69,6 +69,7 @@ def exibir_status_combate(player, inimigos):
     console.print(Columns([player_panel, enemies_panel], expand=False))
 
 def habilidade_especial(player, inimigos):
+
     player = verificar_status_monarca(player)
     derrotados = []
     rprint(f"\n[bold]{player['nome']}[/] usa [yellow]{player['habilidade']}[/]!")
@@ -297,18 +298,27 @@ def combate(player, inimigos):
                     continue
                     
                 inimigo = inimigos[escolha]
-                # CÁLCULO DE DANO MODIFICADO - AGORA CONSIDERA DEFESA DO INIMIGO
-                dano_base = max(1, player["força"] - random.randint(0, 3))  # Dano base com pequena variação
-                dano_final = max(1, dano_base - (inimigo.get("defesa", 0) // 2))  # Reduz dano pela metade da defesa
-                
-                inimigo["vida"] -= dano_final
-                rprint(f"\nVocê atacou [red]{inimigo['nome']}[/] causando [bold red]{dano_final}[/] de dano!")
-                rprint(f"(Dano base: {dano_base} | Defesa do inimigo reduziu: {inimigo.get('defesa', 0)//2})")
-                
-                if inimigo["vida"] <= 0:
-                    rprint(f"[bold]{inimigo['nome']}[/] foi [red]derrotado[/]!")
-                    derrotados.append(inimigo)
-                    inimigos.remove(inimigo)
+
+                precisao_base = 90 # Precisão de ataque do player 10%
+                precisao_final = precisao_base # habilidades/status
+
+                if random.randint(1, 100) > precisao_final:
+                    rprint(f"\n[bold yellow]Você errou o ataque contra {inimigo['nome']}![/]\n")
+                    turno_perdido = True # Perde o turno ao errar
+                    continue
+                else:
+                    # CALCULO DE DANO
+                    dano_base = max(1, player["força"] - random.randint(0, 2))  # Dano base com pequena variação
+                    dano_final = max(1, dano_base - (inimigo.get("defesa", 0) // 2))  # Reduz dano pela metade da defesa
+
+                    inimigo["vida"] -= dano_final
+                    rprint(f"\nVocê atacou [red]{inimigo['nome']}[/] causando [bold red]{dano_final}[/] de dano!")
+                    rprint(f"(Dano base: {dano_base} | Defesa do inimigo reduziu: {inimigo.get('defesa', 0)//2})")
+
+                    if inimigo["vida"] <= 0:
+                        rprint(f"[bold]{inimigo['nome']}[/] foi [red]derrotado[/]!")
+                        derrotados.append(inimigo)
+                        inimigos.remove(inimigo)
 
             except ValueError:
                 rprint("[red]Digite um número válido![/]")
@@ -329,6 +339,9 @@ def combate(player, inimigos):
                     break
             
             if item_encontrado and player["itens"][item_encontrado] > 0:
+
+                player["inimigo_precisao_reduzida"] = True # reduz a chance de acerto 50%
+
                 if item_encontrado == "poção de cura":
                     player["vida"] += 20
                     player["itens"][item_encontrado] -= 1
@@ -381,16 +394,26 @@ def combate(player, inimigos):
         # Ataque do inimigo após ação válida do jogador
         if not turno_perdido and inimigos:
             monstro = random.choice(inimigos)
-            dano_monstro = max(1, monstro["força"] - (player["defesa"] // 2))  # Garante pelo menos 1 de dano
-            player["vida"] -= dano_monstro
-            rprint(f"\n[red]{monstro['nome']}[/] atacou causando [bold red]{dano_monstro}[/] de dano!\n")
-            
-            if player["vida"] <= 0:
-                tocar_game()
-                rprint(Panel.fit("[bold red]☠ VOCÊ FOI DERROTADO! ☠[/]", style="red"))
-                input("\nPressione ENTER para continuar...")
-                parar_game()
-                return False
+
+            if player.get("inimigo_precisao_reduzida", False):
+                precisao_inimigo = 50  # Precisão do inimigo ao acertar o ataque de 50%
+                rprint(f"\n[bold yellow]{monstro['nome']} errou o ataque![/]\n")
+                del player["inimigo_precisao_reduzida"]
+            else:
+                precisao_inimigo = 85 # Precisão do inimigo ao acertar o ataque de 15%
+                if random.randint(1, 100) > precisao_inimigo:
+                    rprint(f"\n[bold yellow]{monstro['nome']} errou o ataque![/]")
+                else:
+                    dano_monstro = max(1, monstro["força"] - (player["defesa"] // 2))  # Garante pelo menos 1 de dano
+                    player["vida"] -= dano_monstro
+                    rprint(f"\n[red]{monstro['nome']}[/] atacou causando [bold red]{dano_monstro}[/] de dano!\n")
+
+                    if player["vida"] <= 0:
+                        tocar_game()
+                        rprint(Panel.fit("[bold red]☠ VOCÊ FOI DERROTADO! ☠[/]", style="red"))
+                        input("\nPressione ENTER para continuar...")
+                        parar_game()
+                        return False
 
     # Vitória
     rprint(Panel.fit("[bold green]VITÓRIA![/] Todos os inimigos foram derrotados!", style="green"))

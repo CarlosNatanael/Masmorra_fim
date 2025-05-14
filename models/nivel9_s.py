@@ -105,43 +105,6 @@ def cena_fonte_sagrada(player):
     
     if combate(player, [trevas]):
         mostrar_conquista("dama_do_lago")
-        
-        # Verifica se o jogador tem o dicionário de itens
-        if "itens" not in player:
-            player["itens"] = {}
-        
-        # Primeiro verifica se o baú aparece (90% de chance)
-        if random.random() < 0.9:
-            itens_especiais = [
-                ("sangue de dragão", 0.4),    # 40% dos 30% (18% total)
-                ("vigor do vulcão", 0.2),     # 20% dos 30% (3% total)
-                ("sangue da montanha", 0.2)   # 20% dos 30% (9% total)
-            ]
-            itens, pesos = zip(*itens_especiais)
-            item_especial = random.choices(itens, weights=pesos, k=1)[0]
-            
-            # Inicializa o item se não existir
-            if item_especial not in player["itens"]:
-                player["itens"][item_especial] = 0
-            
-            player["itens"][item_especial] += 1
-
-            rprint(Panel.fit(
-                f"[bold gold1]Você encontrou o item lendário:[/] [dark_red]{item_especial}[/]!",
-                style="gold1"
-            ))
-            sleep(2)
-            
-            # Mostra inventário atualizado
-            rprint(Panel.fit(
-                "[bold]Inventário Atualizado:[/]",
-                style="blue"
-            ))
-            for item, qtd in player["itens"].items():
-                rprint(f"- {item}: [green]{qtd}[/]")
-            
-            sleep(3)
-            return True
     else:
         return False
     
@@ -289,6 +252,40 @@ Uma figura envolta em um vestido de pele remendada
     print("\n")
     sleep(5)
     cena_fonte_negra(player)
+    # Verifica se o jogador tem o dicionário de itens
+    if "itens" not in player:
+        player["itens"] = {}
+    
+    # Primeiro verifica se o baú aparece (90% de chance)
+    if random.random() < 0.9:
+        itens_especiais = [
+            ("sangue de dragão", 0.4),    # 40% dos 30% (18% total)
+            ("vigor do vulcão", 0.2),     # 20% dos 30% (3% total)
+            ("sangue da montanha", 0.2)   # 20% dos 30% (9% total)
+        ]
+        itens, pesos = zip(*itens_especiais)
+        item_especial = random.choices(itens, weights=pesos, k=1)[0]
+        
+        # Inicializa o item se não existir
+        if item_especial not in player["itens"]:
+            player["itens"][item_especial] = 0
+        
+        player["itens"][item_especial] += 1
+        rprint(Panel.fit(
+            f"[bold gold1]Você encontrou o item lendário:[/] [dark_red]{item_especial}[/]!",
+            style="gold1"
+        ))
+        sleep(2)
+        
+        # Mostra inventário atualizado
+        rprint(Panel.fit(
+            "[bold]Inventário Atualizado:[/]",
+            style="blue"
+        ))
+        for item, qtd in player["itens"].items():
+            rprint(f"- {item}: [green]{qtd}[/]")
+        
+        sleep(3)
     # Terceiro monstro: O Parceiro do Espelho
     rprint("""
 Você entra em uma sala circular, onde um espelho perfeito reflete sua imagem... mas algo está errado.

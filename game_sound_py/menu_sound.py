@@ -14,7 +14,7 @@ def tocar_musica():
     pygame.mixer.init()
     caminho_musica = resource_path("sound/menu_theme.mp3")
     pygame.mixer.music.load(caminho_musica)
-    pygame.mixer.music.set_volume(0.3)  # 30% do volume
+    pygame.mixer.music.set_volume(0.2)  # 20% do volume
     pygame.mixer.music.play(-1)  # Loop infinito
 
 def parar_musica():

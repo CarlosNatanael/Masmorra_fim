@@ -39,6 +39,7 @@ def escolher_classe():
             "magia": random.randint(36, 46),
             "defesa": random.randint(30, 40),
             "habilidade": "Bola de Fogo",
+            "precisao": 90,
             "arma": "Cajado"
         })
     elif escolha == "2":
@@ -49,6 +50,7 @@ def escolher_classe():
             "magia": random.randint(20, 20),
             "defesa": random.randint(35, 45),
             "habilidade": "Decapitação",
+            "precisao": 90,
             "arma": "Machado"
         })
     elif escolha == "3":
@@ -60,6 +62,7 @@ def escolher_classe():
             "magia": random.randint(35, 40),
             "defesa": random.randint(36, 46),
             "habilidade": "Benção Divina",
+            "precisao": 90,
             "arma": "Espada"
         })
     elif escolha == "4":
@@ -70,6 +73,7 @@ def escolher_classe():
             "magia": random.randint(20, 20),
             "defesa": random.randint(35, 40),
             "habilidade": "Tiro Certeiro",
+            "precisao": 90,
             "arma": "Arco"
         })
     elif escolha == "5":
@@ -80,6 +84,7 @@ def escolher_classe():
             "magia": random.randint(90, 99),
             "defesa": random.randint(100, 140),
             "habilidade": "Bug do Dev",
+            "precisao": 90,
             "arma": "Teclado"
         })
 
@@ -97,7 +102,7 @@ def transformar_em_monarca(player):
         "nivel": 1,
         "xp": 0,
         "xp_proximo_nivel": 100,
-        "vida": random.randint(60, 70),
+        "vida": random.randint(80, 90),
         "força": random.randint(60, 70),
         "magia": random.randint(60, 80),
         "defesa": random.randint(70, 80),

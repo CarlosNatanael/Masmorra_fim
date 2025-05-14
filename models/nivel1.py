@@ -78,18 +78,31 @@ def nivel_um(player):
     print(f"\n[bold blue]Eldramar[/bold blue]: Saudações, {player['nome']}. Eu sou Eldramar, o guardião do véu entre os mundos.")
     print("[bold blue]Eldramar[/bold blue]: Você foi trazido a Aldurian por forças que nem mesmo eu compreendo por completo.")
     time.sleep(5)
+
+    opcoes_disponiveis = {
+        "1": "Fazer perguntas sobre Aldurian",
+        "2": "Levantar-se e observar o local",
+        "3": "Ficar em silêncio"
+    }
+    
     while True:
         print("\nO que você deseja fazer?")
-        print("1. Fazer perguntas sobre Aldurian")
-        print("2. Levantar-se e observar o local")
-        print("3. Ficar em silêncio")
-
+        
+        # Mostra apenas as opções ainda disponíveis
+        for num, texto in opcoes_disponiveis.items():
+            print(f"{num}. {texto}")
+        
         escolha = input("Digite o número da sua ação: ")
-        if escolha == "1":
+        
+        if escolha == "1" and "1" in opcoes_disponiveis:
             print("\n[bold blue]Eldramar[/bold blue]: Aldurian é um mundo fragmentado entre luz e trevas. Você terá um papel crucial aqui.")
-        elif escolha == "2":
+            del opcoes_disponiveis["1"]  # Remove esta opção
+            
+        elif escolha == "2" and "2" in opcoes_disponiveis:
             print("\nVocê se levanta. As paredes do templo estão cobertas de inscrições antigas.")
-        elif escolha == "3":
+            del opcoes_disponiveis["2"]  # Remove esta opção
+            
+        elif escolha == "3" and "3" in opcoes_disponiveis:
             print("\nVocê apenas observa em silêncio. Eldramar entende sua hesitação.\n")
             time.sleep(5)
             print(f"[bold blue]Eldramar[/bold blue]: Entendo o seu silêncio {player['nome']}, mas quero saber mais sobre sua personalidade\n")
@@ -117,10 +130,40 @@ def nivel_um(player):
                 player["personalidade"] = "Enigmático"
                 time.sleep(5)
             print(f"\n[bold blue]Eldramar[/bold blue]: Interessante... Vejo que você é {player['personalidade']}.\n")
-            break
+            break # Sai do loop quando escolhe ficar em silêncio
+            
         else:
-            print("Escolha inválida. Tente novamente.")
+            print("Escolha inválida ou opção já selecionada. Tente novamente.")
 
+        if len(opcoes_disponiveis) == 1 and "3" in opcoes_disponiveis:
+            print("\nVocê já explorou todas as outras opções. Fica em silêncio.\n")
+            time.sleep(5)
+            print(f"[bold blue]Eldramar[/bold blue]: Entendo o seu silêncio {player['nome']}, mas quero saber mais sobre sua personalidade\n")
+            time.sleep(5)
+            print("(Em instantes Eldramar estala os dedos e me leva um mercado aonde encontro tal situação)")
+            print("(Encontro a seguinte cena a rua empoeirada, a criança faminta, a maçã roubada. O mercador gritava, a criança tremia, e eu estava parado no meio)\n")
+            time.sleep(5)
+            print("[bold blue]Eldramar[/bold blue]: Você vê uma criança furtando uma maçã.")
+            print("1. Repreende a criança e devolve a maçã ao dono.")
+            print("2. Ajudar a Criança a Fugir.")
+            print("3. Pagar e Ficar em Silêncio.")
+
+            escolha1 = input("O que faz?: ").lower()
+            if escolha1 == "1":
+                player["personalidade"] = "Justo"
+                mostrar_conquista("guardiao_lei")
+            elif escolha1 == "2":
+                player["personalidade"] = "Heroico"
+                mostrar_conquista("coracao_heroico")
+            elif escolha1 == "3":
+                player["personalidade"] = "Pacifista"
+                mostrar_conquista("pacifista_iluminado")
+            else:
+                print("\nEscolha inválida. Assumindo natureza misteriosa.")
+                player["personalidade"] = "Enigmático"
+                time.sleep(5)
+            print(f"\n[bold blue]Eldramar[/bold blue]: Interessante... Vejo que você é {player['personalidade']}.\n")
+            break
     print('"Você se pergunta em como Eldramar sabe o seu nome."\n')
     time.sleep(5)
     print(f"[bold red]{player['nome']}[/bold red]: Como você sabe meu nome?")
