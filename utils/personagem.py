@@ -27,7 +27,7 @@ def escolher_classe():
         "nivel": 1,
         "xp_proximo_nivel": 100,
         "itens": {
-            "poção de cura": 3,
+            "poção de cura": 10,
         }
     }
 
@@ -73,7 +73,7 @@ def escolher_classe():
             "magia": random.randint(20, 20),
             "defesa": random.randint(35, 40),
             "habilidade": "Tiro Certeiro",
-            "precisao": 90,
+            "precisao": 95,
             "arma": "Arco"
         })
     elif escolha == "5":

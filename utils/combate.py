@@ -69,11 +69,26 @@ def exibir_status_combate(player, inimigos):
     console.print(Columns([player_panel, enemies_panel], expand=False))
 
 def habilidade_especial(player, inimigos):
+    # Dicionário com as chances de erro por classe
+    chances_erro = {
+        "Mago": 10,      # 10% de chance de errar
+        "Guerreiro": 10, # 10% de chance de errar
+        "Paladino": 0,   # 0% de chance de errar (cura)
+        "Arqueiro": 5,   # 5% de chance de errar
+        "Dev_admin": 0,  # 0% de chance de errar (habilidade especial)
+        "Monarca das Sombras": 0  # 0% de chance de errar
+    }
 
+    # Verifica se a habilidade erra (exceto para Paladino)
+    if player["classe"] != "Paladino" and random.randint(1, 100) <= chances_erro.get(player["classe"], 0):
+        rprint("[bold yellow]Sua habilidade especial falhou![/]")
+        return []
+
+    # Se passar na verificação ou for Paladino, executa a habilidade
     player = verificar_status_monarca(player)
     derrotados = []
     rprint(f"\n[bold]{player['nome']}[/] usa [yellow]{player['habilidade']}[/]!")
-    
+
     if player["classe"] == "Mago":
         dano = player["magia"] + random.randint(10, 20)
         for inimigo in inimigos[:]:
@@ -117,7 +132,7 @@ def habilidade_especial(player, inimigos):
                 print(f"{inimigo['nome']} foi derrotado!")
                 derrotados.append(inimigo)
                 inimigos.remove(inimigo)
-                
+
     elif player["classe"] == "Monarca das Sombras":
         if "força_original" not in player:
             player["força_original"] = player["força"]
@@ -128,17 +143,15 @@ def habilidade_especial(player, inimigos):
         rprint(f"| Força aumentada para [red]{player['força']}[/] (+30)")
         rprint(f"| Vida aumentada para [green]{player['vida']}[/] (+20)")
         rprint("| Todos os inimigos sofrem [purple]10[/] de dano sombrio!")
-        
-        # Dano adicional para o Monarca
+
         for inimigo in inimigos[:]:
             inimigo["vida"] -= 10
             rprint(f"{inimigo['nome']} sofreu [purple]10[/] de dano das sombras!")
             if inimigo["vida"] <= 0:
                 rprint(f"{inimigo['nome']} foi [bold purple]consumido pelas sombras[/]!")
                 inimigos.remove(inimigo)
-        
         return []
-    
+
     return derrotados
 
 def ganhar_xp(player, xp_ganho):
