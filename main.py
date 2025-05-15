@@ -13,6 +13,7 @@ from models.nivel7_s import nivel_7_sombra
 from models.nivel8 import nivel_oito
 from models.nivel9 import nivel_nove
 from models.nivel9_s import nivel_nove_1
+from models.nivel10 import nivel_dez
 from utils.personagem import escolher_classe
 from utils.creditos import creditos_finais
 from utils.utils import limpar_terminal
@@ -52,6 +53,34 @@ def game_over():
     exit()
 
 def mostrar_status_jogador(player):
+    
+    nome = player['nome']
+    classe = player['classe'][:15]  # Limita a 15 caracteres
+    habilidade = player['habilidade'][:25]  # Limita a 25 caracteres
+
+    topo = f"{nome}, {classe}"
+    largura_total = 42
+    centro = topo.center(largura_total)
+    tocar_musica()
+    print("╔" + "═" * largura_total + "╗")
+    print(f"║{centro}║")
+    print("║" + "    Prepare-se para sua Jornada!    ".center(largura_total) + "║")
+    print("╚" + "═" * largura_total + "╝")
+
+    print("┌" + "─" * 19 + "┬" + "─" * 19 + "┐")
+    print("│      [bold yellow]STATUS[/bold yellow]       │     [bold cyan]ATRIBUTOS[/bold cyan]     │")
+    print("├" + "─" * 19 + "┼" + "─" * 19 + "┤")
+    print(f"│{'':19}│ Vida:   {player['vida']:<5}     │")
+    print(f"│Classe: [bold magenta]{player['classe']:<11}[/bold magenta]│ Força:  {player['força']:<5}     │")
+    print(f"│Nível: {player['nivel']:<12}│ Magia:  {player['magia']:<5}     │")
+    print(f"│XP: {player['xp']:<15}│ Defesa: {player['defesa']:<5}     │")
+    print("├" + "─" * 39 + "┤")
+    print(f"│ Habilidade Especial: [bold yellow]{habilidade:<16}[/bold yellow] │")
+    print("└" + "─" * 39 + "┘")
+    print("\n[bold red][Pressione ENTER para embarcar nesta aventura...][bold red]\n")
+    parar_musica()
+
+def mostrar_status_final(player):
     
     nome = player['nome']
     classe = player['classe'][:15]  # Limita a 15 caracteres
@@ -315,6 +344,18 @@ Você acorda em:
     mostrar_status_jogador(player)
     input()
     limpar_terminal()
+#=====================
+#   Nivel 10
+    if not nivel_dez(player):
+        game_over()
+        return
+    limpar_terminal()
+#=====================
+#   Status jogador nivel10
+    mostrar_status_final(player)
+    input()
+    limpar_terminal()
+#=====================
     creditos_finais(player)
 
 if __name__ == "__main__":
