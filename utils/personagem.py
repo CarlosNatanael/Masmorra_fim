@@ -117,6 +117,6 @@ def transformar_em_monarca(player):
     player.update(novo_player)
     
     print("\nSua forma muda completamente. Todas as memórias anteriores se dissipam...")
-    print("| » Você renasceu como Monarca das Sombras (Nível 1)")
+    rprint("| » Você renasceu como Monarca das Sombras [bold cyab](Nível 1)[/]")
     print(f"| Status básicos: Vida {player['vida']}, Força {player['força']}, Magia {player['magia']}, Defesa {player['defesa']}\n")
     return player
