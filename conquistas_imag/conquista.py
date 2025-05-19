@@ -1,5 +1,6 @@
 conquistas = {
     # Nível 1
+
     "guardiao_lei": {
         "nivel": 1,
         "titulo": "Guardião da Lei",
@@ -37,6 +38,7 @@ conquistas = {
     },
     
     # Nível 2
+
     "sombra_sorte_2": {
         "nivel": 2,
         "titulo": "Sombra da Sorte II",
@@ -53,6 +55,7 @@ conquistas = {
     },
     
     # Nível 3
+
     "exterminador_goblin_2": {
         "nivel": 3,
         "titulo": "Exterminador Goblin II",
@@ -76,6 +79,7 @@ conquistas = {
     },
     
     # Nível 4
+
     "sombra_sorte_3": {
         "nivel": 4,
         "titulo": "Sombra da Sorte III",
@@ -120,6 +124,7 @@ conquistas = {
     },
     
     # Nível 5
+
     "fim_tirano": {
         "nivel": 5,
         "titulo": "O Fim do Tirano",
@@ -150,6 +155,7 @@ conquistas = {
     },
     
     # Nível 6_1
+
     "anjo_perdicao": {
         "nivel": 6,
         "titulo": "Anjo da Perdição",
@@ -187,6 +193,7 @@ conquistas = {
     },
     
     # Nível 6_2
+
     "memorias_perdidas": {
         "nivel": 6,
         "titulo": "Memórias Perdidas",
@@ -224,6 +231,7 @@ conquistas = {
     },
     
     # Nível 6_3
+
     "estrela_sombras": {
         "nivel": 6,
         "titulo": "Estrela das Sombras",
@@ -253,6 +261,7 @@ conquistas = {
         "som": "sound/beep3-98810.mp3"
     },
     # Nível 7_humano
+
     "silenciador_eco": {
         "nivel": 7,
         "titulo": "Silenciador de Ecos",
@@ -268,6 +277,7 @@ conquistas = {
         "som": "sound/beep3-98810.mp3"
     },
     # Nível 7_sombra
+
     "quebrador_juramentos": {
         "nivel": 7,
         "titulo": "Quebrador de Juramentos",
@@ -283,6 +293,7 @@ conquistas = {
         "som": "sound/beep3-98810.mp3"
     },
     # Nível 8
+
     "coração_libertado_8": {
         "nivel": 8,
         "titulo": "Coração Libertado",
@@ -313,6 +324,7 @@ conquistas = {
     },
 
     # Nível 9
+
     "ultima_luz": {
         "nivel": 9,
         "titulo": "A Última Luz",
@@ -343,6 +355,7 @@ conquistas = {
     },
     
     # Nível 9_s
+
     "dama_do_lago": {
         "nivel": 9,
         "titulo": "Domador das Águas Negras",
@@ -374,19 +387,61 @@ conquistas = {
         "icone": "conquistas_imag/espelho.png",
         "som": "sound/beep3-98810.mp3"
     },
-    
-    "domador_das_trevas": {
-        "nivel": 9,
-        "titulo": "Domador das Trevas",
-        "descricao": "Derrotou todas as criaturas sombrias que guardavam a fonte sagrada.",
-        "icone": "conquistas_imag/domador_trevas.png",
-        "som": "sound/beep3-98810.mp3"
+    # Nível 10
+
+    "kharath_derrotado": {
+        "nivel": 10,
+        "titulo": "Silenciador de Lamentos",
+        "descricao": "Derrotou Kharath, o Comandante das Correntes Eternas.",
+        "icone": "conquistas_imag/kharath.png",
+        "som": "sound/beep3-98810.mp3",
     },
-        "beijoqueiro": {
-        "nivel": 9,
-        "titulo": "O beijoqueiro",
-        "descricao": "Cuidado homens a solta",
-        "icone": "conquistas_imag/beijoqueiro.png",
-        "som": "sound/beep3-98810.mp3"
-    }
+
+    "sylria_derrotada": {
+        "nivel": 10,
+        "titulo": "Estrela Cadente",
+        "descricao": "Reduziu Sylria a pó estelar, libertando os rostos aprisionados.",
+        "icone": "conquistas_imag/sylria.png",
+        "som": "sound/beep3-98810.mp3",
+    },
+
+    "eldramar_humanoide": {
+        "nivel": 10,
+        "titulo": "Caçador de Deuses",
+        "descricao": "Venceu a forma humana de Eldramar, o Vigia Eterno.",
+        "icone": "conquistas_imag/eldramar_phase1.png",
+        "som": "sound/beep3-98810.mp3",
+    },
+
+    "eldramar_monstro": {
+        "nivel": 10,
+        "titulo": "O Fim do Princípio",
+        "descricao": "Derrotou a verdadeira forma cósmica de Eldramar.",
+        "icone": "conquistas_imag/eldramar_phase2.png",
+        "som": "sound/beep3-98810.mp3",
+    },
+
+    "final_destruicao": {
+        "nivel": 10,
+        "titulo": "Libertador de Aldurian",
+        "descricao": "Destruiu o núcleo da masmorra, libertando todas as almas.",
+        "icone": "conquistas_imag/final1.png",
+        "som": "sound/beep3-98810.mp3",
+    },
+
+    "final_monarquia": {
+        "nivel": 10,
+        "titulo": "O Novo Vigia",
+        "descricao": "Assumiu o Trono de Ossos como novo Monarca das Sombras.",
+        "icone": "conquistas_imag/final2.png",
+        "som": "sound/beep3-98810.mp3",
+    },
+
+    "final_retorno": {
+        "nivel": 10,
+        "titulo": "O Que Escapou do Abismo",
+        "descricao": "Rejeitou o poder e voltou ao mundo original.",
+        "icone": "conquistas_imag/final3.png",
+        "som": "sound/beep3-98810.mp3",
+    },
 }
