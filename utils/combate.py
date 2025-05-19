@@ -408,25 +408,31 @@ def combate(player, inimigos):
         if not turno_perdido and inimigos:
             monstro = random.choice(inimigos)
 
+            # Verifica se a precisão está reduzida
             if player.get("inimigo_precisao_reduzida", False):
-                precisao_inimigo = 50  # Precisão do inimigo ao acertar o ataque de 50%
-                rprint(f"\n[bold yellow]{monstro['nome']} errou o ataque![/]\n")
-                del player["inimigo_precisao_reduzida"]
+                precisao_inimigo = 50  # 50% quando usado item
+                # Remove o efeito APÓS o cálculo, não antes
             else:
-                precisao_inimigo = 85 # Precisão do inimigo ao acertar o ataque de 15%
-                if random.randint(1, 100) > precisao_inimigo:
-                    rprint(f"\n[bold yellow]{monstro['nome']} errou o ataque![/]")
-                else:
-                    dano_monstro = max(1, monstro["força"] - (player["defesa"] // 2))  # Garante pelo menos 1 de dano
-                    player["vida"] -= dano_monstro
-                    rprint(f"\n[red]{monstro['nome']}[/] atacou causando [bold red]{dano_monstro}[/] de dano!\n")
+                precisao_inimigo = 85  # Precisão normal
 
-                    if player["vida"] <= 0:
-                        tocar_game()
-                        rprint(Panel.fit("[bold red]☠ VOCÊ FOI DERROTADO! ☠[/]", style="red"))
-                        input("\nPressione ENTER para continuar...")
-                        parar_game()
-                        return False
+            # Aplica a chance de acerto corretamente
+            if random.randint(1, 100) > precisao_inimigo:
+                rprint(f"\n[bold yellow]{monstro['nome']} errou o ataque![/]\n")
+            else:
+                dano_monstro = max(1, monstro["força"] - (player["defesa"] // 2))
+                player["vida"] -= dano_monstro
+                rprint(f"\n[red]{monstro['nome']}[/] atacou causando [bold red]{dano_monstro}[/] de dano!\n")
+
+                if player["vida"] <= 0:
+                    tocar_game()
+                    rprint(Panel.fit("[bold red]☠ VOCÊ FOI DERROTADO! ☠[/]", style="red"))
+                    input("\nPressione ENTER para continuar...")
+                    parar_game()
+                    return False
+
+            # Remove o efeito APÓS o ataque ser resolvido
+            if player.get("inimigo_precisao_reduzida", False):
+                del player["inimigo_precisao_reduzida"]
 
     # Vitória
     rprint(Panel.fit("[bold green]VITÓRIA![/] Todos os inimigos foram derrotados!", style="green"))

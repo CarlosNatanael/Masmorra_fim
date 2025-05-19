@@ -283,7 +283,7 @@ def nivel_nove(player):
     player["força"] += 20
     player["magia"] += 20
 
-    print("*Você ganha: []A Pedra da Fúria Elemental[]")
+    print("*Você ganha: [bold yellow]A Pedra da Fúria Elemental[/bold yellow]")
     print(f"| → Força aumentada para [bold green]{player["força"]}[/bold green] ([bold green]↑[/bold green] 20)")
     print(f"| → Vida aumentada para [bold green]{player["vida"]}[/bold green] ([bold green]↑[/bold green] 20)")
     print(f"| → Magia aumentada para [bold green]{player["magia"]}[/bold green] ([bold green]↑[/bold green] 20)")

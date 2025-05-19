@@ -114,9 +114,10 @@ def nivel_tres(player):
     player["itens"]["chave de ébano"] = 1
     print("Você encontra uma [bright_yellow]Chave de Élbano[/bright_yellow] reluzente no corpo do mago derrotado!")
     print("(A chave foi adicionada ao seu inventário)\n")
-    print("[bold cyan]Inventario atual:[/bold cyan]")
-    for item, qtd in player["itens"].items():
-        print(f"- {item}: {qtd}")
+    from utils.utils import ver_itens
+    if not ver_itens(player):
+        return False
+    time.sleep(5)
     time.sleep(5)
     print("\nChão da biblioteca começou a afundar.\n")
     print("Madeira rachou, estantes desmoronaram, e de repente—")

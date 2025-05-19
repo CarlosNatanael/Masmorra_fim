@@ -4,7 +4,8 @@ from rich.table import Table
 from rich.console import Console
 from utils.utils import limpar_terminal
 from game_sound_py.menu_sound import tocar_musica, parar_musica
-import time
+from conquistas_imag.sistema_conquistas import get_progresso_conquistas
+from time import sleep
 import os
 
 console = Console()
@@ -33,7 +34,7 @@ def creditos_finais(player):
         ),
         0
     )
-    time.sleep(2)
+    sleep(3)
     # Mensagem de parabéns centralizada
     centralizar(
         Panel.fit(
@@ -44,7 +45,25 @@ def creditos_finais(player):
         ),
         1
     )
-    time.sleep(3)
+    sleep(5)
+    # Título principal centralizado
+    centralizar(
+        Panel.fit(
+            "[bold]CONQUISTAS[/]",
+            style=estilo_texto,
+        ),
+        0
+    )
+    progresso = get_progresso_conquistas()
+    centralizar(
+    Panel.fit(
+        f"[bold]Progresso de Conquistas:[/] [yellow]{progresso}[/]",
+        style=borda_estilo
+        ),
+        1
+    )
+    sleep(5)
+    sleep(3)
     # Título dos créditos centralizado
     centralizar(
         Panel.fit(
@@ -53,6 +72,7 @@ def creditos_finais(player):
         ),
         0
     )
+
     # Tabela de créditos centralizada
     creditos_table = Table.grid(expand=True)
     creditos_table.add_column(justify="center", style=estilo_destaque)
@@ -73,7 +93,7 @@ def creditos_finais(player):
         ),
         0
     )
-    time.sleep(3)
+    sleep(3)
     # Tecnologias utilizadas centralizada
     tech_table = Table.grid(expand=True)
     tech_table.add_column(justify="center", style=estilo_destaque)
@@ -90,7 +110,7 @@ def creditos_finais(player):
         ),
         1
     )
-    time.sleep(3)
+    sleep(3)
 
     # Mensagem final centralizada
     centralizar(

@@ -26,11 +26,17 @@ def tocar_som(caminho_som):
     except Exception as e:
         print(f"Erro ao tocar som: {e}")
 
+
+conquistas_desbloqueadas = set()
+
 def mostrar_conquista(nome_conquista):
+    global conquistas_desbloqueadas
     dados = conquistas.get(nome_conquista)
     if not dados:
         print(f"Conquista '{nome_conquista}' não encontrada.")
         return
+
+    conquistas_desbloqueadas.add(nome_conquista)
 
     try:
         # Obtém caminhos absolutos
@@ -61,3 +67,9 @@ def mostrar_conquista(nome_conquista):
 
     except Exception as e:
         print(f"Erro ao mostrar conquista: {e}")
+
+def get_progresso_conquistas():
+    """Retorna o progresso de conquistas no formato 'X/56'"""
+    total_conquistas = len(conquistas)
+    desbloqueadas = len(conquistas_desbloqueadas)
+    return f"{desbloqueadas}/{total_conquistas}"

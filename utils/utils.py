@@ -25,6 +25,51 @@ def mostrar_status_jogador(player):
 │                   │ Defesa: {player['defesa']:<5}     │
 ┴───────────────────┴───────────────────┴
 """)
+    
+def ver_itens(player):
+    """Mostra o inventário do jogador sem permitir uso"""
+    while True:
+        
+        # Filtra itens com quantidade > 0
+        itens_disponiveis = {k: v for k, v in player["itens"].items() if v > 0}
+        
+        # Se não houver itens disponíveis
+        if not itens_disponiveis:
+            rprint(Panel.fit(
+                "[bold red]Seu inventário está vazio![/]",
+                style="red"
+            ))
+            input("\nPressione ENTER para continuar...")
+            return
+        
+        # Tabela de itens - Estilo idêntico ao usar_itens()
+        rprint(Panel.fit("[bold green]SEU INVENTÁRIO[/]", style="green"))
+        
+        itens_table = Table.grid(padding=(0, 2))
+        itens_table.add_column("Item", style="white")
+        itens_table.add_column("Quantidade", style="yellow")
+        
+        # Categorização e cores idênticas
+        for item, qtd in itens_disponiveis.items():
+            if "poção" in item.lower():
+                item_display = f"[red]Poção de {item.split()[-1]}[/]"
+            elif "sangue" in item.lower():
+                item_display = f"[dark_red]{item}[/]"
+            elif "vigor" in item.lower():
+                item_display = f"[orange_red1]{item}[/]"
+            elif "chave" in item.lower():
+                item_display = f"[gold1]{item}[/]"
+            elif "lágrima" in item.lower():
+                item_display = f"[dark_green]{item}[/]"
+            else:
+                item_display = item
+            
+            itens_table.add_row(item_display, f"x{qtd}")
+        
+        rprint(itens_table)
+        
+        input("\nPressione ENTER para voltar...")
+        return
 
 def usar_itens(player, pode_usar_chave=True):
     while True:

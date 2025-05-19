@@ -146,8 +146,10 @@ Com um último estalo metálico, Velthurion desabou em uma pilha de ferramentas 
         itens, pesos = zip(*itens_especiais)
         item_especial = random.choices(itens, weights=pesos, k=1)[0]
         player["itens"][item_especial] += 1
-
         print(f"Você encontrou o item lendário: {item_especial}!")
+        from utils.utils import ver_itens
+        if not ver_itens(player):
+            return False
         mostrar_conquista("artesao_da_sorte")
         input("\nPressione ENTER para continuar...\n")
         parar_musica()

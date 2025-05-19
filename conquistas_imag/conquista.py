@@ -346,13 +346,6 @@ conquistas = {
         "icone": "conquistas_imag/furia_elemental.png",
         "som": "sound/beep3-98810.mp3"
     },
-        "furia_elemental": {
-        "nivel": 9,
-        "titulo": "Fúria Elemental",
-        "descricao": "Recebeu o último presente de Valysse - a Pedra da Fúria Elemental.",
-        "icone": "conquistas_imag/furia_elemental.png",
-        "som": "sound/beep3-98810.mp3"
-    },
     
     # Nível 9_s
 
@@ -385,6 +378,13 @@ conquistas = {
         "titulo": "Reflexo da Verdade",
         "descricao": "Enfrentou e superou seu próprio reflexo no Espelho das Almas.",
         "icone": "conquistas_imag/espelho.png",
+        "som": "sound/beep3-98810.mp3"
+    },
+    "domador_das_trevas": {
+        "nivel": 9,
+        "titulo": "Domador das Trevas",
+        "descricao": "Derrotou todas as criaturas sombrias que guardavam a fonte sagrada.",
+        "icone": "conquistas_imag/domador_trevas.png",
         "som": "sound/beep3-98810.mp3"
     },
     # Nível 10
@@ -432,7 +432,7 @@ conquistas = {
     "final_monarquia": {
         "nivel": 10,
         "titulo": "O Novo Vigia",
-        "descricao": "Assumiu o Trono de Ossos como novo Monarca das Sombras.",
+        "descricao": "Assumiu o Trono de Ossos como novo Vigia Eterno.",
         "icone": "conquistas_imag/final2.png",
         "som": "sound/beep3-98810.mp3",
     },

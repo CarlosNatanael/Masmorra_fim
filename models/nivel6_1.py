@@ -26,9 +26,9 @@ Quando abri os olhos, estava de joelhos em uma plataforma de ferro, flutuando no
     player["itens"]["poção de cura"] +=1
     print("'Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!'")
     print("'A poção foi adicionada ao seu inventário'\n")
-    print("[bold cyan]Inventario atual:[bold cyan]")
-    for item, qtd in player["itens"].items():
-        print(f"- {item}: [bold reverse]{qtd}[/bold reverse]")
+    from utils.utils import ver_itens
+    if not ver_itens(player):
+        return False
     time.sleep(5)
     print("""
 À minha volta, centenas de celas suspensas pairando no vazio, cada uma fechada por portas de arame farpado e luzes piscando em vermelho. 

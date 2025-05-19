@@ -247,8 +247,9 @@ Uma figura envolta em um vestido de pele remendada
     sleep(5)
     player["itens"]["lagrimas de cura"] = 1
     print("(A Lagrima de cura foi adicionada ao seu inventário)\n")
-    for item, qtd in player["itens"].items():
-        print(f"- {item}: {qtd}")
+    from utils.utils import ver_itens
+    if not ver_itens(player):
+        return False
     print("\n")
     sleep(5)
     cena_fonte_negra(player)
@@ -271,19 +272,9 @@ Uma figura envolta em um vestido de pele remendada
             player["itens"][item_especial] = 0
         
         player["itens"][item_especial] += 1
-        rprint(Panel.fit(
-            f"[bold gold1]Você encontrou o item lendário:[/] [dark_red]{item_especial}[/]!",
-            style="gold1"
-        ))
-        sleep(2)
-        
-        # Mostra inventário atualizado
-        rprint(Panel.fit(
-            "[bold]Inventário Atualizado:[/]",
-            style="blue"
-        ))
-        for item, qtd in player["itens"].items():
-            rprint(f"- {item}: [green]{qtd}[/]")
+        from utils.utils import ver_itens
+        if not ver_itens(player):
+            return False
         
         sleep(3)
     # Terceiro monstro: O Parceiro do Espelho
@@ -311,10 +302,10 @@ Você entra em uma sala circular, onde um espelho perfeito reflete sua imagem...
     parceiro = {
         "nome": f"Espelho {player['nome']}",
         "classe": player["classe"],
-        "vida": player["vida"] * 2,
-        "força": player["força"] * 2,
-        "magia": player["magia"] * 2 if player["classe"] == "Mago" else 0,
-        "defesa": player["defesa"] * 2,
+        "vida": player["vida"] + 20,
+        "força": player["força"] + 25,
+        "magia": player["magia"] + 20 if player["classe"] == "Mago" else 0,
+        "defesa": player["defesa"] + 20,
         "habilidade": player["habilidade"],
         "nivel": player["nivel"] + 3,
         "xp": 500

@@ -135,15 +135,14 @@ def main():
                    ---......-++++-..                                    .--------                        
     [/bold white]""")
     print("""
-                                    Jogo em desenvolvimento
           
-    Progamador/Desenvolvimento:                                             [bold yellow][Masmorra do Fim - versão beta][/bold yellow]
+    Progamador/Desenvolvimento:                                             [bold yellow][Masmorra do Fim - Versão 1.0.0][/bold yellow]
     [bold cyan]Carlos Natanael[/bold cyan]
           
     Desenvolvedor Tester:
     [bold cyan]Arthur Yabuchi[/bold cyan]
                                        
-    [bold yellow]- Adicionado Comerciante[/bold yellow]                  [bold yellow]- Adição de nova poção[/bold yellow]
+    [bold yellow]- JOGO FINALIZADO[/bold yellow]                         [bold yellow]- Adição de nova poção[/bold yellow]
     [bold yellow]- Balanceamento de dano [/bold yellow]                  [bold yellow]- Novas conquistas[/bold yellow]
 
                        [bold black]Copyright (C) 2025 by Carlos Natanael[/bold black] 
