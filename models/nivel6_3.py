@@ -27,8 +27,7 @@ Quando a luz prateada se dissipou, me encontrei em uma plateia infinita. Cadeira
     print("'Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!'")
     print("'A poção foi adicionada ao seu inventário'\n")
     from utils.utils import ver_itens
-    if not ver_itens(player):
-        return False
+    ver_itens(player)
     time.sleep(5)
     print("...uma plateia vazia e infinita. Cadeiras de veludo vermelho cobrem o horizonte.")
     print("Você descide olhar a sua bolsa de itens.\n")

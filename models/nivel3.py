@@ -115,9 +115,7 @@ def nivel_tres(player):
     print("Você encontra uma [bright_yellow]Chave de Élbano[/bright_yellow] reluzente no corpo do mago derrotado!")
     print("(A chave foi adicionada ao seu inventário)\n")
     from utils.utils import ver_itens
-    if not ver_itens(player):
-        return False
-    time.sleep(5)
+    ver_itens(player)
     time.sleep(5)
     print("\nChão da biblioteca começou a afundar.\n")
     print("Madeira rachou, estantes desmoronaram, e de repente—")

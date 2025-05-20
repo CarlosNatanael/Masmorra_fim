@@ -117,3 +117,5 @@ def resetar_conquistas():
 
 # Carrega as conquistas ao importar o módulo
 carregar_conquistas()
+
+__all__ = ['mostrar_conquista', 'get_progresso_conquistas', 'conquistas_desbloqueadas', 'conquistas']

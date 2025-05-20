@@ -105,8 +105,7 @@ Você pode:
                 print("'Você encontra uma poção de cura reluzente no corpo dos monstros derrotados!'")
                 print("'A poção foi adicionada ao seu inventário'\n")
                 from utils.utils import ver_itens
-                if not ver_itens(player):
-                    return False
+                ver_itens(player)
                 time.sleep(5)
             else:
                 return False

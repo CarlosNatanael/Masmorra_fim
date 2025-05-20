@@ -148,8 +148,7 @@ Com um último estalo metálico, Velthurion desabou em uma pilha de ferramentas 
         player["itens"][item_especial] += 1
         print(f"Você encontrou o item lendário: {item_especial}!")
         from utils.utils import ver_itens
-        if not ver_itens(player):
-            return False
+        ver_itens(player)
         mostrar_conquista("artesao_da_sorte")
         input("\nPressione ENTER para continuar...\n")
         parar_musica()
