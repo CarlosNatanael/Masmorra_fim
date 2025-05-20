@@ -27,7 +27,7 @@ def escolher_classe():
         "nivel": 1,
         "xp_proximo_nivel": 100,
         "itens": {
-            "poção de cura": 10,
+            "poção de cura": 3,
         }
     }
 
