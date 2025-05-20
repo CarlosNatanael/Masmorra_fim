@@ -8,7 +8,7 @@ masmorra_do_fim/
 │	├── personagem.py               # Escolha da classe e atributos do personagem
 │	├── creditos.py	                # Créditos do final do jogo
 │	└──	utils.py                    # Funções auxiliares
-├── niveis/
+├── models/
 │	│
 │	├── nivel1.py                # Nível 1: A Entrada Misteriosa
 │	├── nivel2.py                # Nível 2: O Salão dos Espelhos
@@ -20,58 +20,38 @@ masmorra_do_fim/
 │	├── nivel6_3.py			     # Nível 6: O Teatro das Máscaras Vazias
 │	├── nivel7_h.py              
 │	├── nivel7_s.py              
-│	└── nivel8.py			     
+│	├── nivel8.py	
+│	├── nivel9.py              
+│	├── nivel9_s.py  		     
+│   └── nivel10.py
 ├── conquistas_imag/
 │   |
 │   ├── conquista.py
 │   ├── sistema_conquista.py
 │   ├── anotaçãoes conquistas.txt
 │   ├── __init__.py
-│   ├── altherion.png
-│   ├── anjo.png
-│   ├── artesao_sorte.png
-│   ├── carcereiro.png
-│   ├── artesao_sorte.png
-│   ├── colecionador.png
-│   ├── conquista.png
-│   ├── coracaoHeroi.png
-│   ├── dancaesqueletos.png
-│   ├── devorador_mimicos.png
-│   ├── diretor.png
-│   ├── dragon.png
-│   ├── eclipse.png
-│   ├── encontroeu.png
-│   ├── fimdotirano.png
-│   ├── forja.png
-│   ├── goblin.png
-│   ├── golem.png
-│   ├── gramor.png
-│   ├── guardiaoLei.png
-│   ├── juizdassombras.png
-│   ├── libertandocorrentes.png
-│   ├── lordedesesperados.png
-│   ├── memoriasperdidas.png
-│   ├── mestre_baus.png
-│   ├── mestredasmentiras.png
-│   ├── minotaur.png
-│   ├── monarca.png
-│   ├── pacifista1.png
-│   ├── punhodeaco.png
-│   ├── sorte.png
-│   ├── sunshine.png
-│   ├── velkar.png
-│   └── wendigo.png
-├── game_sound/
+│   └── # imagens das conquistas.png
+├── sound/
+│   |
+│   └── # Todos as musicas dos cápitulos
+├── game_sound_py/
 │   |
 │   ├── game-over.py
 │   ├── menu_sound.py
-│   ├── sound.py
-│   ├── beep3-98810.mp3
-│   ├── game-over.mp3
-│   ├── menu_theme.mp3
-│   └── sound_game.mp3
+│   ├── sound1.py
+│   ├── sound2.py
+│   ├── sound3.py
+│   ├── sound4.py
+│   ├── sound5.py
+│   ├── sound6.py
+│   ├── sound7.py
+│   ├── sound8.py
+│   ├── sound9.py
+│   └── sound10.py
 ├── main.py                  # Controla o fluxo do jogo
 ├── icone.ico			     # ícone do game
 ├── README.md
 ├── .gitignore
+├── masmorra.spec
+├── version.txt
 └── LICENSE
