@@ -5,6 +5,8 @@ from rich.console import Console
 from utils.utils import limpar_terminal
 from game_sound_py.menu_sound import tocar_musica, parar_musica
 from conquistas_imag.sistema_conquistas import get_progresso_conquistas
+from conquistas_imag.sistema_conquistas import conquistas_desbloqueadas
+from conquistas_imag.conquista import conquistas
 from time import sleep
 import os
 
@@ -57,11 +59,12 @@ def creditos_finais(player):
     progresso = get_progresso_conquistas()
     centralizar(
     Panel.fit(
-        f"[bold]Progresso de Conquistas:[/] [yellow]{progresso}[/]",
+        f"[bold]Conquistas desbloqueadas:[/] [yellow]{progresso}[/]",
         style=borda_estilo
         ),
         1
     )
+
     sleep(5)
     sleep(3)
     # Título dos créditos centralizado
