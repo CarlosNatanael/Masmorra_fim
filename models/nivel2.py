@@ -135,8 +135,8 @@ def nivel_dois(player):
             "magia": player["magia"] + 5 if player["classe"] == "Mago" else 0,
             "defesa": player["defesa"] + 2,
             "habilidade": player["habilidade"],
-            "nivel": player["nivel"],
-            "xp": 50
+            "nivel": player["nivel"] + 1,
+            "xp": 100
         }
         clone["força"] = max(5, clone["força"])
         input("Prepare-se para o combate! Pressione ENTER...\n")

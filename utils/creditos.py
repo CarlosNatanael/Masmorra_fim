@@ -5,6 +5,8 @@ from rich.console import Console
 from utils.utils import limpar_terminal
 from game_sound_py.menu_sound import tocar_musica, parar_musica
 from conquistas_imag.sistema_conquistas import get_progresso_conquistas
+from conquistas_imag.sistema_conquistas import mostrar_conquista
+from conquistas_imag.conquista import conquistas
 from time import sleep
 import os
 
@@ -46,19 +48,18 @@ def creditos_finais(player):
         1
     )
     sleep(5)
-    # Título principal centralizado
-    centralizar(
-        Panel.fit(
-            "[bold]CONQUISTAS[/]",
-            style=estilo_texto,
-        ),
-        0
-    )
     progresso = get_progresso_conquistas()
+    total_conquistas = len(conquistas) - 1
+    if progresso.split('/') [0] == str(total_conquistas):
+        mensagem = f"[gold1]MESTRE COMPLETO[/]\n[bold]Você coletou todas as {total_conquistas} conquistas![/]"
+        mostrar_conquista("mestre_completo")
+    else:
+        mensagem = f"[bold]Conquistas desbloqueadas:[/] [yellow]{progresso}[/]"
     centralizar(
     Panel.fit(
-        f"[bold]Conquistas desbloqueadas:[/] [yellow]{progresso}[/]",
-        style=borda_estilo
+        f"{mensagem}",
+        style=borda_estilo,
+        title="[bold white]CONQUISTAS[/]"
         ),
         1
     )

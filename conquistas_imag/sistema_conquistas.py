@@ -91,9 +91,20 @@ def mostrar_conquista(nome_conquista):
     except Exception as e:
         print(f"Erro ao mostrar conquista: {e}")
 
+def verificar_conquista_mestre():
+    if len(conquistas_desbloqueadas) == len(conquistas) - 1:  # -1 para não contar a própria conquista mestre
+        mostrar_conquista("mestre_completo")
+
 def get_progresso_conquistas():
-    """Retorna o progresso no formato 'X/56'"""
-    return f"{len(conquistas_desbloqueadas)}/{len(conquistas)}"
+    """Retorna o progresso e verifica se conquistou tudo"""
+    total = len(conquistas) - 1  # Exclui a conquista mestre da contagem
+    desbloqueadas = len(conquistas_desbloqueadas)
+    
+    # Se tem todas (exceto a mestre), adiciona a mestre
+    if desbloqueadas >= total and "mestre_completo" not in conquistas_desbloqueadas:
+        verificar_conquista_mestre()
+    
+    return f"{desbloqueadas}/{total}"
 
 def resetar_conquistas():
     """Reseta todas as conquistas (para debug)"""

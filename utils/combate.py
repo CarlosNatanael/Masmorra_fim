@@ -393,6 +393,21 @@ def combate(player, inimigos):
                 turno_perdido = True
                 continue
 
+        elif acao == "3":
+            if player.get("habilidade_usada", False):
+                rprint("[yellow]Você já usou sua habilidade neste combate![/]")
+                turno_perdido = True
+                continue
+            
+            derrotados_habilidade = habilidade_especial(player, inimigos)
+            derrotados.extend(derrotados_habilidade)
+            player["habilidade_usada"] = True
+
+        else:
+            rprint("[red]Ação inválida![/]")
+            turno_perdido = True
+            continue
+
         # Ataque do inimigo após ação válida do jogador
         if not turno_perdido and inimigos:
             monstro = random.choice(inimigos)

@@ -444,4 +444,11 @@ conquistas = {
         "icone": "conquistas_imag/final3.png",
         "som": "sound/beep3-98810.mp3",
     },
+    "mestre_completo": {
+        "nivel": 0,  
+        "titulo": "Mestre Completo da Masmorra",
+        "descricao": "Desbloqueou todas as 57 conquistas do jogo!",
+        "icone": "conquistas_imag/mestre_completo.png",
+        "som": "sound/fanfarra.mp3"
+    }
 }
