@@ -21,12 +21,15 @@ from game_sound_py.menu_sound  import tocar_musica
 from game_sound_py.menu_sound  import parar_musica
 from game_sound_py.game_over import tocar_game
 from game_sound_py.game_over import parar_game
+from conquistas_imag.sistema_conquistas import get_progresso_conquistas
 from rich.progress import Progress
 from rich import print as rprint
 from rich.panel import Panel
 from rich.table import Table
 from rich.console import Console
 from rich import print
+from rich.text import Text
+from rich.box import SQUARE
 import time
 import pygame
 
@@ -37,16 +40,20 @@ pygame.mixer.init()
 
 def game_over():
     tocar_game()
-    print("""\n[bold red]
-╔══════════════════════════════════════════╗
-║                GAME OVER                 ║
-╠══════════════════════════════════════════╣
-║   Sua jornada termina aqui...            ║
-║   Mas suas ações serão lembradas.        ║
-║                                          ║
-║   Pressione ENTER para sair              ║
-╚══════════════════════════════════════════╝
-[bold red]""")
+    progresso = get_progresso_conquistas()
+    
+    rprint(Panel.fit(
+        f"\n             [bold]Sua jornada termina aqui...                  [/]\n\n"
+        f"            Mas suas ações serão lembradas.\n\n"
+        f"          Conquistas desbloqueadas: [yellow]{progresso}[/]\n\n"
+        ""
+        f"             [white]Pressione ENTER para sair[/]\n",
+        title="[bold white]GAME OVER[/]",
+        style="red",
+        border_style="red",
+        width=60
+    ))
+    
     input()
     parar_game()
     limpar_terminal()

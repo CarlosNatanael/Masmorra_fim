@@ -339,70 +339,59 @@ def combate(player, inimigos):
                 continue
 
         elif acao == "2":
-            # Lógica de itens
-            rprint(Panel.fit("[bold]Seus itens:[/]\n" + 
-                          "\n".join(f"- {nome_item} (x{qtd})" for nome_item, qtd in player["itens"].items())))
+            # Lógica de itens - versão com seleção numérica
+            itens_disponiveis = [item for item in player["itens"].items() if item[1] > 0]
             
-            item_input = input("Escolha o item para usar: ").strip().casefold()
-
-            item_encontrado = None
-            for nome_item in player["itens"]:
-                if item_input == nome_item.casefold():
-                    item_encontrado = nome_item
-                    break
+            if not itens_disponiveis:
+                rprint("[yellow]Você não tem itens disponíveis![/]")
+                turno_perdido = True
+                continue
+                
+            rprint(Panel.fit("[bold]Seus itens:[/]"))
+            for i, (nome_item, qtd) in enumerate(itens_disponiveis, 1):
+                rprint(f"{i}. {nome_item.capitalize()} (x{qtd})")
             
-            if item_encontrado and player["itens"][item_encontrado] > 0:
-
-                player["inimigo_precisao_reduzida"] = True # reduz a chance de acerto 50%
-
-                if item_encontrado == "poção de cura":
+            try:
+                escolha = int(input("Escolha o número do item: ").strip()) - 1
+                if escolha < 0 or escolha >= len(itens_disponiveis):
+                    rprint("[red]Número de item inválido![/]")
+                    turno_perdido = True
+                    continue
+                    
+                item_nome, item_qtd = itens_disponiveis[escolha]
+                player["inimigo_precisao_reduzida"] = True  # reduz a chance de acerto 50%
+        
+                # Efeitos dos itens
+                if item_nome == "poção de cura":
                     player["vida"] += 20
-                    player["itens"][item_encontrado] -= 1
-                    rprint("Você usou [blue]poção de cura[/] e recuperou 20 de vida\n")
-                elif item_encontrado == "poção de força":
+                    rprint("Você usou [blue]Poção de Cura[/] e recuperou 20 de vida\n")
+                elif item_nome == "poção de força":
                     player["força"] += 10
-                    player["itens"][item_encontrado] -= 1
-                    rprint("Você usou [blue]poção de força[/] e aumentou 10 de força\n")
-                elif item_encontrado == "poção de defesa":
+                    rprint("Você usou [blue]Poção de Força[/] e aumentou 10 de força\n")
+                elif item_nome == "poção de defesa":
                     player["defesa"] += 20
-                    player["itens"][item_encontrado] -= 1
-                    rprint("Você usou [blue]poção de defesa[/] e aumentou 20 de defesa\n")
-                elif item_encontrado == "sangue de dragão":
+                    rprint("Você usou [blue]Poção de Defesa[/] e aumentou 20 de defesa\n")
+                elif item_nome == "sangue de dragão":
                     player["vida"] += 50
-                    player["itens"][item_encontrado] -= 1
-                    rprint("Você usou [blue]sangue de dragão[/] e recuperou 50 de vida\n")
-                elif item_encontrado == "vigor do vulcão":
+                    rprint("Você usou [blue]Sangue de Dragão[/] e recuperou 50 de vida\n")
+                elif item_nome == "vigor do vulcão":
                     player["força"] += 30
-                    player["itens"][item_encontrado] -= 1
-                    rprint("Você usou [blue]poção de cura[/] e aumentou 30 de força\n")
-                elif item_encontrado == "sangue da montanha":
+                    rprint("Você usou [blue]Vigor do Vulcão[/] e aumentou 30 de força\n")
+                elif item_nome == "sangue da montanha":
                     player["defesa"] += 30
-                    player["itens"][item_encontrado] -= 1
-                    rprint("Você usou [blue]sangue da montanha[/] e aumentou 30 de defesa\n")
-                elif item_encontrado == "lagrimas de cura":
+                    rprint("Você usou [blue]Sangue da Montanha[/] e aumentou 30 de defesa\n")
+                elif item_nome == "lagrimas de cura":
                     player["vida"] += 60
                     player["força"] -= 20
-                    player["itens"][item_encontrado] -= 1
-                    rprint("Você usou [blue]lagrimas de cura[/] e recuperou 60 de vida e perdeu 20 de força\n")
-            else:
-                rprint("[yellow]Você não possui item ou digitou algo incorretamente[/]")
+                    rprint("Você usou [blue]Lágrimas de Cura[/] e recuperou 60 de vida (perdeu 20 de força)\n")
+                    
+                # Atualiza quantidade
+                player["itens"][item_nome] -= 1
+                
+            except ValueError:
+                rprint("[red]Digite um número válido![/]")
                 turno_perdido = True
                 continue
-
-        elif acao == "3":
-            if player.get("habilidade_usada", False):
-                rprint("[yellow]Você já usou sua habilidade neste combate![/]")
-                turno_perdido = True
-                continue
-            
-            derrotados_habilidade = habilidade_especial(player, inimigos)
-            derrotados.extend(derrotados_habilidade)
-            player["habilidade_usada"] = True
-
-        else:
-            rprint("[red]Ação inválida![/]")
-            turno_perdido = True
-            continue
 
         # Ataque do inimigo após ação válida do jogador
         if not turno_perdido and inimigos:
