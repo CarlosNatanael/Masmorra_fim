@@ -9,11 +9,20 @@ from conquistas_imag.conquista import conquistas
 # Variável global para armazenar conquistas desbloqueadas
 conquistas_desbloqueadas = set()
 
-# Nome do arquivo de save
-SAVE_FILE = "conquistas_save.json"
+def get_app_path():
+    """Retorna o caminho correto para salvar arquivos"""
+    if getattr(sys, 'frozen', False):
+        # Se estiver rodando como executável
+        return os.path.dirname(sys.executable)
+    else:
+        # Se estiver rodando em desenvolvimento
+        return os.path.dirname(os.path.abspath(__file__))
+
+# Caminho do arquivo de save (na mesma pasta do executável ou do script)
+SAVE_FILE = os.path.join(get_app_path(), 'conquistas_save.json')
 
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
+    """Get absolute path to resource, works for dev and for PyInstaller"""
     try:
         base_path = sys._MEIPASS
     except AttributeError:
@@ -24,18 +33,23 @@ def carregar_conquistas():
     """Carrega as conquistas salvas do arquivo"""
     global conquistas_desbloqueadas
     try:
-        with open(resource_path(SAVE_FILE), 'r') as f:
-            dados = json.load(f)
-            if isinstance(dados, list):
-                conquistas_desbloqueadas = set(dados)
-    except (FileNotFoundError, json.JSONDecodeError):
-        # Arquivo não existe ou está corrompido - começa fresh
+        # Verifica se o arquivo existe no caminho do executável
+        if os.path.exists(SAVE_FILE):
+            with open(SAVE_FILE, 'r') as f:
+                dados = json.load(f)
+                if isinstance(dados, list):
+                    conquistas_desbloqueadas = set(dados)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Erro ao carregar conquistas: {e}")
         conquistas_desbloqueadas = set()
 
 def salvar_conquistas():
     """Salva as conquistas desbloqueadas no arquivo"""
     try:
-        with open(resource_path(SAVE_FILE), 'w') as f:
+        # Garante que o diretório existe
+        os.makedirs(os.path.dirname(SAVE_FILE), exist_ok=True)
+        
+        with open(SAVE_FILE, 'w') as f:
             json.dump(list(conquistas_desbloqueadas), f)
     except Exception as e:
         print(f"Erro ao salvar conquistas: {e}")
@@ -43,7 +57,7 @@ def salvar_conquistas():
 def tocar_som(caminho_som):
     try:
         pygame.mixer.init()
-        som = pygame.mixer.Sound(caminho_som)
+        som = pygame.mixer.Sound(resource_path(caminho_som))
         som.set_volume(0.7)
         som.play()
         while pygame.mixer.get_busy():
@@ -68,11 +82,6 @@ def mostrar_conquista(nome_conquista):
     try:
         icone_path = resource_path(dados["icone"])
         som_path = resource_path(dados["som"])
-
-        if not os.path.exists(icone_path):
-            print(f"Arquivo de ícone não encontrado: {icone_path}")
-        if not os.path.exists(som_path):
-            print(f"Arquivo de som não encontrado: {som_path}")
 
         threading.Thread(
             target=tocar_som,

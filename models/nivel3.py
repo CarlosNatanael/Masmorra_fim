@@ -70,9 +70,9 @@ def nivel_tres(player):
         "nome": "Golem de elbano", 
         "classe": "Guerreiro", 
         "vida": 100, 
-        "força": 36,
+        "força": 26,
         "magia": 45, 
-        "defesa": 80, 
+        "defesa": 50, 
         "nivel": player["nivel"] + 1,
     }
 

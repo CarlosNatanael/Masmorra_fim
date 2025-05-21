@@ -58,10 +58,23 @@ def game_over():
     input()
     parar_game()
     limpar_terminal()
-    exit()
+    main()
+
+def verificar_save():
+    """Verifica e cria arquivo de save se necessário"""
+    from conquistas_imag.sistema_conquistas import SAVE_FILE
+    import os
+    import json
+    
+    if not os.path.exists(SAVE_FILE):
+        try:
+            with open(SAVE_FILE, 'w') as f:
+                json.dump([], f)
+        except Exception as e:
+            print(f"Erro ao criar arquivo de save: {e}")
 
 def mostrar_status_jogador(player):
-    
+    progresso = get_progresso_conquistas()
     nome = player['nome']
     classe = player['classe'][:15]  # Limita a 15 caracteres
     habilidade = player['habilidade'][:25]  # Limita a 25 caracteres
@@ -85,34 +98,7 @@ def mostrar_status_jogador(player):
     print("├" + "─" * 39 + "┤")
     print(f"│ Habilidade Especial: [bold yellow]{habilidade:<16}[/bold yellow] │")
     print("└" + "─" * 39 + "┘")
-    print("\n[bold red][Pressione ENTER para embarcar nesta aventura...][bold red]\n")
-    parar_musica()
-
-def mostrar_status_final(player):
-    
-    nome = player['nome']
-    classe = player['classe'][:15]  # Limita a 15 caracteres
-    habilidade = player['habilidade'][:25]  # Limita a 25 caracteres
-
-    topo = f"{nome}, {classe}"
-    largura_total = 42
-    centro = topo.center(largura_total)
-    tocar_musica()
-    print("╔" + "═" * largura_total + "╗")
-    print(f"║{centro}║")
-    print("║" + "    Prepare-se para sua Jornada!    ".center(largura_total) + "║")
-    print("╚" + "═" * largura_total + "╝")
-
-    print("┌" + "─" * 19 + "┬" + "─" * 19 + "┐")
-    print("│      [bold yellow]STATUS[/bold yellow]       │     [bold cyan]ATRIBUTOS[/bold cyan]     │")
-    print("├" + "─" * 19 + "┼" + "─" * 19 + "┤")
-    print(f"│{'':19}│ Vida:   {player['vida']:<5}     │")
-    print(f"│Classe: [bold magenta]{player['classe']:<11}[/bold magenta]│ Força:  {player['força']:<5}     │")
-    print(f"│Nível: {player['nivel']:<12}│ Magia:  {player['magia']:<5}     │")
-    print(f"│XP: {player['xp']:<15}│ Defesa: {player['defesa']:<5}     │")
-    print("├" + "─" * 39 + "┤")
-    print(f"│ Habilidade Especial: [bold yellow]{habilidade:<16}[/bold yellow] │")
-    print("└" + "─" * 39 + "┘")
+    rprint(Panel.fit(f"[bold gold1]Conquistas Faltantes ({progresso})[/]"))
     print("\n[bold red][Pressione ENTER para embarcar nesta aventura...][bold red]\n")
     parar_musica()
 
@@ -148,7 +134,7 @@ def menu_conquistas():
         # Adiciona conquistas deste nível
         for id_conquista, dados in conquistas.items():
             if dados["nivel"] == nivel:
-                status = "✅" if id_conquista in conquistas_desbloqueadas else "❌"
+                status = "[bold green]V[/bold green]" if id_conquista in conquistas_desbloqueadas else "[bold red]X[/bold red]"
                 estilo = "bold white" if id_conquista in conquistas_desbloqueadas else "dim"
                 
                 table.add_row(
@@ -163,25 +149,16 @@ def menu_conquistas():
         console.print(table)
         console.print("\n[bold]Opções:[/]")
         console.print("1. Voltar ao menu principal")
-        console.print("2. Ver apenas conquistas desbloqueadas")
-        console.print("3. Ver apenas conquistas faltantes")
+        console.print("2. Ver apenas conquistas faltantes")
         
         escolha = input("\nEscolha uma opção: ").strip()
         
         if escolha == "1":
             break
         elif escolha == "2":
-            # Filtra apenas desbloqueadas
-            table.title = f"[bold gold1]Conquistas Desbloqueadas ({progresso})[/]"
-            for row in table.rows:
-                if row.cells[2] == "❌":
-                    row.style = "dim"
-        elif escolha == "3":
             # Filtra apenas faltantes
-            table.title = f"[bold gold1]Conquistas Faltantes ({progresso})[/]"
-            for row in table.rows:
-                if row.cells[2] == "✅":
-                    row.style = "dim"
+            rprint(Panel.fit(f"[bold gold1]Conquistas Faltantes ({progresso})[/]"))
+            limpar_terminal()
         else:
             console.print("[red]Opção inválida![/]")
             time.sleep(1)
@@ -189,31 +166,32 @@ def menu_conquistas():
         limpar_terminal()
 
 def main():
+    verificar_save()
     tocar_musica()
     while True:  # Adicione este loop para o menu principal
         limpar_terminal()
-        print("""[bold magenta]
+        rprint("""[bold magenta]
                                  ┳┳┓                 ┓    ┏┓•   
                                  ┃┃┃┏┓┏┏┳┓┏┓┏┓┏┓┏┓  ┏┫┏┓  ┣ ┓┏┳┓
                                  ┛ ┗┗┻┛┛┗┗┗┛┛ ┛ ┗┻  ┗┻┗┛  ┻ ┗┛┗┗               
           [/bold magenta]
           [bold white]
-                                         -..--.--.+------.                                          
-                                      -........-.-.......-++-                                       
-                                  --.+-........---........--.++.                                    
-                                -...-...-+#######+++-.........+++-                                  
-                               .-.....-.++++#+++++###++........+-++                                 
-                              --...--+++#++++++##++#++#-.......----.                                
-                             ..-.-+.+++#++++++#++++#####+--....-+..+-                               
-                            .+.-.+.+++#++#++##+++#######++.....-+-..-+                              
-                          .--.....++++++++++#++++########+-....--.--..+-                            
-                         -.-++..+.#++#++++++++++#########+---..--.+-...-+                           
-                       .-..--..--.#+##+++++#++#+##########+--.....#-.-..--                          
-                       -...--..---#+##++#++#+++###########+--.--.+-+-...++ .-+                      
-                       -........--#+#++++++#++++.        #+-..-.-+---.... --.-#.                    
-                       -+--.....+.-+##++++               +--.--.-+.......-+...+-.                   
-                    .--...-++..-+..+--.                 .+--.+..+-.---++...-+---.-                  
-                   ---......-++++-..                                    .--------                        
+                                         [bold green]-..--.--.+------.[/]                                          
+                                      [bold green]-........-.-.......-++-[/]                                       
+                                  [bold green]--.+-........---........--.++.[/]                                    
+                                [bold green]-...-...[bold gold1]-+#######+++-[/].........+++-[/]                                  
+                               [bold green].-.....-[bold gold1].++++#+++++###++[/]........+-++[/]                                 
+                              [bold green]--...[bold gold1]--+++#++++++##++#++#-[/].......----.[/]                                
+                             [bold green]..-.-+[bold gold1].+++#++++++#++++#####+[/]--....-+..+-[/]                               
+                            [bold green].+.-.+[bold gold1].+++#++#++##+++#######++[/].....-+-..-+[/]                              
+                          [bold green].--.....[bold gold1]++++++++++#++++########+[/]-....--.--..+-[/]                            
+                         [bold green]-.-++..+.[bold gold1]#++#++++++++++#########+[/]---..--.+-...-+[/]                           
+                       [bold green].-..--..--.[bold gold1]#+##+++++#++#+##########+[/]--.....#-.-..--[/]                          
+                       [bold green]-...--..---[bold gold1]#+##++#++#+++###########+[/]--.--.+-+-...++ .-+[/]                      
+                       [bold green]-........--[bold gold1]#+#++++++#++++.        #+-[/]..-.-+---.... --.-#.[/]                    
+                       [bold green]-+--.....+.-[bold gold1]+##++++               +[/]--.--.-+.......-+...+-.[/]                   
+                    [bold green].--...-++..-+..+--.                 .+--.+..+-.---++...-+---.-[/]                  
+                   [bold green]---......-++++-..                                    .--------[/]                        
     [/bold white]""")
         print("""
           
@@ -228,11 +206,8 @@ def main():
 
                        [bold black]Copyright (C) 2025 by Carlos Natanael[/bold black] 
     """)
-        
-        console.print("\n[bold]MENU PRINCIPAL[/]")
-        console.print("1. Iniciar Jogo")
-        console.print("2. Ver Conquistas")
-        console.print("3. Sair")
+        estilo_texto = "dim steel_blue"
+        rprint(Panel.fit("""\n[bold cyan]1[/]. [bold white]Iniciar Jogo[/]\n[bold cyan]2[/]. [bold white]Ver conquista[/]\n[bold cyan]3[/]. [bold white]Sair[/]""", style=estilo_texto, title="[bold]MENU PRINCIPAL[/]"))
         
         escolha = input("\nEscolha uma opção: ").strip()
         if escolha == "1":
@@ -441,7 +416,7 @@ def main():
             limpar_terminal()
             #=====================
             #   Status jogador nivel10
-            mostrar_status_final(player)
+            mostrar_status_jogador(player)
             input()
             limpar_terminal()
             #=====================

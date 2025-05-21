@@ -111,12 +111,12 @@ def nivel_dois(player):
     escolha = input("\nQual espelho você toca? (1/2/3): ").strip()
     
     if escolha == str(desafio["correta"] + 1):  # +1 porque o usuário vê 1-based
-        rprint(Panel.fit("[green]✓ Resposta Correta![/]", style="green"))
+        rprint(Panel.fit("[green]Resposta Correta![/]", style="green"))
         time.sleep(3)
         print('\n"Você se conhece melhor do que pensa. Avance."')
         mostrar_conquista("sombra_sorte_2")
     else:
-        rprint(Panel.fit("[red]✗ Resposta Incorreta![/]", style="red"))
+        rprint(Panel.fit("[red]X Resposta Incorreta![/]", style="red"))
         time.sleep(3)
         print("\nO clone salta do espelho para enfrentar você!")
         time.sleep(5)

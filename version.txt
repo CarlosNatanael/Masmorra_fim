@@ -1,7 +1,7 @@
 VSVersionInfo(
   ffi=FixedFileInfo(
-    filevers=(1, 0, 0, 0),
-    prodvers=(1, 0, 0, 0),
+    filevers=(4, 1, 0, 0),
+    prodvers=(4, 1, 0, 0),
     mask=0x3f,
     flags=0x0,
     OS=0x40004,
@@ -17,10 +17,10 @@ VSVersionInfo(
           [
             StringStruct('CompanyName', 'Carlos Natanael'),
             StringStruct('FileDescription', 'Jogo RPG de Aventura'),
-            StringStruct('FileVersion', '1.0.0'),
+            StringStruct('FileVersion', '4.1.0'),
             StringStruct('LegalCopyright', '© 2023 Carlos Natanael'),
             StringStruct('ProductName', 'Masmorra do Fim'),
-            StringStruct('ProductVersion', '1.0.0')
+            StringStruct('ProductVersion', '4.1.0')
           ])
       ]),
     VarFileInfo([VarStruct('Translation', [1033, 1200])])

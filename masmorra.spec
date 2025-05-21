@@ -9,6 +9,7 @@ a = Analysis(
     binaries=[],
     datas=[
         # Niveis
+        ('conquistas_save.json', '.'),
         ('models/nivel1.py', 'models'),
         ('models/nivel2.py', 'models'),
         ('models/nivel3.py', 'models'),
@@ -22,6 +23,7 @@ a = Analysis(
         ('models/nivel8.py', 'models'),
         ('models/nivel9.py', 'models'),
         ('models/nivel9_s.py', 'models'),
+        ('models/nivel10.py', 'models'),
 
         # Musicas
         ('game_sound_py/game_over.py', 'game_sound_py'),
@@ -37,6 +39,7 @@ a = Analysis(
         ('game_sound_py/sound7.py', 'game_sound_py'),
         ('game_sound_py/sound8.py', 'game_sound_py'),
         ('game_sound_py/sound9.py', 'game_sound_py'),
+        ('game_sound_py/sound10.py', 'game_sound_py'),
 
         # Utilirios
         ('utils/combate.py', 'utils'),
@@ -54,12 +57,15 @@ a = Analysis(
         # Pegando as músicas
         ('sound/*.mp3', 'sound'),
     ],
-    hiddenimports=[],
+    hiddenimports=["winotify"],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
     excludes=[],
     noarchive=False,
+    win_no_prefer_redirects=False,
+    win_private_assemblies=False,
+    cipher=block_cipher,
     optimize=0,
 )
 
