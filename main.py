@@ -195,7 +195,7 @@ def main():
     [/bold white]""")
         print("""
           
-    Progamador/Desenvolvimento:                                             [bold yellow][Masmorra do Fim - Versão 1.0.0][/bold yellow]
+    Progamador/Desenvolvimento:                                             [bold yellow][Masmorra do Fim - Versão 4.1.0][/bold yellow]
     [bold cyan]Carlos Natanael[/bold cyan]
           
     Desenvolvedor Tester:
