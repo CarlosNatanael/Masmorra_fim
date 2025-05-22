@@ -3,6 +3,8 @@ from rich import print as rprint
 from rich.panel import Panel
 from rich.table import Table
 from rich.console import Console
+from conquistas_imag.sistema_conquistas import mostrar_conquista
+from conquistas_imag.sistema_conquistas import conquistas_desbloqueadas
 import random
 
 console = Console()
@@ -94,7 +96,7 @@ def transformar_em_monarca(player):
     # Salva apenas o nome e itens básicos
     nome = player["nome"]
     itens = {"poção de cura": 3}  # Itens básicos para o Monarca
-    
+
     # Define os novos atributos básicos
     novo_player = {
         "nome": nome,
@@ -119,4 +121,11 @@ def transformar_em_monarca(player):
     print("\nSua forma muda completamente. Todas as memórias anteriores se dissipam...")
     rprint("| » Você renasceu como Monarca das Sombras [bold cyab](Nível 1)[/]")
     print(f"| Status básicos: Vida {player['vida']}, Força {player['força']}, Magia {player['magia']}, Defesa {player['defesa']}\n")
+
+    novo_player["transformado"] = True 
+
+    if "coroa_trevas" not in conquistas_desbloqueadas:
+        mostrar_conquista("coroa_trevas")
+        return novo_player
+
     return player

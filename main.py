@@ -201,8 +201,8 @@ def main():
     Desenvolvedor Tester:
     [bold cyan]Arthur Yabuchi[/bold cyan]
                                        
-    [bold yellow]- JOGO FINALIZADO[/bold yellow]                         [bold yellow]- Adição de nova poção[/bold yellow]
-    [bold yellow]- Balanceamento de dano [/bold yellow]                  [bold yellow]- Novas conquistas[/bold yellow]
+    [bold yellow]- Nivel de dificuldade adicionado[/bold yellow]         [bold yellow]- Melhorias visuais[/bold yellow]
+    [bold yellow]- Novas conquistas [/bold yellow]                       [bold yellow]- Novo Menu player[/bold yellow]
 
                        [bold black]Copyright (C) 2025 by Carlos Natanael[/bold black] 
     """)
