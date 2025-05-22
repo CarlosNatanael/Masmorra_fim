@@ -30,8 +30,6 @@ def nivel_nove(player):
     print("O Refúgio dos Esquecidos era um lugar de resistência.")
     time.sleep(2)
     print("\nCasas feitas de ossos entrelaçados iluminadas por vagalumes em frascos...")
-    time.sleep(2)
-    print("\nFoi ali que você a conheceu.\n")
     time.sleep(5)
     print("Refugiados – almas que escaparam da forja, mas não conseguem sair da masmorra")
     time.sleep(2)
@@ -224,22 +222,41 @@ def nivel_nove(player):
     print("\nSeus dedos se alongam em garras negras, prontas para esmagar seu crânio...")
     time.sleep(4)
 
+    vida_original = player["vida"]
+    player["vida"] = max(vida_original // 2, 1)
+
     Eldramar = {
         "nome": "Eldramar",
         "classe": "Mago Supremo",
-        "vida": 400,
-        "força": 400,
-        "magia": 300,
-        "defesa": 1000,
+        "vida": 999,
+        "força": 999,
+        "magia": 999,
+        "defesa": 9999,
         "habilidade": "Bola sombria",
         "nivel": 50,
-        "xp": 15000
+        "xp": 999999
     }
+    mostrar_conquista("safado")
+    print("\n[bold black]Eldramar[/bold black]:: 'Você chegou longe demais, verme. Mas aqui termina sua jornada!'")
     input("\nPrepare-se para enfrentar seu pior pesadelo! Pressione ENTER...\n")
     combate(player, [Eldramar])
 
+    time.sleep(2)
+    print("\n[bold red]Tudo parece estar acabado...[/bold red]")
+    time.sleep(3)
+    
+    # Intervenção de Valysse
+    print("\nDe repente, um brilho prateado corta a escuridão!")
+    time.sleep(2)
     print('\n[bold red]Valysse[/bold red]: (gritando enquanto salta na frente) "NÃO HOJE, VERME!"')
     time.sleep(2)
+    print("\nValysse surge das sombras, seu corpo ainda marcado pelas batalhas anteriores,")
+    print("mas com uma determinação feroz em seu único olho.")
+    time.sleep(4)
+    print("\n[bold red]Valysse[/bold red]: 'Eu dei minha palavra que protegeria esse idiota!'")
+    time.sleep(2)
+    print("\nEla se coloca entre você e Eldramar, erguendo sua espada quebrada.")
+    time.sleep(3)
     print('\n"Antes que [bold black]Eldramar[/bold black] diferisse o ultimo golpe [bold red]Valysse[/bold red] defende, repelindo o golpe do Mago"')
     time.sleep(6)
     tocar_musica()
@@ -279,7 +296,8 @@ def nivel_nove(player):
     print("\nUma estrela de luz voa de seu coração até seu peito.")
     time.sleep(2)
 
-    player["vida"] += 350
+    player["vida"] = vida_original
+    player["vida"] += 20
     player["força"] += 20
     player["magia"] += 20
 

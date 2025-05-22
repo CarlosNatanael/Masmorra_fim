@@ -73,6 +73,13 @@ def verificar_save():
         except Exception as e:
             print(f"Erro ao criar arquivo de save: {e}")
 
+
+def mostrar_status_pos_nivel(player):
+    limpar_terminal()
+    mostrar_status_jogador(player)
+    input()
+    limpar_terminal()
+
 def mostrar_status_jogador(player):
     progresso = get_progresso_conquistas()
     nome = player['nome']
@@ -220,12 +227,126 @@ def main():
             print("\n[bold red][Pressione ENTER para embarcar nesta aventura...][bold red]\n")
             input()
             limpar_terminal()
-            player = escolher_classe()
+            player, capitulo_inicial = escolher_classe()
             limpar_terminal()
             mostrar_status_jogador(player)
             input()
             parar_musica()
             limpar_terminal()
+
+            # Dicionário de capítulos
+            capitulos = {
+                1: nivel_um,
+                2: nivel_dois,
+                3: nivel_tres,
+                4: nivel_quatro,
+                5: nivel_cinco,
+                8: nivel_oito,
+                9: nivel_nove,
+                10: nivel_dez
+            }
+
+            if capitulo_inicial <= 5:
+                # Capítulos lineares (1-5)
+                for cap in range(capitulo_inicial, 6):
+                    if not capitulos[cap](player):
+                        game_over()
+                        return
+                    mostrar_status_pos_nivel(player)
+
+                # Processar nível 5 (escolhas)
+                resultado_nivel5 = nivel_cinco(player)
+                if not resultado_nivel5:
+                    game_over()
+                    return
+
+                # Processar ramificação do nível 6
+                escolha_final = resultado_nivel5
+                if escolha_final == "1":
+                    if not nivel_verdade_1(player):
+                        game_over()
+                        return
+                elif escolha_final == "2":
+                    if not nivel_mentira_2(player):
+                        game_over()
+                        return
+                elif escolha_final == "3":
+                    if not nivel_destruicao_3(player):
+                        game_over()
+                        return
+
+                mostrar_status_pos_nivel(player)
+
+                # Processar nível 7 baseado na escolha do 6
+                if resultado_nivel6 := ("humano" if escolha_final in ["1", "3"] else "sombra"):
+                    if resultado_nivel6 == "humano":
+                        if not nivel_7_humano(player):
+                            game_over()
+                            return
+                    else:
+                        if not nivel_7_sombra(player):
+                            game_over()
+                            return
+
+                mostrar_status_pos_nivel(player)
+
+            elif capitulo_inicial == 6:
+                # Menu para escolher caminho do nível 6
+                print("Escolha o caminho para o nível 6:")
+                print("1. Caminho da Verdade")
+                print("2. Caminho da Mentira")
+                print("3. Caminho da Destruição")
+                escolha = input("> ").strip()
+
+                if escolha == "1":
+                    if not nivel_verdade_1(player):
+                        game_over()
+                        return
+                elif escolha == "2":
+                    if not nivel_mentira_2(player):
+                        game_over()
+                        return
+                elif escolha == "3":
+                    if not nivel_destruicao_3(player):
+                        game_over()
+                        return
+
+                mostrar_status_pos_nivel(player)
+
+                # Continuar com nível 7
+                if not nivel_7_humano(player) if escolha in ["1", "3"] else not nivel_7_sombra(player):
+                    game_over()
+                    return
+
+                mostrar_status_pos_nivel(player)
+
+            elif capitulo_inicial == 7:
+                # Menu para escolher caminho do nível 7
+                print("Escolha o caminho para o nível 7:")
+                print("1. Caminho Humano")
+                print("2. Caminho das Sombras")
+                escolha = input("> ").strip()
+
+                if escolha == "1":
+                    if not nivel_7_humano(player):
+                        game_over()
+                        return
+                elif escolha == "2":
+                    if not nivel_7_sombra(player):
+                        game_over()
+                        return
+
+                mostrar_status_pos_nivel(player)
+
+            # Continuar com capítulos 8+
+            for cap in range(8 if capitulo_inicial < 8 else capitulo_inicial, 11):
+                if not capitulos[cap](player):
+                    game_over()
+                    return
+                mostrar_status_pos_nivel(player)
+
+            creditos_finais(player)
+
             #=====================
             #   Nivel 1
             if not nivel_um(player):
@@ -273,7 +394,6 @@ def main():
             #=====================
             #   Nivel 5
             resultado_nivel5 = nivel_cinco(player)
-
             if resultado_nivel5 is False:
                 game_over()
                 return
@@ -298,8 +418,8 @@ def main():
                     limpar_terminal()
             #===================================================================
             #   Nivel 6_2
-                elif escolha_final == "2":
-                    print("""
+            elif escolha_final == "2":
+                print("""
         Você protege a criança, mesmo sabendo que está quebrando as regras.
 
         Eldramar ri, um som que ecoa como vidro quebrando.
@@ -307,16 +427,16 @@ def main():
         Ele abre um portal negro com um gesto.
 
         Você é sugado para dentro... e acorda em:
-                    """)
-                    input("Pressione ENTER para continuar")
-                    limpar_terminal()
-                    mostrar_status_jogador(player)
-                    input()
-                    limpar_terminal()
+                """)
+                input("Pressione ENTER para continuar")
+                limpar_terminal()
+                mostrar_status_jogador(player)
+                input()
+                limpar_terminal()
             #===================================================================
             #   Nivel 6_3
-                elif escolha_final == "3":
-                    print("""
+            elif escolha_final == "3":
+                print("""
         Você resolve o conflito sem violência, mas sem ignorar a injustiça.
 
         Eldramar franze a testa, como se sua resposta fosse um enigma.
@@ -324,17 +444,16 @@ def main():
         Ele abre um portal prateado, e você é puxado para dentro.
 
         Você acorda em:
-                    """)
-                    input("Pressione ENTER para continuar")
-                    limpar_terminal()
-                    mostrar_status_jogador(player)
-                    input()
-                    limpar_terminal()
-                else:
-                    game_over()
-                    limpar_terminal()
-                    return
-
+                """)
+                input("Pressione ENTER para continuar")
+                limpar_terminal()
+                mostrar_status_jogador(player)
+                input()
+                limpar_terminal()
+            else:
+                game_over()
+                limpar_terminal()
+                return
             resultado_nivel6 = None
             if escolha_final == "1":
                 resultado_nivel6 = nivel_verdade_1(player)
@@ -342,7 +461,6 @@ def main():
                 resultado_nivel6 = nivel_mentira_2(player)
             elif escolha_final == "3":
                 resultado_nivel6 = nivel_destruicao_3(player)
-
             if resultado_nivel6 is False:
                 game_over()
                 return
