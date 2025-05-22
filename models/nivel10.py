@@ -221,7 +221,7 @@ def nivel_dez(player):
     rprint("[bold black]Eldramar[/]: Não. Sou algo antigo. E você... é apenas um acidente prestes a ser corrigido.")
     sleep(5)
 
-    cloneEld = {
+    Eldhumano = {
         "nome": "Eldramar",
         "classe": "Mago Supremo",
         "vida": 400,
@@ -233,7 +233,7 @@ def nivel_dez(player):
         "xp": 9000
     }
     input("\nPrepare-se para enfrentar seu pior pesadelo! Pressione ENTER...\n")
-    if combate(player, [cloneEld]):
+    if combate(player, [Eldhumano]):
         mostrar_conquista("eldramar_humanoide")
     else:
         return False
@@ -252,13 +252,13 @@ def nivel_dez(player):
     sleep(5)
 
     cloneEld2 = {
-        "nome": "Eldramar",
-        "classe": "Mago Supremo",
+        "nome": "Eldramar , Devorador de Mundos",
+        "classe": "Entidade",
         "vida": 500,
         "força": 200,
         "magia": 500,
         "defesa": 190,
-        "habilidade": "Bola sombria",
+        "habilidade": "Obliterar",
         "nivel": 100,
         "xp": 9000
     }

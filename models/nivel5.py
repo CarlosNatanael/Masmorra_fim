@@ -57,8 +57,8 @@ vestes negras que se fundem com as sombras ao seu redor. Quando ele abre os olho
         "nome": "Servo das Sombras",
         "classe": "Guerreiro",
         "vida": 80,
-        "força": 42,
-        "defesa": 50,
+        "força": 55,
+        "defesa": 55,
         "habilidade": "Lâmina do Abismo",
         "nivel": 5,
     }
@@ -80,10 +80,10 @@ vestes negras que se fundem com as sombras ao seu redor. Quando ele abre os olho
     cloneEld = {
         "nome": "Eldramar",
         "classe": "Mago Supremo",
-        "vida": 100,
-        "força": 50,
+        "vida": 140,
+        "força": 60,
         "magia": 100,
-        "defesa": 70,
+        "defesa": 50,
         "habilidade": "Bola sombria",
         "nivel": 8,
         "xp": 200
@@ -142,8 +142,8 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
         minotauro = {
             "nome": "Minotauro das Sombras",
             "classe": "Guerreiro",
-            "vida": 100,
-            "força": 44,
+            "vida": 110,
+            "força": 58,
             "magia": 30,
             "defesa": 80,
             "habilidade": "Corrida da morte",
@@ -178,8 +178,8 @@ O pergaminho queima com energia arcana, aguardando sua resposta...
         dragao = {
             "nome": "Dragão das Sombras",
             "classe": "Besta",
-            "vida": 100,
-            "força": 55,
+            "vida": 130,
+            "força": 60,
             "magia": 30,
             "defesa": 80,
             "habilidade": "Corrida da morte",

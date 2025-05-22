@@ -57,8 +57,8 @@ def cena_fonte_sagrada(player):
     input("\nPressione ENTER para o combate...")
     
     inimigos = [
-        {"nome": "Sombra Hobgoblin", "classe": "Guerreiro", "vida": 99, "força": 80, "defesa": 70, "nivel":9},
-        {"nome": "Soldado Sombra", "classe": "Guerreiro", "vida": 105, "força": 85, "defesa": 80, "nivel":10}
+        {"nome": "Sombra Hobgoblin", "classe": "Guerreiro", "vida": 120, "força": 80, "defesa": 100, "nivel":9},
+        {"nome": "Soldado Sombra", "classe": "Guerreiro", "vida": 110, "força": 85, "defesa": 100, "nivel":10}
     ]
     if not combate(player, inimigos):
         return False
@@ -72,8 +72,8 @@ def cena_fonte_sagrada(player):
     input("\nPressione ENTER para o combate...")
     
     inimigos2 = [
-        {"nome": "Sombra Lizardfolk", "classe": "Guerreiro", "vida": 119, "força": 90, "defesa": 70, "nivel":11},
-        {"nome": "Mago das Sombra", "classe": "Mago", "vida": 99, "força": 100, "defesa": 70, "nivel":10},
+        {"nome": "Sombra Lizardfolk", "classe": "Guerreiro", "vida": 155, "força": 90, "defesa": 100, "nivel":11},
+        {"nome": "Mago das Sombra", "classe": "Mago", "vida": 160, "força": 100, "defesa": 100, "nivel":10},
     ]
     if combate(player, inimigos2):
         mostrar_conquista("domador_das_trevas")
@@ -96,7 +96,7 @@ def cena_fonte_sagrada(player):
         "classe": "Mago",
         "vida": 230,
         "força": 90,
-        "defesa": 90,
+        "defesa": 100,
         "magia": 90,
         "habilidade": "Água Marinha",
         "nivel": 13,
@@ -183,10 +183,10 @@ Um esqueleto colossal, suas costelas quebradas expostas, mãos transformadas em 
     ceifador = {
         "nome": "Ceifador Sem Foice",
         "classe": "Guerreiro",
-        "vida": 210,
+        "vida": 235,
         "força": 90,
         "magia": 80,
-        "defesa": 90,
+        "defesa": 100,
         "habilidade": "Morte",
         "nivel": 11 + 3,
         "xp": 550
@@ -230,10 +230,10 @@ Uma figura envolta em um vestido de pele remendada
     noiva = {
         "nome": "Noiva de Sangue",
         "classe": "Maga",
-        "vida": 211,
+        "vida": 225,
         "força": 100,
         "magia": 80,
-        "defesa": 90,
+        "defesa": 100,
         "habilidade": "Poça de sangue",
         "nivel": 13,
         "xp": 550
@@ -305,7 +305,7 @@ Você entra em uma sala circular, onde um espelho perfeito reflete sua imagem...
         "vida": player["vida"] + 20,
         "força": player["força"] + 25,
         "magia": player["magia"] + 20 if player["classe"] == "Mago" else 0,
-        "defesa": player["defesa"] + 20,
+        "defesa": player["defesa"] + 10,
         "habilidade": player["habilidade"],
         "nivel": player["nivel"] + 3,
         "xp": 500

@@ -50,8 +50,8 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
         time.sleep(3)
 
         monstros = [
-            {"nome": "Lizard", "classe": "Guerreiro", "vida": 70, "força": 39, "magia": 20, "defesa": 30, "nivel": 4},
-            {"nome": "Golem do pântano", "classe": "Guerreiro", "vida": 80, "força": 30, "magia": 30, "defesa": 60, "nivel": 5}
+            {"nome": "Lizard", "classe": "Guerreiro", "vida": 70, "força": 40, "magia": 20, "defesa": 40, "nivel": 4},
+            {"nome": "Golem do pântano", "classe": "Guerreiro", "vida": 80, "força": 35, "magia": 30, "defesa": 70, "nivel": 5}
         ]
 
         input("Prepare-se para o combate! Pressione ENTER...\n")
@@ -73,9 +73,9 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
         "nome": "Grumor, o Devorador de Errantes",
         "classe": "Besta",
         "vida": 120,
-        "força": 40,
+        "força": 55,
         "magia": 40,
-        "defesa": 50,
+        "defesa": 80,
         "habilidade": "Sufocamento de Lama",
         "nivel": player["nivel"] + 3,
     }
@@ -248,7 +248,7 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
                         "nome": "Golem de Terra Ancestral",
                         "classe": "Guerreiro",
                         "vida": 120,
-                        "força": 45,
+                        "força": 50,
                         "defesa": 80,
                         "habilidade": "Impacto Sísmico",
                         "nivel": player["nivel"] + 2,

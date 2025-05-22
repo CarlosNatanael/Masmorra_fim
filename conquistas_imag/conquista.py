@@ -346,6 +346,13 @@ conquistas = {
         "icone": "conquistas_imag/furia_elemental.png",
         "som": "sound/beep3-98810.mp3"
     },
+    "matador_de_eldramar": {
+        "nivel": 9,
+        "titulo": "O Impossível Realizado",
+        "descricao": "Derrotou Eldramar, realizando o impossível.",
+        "icone": "conquistas_imag/fimdotirano.png",
+        "som": "sound/beep3-98810.mp3"
+        },
     
     # Nível 9_s
 

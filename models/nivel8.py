@@ -69,10 +69,10 @@ def nivel_oito(player):
     Velthurion = {
         "nome": "Velthurion, o Artesão Infernal",
         "classe": "Demônio",
-        "vida": 180,
+        "vida": 210,
         "força": 80,
         "magia": 90,
-        "defesa": 80,
+        "defesa": 90,
         "habilidade": "Lança chamas",
         "nivel": 11,
         "xp": 550

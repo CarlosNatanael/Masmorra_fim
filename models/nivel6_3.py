@@ -161,13 +161,13 @@ Suas mãos ensanguentadas seguram uma pena de ferro, arranhando incessantemente 
             diretor = {
                 "nome": "O Diretor",
                 "classe": "Mago",
-                "vida": 120,
-                "força": 57,
+                "vida": 180,
+                "força": 75,
                 "magia": 90,
                 "defesa": 80,
                 "habilidade": ["Troca de Papéis", "Grito de Plateia", "Final Forçado"],
                 "nivel": 10,
-                "xp": 250,
+                "xp": 350,
             }
     
             print("\nO palco se transforma em um campo de batalha surreal:")

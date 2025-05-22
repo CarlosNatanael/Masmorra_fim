@@ -236,7 +236,7 @@ def nivel_nove(player):
         "nivel": 50,
         "xp": 999999
     }
-    mostrar_conquista("safado")
+    mostrar_conquista("matador_de_eldramar")
     print("\n[bold black]Eldramar[/bold black]:: 'Você chegou longe demais, verme. Mas aqui termina sua jornada!'")
     input("\nPrepare-se para enfrentar seu pior pesadelo! Pressione ENTER...\n")
     combate(player, [Eldramar])

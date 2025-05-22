@@ -95,8 +95,8 @@ Você pode:
             print("Sem oferecer algo, você é forçado a enfrentar os esqueletos.\n")
             time.sleep(5)
             inimigos = [
-                {"nome": "Esqueleto Guerreiro", "classe": "Guerreiro", "vida": 80, "força": 45, "defesa": 66, "nivel":7},
-                {"nome": "Esqueleto Arqueiro", "classe": "Arqueiro", "vida": 70, "força": 47, "defesa": 59, "nivel":7}
+                {"nome": "Esqueleto Guerreiro", "classe": "Guerreiro", "vida": 99, "força": 55, "defesa": 66, "nivel":7},
+                {"nome": "Esqueleto Arqueiro", "classe": "Arqueiro", "vida": 95, "força": 65, "defesa": 70, "nivel":7}
             ]
             input("Prepare-se para o combate! Pressione ENTER...\n")
             if combate(player, inimigos):
@@ -174,13 +174,13 @@ Sangrando e esgotado, você encontra uma fenda na escuridão... e encontra algo 
             wendigo = {
                 "nome": "Wendigo",
                 "classe": "Besta",
-                "vida": 110,
-                "força": 60,
+                "vida": 150,
+                "força": 75,
                 "defesa": 80,
                 "magia": 80,
                 "habilidade": "Corte Sangrento",
                 "nivel": 9,
-                "xp": 100
+                "xp": 300
             }
             input("\nPrepare-se para enfrentar seu pior pesadelo! Pressione ENTER...\n")
             if combate(player, [wendigo]):
@@ -204,13 +204,13 @@ Ele ri, ferido, mas não morto.
             lorde = {
                 "nome": "Lorde dos Desesperados",
                 "classe": "Besta",
-                "vida": 120,
-                "força": 57,
+                "vida": 144,
+                "força": 70,
                 "defesa": 70,
                 "magia": 80,
                 "habilidade": "Lama venenosa",
                 "nivel": 9,
-                "xp": 100
+                "xp": 300
             }
             input("\nPrepare-se para enfrentar O Lorde dos Desesperados! Pressione ENTER...\n")
             if combate(player, [lorde]):

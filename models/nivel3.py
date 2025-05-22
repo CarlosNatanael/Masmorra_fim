@@ -40,7 +40,7 @@ def nivel_tres(player):
     time.sleep(5)
 
     goblins = [
-        {"nome": "Goblin Aprendiz", "classe": "Mago", "vida": 45, "força": 33, "magia": 45, "defesa": 25, "nivel": 3}
+        {"nome": "Goblin Aprendiz", "classe": "Mago", "vida": 45, "força": 45, "magia": 45, "defesa": 25, "nivel": 3}
     ]
 
     input("Prepare-se para o combate! Pressione ENTER...\n")
@@ -72,7 +72,7 @@ def nivel_tres(player):
         "vida": 100, 
         "força": 26,
         "magia": 45, 
-        "defesa": 50, 
+        "defesa": 60, 
         "nivel": player["nivel"] + 1,
     }
 
@@ -89,10 +89,10 @@ def nivel_tres(player):
     mago = {
         "nome": "Velkar, o Guardião",
         "classe": "Mago",
-        "vida": 90,
-        "força": 38,
+        "vida": 95,
+        "força": 50,
         "magia": 50,
-        "defesa": 45,
+        "defesa": 50,
         "habilidade": "Explosão Arcana",
         "nivel": player["nivel"] + 2,
     }

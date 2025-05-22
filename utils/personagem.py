@@ -197,7 +197,7 @@ def criar_personagem_dev(nome):
         "classe": "Dev_admin",
         "nivel": 99,
         "xp": 0,
-        "xp_proximo_nivel": 1,
+        "xp_proximo_nivel": 100000000,
         "vida": 999,
         "força": 150,
         "magia": 200,

@@ -80,8 +80,8 @@ e olhos que refletiam infinitas regras escritas em ar puro.
     anjo = {
         "nome": "Anjo da Obediência",
         "classe": "Anjo",
-        "vida": 120,
-        "força": 55,
+        "vida": 140,
+        "força": 66,
         "defesa": 70,
         "magia": 80,
         "nivel": 10,
