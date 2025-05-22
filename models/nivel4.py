@@ -194,24 +194,29 @@ e a água estagnada borbulhava com coisas se movendo sob a superfície.
                     print("Um impacto violento ecoa pela caverna...")
                     time.sleep(3)
 
-                    if player.get("força",0) > 36:
+                    if player.get("força",0) > 40:
                         dano_sofrido = 10
-                        print("Sua força impressionante reduz o dano recebido!")
+                        print("Sua força impressionante reduz o dano recebido!\n")
                     else:
                         dano_sofrido = 15
                     
                     player["vida"] -= dano_sofrido
                     
 
-                    print(f"\n╔{'═'*60}╗")
-                    print(f"║{'CRÍTICO!'.center(60)}║")
-                    print(f"║{'Você se machucou gravemente!'.center(60)}║")
-                    print(f"║{f'[bold red]-{dano_sofrido}[/bold red] de vida'.center(60)}║")
-                    print(f"║{f'Vida atual: {player['vida']}'.center(60)}║")
-                    print(f"╚{'═'*60}╝\n")
+                    rprint(Panel.fit(
+                    f"[bold white on red]  VOCÊ SOFREU UM GOLPE CRÍTICO!  [/]\n\n"
+                    f"      [bold]Dano recebido:[/] [blink bold red]▼ {dano_sofrido} [/]\n"
+                    f"      [bold]Vida restante:[/] [bold cyan]{player['vida']}[/]",
+                    title="[bold white] DANO CRÍTICO [/]",
+                    title_align="center",
+                    border_style="bright_red",
+                    style="bold",
+                    padding=(1, 4),
+                    width=50
+                    ))
                     time.sleep(3)
 
-                    print("A rocha não cedeu, mas agora apresenta pequenas rachaduras pulsantes.")
+                    print("\nA rocha não cedeu, mas agora apresenta pequenas rachaduras pulsantes.")
                     print("Você sente uma energia antiga se agitando dentro dela...")
                     time.sleep(3)
 
