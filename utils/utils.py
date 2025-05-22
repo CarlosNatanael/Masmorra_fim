@@ -139,7 +139,7 @@ def usar_itens(player, pode_usar_chave=True):
                 },
                 "poção de defesa": {
                     "attr": "defesa",
-                    "valor": 20,
+                    "valor": 10,
                     "msg": f"Você usou a [red]Poção de Defesa[/] e aumentou [blue]20[/] de defesa ([blue]{player['defesa']+20}[/])"
                 },
                 "sangue de dragão": {

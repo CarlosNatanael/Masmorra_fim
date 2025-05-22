@@ -369,7 +369,7 @@ def combate(player, inimigos):
                     player["força"] += 10
                     rprint("Você usou [blue]Poção de Força[/] e aumentou 10 de força\n")
                 elif item_nome == "poção de defesa":
-                    player["defesa"] += 20
+                    player["defesa"] += 10
                     rprint("Você usou [blue]Poção de Defesa[/] e aumentou 20 de defesa\n")
                 elif item_nome == "sangue de dragão":
                     player["vida"] += 50
