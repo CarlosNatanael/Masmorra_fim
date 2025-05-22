@@ -18,7 +18,6 @@ def verificar_nome_dev(nome_jogador):
     """Verifica se o nome é uma conta de desenvolvedor"""
     contas_dev = {
         "dev_master": {"nivel_acesso": 10, "capitulos": list(range(1, 11))},
-        "dev_tester": {"nivel_acesso":  10, "capitulos": list(range(1, 11))},
     }
     return contas_dev.get(nome_jogador.lower(), None)
 
