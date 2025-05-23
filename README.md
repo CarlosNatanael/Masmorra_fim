@@ -43,8 +43,6 @@ Para quem **não quer instalar Python ou bibliotecas**, há uma versão **execut
 > ✅ Basta baixar o arquivo `Masmorra_do_Fim.exe`, clicar duas vezes e jogar!
 
 📥 Acesse a aba [Releases](https://github.com/CarlosNatanael/Masmorra_fim/releases) para baixar a última versão.
-link para download: https://github.com/CarlosNatanael/Masmorra_fim/releases/download/v4.1.0/MasmorraDoFim.exe
-
 
 ---
 
