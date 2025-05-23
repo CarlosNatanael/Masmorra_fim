@@ -134,7 +134,8 @@ Masmorra_Fim/
 ├── .gitignore
 ├── masmorra.spec
 ├── version.txt
-└── LICENSE
+├── LICENSE
+└── Masmorra_do_Fim.exe
 ```
 
 ---
