@@ -1,6 +1,6 @@
 # 🏰 Masmorra do Fim - RPG Terminal Avançado
 
-<img src="https://github.com/user-attachments/assets/81ad4ed0-d035-43f6-8e2b-0141c829d958" width="230" height="230" >
+<img src="https://github.com/user-attachments/assets/81ad4ed0-d035-43f6-8e2b-0141c829d958" width="230" height="230" alt="Banner do Jogo">
 
 *"Uma jornada épica através de 10 níveis de desafios mortais e escolhas impactantes"*
 
