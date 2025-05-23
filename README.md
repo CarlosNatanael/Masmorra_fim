@@ -5,6 +5,9 @@
 *"Uma jornada épica através de 14 níveis de desafios mortais e escolhas impactantes"*
 
 ---
+## Imagem do jogo
+![image](https://github.com/user-attachments/assets/de153753-d9eb-4020-9540-2fc9707bff2b)
+##
 
 ## 📜 Visão Geral
 **Masmorra do Fim** é um RPG narrativo e estratégico que roda diretamente no terminal. Cada decisão pode salvar ou condenar o jogador no mundo sombrio de Aldurian. Com:
