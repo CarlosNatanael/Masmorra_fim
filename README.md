@@ -1,57 +1,47 @@
-Jogo de RPG de Texto
+# 🏰 Masmorra do Fim - RPG Terminal Avançado
 
-masmorra_do_fim/
-│
-├── utils/
-│	│
-│	├── combate.py		            # Sistema de combate
-│	├── personagem.py               # Escolha da classe e atributos do personagem
-│	├── creditos.py	                # Créditos do final do jogo
-│	└──	utils.py                    # Funções auxiliares
-├── models/
-│	│
-│	├── nivel1.py                # Nível 1: A Entrada Misteriosa
-│	├── nivel2.py                # Nível 2: O Salão dos Espelhos
-│	├── nivel3.py                # Nível 3: A Biblioteca Perdida
-│	├── nivel4.py                # Nível 4: O Pântano do Desespero
-│	├── nivel5.py                # Nível 5: A Sala do Guardião (final épico)
-│	├── nivel6_1.py              # Nível 6: O Cárcere das Almas Perdidas
-│	├── nivel6_2.py              # Nível 6: A Floresta dos Espectros Famintos
-│	├── nivel6_3.py			     # Nível 6: O Teatro das Máscaras Vazias
-│	├── nivel7_h.py              
-│	├── nivel7_s.py              
-│	├── nivel8.py	
-│	├── nivel9.py              
-│	├── nivel9_s.py  		     
-│   └── nivel10.py
-├── conquistas_imag/
-│   |
-│   ├── conquista.py
-│   ├── sistema_conquista.py
-│   ├── anotaçãoes conquistas.txt
-│   ├── __init__.py
-│   └── # imagens das conquistas.png
-├── sound/
-│   |
-│   └── # Todos as musicas dos cápitulos
-├── game_sound_py/
-│   |
-│   ├── game-over.py
-│   ├── menu_sound.py
-│   ├── sound1.py
-│   ├── sound2.py
-│   ├── sound3.py
-│   ├── sound4.py
-│   ├── sound5.py
-│   ├── sound6.py
-│   ├── sound7.py
-│   ├── sound8.py
-│   ├── sound9.py
-│   └── sound10.py
-├── main.py                  # Controla o fluxo do jogo
-├── icone.ico			     # ícone do game
-├── README.md
-├── .gitignore
-├── masmorra.spec
-├── version.txt
-└── LICENSE
+![Banner do Jogo](conquistas_imag/final1.png)  
+*"Uma jornada épica através de 10 níveis de desafios mortais e escolhas impactantes"*
+
+## 📜 Visão Geral
+**Masmorra do Fim** é um RPG de terminal complexo desenvolvido em Python, onde suas escolhas determinam seu destino. Com:
+- 14 níveis interconectados com múltiplos finais
+- 5 classes únicas com habilidades especiais
+- Sistema de conquistas com 57 desafios
+- Combate estratégico baseado em ASCII art
+- Trilha sonora imersiva e efeitos sonoros
+
+## 🛠️ Tecnologias Utilizadas
+- ![Python](https://img.shields.io/badge/Python-3.10+-yellow?logo=python)
+- ![Pygame](https://img.shields.io/badge/Pygame-2.0+-blue?logo=pygame)
+- ![Rich](https://img.shields.io/badge/Rich_Terminal-13.0+-orange)
+- Sistema de conquistas com notificações desktop
+
+## ⚔️ Classes Disponíveis
+| Classe          | Habilidade Especial   | Dificuldade |
+|-----------------|-----------------------|-------------|
+| 🔮 Mago        | Bola de Fogo          | Médio       |
+| ⚔️ Guerreiro  | Decapitação           | Fácil       |
+| ✝️ Paladino   | Benção Divina         | Médio       |
+| 🏹 Arqueiro   | Tiro Certeiro         | Difícil     |
+| 👑 Monarca das Sombras | Domínio das Sombras | Extremo    |
+
+## 🏆 Conquistas Notáveis
+- **"O Impossível Realizado"** - Derrote Eldramar em sua forma final
+- **"Libertador de Aldurian"** - Destrua o núcleo da masmorra
+- **"Abraço das Trevas"** - Torne-se o novo Monarca
+- **57 conquistas** no total, incluindo segredos ocultos
+
+## 📥 Instalação
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/masmorra-do-fim.git
+
+# Entre no diretório
+cd masmorra-do-fim
+
+# Instale as dependências
+pip install -r requirements.txt
+
+# Execute o jogo
+python main.py
