@@ -144,7 +144,7 @@ Masmorra_Fim/
 ## 👨‍💻 Créditos
 
 **Desenvolvido por:** Carlos Natanael  
-**Testes e feedback:** Arthur Yabuchi
+**Testes e feedback:** [Arthur Yabuchi](https://github.com/ArthurYllana)
 
 ```bash
 Versão Atual: 4.1.0
