@@ -80,7 +80,7 @@ No total, são **57 conquistas**, incluindo segredos ocultos e interações espe
 ## 📦 Estrutura do Projeto
 
 ```
-masmorra_do_fim/
+Masmorra_Fim/
 │
 ├── utils/
 │	│
@@ -103,7 +103,7 @@ masmorra_do_fim/
 │	├── nivel8.py	
 │	├── nivel9.py              
 │	├── nivel9_s.py  		     
-│   └── nivel10.py
+│ └── nivel10.py
 ├── conquistas_imag/
 │   |
 │   ├── conquista.py
