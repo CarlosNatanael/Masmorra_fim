@@ -80,17 +80,61 @@ No total, são **57 conquistas**, incluindo segredos ocultos e interações espe
 ## 📦 Estrutura do Projeto
 
 ```
-Masmorra_fim/
-├── main.py
-├── classes/
-├── niveis/
-├── audio/
-├── conquistas/
-├── imagens/
+masmorra_do_fim/
+│
 ├── utils/
+│	│
+│	├── combate.py		            # Sistema de combate
+│	├── personagem.py               # Escolha da classe e atributos do personagem
+│	├── creditos.py	                # Créditos do final do jogo
+│	└──	utils.py                    # Funções auxiliares
+├── models/
+│	│
+│	├── nivel1.py                
+│	├── nivel2.py               
+│	├── nivel3.py                
+│	├── nivel4.py               
+│	├── nivel5.py                
+│	├── nivel6_1.py             
+│	├── nivel6_2.py              
+│	├── nivel6_3.py			   
+│	├── nivel7_h.py              
+│	├── nivel7_s.py              
+│	├── nivel8.py	
+│	├── nivel9.py              
+│	├── nivel9_s.py  		     
+│   └── nivel10.py
+├── conquistas_imag/
+│   |
+│   ├── conquista.py
+│   ├── sistema_conquista.py
+│   ├── anotaçãoes conquistas.txt
+│   ├── __init__.py
+│   └── # imagens das conquistas.png
+├── sound/
+│   |
+│   └── # Todos as musicas dos cápitulos
+├── game_sound_py/
+│   |
+│   ├── game-over.py
+│   ├── menu_sound.py
+│   ├── sound1.py
+│   ├── sound2.py
+│   ├── sound3.py
+│   ├── sound4.py
+│   ├── sound5.py
+│   ├── sound6.py
+│   ├── sound7.py
+│   ├── sound8.py
+│   ├── sound9.py
+│   └── sound10.py
+├── main.py                  
+├── icone.ico			    
 ├── README.md
-├── requirements.txt
-└── Masmorra_do_Fim.exe  # (opcional, incluído nas releases)
+├── .gitignore
+├── masmorra.spec
+├── version.txt
+└── LICENSE
 ```
 
 ---
