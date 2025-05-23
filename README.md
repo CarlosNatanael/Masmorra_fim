@@ -46,3 +46,11 @@ pip install -r requirements.txt
 
 # Execute o jogo
 python main.py
+```
+
+Desenvolvido por Carlos Natanael
+Testes por Arthur Yabuchi
+
+```bash
+Versão Atual: 4.1.0
+```
