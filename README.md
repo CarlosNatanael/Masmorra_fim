@@ -132,8 +132,6 @@ Masmorra_Fim/
 ├── icone.ico			    
 ├── README.md
 ├── .gitignore
-├── masmorra.spec
-├── version.txt
 ├── LICENSE
 └── Masmorra do Fim.exe
 ```
