@@ -1,5 +1,3 @@
-# pyinstaller masmorra.spec
-
 from models.nivel1 import nivel_um
 from models.nivel2 import nivel_dois
 from models.nivel3 import nivel_tres
@@ -81,33 +79,83 @@ def mostrar_status_pos_nivel(player):
     limpar_terminal()
 
 def mostrar_status_jogador(player):
+    """
+    Exibe o status do jogador com opção de voltar ao menu principal
+    Retorna True se o jogador quer continuar, False se quer voltar ao menu
+    """
     progresso = get_progresso_conquistas()
     nome = player['nome']
     classe = player['classe'][:15]  # Limita a 15 caracteres
     habilidade = player['habilidade'][:25]  # Limita a 25 caracteres
 
-    topo = f"{nome}, {classe}"
-    largura_total = 42
-    centro = topo.center(largura_total)
-    tocar_musica()
-    print("╔" + "═" * largura_total + "╗")
-    print(f"║{centro}║")
-    print("║" + "    Prepare-se para sua Jornada!    ".center(largura_total) + "║")
-    print("╚" + "═" * largura_total + "╝")
+    while True:
+        limpar_terminal()
+        tocar_musica()
+        
+        # Cabeçalho estilizado
+        topo = f"{nome}, {classe}"
+        largura_total = 42
+        centro = topo.center(largura_total)
+        
+        print("╔" + "═" * largura_total + "╗")
+        print(f"║{centro}║")
+        print("║" + "    Prepare-se para sua Jornada!    ".center(largura_total) + "║")
+        print("╚" + "═" * largura_total + "╝")
 
-    print("┌" + "─" * 19 + "┬" + "─" * 19 + "┐")
-    print("│      [bold yellow]STATUS[/bold yellow]       │     [bold cyan]ATRIBUTOS[/bold cyan]     │")
-    print("├" + "─" * 19 + "┼" + "─" * 19 + "┤")
-    print(f"│{'':19}│ Vida:   {player['vida']:<5}     │")
-    print(f"│Classe: [bold magenta]{player['classe']:<11}[/bold magenta]│ Força:  {player['força']:<5}     │")
-    print(f"│Nível: {player['nivel']:<12}│ Magia:  {player['magia']:<5}     │")
-    print(f"│XP: {player['xp']:<15}│ Defesa: {player['defesa']:<5}     │")
-    print("├" + "─" * 39 + "┤")
-    print(f"│ Habilidade Especial: [bold yellow]{habilidade:<16}[/bold yellow] │")
-    print("└" + "─" * 39 + "┘")
-    rprint(Panel.fit(f"[bold gold1]Conquistas Faltantes ({progresso})[/]"))
-    print("\n[bold red][Pressione ENTER para embarcar nesta aventura...][bold red]\n")
-    parar_musica()
+        # Corpo do status
+        print("┌" + "─" * 19 + "┬" + "─" * 19 + "┐")
+        print("│      [bold yellow]STATUS[/bold yellow]       │     [bold cyan]ATRIBUTOS[/bold cyan]     │")
+        print("├" + "─" * 19 + "┼" + "─" * 19 + "┤")
+        print(f"│{'':19}│ Vida:   {player['vida']:<5}     │")
+        print(f"│Classe: [bold magenta]{player['classe']:<11}[/bold magenta]│ Força:  {player['força']:<5}     │")
+        print(f"│Nível: {player['nivel']:<12}│ Magia:  {player['magia']:<5}     │")
+        print(f"│XP: {player['xp']:<15}│ Defesa: {player['defesa']:<5}     │")
+        print("├" + "─" * 39 + "┤")
+        print(f"│ Habilidade Especial: [bold yellow]{habilidade:<16}[/bold yellow] │")
+        print("└" + "─" * 39 + "┘")
+        
+        # Rodapé com opções
+        rprint(Panel.fit(f"[bold gold1]Conquistas Faltantes ({progresso})[/]"))
+        print("\n[bold cyan]Opções:[/bold cyan]")
+        print("[bold green]1[/]. Continuar aventura")
+        print("[bold red]2[/]. Voltar ao menu principal")
+        
+        escolha = input("\nEscolha uma opção: ").strip()
+        
+        if escolha == "1":
+            parar_musica()
+            return True
+        elif escolha == "2":
+            if confirmar_volta_menu():
+                parar_musica()
+                return False
+        else:
+            print("\n[bold red]Opção inválida![/bold red]")
+            time.sleep(1)
+
+def confirmar_volta_menu():
+    """Solicita confirmação para voltar ao menu principal"""
+    limpar_terminal()
+    print("\n" + "═" * 50)
+    rprint("[bold red]ATENÇÃO![/bold red]")
+    print("═" * 50)
+    print("\nTodo o progresso não salvo será perdido!")
+    print("Deseja realmente voltar ao menu principal?\n")
+    
+    print("[bold red]1[/]. Sim, quero voltar")
+    print("[bold green]2[/]. Não, continuar jogando")
+    
+    while True:
+        escolha = input("\nDigite sua escolha (1-2): ").strip()
+        if escolha == "1":
+            print("\n[bold red][Pressione ENTER para voltar ao Menu][bold red]\n")
+            input()
+            main()
+            return
+        elif escolha == "2":
+            return False
+        else:
+            print("Opção inválida! Digite 1 ou 2")
 
 def menu_conquistas():
     limpar_terminal()

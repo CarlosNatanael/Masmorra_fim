@@ -19,7 +19,7 @@ def nivel_tres(player):
     print("O ar que vinha de lá era diferente—pesado, cheio do mofo de páginas antigas e do ferro frio de tinta seca.\n")
     time.sleep(5)
     print('"Uma biblioteca?"\n')
-    print('"Entrei em um vasto salão abobadado, tão grande que mal conseguia ver o fim. Prateleiras de madeira negra subiam até o teto"')
+    print('"Entrei em um vasto salão abandonado, tão grande que mal conseguia ver o fim. Prateleiras de madeira negra subiam até o teto"')
     print("repletas de livros encadernados em couro, pergaminhos amarrados com cordas de seda e tomos presos por correntes enferrujadas.\n")
     print("Era lindo.\nEra assustador.\n")
     time.sleep(5)
